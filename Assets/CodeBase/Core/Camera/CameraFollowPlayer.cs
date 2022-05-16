@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CameraFollowPlayer : MonoBehaviour
 {
-    [SerializeField] private CharacterController _characterController;
+    [SerializeField] private Character _characterController;
 
     private Vector3 _offsetPosition = new Vector3(0, 80, 50);
 
