@@ -1,8 +1,9 @@
-using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
 using CodeBase.Core.Character.Enemy;
-using CodeBase.Core.Character.Player;
+using Quaternion = UnityEngine.Quaternion;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class ProjectileWeapon : AbstractWeapon
 {
@@ -11,42 +12,19 @@ public class ProjectileWeapon : AbstractWeapon
     [SerializeField] private CapsuleCollider _capsuleCollider;
     [SerializeField] private int _amount;
     [SerializeField] private float _spread;
-    [SerializeField] private TargetType _isTarget;
-
-    [SerializeField] private GameObject _char;
+    [SerializeField] private TargetType _targetType;
 
 
     private List<EnemyController> _enemies;
     private float _elapsedTime;
     private float _distance = 100;
+    private Vector3 _direction;
 
     private void Start()
     {
         _capsuleCollider.radius = Range;
         _enemies = new List<EnemyController>();
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        EnemyController enemy = other.gameObject.GetComponent<EnemyController>();
-        
-        if (enemy != null)
-        {
-            _enemies.Add(enemy);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        for (int i = 0; i < _enemies.Count; i++)
-        {
-            if (other.gameObject.GetComponent<EnemyController>() == _enemies[i])
-            {
-                _enemies.Remove(_enemies[i]);
-            }
-        }
-    }
-
     private void Update()
     {
         for (int i = 0; i < _enemies.Count; i++)
@@ -57,7 +35,7 @@ public class ProjectileWeapon : AbstractWeapon
             }
         }
         _elapsedTime += Time.deltaTime;
-        if (_elapsedTime > 0.5)
+        if (_elapsedTime > Rate)
         {
             UseWeapon();
             _elapsedTime = 0; 
@@ -85,37 +63,66 @@ public class ProjectileWeapon : AbstractWeapon
 
     public override void UseWeapon()
     {
-        if (_enemies.Count == 0 && _isTarget == TargetType.Nearest)
+        if (_enemies.Count == 0 && _targetType == TargetType.Nearest)
         {
             return;
         }
 
-        Vector3 target = Vector3.zero;
-
-        switch (_isTarget)
+        _direction = _targetType switch
         {
-            case TargetType.Nearest:
-                target = FindNearbyEnemy().transform.position;
-                break;
-            case TargetType.Random:
-                target = _char.transform.position - new Vector3( Random.Range(-1.0f, 1.0f), 0f, Random.Range(-1.0f, 1.0f)).normalized * 50;
-                break;
+            TargetType.Nearest => FindNearbyEnemy().transform.position,
+            TargetType.Random => new Vector3
+                                 (
+                                     Random.Range(0,2)==0?Random.Range(3f,5f):Random.Range(-5f,-3f),
+                                     0,
+                                     Random.Range(0,2)==0?Random.Range(3f,5f):Random.Range(-5f,-3f)
+                                 ).normalized,
+            _ => _direction
+        };
+        for (int i = 1; i <= _amount; i++)
+        {
+            var rotatedDirection = RotateDirection(_direction, _spread * ((i-1)/ (float)_amount));
+            var projectile = Instantiate(_projectile, transform.position, Quaternion.identity);
+            projectile.Initialize(Damage, rotatedDirection);
         }
 
-        for (int i = 0; i < _amount; i++)
-        {
-            target = RotateDirection(target, _spread);
-            
-            var projectile = Instantiate(_projectile, _player.transform.position, Quaternion.identity);
-            projectile.Damage = Damage;
-
-            projectile.transform.DOMove(target, _distance / Rate);
-        }
     }
 
     private Vector3 RotateDirection(Vector3 target, float angle)
     {
         Vector3 vector = Quaternion.AngleAxis(angle, Vector3.up) * target;
-        return vector;
+        return vector.normalized;
+    }
+    
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        EnemyController enemy = other.gameObject.GetComponent<EnemyController>();
+        
+        if (enemy != null)
+        {
+            _enemies.Add(enemy);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        for (int i = 0; i < _enemies.Count; i++)
+        {
+            if (other.gameObject.GetComponent<EnemyController>() == _enemies[i])
+            {
+                _enemies.Remove(_enemies[i]);
+            }
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawRay(transform.position,transform.position + _direction * 50);
+        for (int i = 1; i <= _amount; i++)
+        {
+            var rotatedDirection = RotateDirection(_direction, _spread * ((i-1)/ (float)_amount));
+            Gizmos.DrawRay(transform.position,transform.position + rotatedDirection * 50);
+        }
     }
 }
