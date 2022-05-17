@@ -160,6 +160,8 @@ GameObject:
   - component: {fileID: -7428402986381507823}
   - component: {fileID: -642470563689923492}
   - component: {fileID: 329286636043561855}
+  - component: {fileID: 1437842649254418075}
+  - component: {fileID: 7008007085918413826}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -176,7 +178,7 @@ Transform:
   m_GameObject: {fileID: 7485599467530226675}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.6997, y: 5.7, z: 239.5}
-  m_LocalScale: {x: 3, y: 10, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1437887856818965649}
@@ -195,8 +197,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.6352409, y: 1, z: 1.9110059}
+  m_Center: {x: 0.016533455, y: 0, z: -0.22027516}
 --- !u!114 &6742871518922038233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db74eb5d4ab88e14cb34697e66eae9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthPoint: 0
+  _healthPoint: 60
 --- !u!114 &-7428402986381507823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,7 +260,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0369929715b54401960f8752baafa589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0
+  _speed: 15
+--- !u!114 &1437842649254418075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7485599467530226675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3480dc503ee040d2bca9771d9f9a524d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 6742871518922038233}
+--- !u!114 &7008007085918413826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7485599467530226675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d9be886dcfd44b49e0cf0247afbd4de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8265304887099710524
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,7 +313,7 @@ Transform:
   m_GameObject: {fileID: 8265304887099710524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3766168524491531987}

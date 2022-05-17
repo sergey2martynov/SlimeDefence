@@ -12,6 +12,7 @@ public class Health : MonoBehaviour
     public void GetDamage(int damageTaken)
     {
         _healthPoint -= damageTaken;
+        
         if (_healthPoint < 0)
         {
             HealthIsOver?.Invoke();

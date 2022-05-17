@@ -70,7 +70,7 @@ public class ProjectileWeapon : AbstractWeapon
 
         _direction = _targetType switch
         {
-            TargetType.Nearest => FindNearbyEnemy().transform.position,
+            TargetType.Nearest => FindNearbyEnemy().transform.position - transform.position,
             TargetType.Random => new Vector3
                                  (
                                      Random.Range(0,2)==0?Random.Range(3f,5f):Random.Range(-5f,-3f),
@@ -79,10 +79,18 @@ public class ProjectileWeapon : AbstractWeapon
                                  ).normalized,
             _ => _direction
         };
+        
         for (int i = 1; i <= _amount; i++)
         {
             var rotatedDirection = RotateDirection(_direction, _spread * ((i-1)/ (float)_amount));
             var projectile = Instantiate(_projectile, transform.position, Quaternion.identity);
+            
+            if (_targetType == TargetType.Nearest)
+            {
+                projectile.Initialize(Damage, _direction);
+                return;
+            }
+            
             projectile.Initialize(Damage, rotatedDirection);
         }
 
