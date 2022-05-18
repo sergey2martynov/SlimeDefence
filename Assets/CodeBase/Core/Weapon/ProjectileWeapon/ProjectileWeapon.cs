@@ -7,8 +7,8 @@ using Vector3 = UnityEngine.Vector3;
 
 public class ProjectileWeapon : AbstractWeapon
 {
+    [SerializeField] private GunshotProjectilePool _gunshotProjectilePool;
     [SerializeField] private Transform _player;
-    [SerializeField] private Projectile _projectile;
     [SerializeField] private CapsuleCollider _capsuleCollider;
     [SerializeField] private int _amount;
     [SerializeField] private float _spread;
@@ -83,15 +83,9 @@ public class ProjectileWeapon : AbstractWeapon
         for (int i = 1; i <= _amount; i++)
         {
             var rotatedDirection = RotateDirection(_direction, _spread * ((i-1)/ (float)_amount));
-            var projectile = Instantiate(_projectile, transform.position, Quaternion.identity);
+            var projectile = _gunshotProjectilePool.Pool.Get();
             
-            if (_targetType == TargetType.Nearest)
-            {
-                projectile.Initialize(Damage, _direction);
-                return;
-            }
-            
-            projectile.Initialize(Damage, rotatedDirection);
+            projectile.Initialize(Damage, rotatedDirection, _gunshotProjectilePool, _player);
         }
 
     }

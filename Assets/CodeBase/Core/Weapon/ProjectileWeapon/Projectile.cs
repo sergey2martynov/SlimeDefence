@@ -9,23 +9,28 @@ public class Projectile : MonoBehaviour
     private float _lifeTime;
     private Vector3 _direction;
     private float _speed;
+    private GunshotProjectilePool _pool;
 
-    public void Initialize(int damage,Vector3 direction, float lifeTime = 1f, float speed = 1f)
+    public void Initialize(int damage,Vector3 direction, GunshotProjectilePool pool,Transform currentPos, float lifeTime = 1f, float speed = 1f)
     {
+        var transformProjectile = transform;
         Damage = damage;
         _direction = direction;
         _lifeTime = lifeTime;
         _speed = speed;
-        transform.forward = direction;
+        transformProjectile.forward = direction;
+        _pool = pool;
+        transformProjectile.position = currentPos.position;
         StartCoroutine(DestoryOnTime());
     }
 
     private IEnumerator DestoryOnTime()
     {
+        transform.localScale = Vector3.one;
         yield return new WaitForSecondsRealtime(_lifeTime);
         transform.DOScale(new Vector3(), 0.1f).onComplete+= () =>
         {
-            gameObject.SetActive(false);
+            _pool.Pool.Release(this);
         };
     }
 
@@ -41,7 +46,7 @@ public class Projectile : MonoBehaviour
         if (enemyController != null)
         {
             enemyController.Health.GetDamage(Damage);
-            gameObject.SetActive(false);
+            _pool.Pool.Release(this);
         }
     }
 }
