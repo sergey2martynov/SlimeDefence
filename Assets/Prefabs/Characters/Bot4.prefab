@@ -62,14 +62,10 @@ PrefabInstance:
     - target: {fileID: 6352456497393787121, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f4457fd3fc42e1047bde6edafe4724cf, type: 2}
-    - target: {fileID: 6742871518922038233, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
-      propertyPath: _healthPoint
-      value: 20
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: 054fe636a923dc348bf4a853a927a206, type: 2}
     - target: {fileID: 7485599467530226675, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: m_Name
-      value: Bot1
+      value: Bot4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}

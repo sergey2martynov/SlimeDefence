@@ -7,9 +7,21 @@ namespace CodeBase.Core.Character.Enemy
     public class EnemyController : MonoBehaviour
     {
         [SerializeField] private Health _health;
+        [SerializeField] private EnemyType _enemyType;
+        [SerializeField] private SpawnerEnemies _spawnerEnemies;
+
+        
 
         public Health Health => _health;
-        public bool IsDie { get; private set; }
+        public bool IsDie { get; set; }
+
+        public EnemyType EnemyType => _enemyType;
+        
+        public void Initialize(SpawnerEnemies spawnerEnemies, bool isDie)
+        {
+            _spawnerEnemies = spawnerEnemies;
+            IsDie = isDie;
+        }
 
         private void Start()
         {
@@ -24,7 +36,8 @@ namespace CodeBase.Core.Character.Enemy
         private void Die()
         {
             IsDie = true;
-            gameObject.SetActive(false);
+            _spawnerEnemies.EnemyPools[(int)_enemyType].Pool.Release(this);
+            _spawnerEnemies.SpawnedEnemies.Remove(this);
         }
     }
 }

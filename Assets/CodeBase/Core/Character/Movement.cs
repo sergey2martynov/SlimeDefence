@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace CodeBase.Core.Character
 {
@@ -18,12 +17,15 @@ namespace CodeBase.Core.Character
 
         private void LateUpdate()
         {
-            Move();
+                Move();
         }
 
         private void Move()
         {
             _controller.Move(_direction * Time.deltaTime * _speed);
+
+            var transformPosition = transform.position;
+            transformPosition.y = 0;
         
             if (_direction.magnitude > 0)
             {

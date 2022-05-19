@@ -6,17 +6,9 @@ public class GunshotProjectilePool : MonoBehaviour
 {
     [SerializeField] private Projectile _projectile;
     [SerializeField] private int _maxSize;
-
-
-    private Projectile CreateProjectile()
-    {
-        var transformObject = transform;
-        var projectile = Instantiate(_projectile, transformObject.position, Quaternion.identity, transformObject);
-        return projectile;
-    }
-
+    [SerializeField] private Transform _parent;
+    
     private IObjectPool<Projectile> _pool;
-
     public IObjectPool<Projectile> Pool
     {
         get
@@ -25,10 +17,18 @@ public class GunshotProjectilePool : MonoBehaviour
             {
                 _pool = new ObjectPool<Projectile>(CreateProjectile, (obj
                 ) => obj.gameObject.SetActive(true), (obj) => obj.gameObject.SetActive(false), (obj
-                ) => Destroy(obj), false, 1, _maxSize);
+                ) => Destroy(obj), false, 10, _maxSize);
             }
 
             return _pool;
         }
     }
+    private Projectile CreateProjectile()
+    {
+        var projectile = Instantiate(_projectile, transform.position, Quaternion.identity, _parent);
+        return projectile;
+    }
+
+
+    
 }

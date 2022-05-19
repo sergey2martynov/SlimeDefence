@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: _speed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1437842649254418075, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
+      propertyPath: _enemyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1437887856818965649, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1
@@ -62,14 +66,14 @@ PrefabInstance:
     - target: {fileID: 6352456497393787121, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f4457fd3fc42e1047bde6edafe4724cf, type: 2}
+      objectReference: {fileID: 2100000, guid: abd890893ccda4b41b7a84746c049be8, type: 2}
     - target: {fileID: 6742871518922038233, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: _healthPoint
-      value: 20
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 7485599467530226675, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: m_Name
-      value: Bot1
+      value: Bot2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}

@@ -118,13 +118,13 @@ public class ProjectileWeapon : AbstractWeapon
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawRay(transform.position,transform.position + _direction * 50);
-        for (int i = 1; i <= _amount; i++)
-        {
-            var rotatedDirection = RotateDirection(_direction, _spread * ((i-1)/ (float)_amount));
-            Gizmos.DrawRay(transform.position,transform.position + rotatedDirection * 50);
-        }
-    }
+    // private void OnDrawGizmos()
+    // {
+    //     Gizmos.DrawRay(transform.position,transform.position + _direction * 50);
+    //     for (int i = 1; i <= _amount; i++)
+    //     {
+    //         var rotatedDirection = RotateDirection(_direction, _spread * ((i-1)/ (float)_amount));
+    //         Gizmos.DrawRay(transform.position,transform.position + rotatedDirection * 50);
+    //     }
+    // }
 }

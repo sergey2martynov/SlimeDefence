@@ -28,7 +28,7 @@ public class Projectile : MonoBehaviour
     {
         transform.localScale = Vector3.one;
         yield return new WaitForSecondsRealtime(_lifeTime);
-        transform.DOScale(new Vector3(), 0.1f).onComplete+= () =>
+        transform.DOScale(new Vector3(), 2f).onComplete+= () =>
         {
             _pool.Pool.Release(this);
         };
