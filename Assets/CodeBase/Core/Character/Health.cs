@@ -1,11 +1,11 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] private int _healthPoint;
+
+    public int HealthPoint => _healthPoint;
 
     public event Action HealthIsOver;
 

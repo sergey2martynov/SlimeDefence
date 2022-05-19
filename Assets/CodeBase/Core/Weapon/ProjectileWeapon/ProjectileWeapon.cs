@@ -49,6 +49,7 @@ public class ProjectileWeapon : AbstractWeapon
 
         for (int i = 1; i < _enemies.Count; i++)
         {
+            
             _distance = Vector2.Distance(_player.position, _enemies[i].transform.position);
             
             if (_distance < minDistance)

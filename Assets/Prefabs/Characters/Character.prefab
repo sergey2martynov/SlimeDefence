@@ -209,7 +209,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 4
+  m_Height: 1
   m_Radius: 1
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -243,6 +243,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: {fileID: 6742871518922038233}
   _enemyType: 0
+  _spawnerEnemies: {fileID: 0}
+  _damage: 0
 --- !u!114 &7008007085918413826
 MonoBehaviour:
   m_ObjectHideFlags: 0

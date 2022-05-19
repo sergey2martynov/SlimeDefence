@@ -9,13 +9,12 @@ namespace CodeBase.Core.Character.Enemy
         [SerializeField] private Health _health;
         [SerializeField] private EnemyType _enemyType;
         [SerializeField] private SpawnerEnemies _spawnerEnemies;
-
-        
+        [SerializeField] private int _damage;
 
         public Health Health => _health;
         public bool IsDie { get; set; }
-
         public EnemyType EnemyType => _enemyType;
+        public int Damage => _damage;
         
         public void Initialize(SpawnerEnemies spawnerEnemies, bool isDie)
         {
