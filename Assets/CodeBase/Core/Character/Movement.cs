@@ -17,7 +17,7 @@ namespace CodeBase.Core.Character
 
         private void LateUpdate()
         {
-                Move();
+            Move();
         }
 
         private void Move()

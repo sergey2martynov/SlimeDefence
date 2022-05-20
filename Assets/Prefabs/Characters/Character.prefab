@@ -212,7 +212,7 @@ CharacterController:
   m_Height: 1
   m_Radius: 1
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
@@ -245,6 +245,7 @@ MonoBehaviour:
   _enemyType: 0
   _spawnerEnemies: {fileID: 0}
   _damage: 0
+  _spawnObjectOfExpirience: {fileID: 0}
 --- !u!114 &7008007085918413826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,6 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d9be886dcfd44b49e0cf0247afbd4de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _minDistance: 3
 --- !u!1 &8265304887099710524
 GameObject:
   m_ObjectHideFlags: 0

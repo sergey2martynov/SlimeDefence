@@ -12,7 +12,7 @@ public class SpawnZone : MonoBehaviour
             EnemyController enemyController = other.gameObject.GetComponent<EnemyController>();
             if (enemyController == _spawnerEnemies.SpawnedEnemies[i])
             {
-                _spawnerEnemies.EnemyPools[(int)enemyController.EnemyType].Pool.Release(enemyController);
+                _spawnerEnemies.EnemyPools[(int)enemyController.EnemyType].Pool.Release(enemyController.gameObject);
             }
         }
     }

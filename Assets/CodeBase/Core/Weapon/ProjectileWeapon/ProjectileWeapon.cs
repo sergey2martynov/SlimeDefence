@@ -86,7 +86,7 @@ public class ProjectileWeapon : AbstractWeapon
             var rotatedDirection = RotateDirection(_direction, _spread * ((i-1)/ (float)_amount));
             var projectile = _gunshotProjectilePool.Pool.Get();
             
-            projectile.Initialize(Damage, rotatedDirection, _gunshotProjectilePool, _player);
+            projectile.GetComponent<Projectile>().Initialize(Damage, rotatedDirection, _gunshotProjectilePool, _player);
         }
 
     }

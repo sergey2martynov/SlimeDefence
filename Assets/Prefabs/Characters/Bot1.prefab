@@ -23,6 +23,10 @@ PrefabInstance:
       propertyPath: _damage
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1437842649254418075, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
+      propertyPath: _spawnObjectOfExpirience
+      value: 
+      objectReference: {fileID: 3964815397004171630, guid: 91c3f5ea94699d043aba4b29ae8457a0, type: 3}
     - target: {fileID: 1437887856818965649, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1

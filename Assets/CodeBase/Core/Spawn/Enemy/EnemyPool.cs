@@ -1,45 +1,29 @@
+using CodeBase.Core;
 using CodeBase.Core.Character.Enemy;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class EnemyPool : MonoBehaviour
+public class EnemyPool : AbstractPool
 {
-    [SerializeField] private EnemyController _enemyController;
-    [SerializeField] private int _maxSize;
-    [SerializeField] private Transform _parent;
-    [SerializeField] private SpawnerEnemies _spawner;
+    [SerializeField] private SpawnerEnemies _spawnerEnemies;
     
-    private IObjectPool<EnemyController> _pool;
-    public IObjectPool<EnemyController> Pool
+    public override GameObject CreateObject()
     {
-        get
-        {
-            if (_pool == null)
-            {
-                _pool = new ObjectPool<EnemyController>(CreateEnemy, ActionOnGet, ActionOnRelease, (obj
-                ) => Destroy(obj), false, 15, _maxSize);
-            }
-
-            return _pool;
-        }
+        var poolObject = Instantiate(_poolObject, _spawnerEnemies.FindRandomPosition().position, Quaternion.identity, _parent); 
+        return poolObject;
     }
-    private EnemyController CreateEnemy()
+    
+    public override void ActionOnGet(GameObject poolObject)
     {
-        var enemy = Instantiate(_enemyController, _spawner.FindRandomPosition().position, Quaternion.identity, _parent); 
-        return enemy;
+        poolObject.transform.position = _spawnerEnemies.FindRandomPosition().position;
+        poolObject.gameObject.SetActive(true);
+        poolObject.GetComponent<EnemyController>().IsDie = false;
     }
 
-    private void ActionOnGet(EnemyController enemyController)
+    public override void ActionOnRelease(GameObject poolObject)
     {
-        enemyController.transform.position = _spawner.FindRandomPosition().position;
-        enemyController.gameObject.SetActive(true);
-        enemyController.IsDie = false;
-    }
-
-    private void ActionOnRelease(EnemyController enemyController)
-    {
-        enemyController.gameObject.SetActive(false);
-        enemyController.transform.position = new Vector3(0, -100, 0);
-        _spawner.SpawnedEnemies.Remove(enemyController);
+        poolObject.SetActive(false);
+        poolObject.transform.position = new Vector3(0, -100, 0);
+        _spawnerEnemies.SpawnedEnemies.Remove(poolObject.GetComponent<EnemyController>());
     }
 }

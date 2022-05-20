@@ -7,5 +7,10 @@ namespace CodeBase.Core.Character.Player
         private int _expirience;
 
         public int Expirience => _expirience;
+
+        public void GetExperience(int experience)
+        {
+            _expirience += experience;
+        }
     }
 }

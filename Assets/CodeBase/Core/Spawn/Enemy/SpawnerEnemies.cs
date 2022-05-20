@@ -5,6 +5,7 @@ using Random = UnityEngine.Random;
 
 public class SpawnerEnemies : MonoBehaviour
 {
+    [SerializeField] private SpawnObjectOfExpirience _spawnObjectOfExpirience;
     [SerializeField] private List<EnemyPool> _enemyPools;
     [SerializeField] private int _maxNumberOfEnemies;
     [SerializeField] private Transform _player;
@@ -55,9 +56,9 @@ public class SpawnerEnemies : MonoBehaviour
 
     private void SpawnEnemy(EnemyType type)
     {
-        var enemy = _enemyPools[(int) type].Pool.Get();
+        var enemy = _enemyPools[(int) type].Pool.Get().GetComponent<EnemyController>();
          
-        enemy.Initialize(this, false);
+        enemy.Initialize(this, false, _spawnObjectOfExpirience);
         enemy.transform.position = FindRandomPosition().position;
         _spawnedEnemies.Add(enemy);
     }

@@ -6,9 +6,11 @@ namespace CodeBase.Core.Character.Enemy
     [RequireComponent(typeof(Movement))]
     public class EnemyMovementInput : MonoBehaviour
     {
+        [SerializeField] private float _minDistance;
+
         private Movement _movement;
         private Transform _target;
-        
+
         private void Awake()
         {
             _movement = GetComponent<Movement>();
@@ -17,8 +19,13 @@ namespace CodeBase.Core.Character.Enemy
 
         private void Update()
         {
-            var direction = _target.position - transform.position;
-            _movement.SetDirection(direction);
+            var distance = (_target.position - transform.position).magnitude;
+
+            if (distance > _minDistance)
+            {
+                var direction = _target.position - transform.position;
+                _movement.SetDirection(direction);
+            }
         }
     }
 }

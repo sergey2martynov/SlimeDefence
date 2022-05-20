@@ -1,9 +1,10 @@
 using System.Collections;
+using CodeBase.Core;
 using CodeBase.Core.Character.Enemy;
 using DG.Tweening;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : MonoBehaviour, IPoolObject
 {
     public int Damage { get; private set; }
     private float _lifeTime;
@@ -30,7 +31,7 @@ public class Projectile : MonoBehaviour
         yield return new WaitForSecondsRealtime(_lifeTime);
         transform.DOScale(new Vector3(), 2f).onComplete+= () =>
         {
-            _pool.Pool.Release(this);
+            _pool.Pool.Release(gameObject);
         };
     }
 
@@ -46,7 +47,7 @@ public class Projectile : MonoBehaviour
         if (enemyController != null)
         {
             enemyController.Health.GetDamage(Damage);
-            _pool.Pool.Release(this);
+            _pool.Pool.Release(gameObject);
         }
     }
 }
