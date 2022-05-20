@@ -14,7 +14,7 @@ namespace CodeBase.Core.Character.Enemy
         private void Awake()
         {
             _movement = GetComponent<Movement>();
-            _target = FindObjectOfType<PlayerControler>().transform;
+            _target = FindObjectOfType<PlayerController>().transform;
         }
 
         private void Update()

@@ -11,4 +11,6 @@ public class ObjectOfExperiencePool :AbstractPool
         poolObject.GetComponent<ObjectOfExpirience>().Initialize(this);
         return poolObject;
     }
+    
+    
 }

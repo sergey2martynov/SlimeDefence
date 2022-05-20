@@ -976,6 +976,54 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &766869160
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 766869162}
+  - component: {fileID: 766869161}
+  m_Layer: 0
+  m_Name: ObjectOfExperiencePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &766869161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766869160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 215c208a9b032854da0aeb00e7fcf17d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _poolObject: {fileID: 8904036088275482438, guid: 207a231d6b942db4d8d958b55948f3ae, type: 3}
+  _maxSize: 50
+  _parent: {fileID: 766869162}
+  _defaultCapacity: 200
+--- !u!4 &766869162
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766869160}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &807666752
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,10 +1608,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bffcc7675784645408c87cf3755caffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyController: {fileID: 8750012354138241463, guid: 9275e360d41930d42add6ff3f0eb463b, type: 3}
-  _maxSize: 10
+  _poolObject: {fileID: 970603420823659743, guid: 9275e360d41930d42add6ff3f0eb463b, type: 3}
+  _maxSize: 30
   _parent: {fileID: 1396765330}
-  _spawner: {fileID: 1388444312}
+  _defaultCapacity: 30
+  _spawnerEnemies: {fileID: 1388444312}
 --- !u!1 &1452247137
 GameObject:
   m_ObjectHideFlags: 0
@@ -1666,6 +1715,10 @@ PrefabInstance:
     - target: {fileID: 3542029316938364201, guid: 56a1611cda95a084892f3a7147623e9d, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3542029316938364201, guid: 56a1611cda95a084892f3a7147623e9d, type: 3}
+      propertyPath: _projectileSpeed
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3542029316938364201, guid: 56a1611cda95a084892f3a7147623e9d, type: 3}
       propertyPath: _gunshotProjectilePool
@@ -1780,10 +1833,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bffcc7675784645408c87cf3755caffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyController: {fileID: 8750012354138241463, guid: df62bd64de3ffc94e9a60f456471a3e3, type: 3}
-  _maxSize: 10
+  _poolObject: {fileID: 970603420823659743, guid: df62bd64de3ffc94e9a60f456471a3e3, type: 3}
+  _maxSize: 30
   _parent: {fileID: 1675445487}
-  _spawner: {fileID: 1388444312}
+  _defaultCapacity: 30
+  _spawnerEnemies: {fileID: 1388444312}
 --- !u!1 &1752859394
 GameObject:
   m_ObjectHideFlags: 0
@@ -1828,10 +1882,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bffcc7675784645408c87cf3755caffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyController: {fileID: 8750012354138241463, guid: 9705bff3fdfbe1940a742b0841256903, type: 3}
-  _maxSize: 10
+  _poolObject: {fileID: 970603420823659743, guid: 9705bff3fdfbe1940a742b0841256903, type: 3}
+  _maxSize: 30
   _parent: {fileID: 1752859395}
-  _spawner: {fileID: 1388444312}
+  _defaultCapacity: 30
+  _spawnerEnemies: {fileID: 1388444312}
 --- !u!1001 &2021943911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2260,6 +2315,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2140362475}
     - target: {fileID: 6189496420102400676, guid: cd9d7806d60230847a57718ca6337536, type: 3}
+      propertyPath: _projectileSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189496420102400676, guid: cd9d7806d60230847a57718ca6337536, type: 3}
       propertyPath: _gunshotProjectilePool
       value: 
       objectReference: {fileID: 9141488675577490367}
@@ -2277,7 +2336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e164c4235071da4795f570ba2070fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _object: {fileID: 7359851135022116211, guid: 207a231d6b942db4d8d958b55948f3ae, type: 3}
+  _pool: {fileID: 766869161}
 --- !u!1 &9141488675577490366 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1882299391763169026, guid: cd9d7806d60230847a57718ca6337536, type: 3}

@@ -12,7 +12,7 @@ public class Projectile : MonoBehaviour
     private float _speed;
     private GunshotProjectilePool _pool;
 
-    public void Initialize(int damage,Vector3 direction, GunshotProjectilePool pool,Transform currentPos,  float speed, float lifeTime = 3f)
+    public void Initialize(int damage,Vector3 direction, GunshotProjectilePool pool,Transform currentPos,  float speed, float lifeTime = 1f)
     {
         var transformProjectile = transform;
         Damage = damage;
@@ -29,7 +29,7 @@ public class Projectile : MonoBehaviour
     {
         transform.localScale = Vector3.one;
         yield return new WaitForSecondsRealtime(_lifeTime);
-        transform.DOScale(new Vector3(), 5f).onComplete+= () =>
+        transform.DOScale(new Vector3(), 2f).onComplete+= () =>
         {
             _pool.Pool.Release(gameObject);
         };

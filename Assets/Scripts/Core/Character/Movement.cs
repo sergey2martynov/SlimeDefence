@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 
 namespace CodeBase.Core.Character
 {
@@ -24,9 +25,14 @@ namespace CodeBase.Core.Character
         {
             _controller.Move(_direction * Time.deltaTime * _speed);
 
-            var transformPosition = transform.position;
-            transformPosition.y = 0;
-        
+            // var transformPosition = transform.position;
+            // transformPosition.y = 0;
+
+            if (transform.position.y > 0f)
+            {
+                transform.DOMoveY(0f, 1f);
+            }
+
             if (_direction.magnitude > 0)
             {
                 transform.rotation = Quaternion.LookRotation(_direction);
