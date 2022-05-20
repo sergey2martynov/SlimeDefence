@@ -4,7 +4,7 @@ using CodeBase.Core.Character.Enemy;
 using DG.Tweening;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour, IPoolObject
+public class Projectile : MonoBehaviour
 {
     public int Damage { get; private set; }
     private float _lifeTime;
@@ -12,7 +12,7 @@ public class Projectile : MonoBehaviour, IPoolObject
     private float _speed;
     private GunshotProjectilePool _pool;
 
-    public void Initialize(int damage,Vector3 direction, GunshotProjectilePool pool,Transform currentPos, float lifeTime = 1f, float speed = 1f)
+    public void Initialize(int damage,Vector3 direction, GunshotProjectilePool pool,Transform currentPos,  float speed, float lifeTime = 3f)
     {
         var transformProjectile = transform;
         Damage = damage;
@@ -29,7 +29,7 @@ public class Projectile : MonoBehaviour, IPoolObject
     {
         transform.localScale = Vector3.one;
         yield return new WaitForSecondsRealtime(_lifeTime);
-        transform.DOScale(new Vector3(), 2f).onComplete+= () =>
+        transform.DOScale(new Vector3(), 5f).onComplete+= () =>
         {
             _pool.Pool.Release(gameObject);
         };

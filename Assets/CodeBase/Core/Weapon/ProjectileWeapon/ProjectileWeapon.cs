@@ -13,6 +13,7 @@ public class ProjectileWeapon : AbstractWeapon
     [SerializeField] private int _amount;
     [SerializeField] private float _spread;
     [SerializeField] private TargetType _targetType;
+    [SerializeField] private float _projectileSpeed;
 
 
     private List<EnemyController> _enemies;
@@ -71,7 +72,7 @@ public class ProjectileWeapon : AbstractWeapon
 
         _direction = _targetType switch
         {
-            TargetType.Nearest => FindNearbyEnemy().transform.position - transform.position,
+            TargetType.Nearest => FindNearbyEnemy().transform.position - transform.position + new Vector3(0,2,0),
             TargetType.Random => new Vector3
                                  (
                                      Random.Range(0,2)==0?Random.Range(3f,5f):Random.Range(-5f,-3f),
@@ -86,7 +87,7 @@ public class ProjectileWeapon : AbstractWeapon
             var rotatedDirection = RotateDirection(_direction, _spread * ((i-1)/ (float)_amount));
             var projectile = _gunshotProjectilePool.Pool.Get();
             
-            projectile.GetComponent<Projectile>().Initialize(Damage, rotatedDirection, _gunshotProjectilePool, _player);
+            projectile.GetComponent<Projectile>().Initialize(Damage, rotatedDirection, _gunshotProjectilePool, _player, _projectileSpeed);
         }
 
     }
@@ -94,7 +95,7 @@ public class ProjectileWeapon : AbstractWeapon
     private Vector3 RotateDirection(Vector3 target, float angle)
     {
         Vector3 vector = Quaternion.AngleAxis(angle, Vector3.up) * target;
-        return vector.normalized;
+        return vector;
     }
     
     

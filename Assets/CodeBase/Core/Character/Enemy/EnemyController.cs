@@ -1,10 +1,8 @@
-﻿using System;
-using UnityEditor.Build;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace CodeBase.Core.Character.Enemy
 {
-    public class EnemyController : MonoBehaviour, IPoolObject
+    public class EnemyController : MonoBehaviour
     {
         [SerializeField] private Health _health;
         [SerializeField] private EnemyType _enemyType;

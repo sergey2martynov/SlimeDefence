@@ -2,17 +2,28 @@ using UnityEngine;
 
 public class SpawnObjectOfExpirience : MonoBehaviour
 {
-    [SerializeField] private ObjectOfExpirience _object;
+    [SerializeField] private ObjectOfExperiencePool _pool;
 
     public void CreateObjOfExperience(Transform transformEnemy, EnemyType enemyType)
     {
-        if (enemyType == EnemyType.Weak && Random.Range(0, 10) < 2)
-            Instantiate(_object, transformEnemy.position, Quaternion.identity);
+        GameObject objectOfExperience;
+        
+        if (enemyType == EnemyType.Weak && Random.Range(0, 10) < 1)
+        {
+            objectOfExperience = _pool.Pool.Get();
+            objectOfExperience.transform.position = transformEnemy.position;
+        }
 
-        if (enemyType == EnemyType.Average && Random.Range(0, 10) < 5)
-            Instantiate(_object, transformEnemy.position, Quaternion.identity);
+        if (enemyType == EnemyType.Average && Random.Range(0, 10) < 3)
+        {
+            objectOfExperience = _pool.Pool.Get();
+            objectOfExperience.transform.position = transformEnemy.position;
+        }
 
-        if (enemyType == EnemyType.Strong && Random.Range(0, 10) < 8)
-            Instantiate(_object, transformEnemy.position, Quaternion.identity);
+        if (enemyType == EnemyType.Strong && Random.Range(0, 10) < 6)
+        {
+            objectOfExperience = _pool.Pool.Get();
+            objectOfExperience.transform.position = transformEnemy.position;
+        }
     }
 }
