@@ -125,7 +125,6 @@ GameObject:
   - component: {fileID: 2784078873932093339}
   - component: {fileID: 3799241398200103284}
   - component: {fileID: 6742871518922038233}
-  - component: {fileID: -7428402986381507823}
   - component: {fileID: -642470563689923492}
   - component: {fileID: 329286636043561855}
   - component: {fileID: 1437842649254418075}
@@ -180,24 +179,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthPoint: 60
---- !u!114 &-7428402986381507823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7485599467530226675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5c905f20c5ee4242ab3c7a813a11503, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _numberOfProjectiles: 0
-  _attackSpeed: 0
-  _projectileSpeed: 0
-  _effectRadius: 0
-  _pickUpRadius: 0
-  _defence: 0
 --- !u!143 &-642470563689923492
 CharacterController:
   m_ObjectHideFlags: 0

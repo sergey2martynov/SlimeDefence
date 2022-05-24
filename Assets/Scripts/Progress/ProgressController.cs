@@ -1,25 +1,39 @@
-using System;
+using CodeBase.Core.Character.Player;
+using Core.Character.Player;
 using StaticData;
 using UnityEngine;
 
 public class ProgressController : MonoBehaviour
 {
+    [SerializeField] private PauseController _pauseController;
+    [SerializeField] private LevelUpMenuDisabler _levelUpMenuDisabler;
     [SerializeField] private LevelState _levelState;
     [SerializeField] private ExperienceBar _experienceBar;
-
-    private int _currentLevel;
+    [SerializeField] private PlayerController _playerController;
+    
     private int _expirience;
 
     public int Expirience => _expirience;
 
-    public int MaxCurrentExperience => _levelState.Experience[_currentLevel - 1];
+    public int MaxCurrentExperience
+    {
+        get
+        {
+            if (_playerController.CurrentLevel == 0)
+            {
+                return _levelState.Experience[0];
+            }
+            
+            return _levelState.Experience[_playerController.CurrentLevel - 1];
+        }
+    }
 
     private void Awake()
     {
         if (!PlayerPrefs.HasKey("Level_Player"))
         {
             _expirience = 0;
-            _currentLevel = 1;
+            _playerController.AddedPlayerLevel();
         }
         else
         {
@@ -31,12 +45,14 @@ public class ProgressController : MonoBehaviour
     {
         _expirience += experience;
 
-        if (_expirience > _levelState.Experience[_currentLevel - 1])
+        if (_expirience > MaxCurrentExperience)
         {
             _expirience = 0;
-            _currentLevel++;
+            _playerController.AddedPlayerLevel();
             _experienceBar.SetMaxValue();
-            PlayerData.Level = _currentLevel;
+            PlayerData.Level = _playerController.CurrentLevel;
+            _levelUpMenuDisabler.LevelUpMenuDisable(true);
+            _pauseController.Pause(true);
         }
 
         _experienceBar.SetSlider(_expirience);
@@ -44,7 +60,7 @@ public class ProgressController : MonoBehaviour
 
     private void LoadProgress()
     {
-        _expirience = PlayerData.Experience;
-        _currentLevel = PlayerData.Level;
+        // _expirience = PlayerData.Experience;
+        // _playerController.CurrentLevel = PlayerData.Level;
     }
 }

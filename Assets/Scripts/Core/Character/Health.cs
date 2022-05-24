@@ -18,4 +18,9 @@ public class Health : MonoBehaviour
             HealthIsOver?.Invoke();
         }
     }
+
+    public void SetHealth(int health)
+    {
+        _healthPoint = health;
+    }
 }

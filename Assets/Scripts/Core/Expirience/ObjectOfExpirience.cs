@@ -1,5 +1,6 @@
 using System.Collections;
 using CodeBase.Core.Character.Player;
+using Core.Character.Player;
 using UnityEngine;
 
 public class ObjectOfExpirience : MonoBehaviour

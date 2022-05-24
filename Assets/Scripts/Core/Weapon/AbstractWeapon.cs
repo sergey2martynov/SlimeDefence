@@ -2,9 +2,12 @@ using UnityEngine;
 
 public abstract class AbstractWeapon : MonoBehaviour
 {
-    [SerializeField] private  int _damage;
-    [SerializeField] private  float _rate;
-    [SerializeField] private  float _range;
+    [SerializeField] protected int _damage;
+    [SerializeField] protected float _rate;
+    [SerializeField] protected float _range;
+
+    
+    protected int _currentLevel = 1;
 
     public int Damage => _damage;
     public float Rate => _rate;
@@ -13,5 +16,10 @@ public abstract class AbstractWeapon : MonoBehaviour
     public virtual void UseWeapon()
     {
         
+    }
+
+    public virtual void Upgrade()
+    {
+        _currentLevel++;
     }
 }

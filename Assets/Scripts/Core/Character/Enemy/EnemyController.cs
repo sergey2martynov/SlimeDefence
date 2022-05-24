@@ -34,7 +34,7 @@ namespace CodeBase.Core.Character.Enemy
 
         private void Die()
         {
-            _spawnObjectOfExpirience.CreateObjOfExperience(transform, _enemyType);
+            _spawnObjectOfExpirience.SpawnObjOfExperience(transform, _enemyType);
             IsDie = true;
             _spawnerEnemies.EnemyPools[(int)_enemyType].Pool.Release(gameObject);
             _spawnerEnemies.SpawnedEnemies.Remove(this);

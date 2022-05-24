@@ -4,7 +4,7 @@ public class SpawnObjectOfExpirience : MonoBehaviour
 {
     [SerializeField] private ObjectOfExperiencePool _pool;
 
-    public void CreateObjOfExperience(Transform transformEnemy, EnemyType enemyType)
+    public void SpawnObjOfExperience(Transform transformEnemy, EnemyType enemyType)
     {
         GameObject objectOfExperience;
         

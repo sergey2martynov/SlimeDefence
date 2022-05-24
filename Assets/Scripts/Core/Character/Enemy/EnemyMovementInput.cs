@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using CodeBase.Core.Character.Player;
+using Core.Character.Player;
 
 namespace CodeBase.Core.Character.Enemy
 {

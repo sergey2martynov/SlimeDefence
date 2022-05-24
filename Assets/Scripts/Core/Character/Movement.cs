@@ -25,9 +25,6 @@ namespace CodeBase.Core.Character
         {
             _controller.Move(_direction * Time.deltaTime * _speed);
 
-            // var transformPosition = transform.position;
-            // transformPosition.y = 0;
-
             if (transform.position.y > 0f)
             {
                 transform.DOMoveY(0f, 1f);
@@ -42,6 +39,11 @@ namespace CodeBase.Core.Character
         public void SetDirection(Vector3 direction)
         {
             _direction = direction.normalized;
+        }
+
+        public void SetSpeed(float speed)
+        {
+            _speed = speed;
         }
     }
 }
