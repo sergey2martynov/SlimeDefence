@@ -1,3 +1,4 @@
+using System;
 using Core.Character.Player;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +15,11 @@ namespace UI.LevelUpMenu
         private void Start()
         {
             _button.onClick.AddListener(OnButtonClick);
+        }
+
+        private void OnDestroy()
+        {
+            _button.onClick.RemoveListener(OnButtonClick);
         }
 
         private void OnButtonClick()

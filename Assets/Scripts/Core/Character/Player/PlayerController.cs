@@ -22,6 +22,7 @@ namespace Core.Character.Player
 
         private void Start()
         {
+            _currentLevel = 1;
             SetCurrentStates(1);
         }
 
