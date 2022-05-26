@@ -13,6 +13,7 @@ namespace CodeBase.Core.Character
         [SerializeField] private float _speed;
         [SerializeField] private SpeedLevels _speedLevels;
         [SerializeField] private MovementType _movementType;
+        
         private CharacterController _controller;
         private Vector3 _direction;
         private int _currentLevel;
@@ -54,12 +55,12 @@ namespace CodeBase.Core.Character
             _currentLevel++;
             _speed = _speedLevels.GetSpeedParameters(_currentLevel).Amount;
         }
+        
         public UpgradeParametersBase GetUpgradeParameters()
         {
             return _speedLevels.GetSpeedParameters(_currentLevel+1);
         }
         
-
         public void SetDirection(Vector3 direction)
         {
             _direction = direction.normalized;

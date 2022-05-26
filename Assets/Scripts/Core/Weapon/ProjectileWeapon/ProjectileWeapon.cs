@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using CodeBase.Core.Character.Enemy;
-using Upgrade;
 using UpgradeWeapon;
 using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
@@ -30,6 +29,7 @@ public class ProjectileWeapon : AbstractWeapon
     private void Start()
     {
         _enemies = new List<EnemyController>();
+        
         if (_isActive)
         {
             _currentParameters = _weaponParameters.GetWeaponParameters(0);

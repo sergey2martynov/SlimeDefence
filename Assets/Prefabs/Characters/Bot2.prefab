@@ -113,7 +113,7 @@ PrefabInstance:
       objectReference: {fileID: -3618727828204336795}
     - target: {fileID: 6742871518922038233, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: _healthPoint
-      value: 35
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 6742871518922038233, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: _movementType

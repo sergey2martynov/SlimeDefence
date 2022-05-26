@@ -9,13 +9,17 @@ public class SpawnerEnemies : MonoBehaviour
     [SerializeField] private List<EnemyPool> _enemyPools;
     [SerializeField] private int _maxNumberOfEnemies;
     [SerializeField] private Transform _player;
-    [SerializeField] private float _spawnTimeForWeakEnemy;
-    [SerializeField] private float _spawnTimeForAverageEnemy;
-    [SerializeField] private float _spawnTimeForStrongEnemy;
+    [SerializeField] private float _currentTimeForWeakEnemy;
+    [SerializeField] private float _currentTimeForAverageEnemy;
+    [SerializeField] private float _currentTimeForStrongEnemy;
+    [SerializeField] private AnimationCurve _spawnIntervalWeakEnemy;
+    [SerializeField] private AnimationCurve _spawnIntervalAverageEnemy;
+    [SerializeField] private AnimationCurve _spawnIntervalStrongEnemy;
 
     private float _elapsedTimeForWeak;
     private float _elapsedTimeForAverage;
     private float _elapsedTimeForStrong;
+    private float _currentTime;
 
     private List<EnemyController> _spawnedEnemies;
     public List<EnemyController> SpawnedEnemies => _spawnedEnemies;
@@ -23,32 +27,39 @@ public class SpawnerEnemies : MonoBehaviour
 
     private void Start()
     {
+        _currentTimeForWeakEnemy = _spawnIntervalWeakEnemy.Evaluate(_elapsedTimeForWeak);
+        _currentTimeForAverageEnemy = _spawnIntervalAverageEnemy.Evaluate(_elapsedTimeForWeak);
+        _currentTimeForStrongEnemy = _spawnIntervalStrongEnemy.Evaluate(_elapsedTimeForWeak);
         _spawnedEnemies = new List<EnemyController>();
     }
 
     private void Update()
     {
+        _currentTime += Time.deltaTime;
         _elapsedTimeForWeak += Time.deltaTime;
         _elapsedTimeForAverage += Time.deltaTime;
         _elapsedTimeForStrong += Time.deltaTime;
 
         if (_spawnedEnemies.Count < _maxNumberOfEnemies)
         {
-            if (_elapsedTimeForWeak > _spawnTimeForWeakEnemy)
+            if (_elapsedTimeForWeak > _currentTimeForWeakEnemy)
             {
                 SpawnEnemy(EnemyType.Weak);
+                _currentTimeForWeakEnemy = _spawnIntervalWeakEnemy.Evaluate(_currentTime);
                 _elapsedTimeForWeak = 0;
             }
 
-            if (_elapsedTimeForAverage > _spawnTimeForAverageEnemy)
+            if (_elapsedTimeForAverage > _currentTimeForAverageEnemy)
             {
                 SpawnEnemy(EnemyType.Average);
+                _currentTimeForAverageEnemy = _spawnIntervalAverageEnemy.Evaluate(_currentTime);
                 _elapsedTimeForAverage = 0;
             }
 
-            if (_elapsedTimeForStrong > _spawnTimeForStrongEnemy)
+            if (_elapsedTimeForStrong > _currentTimeForStrongEnemy)
             {
                 SpawnEnemy(EnemyType.Strong);
+                _currentTimeForStrongEnemy = _spawnIntervalStrongEnemy.Evaluate(_currentTime);
                 _elapsedTimeForStrong = 0;
             }
         }

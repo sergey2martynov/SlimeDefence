@@ -10,6 +10,8 @@ public class Health : MonoBehaviour, IUpgradable
     [SerializeField] private Defence _defence;
     [SerializeField] private HealthLevels _healthLevels;
     [SerializeField] private MovementType _movementType;
+    
+    private int _enemyHealthPoint;
     private int _currentLevel;
 
     public int CurrentLevel => _currentLevel;
@@ -30,6 +32,8 @@ public class Health : MonoBehaviour, IUpgradable
 
     private void Start()
     {
+        _enemyHealthPoint = _healthPoint;
+        
         if (_movementType == MovementType.PlayerMovement)
         {
             _healthPoint = _healthLevels.GetHealthParameters(_currentLevel).Amount;
@@ -45,5 +49,10 @@ public class Health : MonoBehaviour, IUpgradable
     public UpgradeParametersBase GetUpgradeParameters()
     {
         return _healthLevels.GetHealthParameters(_currentLevel+1);
+    }
+
+    public void ReturnHealthPoint()
+    {
+        _healthPoint = _enemyHealthPoint;
     }
 }

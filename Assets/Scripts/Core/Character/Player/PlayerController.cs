@@ -1,4 +1,3 @@
-using CodeBase.Core.Character;
 using UnityEngine;
 using UpgradePlayer;
 
@@ -21,12 +20,7 @@ namespace Core.Character.Player
         {
             _currentLevel = 1;
         }
-
-        public void Upgrade()
-        {
-            
-        }
-
+        
         public void AddedPlayerLevel()
         {
             _currentLevel++;

@@ -293,4 +293,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 1035327868076273198}
-  _levelTime: 350
+  _levelTime: 420
