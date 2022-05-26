@@ -1,15 +1,14 @@
-using CodeBase.Core.Character.Player;
+using System;
 using Core.Character.Player;
-using StaticData;
 using UnityEngine;
 
 public class ProgressController : MonoBehaviour
 {
-    [SerializeField] private PauseController _pauseController;
-    [SerializeField] private LevelUpMenuDisabler _levelUpMenuDisabler;
     [SerializeField] private LevelState _levelState;
     [SerializeField] private ExperienceBar _experienceBar;
     [SerializeField] private PlayerController _playerController;
+
+    public event Action PlayerLeveledUp;
     
     private int _expirience;
 
@@ -28,39 +27,18 @@ public class ProgressController : MonoBehaviour
         }
     }
 
-    private void Awake()
-    {
-        if (!PlayerPrefs.HasKey("Level_Player"))
-        {
-            _expirience = 0;
-            _playerController.AddedPlayerLevel();
-        }
-        else
-        {
-            LoadProgress();
-        }
-    }
-
     public void GetExperience(int experience)
     {
         _expirience += experience;
 
-        if (_expirience > MaxCurrentExperience)
+        if (_expirience >= MaxCurrentExperience)
         {
+            PlayerLeveledUp?.Invoke();
             _expirience = 0;
             _playerController.AddedPlayerLevel();
             _experienceBar.SetMaxValue();
-            PlayerData.Level = _playerController.CurrentLevel;
-            _levelUpMenuDisabler.LevelUpMenuDisable(true);
-            _pauseController.Pause(true);
         }
 
         _experienceBar.SetSlider(_expirience);
-    }
-
-    private void LoadProgress()
-    {
-        // _expirience = PlayerData.Experience;
-        // _playerController.CurrentLevel = PlayerData.Level;
     }
 }

@@ -1,5 +1,4 @@
 using System.Collections;
-using CodeBase.Core.Character.Player;
 using Core.Character.Player;
 using UnityEngine;
 
@@ -12,7 +11,7 @@ public class ObjectOfExpirience : MonoBehaviour
     public void Initialize(ObjectOfExperiencePool pool)
     {
         _pool = pool;
-        StartCoroutine(DestoryOnTime());
+        StartCoroutine(DestroyOnTime());
     }
 
     private void OnTriggerEnter(Collider other)
@@ -24,7 +23,7 @@ public class ObjectOfExpirience : MonoBehaviour
         }
     }
     
-    private IEnumerator DestoryOnTime()
+    private IEnumerator DestroyOnTime()
     {
         yield return new WaitForSecondsRealtime(_lifeTime);
             _pool.Pool.Release(gameObject);

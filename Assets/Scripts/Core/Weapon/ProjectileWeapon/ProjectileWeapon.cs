@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using CodeBase.Core.Character.Enemy;
+using Upgrade;
 using UpgradeWeapon;
 using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
@@ -16,6 +17,7 @@ public class ProjectileWeapon : AbstractWeapon
     [SerializeField] private float _spread;
     [SerializeField] private TargetType _targetType;
     [SerializeField] private float _projectileSpeed;
+    [SerializeField] private bool _isActive;
 
     private ProjectileWeaponParameters _currentParameters;
 
@@ -27,10 +29,19 @@ public class ProjectileWeapon : AbstractWeapon
 
     private void Start()
     {
-        _currentParameters = _weaponParameters.GetWeaponParameters(_currentLevel);
+        _enemies = new List<EnemyController>();
+        if (_isActive)
+        {
+            _currentParameters = _weaponParameters.GetWeaponParameters(0);
+            _upgradeParameters = _weaponParameters.GetWeaponParameters(_currentLevel + 1);
+        }
+        else
+        {_currentParameters = _weaponParameters.GetWeaponParameters(0);
+            _upgradeParameters = _weaponParameters.GetWeaponParameters(0);
+        }
+        
         SetState();
         _capsuleCollider.radius = Range;
-        _enemies = new List<EnemyController>();
     }
 
     private void Update()
@@ -44,7 +55,7 @@ public class ProjectileWeapon : AbstractWeapon
         }
 
         _elapsedTime += Time.deltaTime;
-        if (_elapsedTime > Rate)
+        if (_elapsedTime > Rate && _isActive)
         {
             UseWeapon();
             _elapsedTime = 0;
@@ -129,8 +140,15 @@ public class ProjectileWeapon : AbstractWeapon
 
     public override void Upgrade()
     {
+        if (!_isActive)
+        {
+            _isActive = true;
+            _upgradeParameters = _weaponParameters.GetWeaponParameters(_currentLevel +1);
+            return;
+        }
         base.Upgrade();
         _currentParameters = _weaponParameters.GetWeaponParameters(_currentLevel);
+        _upgradeParameters = _weaponParameters.GetWeaponParameters(_currentLevel + 1);
         SetState();
     }
 

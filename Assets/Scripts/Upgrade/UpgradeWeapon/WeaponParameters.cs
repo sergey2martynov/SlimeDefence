@@ -1,10 +1,11 @@
 using System;
 using UnityEngine;
+using Upgrade;
 
 namespace UpgradeWeapon
 {
     [Serializable]
-    public class WeaponParameters
+    public class WeaponParameters : UpgradeParametersBase
     {
         [SerializeField] private int _damage;
         [SerializeField] private float _rate;

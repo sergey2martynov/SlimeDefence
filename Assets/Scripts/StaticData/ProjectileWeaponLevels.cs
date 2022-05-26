@@ -9,7 +9,7 @@ public class ProjectileWeaponLevels : ScriptableObject
 
     public ProjectileWeaponParameters GetWeaponParameters(int level)
     {
-        return _weaponParameters[level - 1];
+        return _weaponParameters[level ];
     }
 }
  

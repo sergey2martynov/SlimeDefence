@@ -8,7 +8,7 @@ public class SpawnObjectOfExpirience : MonoBehaviour
     {
         GameObject objectOfExperience;
         
-        if (enemyType == EnemyType.Weak && Random.Range(0, 10) < 1)
+        if (enemyType == EnemyType.Weak && Random.Range(0, 10) < 10)
         {
             objectOfExperience = _pool.Pool.Get();
             objectOfExperience.transform.position = transformEnemy.position;

@@ -13,27 +13,42 @@ MonoBehaviour:
   m_Name: GunLevels
   m_EditorClassIdentifier: 
   _weaponParameters:
-  - _damage: 20
+  - _name: 
+    _icon: {fileID: 0}
+    _description: 
+    _damage: 20
     _rate: 0.5
     _range: 5
     _amount: 1
     _spread: 0
-  - _damage: 60
+  - _name: 
+    _icon: {fileID: 0}
+    _description: Gun Level 2
+    _damage: 60
     _rate: 0.5
     _range: 20
     _amount: 1
     _spread: 0
-  - _damage: 20
+  - _name: 
+    _icon: {fileID: 0}
+    _description: Gun Level 3
+    _damage: 20
     _rate: 0.7
     _range: 30
     _amount: 1
     _spread: 0
-  - _damage: 0
+  - _name: 
+    _icon: {fileID: 0}
+    _description: 
+    _damage: 0
     _rate: 0
     _range: 0
     _amount: 0
     _spread: 0
-  - _damage: 0
+  - _name: 
+    _icon: {fileID: 0}
+    _description: 
+    _damage: 0
     _rate: 0
     _range: 0
     _amount: 0
