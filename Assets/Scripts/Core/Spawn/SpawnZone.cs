@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnZone : MonoBehaviour
 {
     [SerializeField] private SpawnerEnemies _spawnerEnemies;
-    [SerializeField] private SpawnObstacles _spawnObstacles;
+    [SerializeField] private SpawnerObstacles _spawnObstacles;
 
     private void OnTriggerExit(Collider other)
     {

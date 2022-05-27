@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnerEnemies : MonoBehaviour
 {
-    [SerializeField] private SpawnObjectOfExpirience _spawnObjectOfExpirience;
+    [SerializeField] private SpawnObjectOfExperience _spawnObjectOfExperience;
     [SerializeField] private List<EnemyPool> _enemyPools;
     [SerializeField] private int _maxNumberOfEnemies;
     [SerializeField] private Transform _player;
@@ -68,7 +68,7 @@ public class SpawnerEnemies : MonoBehaviour
     {
         var enemy = _enemyPools[(int) type].Pool.Get().GetComponent<EnemyController>();
          
-        enemy.Initialize(this, false, _spawnObjectOfExpirience);
+        enemy.Initialize(this, false, _spawnObjectOfExperience);
         enemy.transform.position = RandomPositionFinder.FindRandomPosition(transform, _player, -41, 15, -21, 21).position;
         _spawnedEnemies.Add(enemy);
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectOfExpirience : MonoBehaviour
 {
     [SerializeField] private float _lifeTime;
-    [SerializeField] private int _expirience;
+    [SerializeField] private int _experience;
     private ObjectOfExperiencePool _pool;
 
     public void Initialize(ObjectOfExperiencePool pool)
@@ -18,7 +18,7 @@ public class ObjectOfExpirience : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent(out PlayerController playerController))
         {
-            playerController.ProgressController.GetExperience(_expirience);
+            playerController.ProgressController.GetExperience(_experience);
             _pool.Pool.Release(gameObject);
         }
     }

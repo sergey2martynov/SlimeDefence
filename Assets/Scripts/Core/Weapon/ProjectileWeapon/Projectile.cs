@@ -1,6 +1,7 @@
 using System.Collections;
 using CodeBase.Core;
 using CodeBase.Core.Character.Enemy;
+using Core.Environment;
 using DG.Tweening;
 using UnityEngine;
 
@@ -45,6 +46,17 @@ public class Projectile : MonoBehaviour
         if (other.gameObject.TryGetComponent(out EnemyController enemyController))
         {
             enemyController.Health.GetDamage(Damage);
+            _pool.Pool.Release(gameObject);
+        }
+        
+        if (other.gameObject.TryGetComponent(out Chest chest))
+        {
+            chest.DestroyChest();
+            _pool.Pool.Release(gameObject);
+        }
+
+        if (other.gameObject.TryGetComponent(out Obstacle obstacle))
+        {
             _pool.Pool.Release(gameObject);
         }
     }

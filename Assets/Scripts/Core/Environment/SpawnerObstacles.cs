@@ -3,9 +3,9 @@ using Core.Environment;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class SpawnObstacles : MonoBehaviour
+public class SpawnerObstacles : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> _obstacles;
+    [SerializeField] private List<Obstacle> _obstacles;
     [SerializeField] private Transform _player;
     [SerializeField] private Transform _parent;
     [SerializeField] private int _maxNumberOfObstacles;

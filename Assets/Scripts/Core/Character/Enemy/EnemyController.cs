@@ -8,14 +8,14 @@ namespace CodeBase.Core.Character.Enemy
         [SerializeField] private EnemyType _enemyType;
         [SerializeField] private SpawnerEnemies _spawnerEnemies;
         [SerializeField] private int _damage;
-        [SerializeField] private SpawnObjectOfExpirience _spawnObjectOfExpirience;
+        [SerializeField] private SpawnObjectOfExperience _spawnObjectOfExpirience;
 
         public Health Health => _health;
         public bool IsDie { get; set; }
         public EnemyType EnemyType => _enemyType;
         public int Damage => _damage;
         
-        public void Initialize(SpawnerEnemies spawnerEnemies, bool isDie, SpawnObjectOfExpirience spawnObjectOfExpirience)
+        public void Initialize(SpawnerEnemies spawnerEnemies, bool isDie, SpawnObjectOfExperience spawnObjectOfExpirience)
         {
             _spawnObjectOfExpirience = spawnObjectOfExpirience;
             _spawnerEnemies = spawnerEnemies;
@@ -34,7 +34,7 @@ namespace CodeBase.Core.Character.Enemy
 
         private void Die()
         {
-            _spawnObjectOfExpirience.SpawnObjOfExperience(transform, _enemyType);
+            _spawnObjectOfExpirience.SpawnObjOfExperienceForEnemy(transform, _enemyType);
             IsDie = true;
             _spawnerEnemies.EnemyPools[(int)_enemyType].Pool.Release(gameObject);
             _spawnerEnemies.SpawnedEnemies.Remove(this);

@@ -36,14 +36,14 @@ public class Health : MonoBehaviour, IUpgradable
         
         if (_movementType == MovementType.PlayerMovement)
         {
-            _healthPoint = _healthLevels.GetHealthParameters(_currentLevel).Amount;
+            SetHealthPoint();
         }
     }
 
     public void Upgrade()
     {
         _currentLevel++;
-        _healthPoint = _healthLevels.GetHealthParameters(_currentLevel).Amount;
+        SetHealthPoint();
     }
 
     public UpgradeParametersBase GetUpgradeParameters()
@@ -54,5 +54,10 @@ public class Health : MonoBehaviour, IUpgradable
     public void ReturnHealthPoint()
     {
         _healthPoint = _enemyHealthPoint;
+    }
+
+    public void SetHealthPoint()
+    {
+        _healthPoint = _healthLevels.GetHealthParameters(_currentLevel).Amount;
     }
 }
