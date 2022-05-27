@@ -19,9 +19,9 @@ MonoBehaviour:
     _amount: 0
   - _name: 
     _icon: {fileID: 0}
-    _description: increase defense by 5
+    _description: ' defense lvl 2'
     _amount: 5
   - _name: 
     _icon: {fileID: 0}
-    _description: increase defense by 3
+    _description: defense lvl 3
     _amount: 8

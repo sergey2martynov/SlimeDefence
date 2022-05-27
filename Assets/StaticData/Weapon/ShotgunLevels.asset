@@ -15,7 +15,7 @@ MonoBehaviour:
   _weaponParameters:
   - _name: 
     _icon: {fileID: 0}
-    _description: 
+    _description: Get ShotGun
     _damage: 10
     _rate: 3
     _range: 0

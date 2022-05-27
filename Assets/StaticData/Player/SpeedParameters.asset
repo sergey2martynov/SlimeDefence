@@ -19,9 +19,9 @@ MonoBehaviour:
     _amount: 5
   - _name: 
     _icon: {fileID: 0}
-    _description: increase speed by 1
+    _description: speed lvl 2
     _amount: 6
   - _name: 
     _icon: {fileID: 0}
-    _description: increase speed by 1
+    _description: speed lvl 3
     _amount: 7
