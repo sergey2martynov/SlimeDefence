@@ -6,19 +6,22 @@ using UnityEngine.Pool;
 public class EnemyPool : AbstractPool
 {
     [SerializeField] private SpawnerEnemies _spawnerEnemies;
-    
+    [SerializeField] private Transform _player;
+
     public override GameObject CreateObject()
     {
-        var poolObject = Instantiate(_poolObject, _spawnerEnemies.FindRandomPosition().position, Quaternion.identity, _parent); 
+        var poolObject = Instantiate(_poolObject,
+            RandomPositionFinder.FindRandomPosition(transform, _player, -41, 15, -21, 21).position, Quaternion.identity,
+            _parent);
         return poolObject;
     }
-    
+
     public override void ActionOnGet(GameObject poolObject)
     {
-        poolObject.transform.position = _spawnerEnemies.FindRandomPosition().position;
+        poolObject.transform.position =
+            RandomPositionFinder.FindRandomPosition(transform, _player, -41, 15, -21, 21).position;
         poolObject.gameObject.SetActive(true);
         poolObject.GetComponent<EnemyController>().IsDie = false;
-        
     }
 
     public override void ActionOnRelease(GameObject poolObject)

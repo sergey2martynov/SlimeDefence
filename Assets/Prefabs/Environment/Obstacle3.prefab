@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: -8872242952673763066}
   - component: {fileID: 3883687784414173982}
   m_Layer: 0
-  m_Name: Obstacles3
+  m_Name: Obstacle3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using CodeBase.Core.Character.Enemy;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class SpawnerEnemies : MonoBehaviour
 {
@@ -70,39 +69,7 @@ public class SpawnerEnemies : MonoBehaviour
         var enemy = _enemyPools[(int) type].Pool.Get().GetComponent<EnemyController>();
          
         enemy.Initialize(this, false, _spawnObjectOfExpirience);
-        enemy.transform.position = FindRandomPosition().position;
+        enemy.transform.position = RandomPositionFinder.FindRandomPosition(transform, _player, -41, 15, -21, 21).position;
         _spawnedEnemies.Add(enemy);
-    }
-
-
-    public Transform FindRandomPosition()
-    {
-        var spawnVariant = Random.Range(0, 3);
-        Transform vector = transform;
-        if (spawnVariant == 0)
-        {
-            vector.position = new Vector3(
-                0,
-                0,
-                Random.Range(0, 2) == 0 ? Random.Range(-42f, -40f) : Random.Range(14f, 16f));
-        }
-        else if (spawnVariant == 1)
-        {
-            vector.position = new Vector3(
-                Random.Range(0, 2) == 0 ? Random.Range(20f, 22f) : Random.Range(-22f, -20f),
-                0,
-                0);
-        }
-        else
-        {
-            vector.position = new Vector3(
-                Random.Range(0, 2) == 0 ? Random.Range(18f, 20f) : Random.Range(-20f, -18f),
-                0,
-                Random.Range(0, 2) == 0 ? Random.Range(-42f, -40f) : Random.Range(14f, 16f));
-        }
-
-        vector.position += _player.position;
-
-        return vector;
     }
 }
