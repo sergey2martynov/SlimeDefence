@@ -1,4 +1,5 @@
 using Core.Environment;
+using Core.Environment.Chest;
 using UnityEngine;
 
 public class SpawnerСhest : MonoBehaviour
@@ -17,7 +18,7 @@ public class SpawnerСhest : MonoBehaviour
     public void SpawnChest()
     {
         var obstacle = Instantiate(_chest,
-            RandomPositionFinder.FindRandomPosition(transform, _player, -41, 15, -17, 17).position,
+            RandomPositionFinder.FindRandomPosition(-41, 15, -17, 17) + _player.position,
             Quaternion.Euler(0, Random.Range(0, 360), 0), _parent);
         obstacle.Initialize(_spawnObjectOfExperience, this, _spawnerHealthBox);
     }
@@ -25,6 +26,6 @@ public class SpawnerСhest : MonoBehaviour
     public void ChangePositionChest(Chest chest)
     {
         chest.transform.position =
-            RandomPositionFinder.FindRandomPosition(transform, _player, -41, 15, -17, 17).position;
+            RandomPositionFinder.FindRandomPosition(-41, 15, -17, 17) + _player.position;
     }
 }

@@ -6,20 +6,19 @@ namespace CodeBase.Core.Character.Enemy
     {
         [SerializeField] private Health _health;
         [SerializeField] private EnemyType _enemyType;
-        [SerializeField] private SpawnerEnemies _spawnerEnemies;
         [SerializeField] private int _damage;
-        [SerializeField] private SpawnObjectOfExperience _spawnObjectOfExpirience;
+        private SpawnObjectOfExperience _spawnObjectOfExperience;
+        private SpawnerEnemies _spawnerEnemies;
 
         public Health Health => _health;
-        public bool IsDie { get; set; }
+        public bool IsDie { get;private set; }
         public EnemyType EnemyType => _enemyType;
         public int Damage => _damage;
         
-        public void Initialize(SpawnerEnemies spawnerEnemies, bool isDie, SpawnObjectOfExperience spawnObjectOfExpirience)
+        public void Initialize(SpawnObjectOfExperience spawnObjectOfExperience)
         {
-            _spawnObjectOfExpirience = spawnObjectOfExpirience;
-            _spawnerEnemies = spawnerEnemies;
-            IsDie = isDie;
+            _spawnObjectOfExperience = spawnObjectOfExperience;
+            IsDie = false;
         }
         
         private void Start()
@@ -34,10 +33,23 @@ namespace CodeBase.Core.Character.Enemy
 
         private void Die()
         {
-            _spawnObjectOfExpirience.SpawnObjOfExperienceForEnemy(transform, _enemyType);
+            _spawnObjectOfExperience.SpawnObjOfExperienceForEnemy(transform, _enemyType);
             IsDie = true;
-            _spawnerEnemies.EnemyPools[(int)_enemyType].Pool.Release(gameObject);
-            _spawnerEnemies.SpawnedEnemies.Remove(this);
+            
+            if (_enemyType == EnemyType.MiniBoss || _enemyType == EnemyType.Boss)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                _spawnerEnemies.EnemyPools[(int)_enemyType].Pool.Release(gameObject);
+                _spawnerEnemies.SpawnedEnemies.Remove(this);
+            }
+        }
+
+        public void SetSpawnerEnemiesRef(SpawnerEnemies spawnerEnemies)
+        {
+            _spawnerEnemies = spawnerEnemies;
         }
     }
 }

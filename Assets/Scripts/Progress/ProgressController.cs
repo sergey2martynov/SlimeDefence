@@ -7,12 +7,12 @@ public class ProgressController : MonoBehaviour
     [SerializeField] private LevelState _levelState;
     [SerializeField] private ExperienceBar _experienceBar;
     [SerializeField] private PlayerController _playerController;
-
-    public event Action PlayerLeveledUp;
     
     private int _expirience;
+    public int Experience => _expirience;
 
-    public int Expirience => _expirience;
+    
+    public event Action PlayerLeveledUp;
 
     public int MaxCurrentExperience
     {

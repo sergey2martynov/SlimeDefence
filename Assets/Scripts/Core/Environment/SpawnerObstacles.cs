@@ -31,7 +31,7 @@ public class SpawnerObstacles : MonoBehaviour
     public void SpawnObstacle()
     {
         var obstacles = Instantiate(_obstacles[Random.Range(0, _obstacles.Count)],
-            RandomPositionFinder.FindRandomPosition(transform, _player, -41, 15, -17, 17).position,
+            RandomPositionFinder.FindRandomPosition(-41, 15, -17, 17) + _player.position,
             Quaternion.Euler(0, Random.Range(0, 360), 0), _parent);
         _obstacles.Add(obstacles);
     }
@@ -39,6 +39,6 @@ public class SpawnerObstacles : MonoBehaviour
     public void ChangePositionObstacle(Obstacle obstacle)
     {
         obstacle.transform.position =
-            RandomPositionFinder.FindRandomPosition(transform, _player, -41, 15, -17, 17).position;
+            RandomPositionFinder.FindRandomPosition(-41, 15, -17, 17) + _player.position;
     }
 }

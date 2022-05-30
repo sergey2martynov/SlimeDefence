@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UpgradeWeapon;
 
-[CreateAssetMenu(fileName = "WeaponLevels", menuName = "WeaponLevels", order = 51)]
+[CreateAssetMenu(fileName = "WeaponLevels", menuName = "StaticData/WeaponLevels", order = 51)]
 public class ProjectileWeaponLevels : ScriptableObject
 {
     [SerializeField] private List<ProjectileWeaponParameters> _weaponParameters;

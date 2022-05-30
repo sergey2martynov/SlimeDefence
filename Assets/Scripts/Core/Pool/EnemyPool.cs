@@ -1,7 +1,6 @@
 using CodeBase.Core;
 using CodeBase.Core.Character.Enemy;
 using UnityEngine;
-using UnityEngine.Pool;
 
 public class EnemyPool : AbstractPool
 {
@@ -11,7 +10,7 @@ public class EnemyPool : AbstractPool
     public override GameObject CreateObject()
     {
         var poolObject = Instantiate(_poolObject,
-            RandomPositionFinder.FindRandomPosition(transform, _player, -41, 15, -21, 21).position, Quaternion.identity,
+            RandomPositionFinder.FindRandomPosition(-41, 15, -21, 21) + _player.position, Quaternion.identity,
             _parent);
         return poolObject;
     }
@@ -19,9 +18,8 @@ public class EnemyPool : AbstractPool
     public override void ActionOnGet(GameObject poolObject)
     {
         poolObject.transform.position =
-            RandomPositionFinder.FindRandomPosition(transform, _player, -41, 15, -21, 21).position;
+          RandomPositionFinder.FindRandomPosition(-41, 15, -21, 21) + _player.position;
         poolObject.gameObject.SetActive(true);
-        poolObject.GetComponent<EnemyController>().IsDie = false;
     }
 
     public override void ActionOnRelease(GameObject poolObject)

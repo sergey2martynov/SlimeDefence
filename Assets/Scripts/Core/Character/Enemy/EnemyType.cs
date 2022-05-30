@@ -2,5 +2,7 @@
 {
     Weak,
     Average,
-    Strong
+    Strong,
+    MiniBoss,
+    Boss
 }

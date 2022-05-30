@@ -90,7 +90,7 @@ public class ProjectileWeapon : AbstractWeapon
 
         _direction = _targetType switch
         {
-            TargetType.Nearest => FindNearbyEnemy().transform.position - transform.position + new Vector3(0, 2, 0),
+            TargetType.Nearest => FindNearbyEnemy().transform.position - transform.position + new Vector3(0, 1, 0),
             TargetType.Random => new Vector3
             (
                 Random.Range(0, 2) == 0 ? Random.Range(3f, 5f) : Random.Range(-5f, -3f),

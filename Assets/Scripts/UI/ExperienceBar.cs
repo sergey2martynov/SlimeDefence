@@ -10,7 +10,7 @@ public class ExperienceBar : MonoBehaviour
     private void Start()
     {
         SetMaxValue();
-        _slider.value = _progressController.Expirience;
+        _slider.value = _progressController.Experience;
     }
 
     public void SetMaxValue()

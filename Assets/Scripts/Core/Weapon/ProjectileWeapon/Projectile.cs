@@ -2,6 +2,7 @@ using System.Collections;
 using CodeBase.Core;
 using CodeBase.Core.Character.Enemy;
 using Core.Environment;
+using Core.Environment.Chest;
 using DG.Tweening;
 using UnityEngine;
 
@@ -15,6 +16,8 @@ public class Projectile : MonoBehaviour
 
     public void Initialize(int damage,Vector3 direction, GunshotProjectilePool pool,Transform currentPos,  float speed, float lifeTime = 1f)
     {
+        var startPosOffset = new Vector3(0, 1, 0);
+        
         var transformProjectile = transform;
         Damage = damage;
         _direction = direction;
@@ -22,7 +25,8 @@ public class Projectile : MonoBehaviour
         _speed = speed;
         transformProjectile.forward = direction;
         _pool = pool;
-        transformProjectile.position = currentPos.position;
+        transformProjectile.position = currentPos.position + startPosOffset;
+        
         StartCoroutine(DestoryOnTime());
     }
 

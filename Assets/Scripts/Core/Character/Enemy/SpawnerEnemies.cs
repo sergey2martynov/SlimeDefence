@@ -1,19 +1,22 @@
 using System.Collections.Generic;
 using CodeBase.Core.Character.Enemy;
+using DG.Tweening;
+using DG.Tweening.Core;
 using UnityEngine;
 
 public class SpawnerEnemies : MonoBehaviour
 {
     [SerializeField] private SpawnObjectOfExperience _spawnObjectOfExperience;
     [SerializeField] private List<EnemyPool> _enemyPools;
-    [SerializeField] private int _maxNumberOfEnemies;
-    [SerializeField] private Transform _player;
-    [SerializeField] private float _currentTimeForWeakEnemy;
-    [SerializeField] private float _currentTimeForAverageEnemy;
-    [SerializeField] private float _currentTimeForStrongEnemy;
     [SerializeField] private AnimationCurve _spawnIntervalWeakEnemy;
     [SerializeField] private AnimationCurve _spawnIntervalAverageEnemy;
     [SerializeField] private AnimationCurve _spawnIntervalStrongEnemy;
+    [SerializeField] private TimeCounter _timeCounter;
+    [SerializeField] private int _maxNumberOfEnemies;
+    
+    private float _currentTimeForWeakEnemy;
+    private float _currentTimeForAverageEnemy;
+    private float _currentTimeForStrongEnemy;
 
     private float _elapsedTimeForWeak;
     private float _elapsedTimeForAverage;
@@ -30,6 +33,12 @@ public class SpawnerEnemies : MonoBehaviour
         _currentTimeForAverageEnemy = _spawnIntervalAverageEnemy.Evaluate(_elapsedTimeForWeak);
         _currentTimeForStrongEnemy = _spawnIntervalStrongEnemy.Evaluate(_elapsedTimeForWeak);
         _spawnedEnemies = new List<EnemyController>();
+        _timeCounter.FinalStageBegun += RemoveAllEnemies;
+    }
+
+    private void OnDestroy()
+    {
+        _timeCounter.FinalStageBegun -= RemoveAllEnemies;
     }
 
     private void Update()
@@ -39,7 +48,7 @@ public class SpawnerEnemies : MonoBehaviour
         _elapsedTimeForAverage += Time.deltaTime;
         _elapsedTimeForStrong += Time.deltaTime;
 
-        if (_spawnedEnemies.Count < _maxNumberOfEnemies)
+        if (_spawnedEnemies.Count < _maxNumberOfEnemies && !_timeCounter.IsFinalStageLevel)
         {
             if (_elapsedTimeForWeak > _currentTimeForWeakEnemy)
             {
@@ -67,9 +76,24 @@ public class SpawnerEnemies : MonoBehaviour
     private void SpawnEnemy(EnemyType type)
     {
         var enemy = _enemyPools[(int) type].Pool.Get().GetComponent<EnemyController>();
-         
-        enemy.Initialize(this, false, _spawnObjectOfExperience);
-        enemy.transform.position = RandomPositionFinder.FindRandomPosition(transform, _player, -41, 15, -21, 21).position;
+
+        enemy.Initialize(_spawnObjectOfExperience);
+        enemy.SetSpawnerEnemiesRef(this);
         _spawnedEnemies.Add(enemy);
+    }
+
+    private void RemoveAllEnemies()
+    {
+        var count = _spawnedEnemies.Count;
+        
+        DOTween.Sequence().AppendInterval(0.5f).OnComplete(() =>
+        {
+            
+        });
+        
+        for (int i = 0; i < count; i++)
+        {
+            _spawnedEnemies[i].gameObject.SetActive(false);
+        }
     }
 }
