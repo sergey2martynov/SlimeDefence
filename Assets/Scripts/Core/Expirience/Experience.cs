@@ -2,13 +2,13 @@ using System.Collections;
 using Core.Character.Player;
 using UnityEngine;
 
-public class ObjectOfExpirience : MonoBehaviour
+public class Experience : MonoBehaviour
 {
     [SerializeField] private float _lifeTime;
     [SerializeField] private int _experience;
-    private ObjectOfExperiencePool _pool;
+    private ExperiencePool _pool;
 
-    public void Initialize(ObjectOfExperiencePool pool)
+    public void Initialize(ExperiencePool pool)
     {
         _pool = pool;
         StartCoroutine(DestroyOnTime());
@@ -16,7 +16,7 @@ public class ObjectOfExpirience : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent(out PlayerController playerController))
+        if (other.gameObject.TryGetComponent(out Player playerController))
         {
             playerController.ProgressController.GetExperience(_experience);
             _pool.Pool.Release(gameObject);

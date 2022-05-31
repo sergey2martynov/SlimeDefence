@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using Upgrade;
 
-namespace Upgrade.UI
+namespace UI.UpgradeMenu
 {
     public class UpgradeTile : MonoBehaviour
     {
@@ -10,10 +11,9 @@ namespace Upgrade.UI
         [SerializeField] private Text _name;
         [SerializeField] private Text _description;
         [SerializeField] private Image _icon;
-        private IUpgradable _iUpgradable;
         private LevelUpMenuDisabler _disabler;
 
-        public void Initialize(IUpgradable iUpgradable, LevelUpMenuDisabler disabler)
+        public void Initialize(Upgradable iUpgradable, LevelUpMenuDisabler disabler)
         {
             UpgradeParametersBase upgradeParameters = iUpgradable.GetUpgradeParameters();
             

@@ -1,32 +1,20 @@
 using System.Collections.Generic;
-using CodeBase.Core.Character;
 using UnityEngine;
 using Upgrade;
 
 public class UpgradeManager : MonoBehaviour
 {
-    [SerializeField] private Defence _defence;
-    [SerializeField] private Health _health;
-    [SerializeField] private Movement _movement;
-    [SerializeField] private AbstractWeapon _gun;
-    [SerializeField] private AbstractWeapon _shotGun;
+    [SerializeField] private List<Upgradable> _activeUpgradableObjects;
+    [SerializeField] private List<Upgradable> _inactiveUpgradableObjects;
     [SerializeField] private int _maxUpgradableObjects = 9;
 
-    private List<IUpgradable> _activeUpgradableObjects;
-    private List<IUpgradable> _inactiveUpgradableObjects;
-    private void Start()
-    {
-        _activeUpgradableObjects = new List<IUpgradable>() {_health, _defence, _movement, _gun};
-        _inactiveUpgradableObjects = new List<IUpgradable>() {_shotGun};
-    }
-
-    public List<IUpgradable> GetNewLevelUpgrades()
+    public List<Upgradable> GetNewLevelUpgrades()
     {
         CheckOfActiveObjects();
         
-        List<IUpgradable> combainedUpgradables = new List<IUpgradable>();
+        List<Upgradable> combainedUpgradables = new List<Upgradable>();
         
-        List<IUpgradable> returnedUpgradables = new List<IUpgradable>();
+        List<Upgradable> returnedUpgradables = new List<Upgradable>();
         
         combainedUpgradables.AddRange(_activeUpgradableObjects);
 

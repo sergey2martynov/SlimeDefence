@@ -7,7 +7,7 @@ using Upgrade;
 namespace CodeBase.Core.Character
 {
     [RequireComponent(typeof(CharacterController))]
-    public class Movement : MonoBehaviour, IUpgradable
+    public class Movement : Upgradable
     {
         [SerializeField] private float _speed;
         [SerializeField] private SpeedLevels _speedLevels;
@@ -17,8 +17,6 @@ namespace CodeBase.Core.Character
         private Vector3 _direction;
         private int _currentLevel;
         private bool _isRemovedPositionY;
-
-        public int CurrentLevel => _currentLevel;
 
         private void Awake()
         {
@@ -50,13 +48,13 @@ namespace CodeBase.Core.Character
             }
         }
 
-        public void Upgrade()
+        public override void Upgrade()
         {
             _currentLevel++;
             _speed = _speedLevels.GetSpeedParameters(_currentLevel).Amount;
         }
 
-        public UpgradeParametersBase GetUpgradeParameters()
+        public override UpgradeParametersBase GetUpgradeParameters()
         {
             return _speedLevels.GetSpeedParameters(_currentLevel + 1);
         }

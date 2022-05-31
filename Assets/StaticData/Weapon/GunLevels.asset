@@ -24,32 +24,40 @@ MonoBehaviour:
   - _name: 
     _icon: {fileID: 0}
     _description: Gun Level 2
-    _damage: 60
+    _damage: 30
     _rate: 0.5
-    _range: 20
+    _range: 5
     _amount: 1
     _spread: 0
   - _name: 
     _icon: {fileID: 0}
     _description: Gun Level 3
-    _damage: 20
-    _rate: 0.7
-    _range: 30
+    _damage: 30
+    _rate: 0.5
+    _range: 10
     _amount: 1
     _spread: 0
   - _name: 
     _icon: {fileID: 0}
-    _description: 
-    _damage: 0
-    _rate: 0
-    _range: 0
-    _amount: 0
+    _description: Gun Level 4
+    _damage: 30
+    _rate: 0.7
+    _range: 10
+    _amount: 1
     _spread: 0
   - _name: 
     _icon: {fileID: 0}
-    _description: 
-    _damage: 0
-    _rate: 0
-    _range: 0
-    _amount: 0
+    _description: Gun Level 5
+    _damage: 35
+    _rate: 0.7
+    _range: 10
+    _amount: 1
+    _spread: 0
+  - _name: 
+    _icon: {fileID: 0}
+    _description: Gun Level 5
+    _damage: 35
+    _rate: 0.7
+    _range: 10
+    _amount: 1
     _spread: 0

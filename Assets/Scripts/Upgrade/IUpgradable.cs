@@ -1,9 +1,21 @@
-﻿namespace Upgrade
+﻿using UnityEngine;
+
+namespace Upgrade
 {
-    public interface IUpgradable
+    public abstract class Upgradable : MonoBehaviour
     {
         public int CurrentLevel { get; }
-        public void Upgrade();
-        public UpgradeParametersBase GetUpgradeParameters();
+
+        private UpgradeParametersBase _upgradeParametersBase;
+
+        public virtual void Upgrade()
+        {
+            
+        }
+
+        public virtual UpgradeParametersBase GetUpgradeParameters()
+        {
+            return _upgradeParametersBase;
+        }
     }
 }

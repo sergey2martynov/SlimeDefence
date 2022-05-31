@@ -1,19 +1,20 @@
 using System.Collections.Generic;
 using CodeBase.Core.Character.Enemy;
 using DG.Tweening;
-using DG.Tweening.Core;
+using StaticData.Enemy;
 using UnityEngine;
 
 public class SpawnerEnemies : MonoBehaviour
 {
+    [SerializeField] private EnemySpawnIntervals _enemySpawnIntervals;
+    [SerializeField] private StagesLevel _stagesLevel;
     [SerializeField] private SpawnObjectOfExperience _spawnObjectOfExperience;
     [SerializeField] private List<EnemyPool> _enemyPools;
-    [SerializeField] private AnimationCurve _spawnIntervalWeakEnemy;
-    [SerializeField] private AnimationCurve _spawnIntervalAverageEnemy;
-    [SerializeField] private AnimationCurve _spawnIntervalStrongEnemy;
+    [SerializeField] private List<AnimationCurve> _spawnIntervals;
     [SerializeField] private TimeCounter _timeCounter;
     [SerializeField] private int _maxNumberOfEnemies;
-    
+
+
     private float _currentTimeForWeakEnemy;
     private float _currentTimeForAverageEnemy;
     private float _currentTimeForStrongEnemy;
@@ -23,16 +24,26 @@ public class SpawnerEnemies : MonoBehaviour
     private float _elapsedTimeForStrong;
     private float _currentTime;
 
-    private List<EnemyController> _spawnedEnemies;
-    public List<EnemyController> SpawnedEnemies => _spawnedEnemies;
+    private List<Enemy> _spawnedEnemies;
+    public List<Enemy> SpawnedEnemies => _spawnedEnemies;
     public List<EnemyPool> EnemyPools => _enemyPools;
+
+    private void SetKeysCurve()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            _spawnIntervals[i] = AnimationCurve.Linear(0, _enemySpawnIntervals.FirstCurveValue[i],
+                _stagesLevel.LevelDuration, _enemySpawnIntervals.LastCurveValue[i]);
+        }
+    }
 
     private void Start()
     {
-        _currentTimeForWeakEnemy = _spawnIntervalWeakEnemy.Evaluate(_elapsedTimeForWeak);
-        _currentTimeForAverageEnemy = _spawnIntervalAverageEnemy.Evaluate(_elapsedTimeForWeak);
-        _currentTimeForStrongEnemy = _spawnIntervalStrongEnemy.Evaluate(_elapsedTimeForWeak);
-        _spawnedEnemies = new List<EnemyController>();
+        _currentTimeForWeakEnemy = _spawnIntervals[0].Evaluate(_elapsedTimeForWeak);
+        _currentTimeForAverageEnemy = _spawnIntervals[1].Evaluate(_elapsedTimeForWeak);
+        _currentTimeForStrongEnemy = _spawnIntervals[2].Evaluate(_elapsedTimeForWeak);
+        _spawnedEnemies = new List<Enemy>();
+        SetKeysCurve();
         _timeCounter.FinalStageBegun += RemoveAllEnemies;
     }
 
@@ -53,21 +64,21 @@ public class SpawnerEnemies : MonoBehaviour
             if (_elapsedTimeForWeak > _currentTimeForWeakEnemy)
             {
                 SpawnEnemy(EnemyType.Weak);
-                _currentTimeForWeakEnemy = _spawnIntervalWeakEnemy.Evaluate(_currentTime);
+                _currentTimeForWeakEnemy = _spawnIntervals[0].Evaluate(_currentTime);
                 _elapsedTimeForWeak = 0;
             }
 
             if (_elapsedTimeForAverage > _currentTimeForAverageEnemy)
             {
                 SpawnEnemy(EnemyType.Average);
-                _currentTimeForAverageEnemy = _spawnIntervalAverageEnemy.Evaluate(_currentTime);
+                _currentTimeForAverageEnemy = _spawnIntervals[1].Evaluate(_currentTime);
                 _elapsedTimeForAverage = 0;
             }
 
             if (_elapsedTimeForStrong > _currentTimeForStrongEnemy)
             {
                 SpawnEnemy(EnemyType.Strong);
-                _currentTimeForStrongEnemy = _spawnIntervalStrongEnemy.Evaluate(_currentTime);
+                _currentTimeForStrongEnemy = _spawnIntervals[2].Evaluate(_currentTime);
                 _elapsedTimeForStrong = 0;
             }
         }
@@ -75,7 +86,7 @@ public class SpawnerEnemies : MonoBehaviour
 
     private void SpawnEnemy(EnemyType type)
     {
-        var enemy = _enemyPools[(int) type].Pool.Get().GetComponent<EnemyController>();
+        var enemy = _enemyPools[(int) type].Pool.Get().GetComponent<Enemy>();
 
         enemy.Initialize(_spawnObjectOfExperience);
         enemy.SetSpawnerEnemiesRef(this);
@@ -85,12 +96,9 @@ public class SpawnerEnemies : MonoBehaviour
     private void RemoveAllEnemies()
     {
         var count = _spawnedEnemies.Count;
-        
-        DOTween.Sequence().AppendInterval(0.5f).OnComplete(() =>
-        {
-            
-        });
-        
+
+        DOTween.Sequence().AppendInterval(0.5f).OnComplete(() => { });
+
         for (int i = 0; i < count; i++)
         {
             _spawnedEnemies[i].gameObject.SetActive(false);

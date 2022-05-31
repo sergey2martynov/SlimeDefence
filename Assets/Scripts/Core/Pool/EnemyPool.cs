@@ -27,6 +27,6 @@ public class EnemyPool : AbstractPool
         poolObject.GetComponent<Health>().ReturnHealthPoint();
         poolObject.SetActive(false);
         poolObject.transform.position = new Vector3(0, -100, 0);
-        _spawnerEnemies.SpawnedEnemies.Remove(poolObject.GetComponent<EnemyController>());
+        _spawnerEnemies.SpawnedEnemies.Remove(poolObject.GetComponent<Enemy>());
     }
 }

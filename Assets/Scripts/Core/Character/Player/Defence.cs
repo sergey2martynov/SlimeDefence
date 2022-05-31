@@ -1,8 +1,9 @@
 using StaticData;
+using StaticData.Player;
 using UnityEngine;
 using Upgrade;
 
-public class Defence : MonoBehaviour, IUpgradable
+public class Defence :Upgradable
 {
     [SerializeField] private int _defence;
     [SerializeField] private DefenceLevels _defenceLevels;
@@ -18,13 +19,13 @@ public class Defence : MonoBehaviour, IUpgradable
         _defence = _defenceLevels.GetDefenceParameters(_currentLevel).Amount;
     }
 
-    public void Upgrade()
+    public override void Upgrade()
     {
         _currentLevel++;
         _defence = _defenceLevels.GetDefenceParameters(_currentLevel).Amount;
     }
 
-    public UpgradeParametersBase GetUpgradeParameters()
+    public override UpgradeParametersBase GetUpgradeParameters()
     {
         return _defenceLevels.GetDefenceParameters(_currentLevel +1);
     }

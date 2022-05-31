@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a8661b724226d41aa2e75595d33a54, type: 3}
   m_Name: StagesLevel
   m_EditorClassIdentifier: 
-  _timesOfSpawnBosses: 0a000000280000002c010000
-  _levelDuration: 60
+  _timesOfSpawnBosses: 64000000c80000002c010000
+  _levelDuration: 300

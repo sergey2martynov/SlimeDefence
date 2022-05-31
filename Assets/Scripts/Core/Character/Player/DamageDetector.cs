@@ -8,7 +8,7 @@ public class DamageDetector : MonoBehaviour
     private float _elapsedTime;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent(out EnemyController enemyController))
+        if (other.gameObject.TryGetComponent(out Enemy enemyController))
         {
             _health.GetDamage(enemyController.Damage);
         }
@@ -18,7 +18,7 @@ public class DamageDetector : MonoBehaviour
     {
         _elapsedTime += Time.deltaTime;
 
-        if (_elapsedTime > 2 && other.gameObject.TryGetComponent(out EnemyController enemyController))
+        if (_elapsedTime > 2 && other.gameObject.TryGetComponent(out Enemy enemyController))
         {
             _health.GetDamage(enemyController.Damage);
             _elapsedTime = 0;

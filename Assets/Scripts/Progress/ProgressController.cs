@@ -1,12 +1,13 @@
 using System;
 using Core.Character.Player;
+using StaticData.Player;
 using UnityEngine;
 
 public class ProgressController : MonoBehaviour
 {
-    [SerializeField] private LevelState _levelState;
+    [SerializeField] private PlayerLevelStages _levelState;
     [SerializeField] private ExperienceBar _experienceBar;
-    [SerializeField] private PlayerController _playerController;
+    [SerializeField] private Player _player;
     
     private int _expirience;
     public int Experience => _expirience;
@@ -18,12 +19,12 @@ public class ProgressController : MonoBehaviour
     {
         get
         {
-            if (_playerController.CurrentLevel == 0)
+            if (_player.CurrentLevel == 0)
             {
                 return _levelState.Experience[0];
             }
             
-            return _levelState.Experience[_playerController.CurrentLevel - 1];
+            return _levelState.Experience[_player.CurrentLevel - 1];
         }
     }
 
@@ -35,7 +36,7 @@ public class ProgressController : MonoBehaviour
         {
             PlayerLeveledUp?.Invoke();
             _expirience = 0;
-            _playerController.AddedPlayerLevel();
+            _player.AddedPlayerLevel();
             _experienceBar.SetMaxValue();
         }
 

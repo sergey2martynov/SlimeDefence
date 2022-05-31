@@ -4,7 +4,7 @@ using StaticData;
 using UnityEngine;
 using Upgrade;
 
-public class Health : MonoBehaviour, IUpgradable
+public class Health : Upgradable
 {
     [SerializeField] private int _healthPoint;
     [SerializeField] private Defence _defence;
@@ -14,11 +14,10 @@ public class Health : MonoBehaviour, IUpgradable
     private int _enemyHealthPoint;
     private int _currentLevel;
 
-    public int CurrentLevel => _currentLevel;
-
     public int HealthPoint => _healthPoint;
 
     public event Action HealthIsOver;
+    public event Action<int> MaxHealthChanged;
 
     public void GetDamage(int damageTaken)
     {
@@ -40,13 +39,14 @@ public class Health : MonoBehaviour, IUpgradable
         }
     }
 
-    public void Upgrade()
+    public override void Upgrade()
     {
         _currentLevel++;
         SetHealthPoint();
+        MaxHealthChanged?.Invoke(_healthPoint);
     }
 
-    public UpgradeParametersBase GetUpgradeParameters()
+    public override UpgradeParametersBase GetUpgradeParameters()
     {
         return _healthLevels.GetHealthParameters(_currentLevel + 1);
     }

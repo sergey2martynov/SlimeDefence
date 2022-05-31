@@ -11,7 +11,7 @@ public class SpawnZone : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.TryGetComponent(out EnemyController enemyController))
+        if (other.gameObject.TryGetComponent(out Enemy enemyController))
         {
             if (enemyController.EnemyType != EnemyType.MiniBoss && enemyController.EnemyType != EnemyType.Boss)
             {

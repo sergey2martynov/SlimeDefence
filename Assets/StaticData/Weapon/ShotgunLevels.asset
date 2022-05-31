@@ -16,40 +16,40 @@ MonoBehaviour:
   - _name: 
     _icon: {fileID: 0}
     _description: Get ShotGun
-    _damage: 10
+    _damage: 5
     _rate: 3
     _range: 0
-    _amount: 4
+    _amount: 3
     _spread: 30
   - _name: 
     _icon: {fileID: 0}
     _description: Shotgun Level 2
-    _damage: 15
-    _rate: 2
+    _damage: 5
+    _rate: 3
     _range: 0
-    _amount: 20
-    _spread: 60
+    _amount: 6
+    _spread: 30
   - _name: 
     _icon: {fileID: 0}
     _description: Shotgun Level 3
-    _damage: 20
-    _rate: 1
+    _damage: 10
+    _rate: 3
     _range: 0
-    _amount: 40
+    _amount: 6
+    _spread: 30
+  - _name: 
+    _icon: {fileID: 0}
+    _description: Shotgun Level 4
+    _damage: 10
+    _rate: 3
+    _range: 0
+    _amount: 9
     _spread: 60
   - _name: 
     _icon: {fileID: 0}
-    _description: 
-    _damage: 0
-    _rate: 0
+    _description: Shotgun Level 5
+    _damage: 10
+    _rate: 2
     _range: 0
-    _amount: 0
-    _spread: 0
-  - _name: 
-    _icon: {fileID: 0}
-    _description: 
-    _damage: 0
-    _rate: 0
-    _range: 0
-    _amount: 0
-    _spread: 0
+    _amount: 9
+    _spread: 60

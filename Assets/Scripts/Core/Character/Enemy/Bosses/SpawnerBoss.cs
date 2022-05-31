@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SpawnerBoss : MonoBehaviour
 {
-    [SerializeField] private EnemyController _miniBoss;
-    [SerializeField] private EnemyController _finalBoss;
+    [SerializeField] private Enemy _miniBoss;
+    [SerializeField] private Enemy _finalBoss;
     [SerializeField] private StagesLevel _stagesLevel;
     [SerializeField] private Transform _player;
     [SerializeField] private Transform _parent;
@@ -15,35 +15,34 @@ public class SpawnerBoss : MonoBehaviour
     private int _currentIndex;
     private Vector3 _offsetPositionMiniBoss;
     private Vector3 _offsetPositionFinalBoss;
-    private bool _isFinalBossSpawned;
-
-
+    
     private void Start()
     {
         _offsetPositionMiniBoss = new Vector3(0, 0, -40);
         _offsetPositionFinalBoss = new Vector3(0, 0, -20);
         _timeCounter.FinalStageBegun += SpawnFinalBoss;
+        _timeCounter.IntermediateStageBegun += SpawnMiniBoss;
     }
 
     private void OnDestroy()
     {
         _timeCounter.FinalStageBegun -= SpawnFinalBoss;
+        _timeCounter.IntermediateStageBegun -= SpawnMiniBoss;
     }
 
-    private void Update()
+    private void SpawnBoss(Enemy enemy, Vector3 offset)
     {
-        if (_stagesLevel.TimesOfSpawnBosses[_currentIndex] < _timeCounter.ElapsedTime && !_isFinalBossSpawned)
-        {
-            var miniBoss = Instantiate(_miniBoss, _player.position + _offsetPositionMiniBoss, Quaternion.identity, _parent);
-            miniBoss.Initialize(_spawnObjectOfExperience);
-            _currentIndex++;
-        }
+        var finalBoss = Instantiate(enemy, _player.position + offset, Quaternion.identity, _parent);
+        finalBoss.Initialize(_spawnObjectOfExperience);
     }
 
     private void SpawnFinalBoss()
     {
-        _isFinalBossSpawned = true;
-        var finalBoss = Instantiate(_finalBoss, _player.position + _offsetPositionFinalBoss, Quaternion.identity, _parent);
-        finalBoss.Initialize(_spawnObjectOfExperience);
+        SpawnBoss(_finalBoss, _offsetPositionFinalBoss);
+    }
+    
+    private void SpawnMiniBoss()
+    {
+        SpawnBoss(_miniBoss, _offsetPositionMiniBoss);
     }
 }

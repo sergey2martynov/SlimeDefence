@@ -1,9 +1,10 @@
 using Core.Character.Player;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PikUpRadius : MonoBehaviour
 {
-   [SerializeField] private PlayerController _playerController;
+   [SerializeField] private Player _player;
 
-   public PlayerController Controller => _playerController;
+   public Player Controller => _player;
 }

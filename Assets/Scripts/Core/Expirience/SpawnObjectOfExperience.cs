@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SpawnObjectOfExperience : MonoBehaviour
 {
-    [SerializeField] private ObjectOfExperiencePool _pool;
+    [SerializeField] private ExperiencePool _pool;
 
     public void SpawnObjOfExperienceForEnemy(Transform transformEnemy, EnemyType enemyType)
     {

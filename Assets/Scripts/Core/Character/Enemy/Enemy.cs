@@ -2,7 +2,7 @@
 
 namespace CodeBase.Core.Character.Enemy
 {
-    public class EnemyController : MonoBehaviour
+    public class Enemy : MonoBehaviour
     {
         [SerializeField] private Health _health;
         [SerializeField] private EnemyType _enemyType;

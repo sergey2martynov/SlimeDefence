@@ -47,7 +47,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent(out EnemyController enemyController))
+        if (other.gameObject.TryGetComponent(out Enemy enemyController))
         {
             enemyController.Health.GetDamage(Damage);
             _pool.Pool.Release(gameObject);

@@ -5,24 +5,36 @@ public class HealthBarFiller : MonoBehaviour
 {
     [SerializeField] private Slider _slider;
     [SerializeField] private Health _health;
-    
-    private int maxValue;
+
+    private int _maxValue;
+
     private Color color = Color.green;
-	
+
     private void Start()
     {
-        maxValue = _health.HealthPoint;
+        _maxValue = _health.HealthPoint;
         _slider.fillRect.GetComponent<Image>().color = color;
 
-        _slider.maxValue = maxValue;
+        _slider.maxValue = _maxValue;
         _slider.minValue = 0;
+
+        _health.MaxHealthChanged += UpdateMaxValue;
     }
-	
-    private void Update () 
+
+    private void OnDestroy()
     {
-        if(_slider.value < 0) _slider.value = 0;
-        if(_slider.value > maxValue) _slider.value = maxValue;
+        _health.MaxHealthChanged -= UpdateMaxValue;
+    }
+
+    private void Update()
+    {
+        if (_slider.value < 0) _slider.value = 0;
+        if (_slider.value > _maxValue) _slider.value = _maxValue;
         _slider.value = _health.HealthPoint;
     }
 
+    private void UpdateMaxValue(int maxHealth)
+    {
+        _slider.maxValue = maxHealth;
+    }
 }

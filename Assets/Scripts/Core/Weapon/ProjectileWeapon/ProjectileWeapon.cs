@@ -6,7 +6,7 @@ using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
-public class ProjectileWeapon : AbstractWeapon
+public class ProjectileWeapon : Weapon
 {
     [SerializeField] private ProjectileWeaponLevels _weaponParameters;
     [SerializeField] private GunshotProjectilePool _gunshotProjectilePool;
@@ -21,14 +21,14 @@ public class ProjectileWeapon : AbstractWeapon
     private ProjectileWeaponParameters _currentParameters;
 
 
-    private List<EnemyController> _enemies;
+    private List<Enemy> _enemies;
     private float _elapsedTime;
     private float _distance = 100;
     private Vector3 _direction;
 
     private void Start()
     {
-        _enemies = new List<EnemyController>();
+        _enemies = new List<Enemy>();
         
         if (_isActive)
         {
@@ -48,7 +48,7 @@ public class ProjectileWeapon : AbstractWeapon
     {
         for (int i = 0; i < _enemies.Count; i++)
         {
-            if (_enemies[i].IsDie)
+            if (_enemies[i].IsDie || !_enemies[i].isActiveAndEnabled)
             {
                 _enemies.Remove(_enemies[i]);
             }
@@ -62,7 +62,7 @@ public class ProjectileWeapon : AbstractWeapon
         }
     }
 
-    private EnemyController FindNearbyEnemy()
+    private Enemy FindNearbyEnemy()
     {
         float minDistance = Vector2.Distance(_player.position, _enemies[0].transform.position);
         int indexOfEnemies = 0;
@@ -119,7 +119,7 @@ public class ProjectileWeapon : AbstractWeapon
 
     private void OnTriggerEnter(Collider other)
     {
-        EnemyController enemy = other.gameObject.GetComponent<EnemyController>();
+        Enemy enemy = other.gameObject.GetComponent<Enemy>();
 
         if (enemy != null)
         {
@@ -131,7 +131,7 @@ public class ProjectileWeapon : AbstractWeapon
     {
         for (int i = 0; i < _enemies.Count; i++)
         {
-            if (other.gameObject.GetComponent<EnemyController>() == _enemies[i])
+            if (other.gameObject.GetComponent<Enemy>() == _enemies[i])
             {
                 _enemies.Remove(_enemies[i]);
             }

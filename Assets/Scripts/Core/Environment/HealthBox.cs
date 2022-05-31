@@ -7,7 +7,7 @@ namespace Core.Environment
     {
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.TryGetComponent(out PlayerController playerController))
+            if (other.gameObject.TryGetComponent(out Player playerController))
             {
                 playerController.Health.SetHealthPoint();
                 gameObject.SetActive(false);

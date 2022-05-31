@@ -1,7 +1,7 @@
 using UnityEngine;
 using Upgrade;
 
-public abstract class AbstractWeapon : MonoBehaviour, IUpgradable
+public abstract class Weapon : Upgradable
 {
     [SerializeField] protected int _damage;
     [SerializeField] protected float _rate;
@@ -23,7 +23,7 @@ public abstract class AbstractWeapon : MonoBehaviour, IUpgradable
         
     }
 
-    public virtual void Upgrade()
+    public override void Upgrade()
     {
         if (!gameObject.activeSelf)
         {
@@ -33,7 +33,7 @@ public abstract class AbstractWeapon : MonoBehaviour, IUpgradable
         _currentLevel++;
     }
 
-    public UpgradeParametersBase GetUpgradeParameters()
+    public override UpgradeParametersBase GetUpgradeParameters()
     {
         return _upgradeParameters;
     }

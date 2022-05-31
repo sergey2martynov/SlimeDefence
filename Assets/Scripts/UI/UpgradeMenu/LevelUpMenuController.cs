@@ -1,6 +1,6 @@
 using System.Collections.Generic;
+using UI.UpgradeMenu;
 using UnityEngine;
-using Upgrade.UI;
 
 public class LevelUpMenuController : MonoBehaviour
 {
