@@ -2,6 +2,7 @@ using System;
 using Core.Character;
 using StaticData;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Upgrade;
 
 public class Health : Upgradable
@@ -9,10 +10,9 @@ public class Health : Upgradable
     [SerializeField] private int _healthPoint;
     [SerializeField] private Defence _defence;
     [SerializeField] private HealthLevels _healthLevels;
-    [SerializeField] private MovementType _movementType;
+    [FormerlySerializedAs("_movementType")] [SerializeField] private CharacterType _characterType;
 
     private int _enemyHealthPoint;
-    private int _currentLevel;
 
     public int HealthPoint => _healthPoint;
 
@@ -33,9 +33,10 @@ public class Health : Upgradable
     {
         _enemyHealthPoint = _healthPoint;
 
-        if (_movementType == MovementType.PlayerMovement)
+        if (_characterType == CharacterType.Player)
         {
             SetHealthPoint();
+            MaxLevel = _healthLevels.GetMaxNumberOfLevel();
         }
     }
 

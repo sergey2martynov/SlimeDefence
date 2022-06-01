@@ -9,11 +9,6 @@ public abstract class Weapon : Upgradable
 
     protected UpgradeParametersBase _upgradeParameters;
 
-    
-    protected int _currentLevel;
-
-    public int CurrentLevel => _currentLevel;
-
     public int Damage => _damage;
     public float Rate => _rate;
     public float Range => _range;

@@ -12,4 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09853bb01d47884a90b59a0f400568a, type: 3}
   m_Name: EnemySpawnIntervals
   m_EditorClassIdentifier: 
-  _spawnParameters: []
+  _firstCurveValue:
+  - 2.8
+  - 4
+  - 6
+  _lastCurveValue:
+  - 0.2
+  - 0.4
+  - 0.6

@@ -23,6 +23,10 @@ PrefabInstance:
       propertyPath: _movementType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 329286636043561855, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
+      propertyPath: _characterType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1437842649254418075, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: _damage
       value: 10
@@ -115,6 +119,10 @@ PrefabInstance:
       propertyPath: _movementType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6742871518922038233, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
+      propertyPath: _characterType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7485599467530226675, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: m_Name
       value: Bot1
@@ -140,3 +148,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _defence: 0
   _defenceLevels: {fileID: 11400000, guid: 54e28612bdb7ec64c9f94acfd0b2cdd3, type: 2}
+  _characterType: 1

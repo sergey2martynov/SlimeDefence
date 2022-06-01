@@ -12,5 +12,10 @@ namespace StaticData
         {
             return _playerParameters[level];
         }
+        
+        public int GetMaxNumberOfLevel()
+        {
+            return _playerParameters.Count - 1;
+        }
     }
 }

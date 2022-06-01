@@ -1,48 +1,50 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Upgrade;
 
 public class UpgradeManager : MonoBehaviour
 {
-    [SerializeField] private List<Upgradable> _activeUpgradableObjects;
-    [SerializeField] private List<Upgradable> _inactiveUpgradableObjects;
+    [SerializeField] private List<Upgradable> _upgradableObjects;
     [SerializeField] private int _maxUpgradableObjects = 9;
 
     public List<Upgradable> GetNewLevelUpgrades()
     {
-        CheckOfActiveObjects();
-        
-        List<Upgradable> combainedUpgradables = new List<Upgradable>();
-        
+
+        List<Upgradable> upgradables = new List<Upgradable>();
         List<Upgradable> returnedUpgradables = new List<Upgradable>();
         
-        combainedUpgradables.AddRange(_activeUpgradableObjects);
+        IEnumerable<Upgradable> upgradablesWithMaxLevel =  _upgradableObjects.Where(upgradable => upgradable.MaxLevel == upgradable.CurrentLevel);
 
-        if (_activeUpgradableObjects.Count < _maxUpgradableObjects)
+        foreach (var upgradable in upgradablesWithMaxLevel)
         {
-            combainedUpgradables.AddRange(_inactiveUpgradableObjects);
+            _upgradableObjects.Remove(upgradable);
+            break;
+        }
+
+        if (_upgradableObjects.Count(upgradable => upgradable.IsActive) < _maxUpgradableObjects)
+        {
+            upgradables = new List<Upgradable>(_upgradableObjects);
+        }
+        else
+        {
+            IEnumerable<Upgradable> activeUpgradables =  _upgradableObjects.Where(upgradable => upgradable.IsActive);
+
+            foreach (var upgradable in activeUpgradables)
+            {
+                upgradables.Add(upgradable);
+            }
+            
         }
 
         for (int i  = 0; i  < 3; i ++)
         {
-            int index = Random.Range(0, combainedUpgradables.Count);
+            int index = Random.Range(0, upgradables.Count);
             
-            returnedUpgradables.Add(combainedUpgradables[index]);
-            combainedUpgradables.Remove(combainedUpgradables[index]);
+            returnedUpgradables.Add(upgradables[index]);
+            upgradables.Remove(upgradables[index]);
         }
 
         return returnedUpgradables;
-    }
-
-    private void CheckOfActiveObjects()
-    {
-        for (int i = 0; i < _inactiveUpgradableObjects.Count; i++)
-        {
-            if (_inactiveUpgradableObjects[i].CurrentLevel == 1)
-            {
-                _activeUpgradableObjects.Add(_inactiveUpgradableObjects[i]);
-                _inactiveUpgradableObjects.Remove(_inactiveUpgradableObjects[i]);
-            }
-        }
     }
 }

@@ -29,6 +29,8 @@ public class ProjectileWeapon : Weapon
     private void Start()
     {
         _enemies = new List<Enemy>();
+
+        MaxLevel = _weaponParameters.GetMaxNumberOfLevel();
         
         if (_isActive)
         {

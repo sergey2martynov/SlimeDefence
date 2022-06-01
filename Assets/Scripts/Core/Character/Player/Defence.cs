@@ -1,3 +1,4 @@
+using Core.Character;
 using StaticData;
 using StaticData.Player;
 using UnityEngine;
@@ -7,16 +8,17 @@ public class Defence :Upgradable
 {
     [SerializeField] private int _defence;
     [SerializeField] private DefenceLevels _defenceLevels;
-
-    private int _currentLevel;
-
-    public int CurrentLevel => _currentLevel;
+    [SerializeField] private CharacterType _characterType;
 
     public int DefencePlayer => _defence;
 
     private void Start()
     {
-        _defence = _defenceLevels.GetDefenceParameters(_currentLevel).Amount;
+        if (_characterType == CharacterType.Player)
+        {
+            MaxLevel = _defenceLevels.GetMaxNumberOfLevel();
+            _defence = _defenceLevels.GetDefenceParameters(_currentLevel).Amount;
+        }
     }
 
     public override void Upgrade()

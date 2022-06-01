@@ -11,19 +11,19 @@ namespace CodeBase.Core.Character
     {
         [SerializeField] private float _speed;
         [SerializeField] private SpeedLevels _speedLevels;
-        [SerializeField] private MovementType _movementType;
+        [SerializeField] private CharacterType _characterType;
 
         private CharacterController _controller;
         private Vector3 _direction;
-        private int _currentLevel;
         private bool _isRemovedPositionY;
 
         private void Awake()
         {
             _controller = GetComponent<CharacterController>();
 
-            if (_movementType == MovementType.PlayerMovement)
+            if (_characterType == CharacterType.Player)
             {
+                MaxLevel = _speedLevels.GetMaxNumberOfLevel();
                 _speed = _speedLevels.GetSpeedParameters(_currentLevel).Amount;
             }
         }

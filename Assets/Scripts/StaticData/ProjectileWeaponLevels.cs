@@ -11,5 +11,10 @@ public class ProjectileWeaponLevels : ScriptableObject
     {
         return _weaponParameters[level ];
     }
+    
+    public int GetMaxNumberOfLevel()
+    {
+        return _weaponParameters.Count - 1;
+    }
 }
  

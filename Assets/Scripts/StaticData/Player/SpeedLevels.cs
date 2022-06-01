@@ -12,5 +12,10 @@ namespace StaticData
         {
             return _speedParameters[level];
         }
+        
+        public int GetMaxNumberOfLevel()
+        {
+            return _speedParameters.Count - 1;
+        }
     }
 }
