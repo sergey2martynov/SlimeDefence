@@ -12,10 +12,12 @@ namespace CodeBase.Core.Character
         [SerializeField] private float _speed;
         [SerializeField] private SpeedLevels _speedLevels;
         [SerializeField] private CharacterType _characterType;
+        [SerializeField] private Animator _animator;
 
         private CharacterController _controller;
         private Vector3 _direction;
         private bool _isRemovedPositionY;
+        private static readonly int Speed = Animator.StringToHash("Speed");
 
         private void Awake()
         {
@@ -36,6 +38,9 @@ namespace CodeBase.Core.Character
         private void Move()
         {
             _controller.Move(_direction * Time.deltaTime * _speed);
+            
+            if (_animator != null)
+            _animator.SetFloat(Speed, _direction.magnitude);
 
             if (transform.position.y > 1f && !_isRemovedPositionY)
             {
