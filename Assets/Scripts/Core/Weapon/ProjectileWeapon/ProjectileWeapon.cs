@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using CodeBase.Core.Character;
 using UnityEngine;
 using CodeBase.Core.Character.Enemy;
 using UpgradeWeapon;
@@ -10,6 +11,7 @@ public class ProjectileWeapon : Weapon
 {
     [SerializeField] private ProjectileWeaponLevels _weaponParameters;
     [SerializeField] private GunshotProjectilePool _gunshotProjectilePool;
+    [SerializeField] private Movement _movement;
     [SerializeField] private Transform _player;
     [SerializeField] private CapsuleCollider _capsuleCollider;
     [SerializeField] private int _amount;
@@ -30,17 +32,18 @@ public class ProjectileWeapon : Weapon
         _enemies = new List<Enemy>();
 
         MaxLevel = _weaponParameters.GetMaxNumberOfLevel();
-        
+
         if (IsActive)
         {
             _currentParameters = _weaponParameters.GetWeaponParameters(0);
             _upgradeParameters = _weaponParameters.GetWeaponParameters(_currentLevel + 1);
         }
         else
-        {_currentParameters = _weaponParameters.GetWeaponParameters(0);
+        {
+            _currentParameters = _weaponParameters.GetWeaponParameters(0);
             _upgradeParameters = _weaponParameters.GetWeaponParameters(0);
         }
-        
+
         SetState();
         _capsuleCollider.radius = Range;
     }
@@ -53,6 +56,11 @@ public class ProjectileWeapon : Weapon
             {
                 _enemies.Remove(_enemies[i]);
             }
+        }
+        
+        if (_enemies.Count == 0)
+        {
+            _movement.SetLookDirection(_movement.Direction, _rate / 2);
         }
 
         _elapsedTime += Time.deltaTime;
@@ -94,7 +102,8 @@ public class ProjectileWeapon : Weapon
         _direction = _targetType switch
         {
             TargetType.Nearest => FindNearbyEnemy().transform.position - currentPosition + new Vector3(0, 1, 0),
-            TargetType.RandomEnemy => _enemies[Random.Range(0, _enemies.Count)].transform.position - currentPosition + new Vector3(0, 1, 0).normalized,
+            TargetType.RandomEnemy => _enemies[Random.Range(0, _enemies.Count)].transform.position - currentPosition +
+                                      new Vector3(0, 1, 0).normalized,
             TargetType.Random => new Vector3
             (
                 Random.Range(0, 2) == 0 ? Random.Range(3f, 5f) : Random.Range(-5f, -3f),
@@ -103,6 +112,9 @@ public class ProjectileWeapon : Weapon
             ).normalized,
             _ => _direction
         };
+
+        
+            _movement.SetLookDirection(_direction, _rate / 2);
 
         for (int i = 1; i <= _amount; i++)
         {
@@ -147,9 +159,10 @@ public class ProjectileWeapon : Weapon
         if (!IsActive)
         {
             IsActive = true;
-            _upgradeParameters = _weaponParameters.GetWeaponParameters(_currentLevel +1);
+            _upgradeParameters = _weaponParameters.GetWeaponParameters(_currentLevel + 1);
             return;
         }
+
         base.Upgrade();
         _currentParameters = _weaponParameters.GetWeaponParameters(_currentLevel);
         _upgradeParameters = _weaponParameters.GetWeaponParameters(_currentLevel + 1);

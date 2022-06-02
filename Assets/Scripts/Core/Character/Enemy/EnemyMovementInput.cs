@@ -26,6 +26,7 @@ namespace CodeBase.Core.Character.Enemy
             {
                 var direction = _target.position - transform.position;
                 _movement.SetDirection(direction);
+                _movement.SetLookDirection(direction);
             }
         }
     }

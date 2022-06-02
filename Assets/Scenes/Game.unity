@@ -2584,12 +2584,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7837547064363754331, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
-      propertyPath: m_Avatar
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7837547064363754331, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
       propertyPath: m_WarningMessage
-      value: 
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'mixamorig_Hips'\n\tTransform 'mixamorig_Head'\n\tTransform
+        'mixamorig_RightHandIndex2'\n\tTransform 'mixamorig_LeftHand'\n\tTransform
+        'mixamorig_LeftLeg'\n\tTransform 'mixamorig_RightHand'\n\tTransform 'mixamorig_LeftUpLeg'\n\tTransform
+        'mixamorig_LeftShoulder'\n\tTransform 'mixamorig_RightArm'\n\tTransform 'mixamorig_LeftHandIndex2'\n\tand
+        more ...\n\tFrom animation clip 'CINEMA_4D_Idle'"
       objectReference: {fileID: 0}
     - target: {fileID: 8485189900065280077, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
       propertyPath: _restartMenuDisabler
