@@ -9,15 +9,17 @@ namespace CodeBase.Core.Character.Enemy
         [SerializeField] private int _damage;
         private SpawnObjectOfExperience _spawnObjectOfExperience;
         private SpawnerEnemies _spawnerEnemies;
+        private KillCounter _killCounter;
 
         public Health Health => _health;
         public bool IsDie { get;private set; }
         public EnemyType EnemyType => _enemyType;
         public int Damage => _damage;
         
-        public void Initialize(SpawnObjectOfExperience spawnObjectOfExperience)
+        public void Initialize(SpawnObjectOfExperience spawnObjectOfExperience, KillCounter killCounter)
         {
             _spawnObjectOfExperience = spawnObjectOfExperience;
+            _killCounter = killCounter;
             IsDie = false;
         }
         
@@ -35,6 +37,7 @@ namespace CodeBase.Core.Character.Enemy
         {
             _spawnObjectOfExperience.SpawnObjOfExperienceForEnemy(transform, _enemyType);
             IsDie = true;
+            _killCounter.IncreaseCounter();
             
             if (_enemyType == EnemyType.MiniBoss || _enemyType == EnemyType.Boss)
             {

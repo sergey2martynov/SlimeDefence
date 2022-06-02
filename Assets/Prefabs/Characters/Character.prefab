@@ -178,7 +178,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db74eb5d4ab88e14cb34697e66eae9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsActive: 0
   _healthPoint: 60
+  _defence: {fileID: 0}
+  _healthLevels: {fileID: 0}
+  _characterType: 0
 --- !u!143 &-642470563689923492
 CharacterController:
   m_ObjectHideFlags: 0
@@ -192,10 +196,10 @@ CharacterController:
   serializedVersion: 2
   m_Height: 1
   m_Radius: 1
-  m_SlopeLimit: 45
+  m_SlopeLimit: 90
   m_StepOffset: 0
   m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
+  m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &329286636043561855
 MonoBehaviour:
@@ -209,7 +213,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0369929715b54401960f8752baafa589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsActive: 0
   _speed: 15
+  _speedLevels: {fileID: 0}
+  _characterType: 0
 --- !u!114 &1437842649254418075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,9 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: {fileID: 6742871518922038233}
   _enemyType: 0
-  _spawnerEnemies: {fileID: 0}
   _damage: 0
-  _spawnObjectOfExpirience: {fileID: 0}
 --- !u!114 &7008007085918413826
 MonoBehaviour:
   m_ObjectHideFlags: 0

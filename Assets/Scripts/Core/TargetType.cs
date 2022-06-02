@@ -2,5 +2,6 @@ public enum TargetType
 {
     Nearest,
     Random,
-    Back
+    Back,
+    RandomEnemy
 }

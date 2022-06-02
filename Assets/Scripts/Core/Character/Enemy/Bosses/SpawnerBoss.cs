@@ -10,6 +10,7 @@ public class SpawnerBoss : MonoBehaviour
     [SerializeField] private Transform _player;
     [SerializeField] private Transform _parent;
     [SerializeField] private SpawnObjectOfExperience _spawnObjectOfExperience;
+    [SerializeField] private KillCounter _killCounter;
     [SerializeField] private TimeCounter _timeCounter;
 
     private int _currentIndex;
@@ -33,7 +34,7 @@ public class SpawnerBoss : MonoBehaviour
     private void SpawnBoss(Enemy enemy, Vector3 offset)
     {
         var finalBoss = Instantiate(enemy, _player.position + offset, Quaternion.identity, _parent);
-        finalBoss.Initialize(_spawnObjectOfExperience);
+        finalBoss.Initialize(_spawnObjectOfExperience, _killCounter);
     }
 
     private void SpawnFinalBoss()

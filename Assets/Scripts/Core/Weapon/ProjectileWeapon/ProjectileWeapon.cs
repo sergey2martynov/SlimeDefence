@@ -16,7 +16,6 @@ public class ProjectileWeapon : Weapon
     [SerializeField] private float _spread;
     [SerializeField] private TargetType _targetType;
     [SerializeField] private float _projectileSpeed;
-    [SerializeField] private bool _isActive;
 
     private ProjectileWeaponParameters _currentParameters;
 
@@ -32,7 +31,7 @@ public class ProjectileWeapon : Weapon
 
         MaxLevel = _weaponParameters.GetMaxNumberOfLevel();
         
-        if (_isActive)
+        if (IsActive)
         {
             _currentParameters = _weaponParameters.GetWeaponParameters(0);
             _upgradeParameters = _weaponParameters.GetWeaponParameters(_currentLevel + 1);
@@ -57,7 +56,7 @@ public class ProjectileWeapon : Weapon
         }
 
         _elapsedTime += Time.deltaTime;
-        if (_elapsedTime > Rate && _isActive)
+        if (_elapsedTime > Rate && IsActive)
         {
             UseWeapon();
             _elapsedTime = 0;
@@ -85,14 +84,17 @@ public class ProjectileWeapon : Weapon
 
     public override void UseWeapon()
     {
-        if (_enemies.Count == 0 && _targetType == TargetType.Nearest)
+        if (_enemies.Count == 0 && (_targetType == TargetType.Nearest || _targetType == TargetType.RandomEnemy))
         {
             return;
         }
 
+        var currentPosition = transform.position;
+
         _direction = _targetType switch
         {
-            TargetType.Nearest => FindNearbyEnemy().transform.position - transform.position + new Vector3(0, 1, 0),
+            TargetType.Nearest => FindNearbyEnemy().transform.position - currentPosition + new Vector3(0, 1, 0),
+            TargetType.RandomEnemy => _enemies[Random.Range(0, _enemies.Count)].transform.position - currentPosition + new Vector3(0, 1, 0).normalized,
             TargetType.Random => new Vector3
             (
                 Random.Range(0, 2) == 0 ? Random.Range(3f, 5f) : Random.Range(-5f, -3f),
@@ -142,9 +144,9 @@ public class ProjectileWeapon : Weapon
 
     public override void Upgrade()
     {
-        if (!_isActive)
+        if (!IsActive)
         {
-            _isActive = true;
+            IsActive = true;
             _upgradeParameters = _weaponParameters.GetWeaponParameters(_currentLevel +1);
             return;
         }

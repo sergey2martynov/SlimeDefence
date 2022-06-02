@@ -18,7 +18,7 @@ MonoBehaviour:
     _description: Get ShotGun
     _damage: 5
     _rate: 3
-    _range: 0
+    _range: 10
     _amount: 3
     _spread: 30
   - _name: 
@@ -26,7 +26,7 @@ MonoBehaviour:
     _description: Shotgun Level 2
     _damage: 5
     _rate: 3
-    _range: 0
+    _range: 10
     _amount: 6
     _spread: 30
   - _name: 
@@ -34,7 +34,7 @@ MonoBehaviour:
     _description: Shotgun Level 3
     _damage: 10
     _rate: 3
-    _range: 0
+    _range: 10
     _amount: 6
     _spread: 30
   - _name: 

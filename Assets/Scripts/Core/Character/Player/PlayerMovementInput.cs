@@ -6,7 +6,7 @@ namespace CodeBase.Core.Character.Player
     [RequireComponent(typeof(Movement))]
     public class PlayerMovementInput : MonoBehaviour
     {
-        [SerializeField] private FixedJoystick _joystick;
+        [SerializeField] private FloatingJoystick _joystick;
         private Movement _movement;
 
         private void Awake()

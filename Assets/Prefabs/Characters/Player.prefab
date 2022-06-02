@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnerEnemies: {fileID: 0}
+  _spawnObstacles: {fileID: 0}
+  "_spawner\u0421hest": {fileID: 0}
 --- !u!1 &6078643221618044144
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08aeb1dc6ba942d89e6f626ce7e0594c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _joystick: {fileID: 0}
+  _joystick: {fileID: 8170153791668043265, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
 --- !u!114 &-2432411713409939755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,8 +273,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb5ee55738f5f854ba6996268dfd6afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsActive: 0
   _defence: 0
   _defenceLevels: {fileID: 0}
+  _characterType: 0
 --- !u!114 &2864455539860146054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,9 +318,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _progressController: {fileID: 0}
   _health: {fileID: 0}
-  _movement: {fileID: 0}
-  _capsuleCollider: {fileID: 0}
-  _playerLevels: {fileID: 0}
 --- !u!114 &3357261248328317545 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6742871518922038233, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}

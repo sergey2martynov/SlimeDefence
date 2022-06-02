@@ -5,7 +5,7 @@ public class StartButton : MonoBehaviour
 {
     [SerializeField] private Button _button;
     [SerializeField] private GameObject _startMenu;
-    [SerializeField] private FixedJoystick _fixedJoystick;
+    [SerializeField] private FloatingJoystick _fixedJoystick;
     [SerializeField] private TimeCounter _timeCounter;
 
     private void Start()
