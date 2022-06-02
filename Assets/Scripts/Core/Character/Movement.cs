@@ -18,6 +18,8 @@ namespace CodeBase.Core.Character
         private Vector3 _direction;
         private bool _isRemovedPositionY;
         private static readonly int Speed = Animator.StringToHash("Speed");
+        private static readonly int Xmove = Animator.StringToHash("Xmove");
+        private static readonly int Zmove = Animator.StringToHash("Zmove");
 
         private void Awake()
         {
@@ -38,9 +40,13 @@ namespace CodeBase.Core.Character
         private void Move()
         {
             _controller.Move(_direction * Time.deltaTime * _speed);
-            
+
             if (_animator != null)
-            _animator.SetFloat(Speed, _direction.magnitude);
+            {
+                _animator.SetFloat(Xmove, _direction.x);
+                _animator.SetFloat(Zmove, _direction.z);
+                _animator.SetFloat(Speed, _direction.magnitude);
+            }
 
             if (transform.position.y > 1f && !_isRemovedPositionY)
             {

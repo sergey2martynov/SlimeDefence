@@ -168,20 +168,14 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6713619074535592471}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 9ceec35db80d8bb4bb7fbc1370f3aeb8, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 5917c0e93d180a842b61d1ebc62a195c, type: 3}
   m_Controller: {fileID: 9100000, guid: ef984f29dfcd59f4497db40ebf473c26, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
-    are already bound by a Humanoid avatar. These transforms can only be changed
-    by Humanoid clips.\n\tTransform 'mixamorig_Hips'\n\tTransform 'mixamorig_Head'\n\tTransform
-    'mixamorig_RightHandIndex2'\n\tTransform 'mixamorig_LeftHand'\n\tTransform 'mixamorig_LeftLeg'\n\tTransform
-    'mixamorig_RightHand'\n\tTransform 'mixamorig_LeftUpLeg'\n\tTransform 'mixamorig_LeftShoulder'\n\tTransform
-    'mixamorig_RightArm'\n\tTransform 'mixamorig_RightToeBase'\n\tand more ...\n\tFrom
-    animation clip 'CINEMA_4D_Idle'\n\tFrom animation clip 'CINEMA_4D_Run'"
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
