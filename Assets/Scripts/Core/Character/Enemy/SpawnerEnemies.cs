@@ -1,12 +1,15 @@
+using System;
 using System.Collections.Generic;
 using CodeBase.Core.Character.Enemy;
 using DG.Tweening;
 using StaticData.Enemy;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpawnerEnemies : MonoBehaviour
 {
     [SerializeField] private EnemySpawnIntervals _enemySpawnIntervals;
+    [SerializeField] private ProgressController _progressController;
     [SerializeField] private KillCounter _killCounter;
     [SerializeField] private StagesLevel _stagesLevel;
     [SerializeField] private SpawnObjectOfExperience _spawnObjectOfExperience;
@@ -14,74 +17,84 @@ public class SpawnerEnemies : MonoBehaviour
     [SerializeField] private List<AnimationCurve> _spawnIntervals;
     [SerializeField] private TimeCounter _timeCounter;
     [SerializeField] private int _maxNumberOfEnemies;
-
-    private float _currentTimeForWeakEnemy;
-    private float _currentTimeForAverageEnemy;
-    private float _currentTimeForStrongEnemy;
-
-    private float _elapsedTimeForWeak;
-    private float _elapsedTimeForAverage;
-    private float _elapsedTimeForStrong;
+    
     private float _currentTime;
+    private int _currentWave;
+    private WaveParameters _currentWaveParameters;
+    private int _numberOfEnemies;
+    private bool _isStageFinalBoss;
 
     private List<Enemy> _spawnedEnemies;
+    private List<AnimationCurve> _animationCurves;
+    private List<float> _elapsedTimes;
+    private List<float> _currentSpawnRate;
     public List<Enemy> SpawnedEnemies => _spawnedEnemies;
     public List<EnemyPool> EnemyPools => _enemyPools;
 
-    private void SetKeysCurve()
-    {
-        for (int i = 0; i < 3; i++)
-        {
-            _spawnIntervals[i] = AnimationCurve.Linear(0, _enemySpawnIntervals.FirstCurveValue[i],
-                _stagesLevel.LevelDuration, _enemySpawnIntervals.LastCurveValue[i]);
-        }
-    }
-
     private void Start()
     {
-        _currentTimeForWeakEnemy = _spawnIntervals[0].Evaluate(_elapsedTimeForWeak);
-        _currentTimeForAverageEnemy = _spawnIntervals[1].Evaluate(_elapsedTimeForWeak);
-        _currentTimeForStrongEnemy = _spawnIntervals[2].Evaluate(_elapsedTimeForWeak);
+        _currentWaveParameters = _stagesLevel.GetWaveParameters(_currentWave);
+        _numberOfEnemies = _currentWaveParameters.Enemies.Count;
         _spawnedEnemies = new List<Enemy>();
-        SetKeysCurve();
+        _animationCurves = new List<AnimationCurve>();
+        _elapsedTimes = new List<float>{0,0,0,0};
+        _currentSpawnRate = new List<float>{0,0,0,0};
         _timeCounter.FinalStageBegun += RemoveAllEnemies;
+        _timeCounter.ChangedWave += UpdateWaveParameters;
+        
+        for (int i = 0; i < _numberOfEnemies; i++)
+        {
+            _spawnIntervals[i] = AnimationCurve.Linear(0, _currentWaveParameters.InitialSpawnRate[i],
+                _currentWaveParameters.DurationWave, _currentWaveParameters.LastSpawnRate[i]);
+            _elapsedTimes[i] = 0;
+            _currentSpawnRate[i] = 1;
+        }
     }
 
     private void OnDestroy()
     {
         _timeCounter.FinalStageBegun -= RemoveAllEnemies;
+        _timeCounter.ChangedWave -= UpdateWaveParameters;
     }
 
     private void Update()
     {
         _currentTime += Time.deltaTime;
-        _elapsedTimeForWeak += Time.deltaTime;
-        _elapsedTimeForAverage += Time.deltaTime;
-        _elapsedTimeForStrong += Time.deltaTime;
 
-        if (_spawnedEnemies.Count < _maxNumberOfEnemies && !_timeCounter.IsFinalStageLevel)
+        if (!_isStageFinalBoss)
         {
-            if (_elapsedTimeForWeak > _currentTimeForWeakEnemy)
+            for (int i = 0; i < _numberOfEnemies; i++)
             {
-                SpawnEnemy(EnemyType.Weak);
-                _currentTimeForWeakEnemy = _spawnIntervals[0].Evaluate(_currentTime);
-                _elapsedTimeForWeak = 0;
+                _elapsedTimes[i] += Time.deltaTime;
+                _currentSpawnRate[i] = _spawnIntervals[i].Evaluate(_currentTime);
             }
 
-            if (_elapsedTimeForAverage > _currentTimeForAverageEnemy)
+            for (int i = 0; i < _currentWaveParameters.Enemies.Count; i++)
             {
-                SpawnEnemy(EnemyType.Average);
-                _currentTimeForAverageEnemy = _spawnIntervals[1].Evaluate(_currentTime);
-                _elapsedTimeForAverage = 0;
-            }
-
-            if (_elapsedTimeForStrong > _currentTimeForStrongEnemy)
-            {
-                SpawnEnemy(EnemyType.Strong);
-                _currentTimeForStrongEnemy = _spawnIntervals[2].Evaluate(_currentTime);
-                _elapsedTimeForStrong = 0;
+                if (_spawnedEnemies.Count < _maxNumberOfEnemies && _elapsedTimes[i] > _currentSpawnRate[i])
+                {
+                    SpawnEnemy(_currentWaveParameters.Enemies[i]);
+                    _elapsedTimes[i] = 0;
+                    _currentSpawnRate[i] = _spawnIntervals[i].Evaluate(_currentTime);
+                }
             }
         }
+    }
+
+    private void UpdateWaveParameters()
+    {
+        _currentWave++;
+        _currentWaveParameters = _stagesLevel.GetWaveParameters(_currentWave);
+        _numberOfEnemies = _currentWaveParameters.Enemies.Count;
+        
+        for (int i = 0; i < _numberOfEnemies; i++)
+        {
+            _spawnIntervals[i] = AnimationCurve.Linear(0, _currentWaveParameters.InitialSpawnRate[i],
+                _currentWaveParameters.DurationWave, _currentWaveParameters.LastSpawnRate[i]);
+            _elapsedTimes[i] = 0;
+            _currentSpawnRate[i] = 1;
+        }
+        _currentTime = 0;
     }
 
     private void SpawnEnemy(EnemyType type)

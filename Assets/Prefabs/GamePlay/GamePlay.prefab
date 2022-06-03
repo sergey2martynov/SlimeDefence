@@ -79,83 +79,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6eda2925d69d441bd8bb6258d5ce63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemySpawnIntervals: {fileID: 0}
+  _progressController: {fileID: 5909255299635214370}
+  _killCounter: {fileID: 0}
+  _stagesLevel: {fileID: 0}
   _spawnObjectOfExperience: {fileID: 4212089210391898300}
   _enemyPools:
   - {fileID: 5909255298782999036}
   - {fileID: 5909255297986430879}
   - {fileID: 5909255298608657928}
-  _spawnIntervalWeakEnemy:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 2.8
-      inSlope: -0.006190476
-      outSlope: -0.006190476
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 420
-      value: 0.2
-      inSlope: -0.006190476
-      outSlope: -0.006190476
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 0
-    m_PostInfinity: 1
-    m_RotationOrder: 4
-  _spawnIntervalAverageEnemy:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 4
-      inSlope: -0.008571428
-      outSlope: -0.008571428
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 420
-      value: 0.4
-      inSlope: -0.008571428
-      outSlope: -0.008571428
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _spawnIntervalStrongEnemy:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 6
-      inSlope: -0.012857143
-      outSlope: -0.012857143
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 420
-      value: 0.6
-      inSlope: -0.012857143
-      outSlope: -0.012857143
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   _timeCounter: {fileID: 5909255299355648578}
   _maxNumberOfEnemies: 90
 --- !u!1 &5909255297986430877
@@ -528,6 +460,7 @@ MonoBehaviour:
   _player: {fileID: 551394242333843936}
   _parent: {fileID: 5909255298570164630}
   _spawnObjectOfExperience: {fileID: 4212089210391898300}
+  _killCounter: {fileID: 0}
   _timeCounter: {fileID: 5909255299355648578}
 --- !u!1 &5909255298782999010
 GameObject:
@@ -744,11 +677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03c3acbabd29c744a95556987821c0f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defence: {fileID: 882619824246591774}
-  _health: {fileID: 8977511563436436898}
-  _movement: {fileID: 2707831791842860292}
-  _gun: {fileID: 7144455614122479300}
-  _shotGun: {fileID: 7144455613813443348}
+  _upgradableObjects: []
   _maxUpgradableObjects: 9
 --- !u!1 &5909255299635214369
 GameObject:
@@ -996,17 +925,6 @@ MonoBehaviour:
   _maxSize: 20
   _parent: {fileID: 5909255299002263123}
   _defaultCapacity: 15
---- !u!114 &7144455613813443348 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6189496420102400676, guid: cd9d7806d60230847a57718ca6337536, type: 3}
-  m_PrefabInstance: {fileID: 3946198584799797680}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3232726804177231538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b45ce0f86d83ac4fbab9dddb9ca6e73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5909255297883552749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1125,17 +1043,6 @@ MonoBehaviour:
   _maxSize: 20
   _parent: {fileID: 5909255299002263123}
   _defaultCapacity: 10
---- !u!114 &7144455614122479300 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3542029316938364201, guid: 56a1611cda95a084892f3a7147623e9d, type: 3}
-  m_PrefabInstance: {fileID: 5909255297883552749}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3232726804891147106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b45ce0f86d83ac4fbab9dddb9ca6e73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5909255299492747211
 PrefabInstance:
   m_ObjectHideFlags: 0

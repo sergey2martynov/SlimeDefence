@@ -12,5 +12,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a8661b724226d41aa2e75595d33a54, type: 3}
   m_Name: StagesLevel
   m_EditorClassIdentifier: 
-  _timesOfSpawnBosses: 3200000064000000c8000000
-  _levelDuration: 300
+  _waveParameters:
+  - _numberOfWave: 1
+    _durationWave: 30
+    _enemies: 0000000001000000
+    _initialSpawnRate:
+    - 4
+    - 6
+    _lastSpawnRate:
+    - 2
+    - 3
+    _numberOfBosses: 1
+  - _numberOfWave: 0
+    _durationWave: 0
+    _enemies: 
+    _initialSpawnRate: []
+    _lastSpawnRate: []
+    _numberOfBosses: 0
+  - _numberOfWave: 0
+    _durationWave: 0
+    _enemies: 
+    _initialSpawnRate: []
+    _lastSpawnRate: []
+    _numberOfBosses: 0
+  - _numberOfWave: 0
+    _durationWave: 0
+    _enemies: 
+    _initialSpawnRate: []
+    _lastSpawnRate: []
+    _numberOfBosses: 0
+  - _numberOfWave: 0
+    _durationWave: 0
+    _enemies: 
+    _initialSpawnRate: []
+    _lastSpawnRate: []
+    _numberOfBosses: 0

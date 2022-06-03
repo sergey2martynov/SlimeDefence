@@ -113,8 +113,7 @@ public class ProjectileWeapon : Weapon
             _ => _direction
         };
 
-        
-            _movement.SetLookDirection(_direction, _rate / 2);
+        _movement.SetLookDirection(_direction, _rate / 2);
 
         for (int i = 1; i <= _amount; i++)
         {

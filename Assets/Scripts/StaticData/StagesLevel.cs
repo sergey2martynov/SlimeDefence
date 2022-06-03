@@ -4,11 +4,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "StagesLevel", menuName = "StaticData/StagesLevel", order = 51)]
 public class StagesLevel : ScriptableObject
 {
-    [SerializeField] private List<int> _timesOfSpawnBosses;
+    [SerializeField] private List<WaveParameters> _waveParameters;
+    public List<WaveParameters> WaveParameters => _waveParameters;
 
-    [SerializeField] private int _levelDuration;
-
-    public List<int> TimesOfSpawnBosses => _timesOfSpawnBosses;
-
-    public int LevelDuration => _levelDuration;
+    public WaveParameters GetWaveParameters(int index)
+    {
+        return _waveParameters[index];
+    }
 }

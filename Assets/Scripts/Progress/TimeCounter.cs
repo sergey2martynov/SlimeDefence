@@ -4,29 +4,53 @@ using UnityEngine;
 public class TimeCounter : MonoBehaviour
 {
     [SerializeField] private StagesLevel _stagesLevel;
+
+    private float _currentWaveDuration;
     private float _elapsedTime;
     private bool _isFinalStageLevel;
-    private int _currentStage;
+    private int _currentWave;
+    private int _currentMiniBoss;
 
     public bool IsFinalStageLevel => _isFinalStageLevel;
 
     public event Action FinalStageBegun;
-    public event Action IntermediateStageBegun;
+
+    public event Action SpawnMiniBossTimeHasCome;
+    public event Action ChangedWave;
+
+    private void Start()
+    {
+        _currentWaveDuration = _stagesLevel.GetWaveParameters(_currentWave).DurationWave;
+    }
 
     private void Update()
     {
         _elapsedTime += Time.deltaTime;
-        
-        if (_elapsedTime > _stagesLevel.TimesOfSpawnBosses[_currentStage] && _currentStage < _stagesLevel.TimesOfSpawnBosses.Count - 1)
+
+        if (_elapsedTime > _currentWaveDuration && _currentWave < _stagesLevel.WaveParameters.Count)
         {
-            IntermediateStageBegun?.Invoke();
-            _currentStage++;
+            _elapsedTime = 0;
+            _currentMiniBoss = 0;
+            _currentWave++;
+            
+            if (_currentWave < _stagesLevel.WaveParameters.Count)
+            {
+                _currentWaveDuration = _stagesLevel.GetWaveParameters(_currentWave).DurationWave;
+                ChangedWave?.Invoke();
+            }
+        }
+        else if (_currentWave == _stagesLevel.WaveParameters.Count && !_isFinalStageLevel)
+        {
+            _isFinalStageLevel = true;
+            FinalStageBegun?.Invoke();
         }
 
-        if (_elapsedTime > _stagesLevel.LevelDuration && _isFinalStageLevel == false)
+        if (_currentWave < _stagesLevel.WaveParameters.Count &&
+            _currentMiniBoss < _stagesLevel.GetWaveParameters(_currentWave).TimesSpawnMiniBoss.Count && _elapsedTime >
+            _stagesLevel.GetWaveParameters(_currentWave).TimesSpawnMiniBoss[_currentMiniBoss])
         {
-            FinalStageBegun?.Invoke();
-            _isFinalStageLevel = true;
+            _currentMiniBoss++;
+            SpawnMiniBossTimeHasCome?.Invoke();
         }
     }
 

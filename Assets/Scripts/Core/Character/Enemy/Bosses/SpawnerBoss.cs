@@ -1,4 +1,3 @@
-using System;
 using CodeBase.Core.Character.Enemy;
 using UnityEngine;
 
@@ -22,13 +21,13 @@ public class SpawnerBoss : MonoBehaviour
         _offsetPositionMiniBoss = new Vector3(0, 0, -40);
         _offsetPositionFinalBoss = new Vector3(0, 0, -20);
         _timeCounter.FinalStageBegun += SpawnFinalBoss;
-        _timeCounter.IntermediateStageBegun += SpawnMiniBoss;
+        _timeCounter.SpawnMiniBossTimeHasCome += SpawnMiniBoss;
     }
 
     private void OnDestroy()
     {
         _timeCounter.FinalStageBegun -= SpawnFinalBoss;
-        _timeCounter.IntermediateStageBegun -= SpawnMiniBoss;
+        _timeCounter.SpawnMiniBossTimeHasCome -= SpawnMiniBoss;
     }
 
     private void SpawnBoss(Enemy enemy, Vector3 offset)

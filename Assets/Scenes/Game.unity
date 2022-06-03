@@ -1029,7 +1029,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: -0, y: 0.87975997, z: -0.47541812, w: 0}
-  m_LocalPosition: {x: 0, y: 23.6, z: 11.3}
+  m_LocalPosition: {x: 0, y: 16.38, z: 7.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1811,6 +1811,10 @@ PrefabInstance:
       value: ProgressLevelBar
       objectReference: {fileID: 0}
     - target: {fileID: 1035327868076273199, guid: fb0924e7ac7e1484aade435c4fc83712, type: 3}
+      propertyPath: _progress
+      value: 
+      objectReference: {fileID: 889883950}
+    - target: {fileID: 1035327868076273199, guid: fb0924e7ac7e1484aade435c4fc83712, type: 3}
       propertyPath: _levelTime
       value: 420
       objectReference: {fileID: 0}
@@ -2251,6 +2255,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 315713992693079910, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 882619824246591774, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
       propertyPath: IsActive
       value: 1
@@ -2258,6 +2266,34 @@ PrefabInstance:
     - target: {fileID: 1566240244683605775, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1977298625373752933, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9999619
+      objectReference: {fileID: 0}
+    - target: {fileID: 1977298625373752933, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.0003606287
+      objectReference: {fileID: 0}
+    - target: {fileID: 1977298625373752933, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.0000014253915
+      objectReference: {fileID: 0}
+    - target: {fileID: 1977298625373752933, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.00872032
+      objectReference: {fileID: 0}
+    - target: {fileID: 1977298625373752933, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -0.041
+      objectReference: {fileID: 0}
+    - target: {fileID: 1977298625373752933, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1977298625373752933, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0.999
       objectReference: {fileID: 0}
     - target: {fileID: 2707831791842860292, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
       propertyPath: IsActive
@@ -2279,6 +2315,14 @@ PrefabInstance:
       propertyPath: _joystick
       value: 
       objectReference: {fileID: 996890661}
+    - target: {fileID: 5909255297797442634, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5909255297961201556, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5909255297961201556, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
       propertyPath: _killCounter
       value: 
@@ -2293,7 +2337,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: d622f070d38b9934da8477f208a34275, type: 2}
     - target: {fileID: 5909255297961201556, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
       propertyPath: _spawnIntervals.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5909255297961201556, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
       propertyPath: _spawnIntervals.Array.data[0].m_PreInfinity
@@ -2571,10 +2615,22 @@ PrefabInstance:
       propertyPath: _experienceBar
       value: 
       objectReference: {fileID: 1035327867765899887}
+    - target: {fileID: 6201604800085789223, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: m_Height
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201604800085789223, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: m_Center.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7144455613813443348, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
       propertyPath: IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7144455613813443348, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: _movement
+      value: 
+      objectReference: {fileID: 2140362485}
     - target: {fileID: 7144455613813443348, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
       propertyPath: _targetType
       value: 3
@@ -2583,15 +2639,13 @@ PrefabInstance:
       propertyPath: IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7144455614122479300, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: _movement
+      value: 
+      objectReference: {fileID: 2140362485}
     - target: {fileID: 7837547064363754331, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig_Hips'\n\tTransform 'mixamorig_Head'\n\tTransform
-        'mixamorig_RightHandIndex2'\n\tTransform 'mixamorig_LeftHand'\n\tTransform
-        'mixamorig_LeftLeg'\n\tTransform 'mixamorig_RightHand'\n\tTransform 'mixamorig_LeftUpLeg'\n\tTransform
-        'mixamorig_LeftShoulder'\n\tTransform 'mixamorig_RightArm'\n\tTransform 'mixamorig_LeftHandIndex2'\n\tand
-        more ...\n\tFrom animation clip 'CINEMA_4D_Idle'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8485189900065280077, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
       propertyPath: _restartMenuDisabler

@@ -48,25 +48,19 @@ namespace CodeBase.Core.Character
 
             if (_animator != null)
             {
-                var vector = new Vector2(_direction.x,  _direction.z);
-                var angle = transform.localRotation.y * Mathf.Deg2Rad;
-                var rotatedVector = new Vector2(vector.x * Mathf.Cos(angle) - vector.y * Mathf.Sin(angle),
-                    vector.x * Mathf.Sin(angle) + vector.y * Mathf.Cos(angle));
-                
-                _animator.SetFloat(Xmove, rotatedVector.x);
-                _animator.SetFloat(Zmove, rotatedVector.y);
+                var angle = Vector3.Angle(_lookDirection, _direction) * Mathf.Deg2Rad;
+
+                _animator.SetFloat(Xmove, Mathf.Sin(angle));
+                _animator.SetFloat(Zmove, Mathf.Cos(angle));
                 _animator.SetFloat(Speed, _direction.magnitude);
             }
 
-            if (transform.position.y > 1f && !_isRemovedPositionY)
-            {
-                ReturnPositionY();
-            }
+            // if (transform.position.y > 1f && !_isRemovedPositionY)
+            // {
+            //     ReturnPositionY();
+            // }
 
-            if (_direction.magnitude > 0)
-            {
-                transform.rotation = Quaternion.LookRotation(_lookDirection);
-            }
+            transform.rotation = Quaternion.LookRotation(_lookDirection);
         }
 
         public override void Upgrade()

@@ -10,9 +10,9 @@ public class ProgressController : MonoBehaviour
     [SerializeField] private Player _player;
     
     private int _expirience;
+    private int _waveNumber;
     public int Experience => _expirience;
-
-    
+    public int WaveNumber => _waveNumber;
     public event Action PlayerLeveledUp;
 
     public int MaxCurrentExperience
@@ -41,5 +41,10 @@ public class ProgressController : MonoBehaviour
         }
 
         _experienceBar.SetSlider(_expirience);
+    }
+
+    public void IncreaseWaveNumber()
+    {
+        _waveNumber++;
     }
 }
