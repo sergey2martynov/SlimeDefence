@@ -60,7 +60,7 @@ public class ProjectileWeapon : Weapon
         
         if (_enemies.Count == 0)
         {
-            _movement.SetLookDirection(_movement.Direction, _rate / 2);
+            _movement.SetLookDirection(_movement.Direction, 1);
         }
 
         _elapsedTime += Time.deltaTime;

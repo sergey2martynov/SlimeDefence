@@ -55,11 +55,6 @@ namespace CodeBase.Core.Character
                 _animator.SetFloat(Speed, _direction.magnitude);
             }
 
-            // if (transform.position.y > 1f && !_isRemovedPositionY)
-            // {
-            //     ReturnPositionY();
-            // }
-
             transform.rotation = Quaternion.LookRotation(_lookDirection);
         }
 

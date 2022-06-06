@@ -10,7 +10,7 @@ public class Health : Upgradable
     [SerializeField] private int _healthPoint;
     [SerializeField] private Defence _defence;
     [SerializeField] private HealthLevels _healthLevels;
-    [FormerlySerializedAs("_movementType")] [SerializeField] private CharacterType _characterType;
+    [SerializeField] private CharacterType _characterType;
 
     private int _enemyHealthPoint;
 
