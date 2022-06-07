@@ -10,7 +10,7 @@ public class EnemyPool : AbstractPool
     public override GameObject CreateObject()
     {
         var poolObject = Instantiate(_poolObject,
-            RandomPositionFinder.FindRandomPosition(-41, 15, -21, 21) + _player.position, Quaternion.identity,
+            FindSpawnRandomPosition() + _player.position, Quaternion.identity,
             _parent);
         return poolObject;
     }
@@ -18,7 +18,7 @@ public class EnemyPool : AbstractPool
     public override void ActionOnGet(GameObject poolObject)
     {
         poolObject.transform.position =
-          RandomPositionFinder.FindRandomPosition(-41, 15, -21, 21) + _player.position;
+            FindSpawnRandomPosition() + _player.position;
         poolObject.gameObject.SetActive(true);
     }
 
@@ -28,5 +28,12 @@ public class EnemyPool : AbstractPool
         poolObject.SetActive(false);
         poolObject.transform.position = new Vector3(0, -100, 0);
         _spawnerEnemies.SpawnedEnemies.Remove(poolObject.GetComponent<Enemy>());
+    }
+
+    private Vector3 FindSpawnRandomPosition()
+    {
+        var vector = new Vector3(10, 0, 10);
+        Vector3 turnedVector = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.up) * vector;
+        return turnedVector;
     }
 }

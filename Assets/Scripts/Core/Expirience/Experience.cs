@@ -9,12 +9,21 @@ namespace Core.Expirience
     {
         [SerializeField] private float _lifeTime;
         [SerializeField] private int _experience;
+        private Transform _player;
         private ExperiencePool _pool;
+        private bool _isCanMoveToPlayer;
 
-        public void Initialize(ExperiencePool pool)
+        public void Initialize(ExperiencePool pool, Transform player)
         {
             _pool = pool;
             StartCoroutine(DestroyOnTime());
+            _player = player;
+        }
+
+        private void Update()
+        {
+            if(_isCanMoveToPlayer)
+                transform.position = Vector3.MoveTowards(transform.position, _player.position, 0.1f);
         }
 
         private void OnTriggerEnter(Collider other)
@@ -22,18 +31,22 @@ namespace Core.Expirience
             if (other.gameObject.TryGetComponent(out PikUpRadius radius))
             {
                 radius.Controller.ProgressController.GetExperience(_experience);
-                //radius.ColliderDisable();
-                StartCoroutine(MoveToPlayer(radius.transform));
+                if (!_isCanMoveToPlayer)
+                {
+                    StartCoroutine(MoveToPlayer(radius.transform));
+                }
             }
             
             if (other.gameObject.TryGetComponent(out Player player))
             {
+                _isCanMoveToPlayer = false;
                 _pool.Pool.Release(gameObject);
             }
         }
         private IEnumerator MoveToPlayer(Transform player)
         {
-            yield return transform.DOMove(player.position, 0.5f).OnComplete(() => _pool.Pool.Release(gameObject));
+            var offset = new Vector3(0, 1, 0);
+            yield return transform.DOMove(transform.position + offset, 0.5f).OnComplete(() => _isCanMoveToPlayer = true);
         }
         private IEnumerator DestroyOnTime()
         {

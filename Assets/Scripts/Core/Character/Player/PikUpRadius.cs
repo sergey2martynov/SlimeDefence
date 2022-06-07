@@ -26,11 +26,6 @@ public class PikUpRadius : Upgradable
    {
       _capsuleCollider.radius = _pikUpRadiusLevels.GetRadiusParameters(_currentLevel).Amount;
    }
-
-   public void ColliderDisable()
-   {
-      _capsuleCollider.enabled = false;
-   }
    
    public override UpgradeParametersBase GetUpgradeParameters()
    {

@@ -8,8 +8,7 @@ using UnityEngine;
 
 public class SpawnerEnemies : MonoBehaviour
 {
-    [SerializeField] private EnemySpawnIntervals _enemySpawnIntervals;
-    [SerializeField] private ProgressController _progressController;
+    [SerializeField] private WinScreen _winScreen;
     [SerializeField] private KillCounter _killCounter;
     [SerializeField] private StagesLevel _stagesLevel;
     [SerializeField] private SpawnObjectOfExperience _spawnObjectOfExperience;
@@ -101,7 +100,7 @@ public class SpawnerEnemies : MonoBehaviour
     {
         var enemy = _enemyPools[(int) type].Pool.Get().GetComponent<Enemy>();
 
-        enemy.Initialize(_spawnObjectOfExperience, _killCounter);
+        enemy.Initialize(_spawnObjectOfExperience, _killCounter, _winScreen);
         enemy.SetSpawnerEnemiesRef(this);
         _spawnedEnemies.Add(enemy);
     }

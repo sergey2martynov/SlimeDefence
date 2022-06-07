@@ -16,7 +16,7 @@ MonoBehaviour:
   - _name: 
     _icon: {fileID: 0}
     _description: 
-    _amount: 600
+    _amount: 10000
   - _name: 
     _icon: {fileID: 0}
     _description: health lvl 2

@@ -6,7 +6,7 @@ public class SpawnObjectOfExperience : MonoBehaviour
 
     public void SpawnObjOfExperienceForEnemy(Transform transformEnemy, EnemyType enemyType)
     {
-        if (enemyType == EnemyType.Weak && Random.Range(0, 10) < 2)
+        if (enemyType == EnemyType.Weak && Random.Range(0, 10) < 8)
         {
             SpawnObjOfExperience(transformEnemy);
         }

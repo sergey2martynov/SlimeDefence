@@ -5,11 +5,13 @@ public class KillCounter : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _counterText;
 
-    private int _counter;
+    private int _killCounter;
+
+    public int Counter => _killCounter;
 
     public void IncreaseCounter()
     {
-        _counter++;
-        _counterText.text = _counter.ToString();
+        _killCounter++;
+        _counterText.text = _killCounter.ToString();
     }
 }

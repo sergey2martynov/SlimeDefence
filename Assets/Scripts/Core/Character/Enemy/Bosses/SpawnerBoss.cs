@@ -11,6 +11,7 @@ public class SpawnerBoss : MonoBehaviour
     [SerializeField] private SpawnObjectOfExperience _spawnObjectOfExperience;
     [SerializeField] private KillCounter _killCounter;
     [SerializeField] private TimeCounter _timeCounter;
+    [SerializeField] private WinScreen _winScreen;
 
     private int _currentIndex;
     private Vector3 _offsetPositionMiniBoss;
@@ -33,7 +34,7 @@ public class SpawnerBoss : MonoBehaviour
     private void SpawnBoss(Enemy enemy, Vector3 offset)
     {
         var finalBoss = Instantiate(enemy, _player.position + offset, Quaternion.identity, _parent);
-        finalBoss.Initialize(_spawnObjectOfExperience, _killCounter);
+        finalBoss.Initialize(_spawnObjectOfExperience, _killCounter, _winScreen);
     }
 
     private void SpawnFinalBoss()

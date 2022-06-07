@@ -12,4 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10700d077586485290de059d3cc6ad1f, type: 3}
   m_Name: PikUpRadiusLevels
   m_EditorClassIdentifier: 
-  _playerParameters: []
+  _playerParameters:
+  - _name: 
+    _icon: {fileID: 0}
+    _description: 
+    _amount: 3
+  - _name: 
+    _icon: {fileID: 0}
+    _description: Pik up Radius Lvl 2
+    _amount: 2
+  - _name: 
+    _icon: {fileID: 0}
+    _description: Pik up Radius Lvl 3
+    _amount: 3

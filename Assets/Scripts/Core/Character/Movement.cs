@@ -18,6 +18,7 @@ namespace CodeBase.Core.Character
         private CharacterController _controller;
         private Vector3 _direction;
         private Vector3 _lookDirection;
+        private bool _isCanMove = true;
 
         private bool _isRemovedPositionY;
         private static readonly int Speed = Animator.StringToHash("Speed");
@@ -25,6 +26,7 @@ namespace CodeBase.Core.Character
         private static readonly int Zmove = Animator.StringToHash("Zmove");
 
         public Vector3 Direction => _direction;
+        public bool IsCanMove => _isCanMove;
 
         private void Awake()
         {
@@ -44,7 +46,8 @@ namespace CodeBase.Core.Character
 
         private void Move()
         {
-            _controller.Move(_direction * Time.deltaTime * _speed);
+            if (_isCanMove)
+                _controller.Move(_direction * Time.deltaTime * _speed);
 
             if (_animator != null)
             {
@@ -84,10 +87,10 @@ namespace CodeBase.Core.Character
                 DOTween.To(() => _lookDirection, x => _lookDirection = x, lookDirection, rate);
         }
 
-        private void ReturnPositionY()
+        public void Push()
         {
-            _isRemovedPositionY = true;
-            transform.DOMoveY(0f, 0.5f).OnComplete(() => _isRemovedPositionY = false);
+            // _isCanMove = false;
+            // transform.DOMove((transform.position - _direction * 2f) , 0.3f).OnComplete(() => _isCanMove = true);
         }
     }
 }
