@@ -188,7 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resultKills: {fileID: 8246575181897863089}
   _killCounter: {fileID: 0}
-  _finalBoss: {fileID: 8750012354138241463, guid: b49a40048ab40804b8dac1245d6907a3, type: 3}
+  _joystick: {fileID: 0}
 --- !u!1001 &8246575182176997037
 PrefabInstance:
   m_ObjectHideFlags: 0

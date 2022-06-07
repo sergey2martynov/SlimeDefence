@@ -138,6 +138,7 @@ MonoBehaviour:
   _button: {fileID: 8102579596200628400}
   _startMenu: {fileID: 0}
   _fixedJoystick: {fileID: 0}
+  _timeCounter: {fileID: 0}
 --- !u!1 &8102579597722326042
 GameObject:
   m_ObjectHideFlags: 0
