@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponParameters:
   - _name: 
-    _icon: {fileID: 0}
+    _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
     _description: Get ShotGun
     _damage: 5
     _rate: 3
@@ -22,7 +22,7 @@ MonoBehaviour:
     _amount: 3
     _spread: 30
   - _name: 
-    _icon: {fileID: 0}
+    _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
     _description: Shotgun Level 2
     _damage: 5
     _rate: 3
@@ -30,7 +30,7 @@ MonoBehaviour:
     _amount: 6
     _spread: 30
   - _name: 
-    _icon: {fileID: 0}
+    _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
     _description: Shotgun Level 3
     _damage: 10
     _rate: 3
@@ -38,7 +38,7 @@ MonoBehaviour:
     _amount: 6
     _spread: 30
   - _name: 
-    _icon: {fileID: 0}
+    _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
     _description: Shotgun Level 4
     _damage: 10
     _rate: 3
@@ -46,7 +46,7 @@ MonoBehaviour:
     _amount: 9
     _spread: 60
   - _name: 
-    _icon: {fileID: 0}
+    _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
     _description: Shotgun Level 5
     _damage: 10
     _rate: 2

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponParameters:
   - _name: 
-    _icon: {fileID: 0}
+    _icon: {fileID: 549139033193520066, guid: 312617003fdd52547b741609e252fa11, type: 3}
     _description: 
     _damage: 20
     _rate: 0.5
@@ -22,7 +22,7 @@ MonoBehaviour:
     _amount: 1
     _spread: 0
   - _name: 
-    _icon: {fileID: 0}
+    _icon: {fileID: 549139033193520066, guid: 312617003fdd52547b741609e252fa11, type: 3}
     _description: Gun Level 2
     _damage: 30
     _rate: 0.5
@@ -30,7 +30,7 @@ MonoBehaviour:
     _amount: 1
     _spread: 0
   - _name: 
-    _icon: {fileID: 0}
+    _icon: {fileID: 549139033193520066, guid: 312617003fdd52547b741609e252fa11, type: 3}
     _description: Gun Level 3
     _damage: 30
     _rate: 0.5
@@ -38,7 +38,7 @@ MonoBehaviour:
     _amount: 1
     _spread: 0
   - _name: 
-    _icon: {fileID: 0}
+    _icon: {fileID: 549139033193520066, guid: 312617003fdd52547b741609e252fa11, type: 3}
     _description: Gun Level 4
     _damage: 30
     _rate: 0.7
@@ -46,7 +46,7 @@ MonoBehaviour:
     _amount: 1
     _spread: 0
   - _name: 
-    _icon: {fileID: 0}
+    _icon: {fileID: 549139033193520066, guid: 312617003fdd52547b741609e252fa11, type: 3}
     _description: Gun Level 5
     _damage: 35
     _rate: 0.7
@@ -54,7 +54,7 @@ MonoBehaviour:
     _amount: 1
     _spread: 0
   - _name: 
-    _icon: {fileID: 0}
+    _icon: {fileID: 549139033193520066, guid: 312617003fdd52547b741609e252fa11, type: 3}
     _description: Gun Level 5
     _damage: 35
     _rate: 0.7

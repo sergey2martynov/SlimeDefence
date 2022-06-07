@@ -1,14 +1,18 @@
+using System;
 using System.Collections.Generic;
 using CodeBase.Core.Character;
 using UnityEngine;
 using CodeBase.Core.Character.Enemy;
+using UI.WeaponsPanel;
 using UpgradeWeapon;
 using Quaternion = UnityEngine.Quaternion;
+using Random = UnityEngine.Random;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
 public class ProjectileWeapon : Weapon
 {
+    [SerializeField] private WeaponsPanel _weaponsPanel;
     [SerializeField] private ProjectileWeaponLevels _weaponParameters;
     [SerializeField] private GunshotProjectilePool _gunshotProjectilePool;
     [SerializeField] private Movement _movement;
@@ -18,6 +22,7 @@ public class ProjectileWeapon : Weapon
     [SerializeField] private float _spread;
     [SerializeField] private TargetType _targetType;
     [SerializeField] private float _projectileSpeed;
+     
 
     private ProjectileWeaponParameters _currentParameters;
 
@@ -27,12 +32,8 @@ public class ProjectileWeapon : Weapon
     private float _distance = 100;
     private Vector3 _direction;
 
-    private void Start()
+    private void Awake()
     {
-        _enemies = new List<Enemy>();
-
-        MaxLevel = _weaponParameters.GetMaxNumberOfLevel();
-
         if (IsActive)
         {
             _currentParameters = _weaponParameters.GetWeaponParameters(0);
@@ -43,6 +44,13 @@ public class ProjectileWeapon : Weapon
             _currentParameters = _weaponParameters.GetWeaponParameters(0);
             _upgradeParameters = _weaponParameters.GetWeaponParameters(0);
         }
+    }
+
+    private void Start()
+    {
+        _enemies = new List<Enemy>();
+
+        MaxLevel = _weaponParameters.GetMaxNumberOfLevel();
 
         SetState();
         _capsuleCollider.radius = Range;
@@ -159,6 +167,7 @@ public class ProjectileWeapon : Weapon
         {
             IsActive = true;
             _upgradeParameters = _weaponParameters.GetWeaponParameters(_currentLevel + 1);
+            _weaponsPanel.UpdatePanel(this, true);
             return;
         }
 
@@ -166,6 +175,7 @@ public class ProjectileWeapon : Weapon
         _currentParameters = _weaponParameters.GetWeaponParameters(_currentLevel);
         _upgradeParameters = _weaponParameters.GetWeaponParameters(_currentLevel + 1);
         SetState();
+        _weaponsPanel.UpdatePanel(this, false);
     }
 
     private void SetState()

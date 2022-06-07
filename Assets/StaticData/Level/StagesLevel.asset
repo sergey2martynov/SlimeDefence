@@ -14,19 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveParameters:
   - _numberOfWave: 1
-    _durationWave: 100
+    _durationWave: 40
     _enemies: 00000000
     _initialSpawnRate:
-    - 0.1
+    - 1
     _lastSpawnRate:
     - 0.1
     _timesSpawnMiniBoss:
-    - 50
-    - 80
+    - 10
     _numberOfBosses: 1
   - _numberOfWave: 2
-    _durationWave: 60
-    _enemies: 02000000
+    _durationWave: 0
+    _enemies: 00000000
     _initialSpawnRate:
     - 3
     _lastSpawnRate:
@@ -35,18 +34,14 @@ MonoBehaviour:
     - 5
     _numberOfBosses: 2
   - _numberOfWave: 3
-    _durationWave: 60
-    _enemies: 000000000100000002000000
+    _durationWave: 0
+    _enemies: 00000000
     _initialSpawnRate:
     - 2
-    - 3
-    - 4
     _lastSpawnRate:
     - 0.2
-    - 0.2
-    - 0.2
     _timesSpawnMiniBoss:
-    - 15
+    - 5
     _numberOfBosses: 1
   - _numberOfWave: 0
     _durationWave: 0

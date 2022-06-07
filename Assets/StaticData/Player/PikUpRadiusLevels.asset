@@ -16,7 +16,7 @@ MonoBehaviour:
   - _name: 
     _icon: {fileID: 0}
     _description: 
-    _amount: 3
+    _amount: 1
   - _name: 
     _icon: {fileID: 0}
     _description: Pik up Radius Lvl 2

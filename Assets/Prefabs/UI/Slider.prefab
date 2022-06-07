@@ -293,4 +293,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 1035327868076273198}
-  _levelTime: 420
+  _stagesLevel: {fileID: 11400000, guid: 9866d7d45aed87142be4a5cc0c1e8774, type: 2}
+  _progress: {fileID: 0}
+  _timeCounter: {fileID: 0}
