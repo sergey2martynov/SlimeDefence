@@ -2,7 +2,10 @@ fileFormatVersion: 2
 guid: 6b0d347b0043c914ca9a2e953fa8150f
 ModelImporter:
   serializedVersion: 21202
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -3396616978283069277
+    second: CINEMA_4D_WalkAnim
   externalObjects: {}
   materials:
     materialImportMode: 2
