@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlimeBos
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 05e584b97bb6d374388ac2b08409ab94, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05e584b97bb6d374388ac2b08409ab94, type: 3}
 --- !u!1 &4669920528657931875 stripped
@@ -103,11 +107,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -642470563689923492, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: m_Radius
-      value: 1
+      value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: -642470563689923492, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: m_Center.y
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 329286636043561855, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: _speed
@@ -195,7 +199,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2784078873932093339, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.3313
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2784078873932093339, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -289,13 +293,28 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3799241398200103284, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
 --- !u!1 &970603420823659743 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7485599467530226675, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
   m_PrefabInstance: {fileID: 7681583665440567084}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &2511582116397868088
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970603420823659743}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 3.5
+  m_Height: 8
+  m_Direction: 1
+  m_Center: {x: 0, y: 5, z: 0}
 --- !u!114 &-2383939057770632244
 MonoBehaviour:
   m_ObjectHideFlags: 0

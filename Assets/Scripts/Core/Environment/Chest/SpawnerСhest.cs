@@ -7,8 +7,8 @@ public class SpawnerСhest : MonoBehaviour
     [SerializeField] private Chest _chest;
     [SerializeField] private Transform _player;
     [SerializeField] private Transform _parent;
-    [SerializeField] private SpawnObjectOfExperience _spawnObjectOfExperience;
     [SerializeField] private SpawnerHealthBox _spawnerHealthBox;
+    [SerializeField] private ExperiencePool _pool;
 
     private void Start()
     {
@@ -20,7 +20,7 @@ public class SpawnerСhest : MonoBehaviour
         var obstacle = Instantiate(_chest,
             RandomPositionFinder.FindRandomPosition(-41, 15, -17, 17) + _player.position,
             Quaternion.Euler(0, Random.Range(0, 360), 0), _parent);
-        obstacle.Initialize(_spawnObjectOfExperience, this, _spawnerHealthBox);
+        obstacle.Initialize(this, _spawnerHealthBox,_pool, _player);
     }
 
     public void ChangePositionChest(Chest chest)

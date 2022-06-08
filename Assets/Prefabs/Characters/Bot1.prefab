@@ -138,6 +138,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7929620506434585683}
     - target: {fileID: 1437842649254418075, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
+      propertyPath: _experience
+      value: 
+      objectReference: {fileID: 7359851135022116211, guid: 207a231d6b942db4d8d958b55948f3ae, type: 3}
+    - target: {fileID: 1437842649254418075, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
+      propertyPath: _dropeChance
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437842649254418075, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: _killCounter
       value: 
       objectReference: {fileID: 0}
@@ -259,7 +267,7 @@ PrefabInstance:
       objectReference: {fileID: -5423448646322265214}
     - target: {fileID: 6742871518922038233, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: _healthPoint
-      value: 25
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6742871518922038233, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: _movementType

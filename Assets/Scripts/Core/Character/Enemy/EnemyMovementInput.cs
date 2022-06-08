@@ -9,10 +9,11 @@ namespace CodeBase.Core.Character.Enemy
     public class EnemyMovementInput : MonoBehaviour
     {
         [SerializeField] private float _minDistance;
-        [SerializeField] private Enemy _enemy;
 
         private Movement _movement;
         private Transform _target;
+
+        public Transform Target => _target;
 
         private void Awake()
         {
@@ -31,27 +32,5 @@ namespace CodeBase.Core.Character.Enemy
                 _movement.SetLookDirection(direction);
             }
         }
-
-        // private bool IsEnemyOnTheWay()
-        // {
-        //     RaycastHit hit;
-        //     
-        //     Ray ray = new Ray(transform.position, (_target.position - transform.position));
-        //     
-        //     Physics.Raycast(ray, out hit);
-        //     
-        //     Debug.DrawLine(ray.origin, hit.point,Color.red);
-        //     
-        //     if (hit.collider.gameObject.TryGetComponent(out Enemy enemy))
-        //     {
-        //         for (int i = 0; i < _enemy.EnemiesAround.Count; i++)
-        //         {
-        //             if (enemy == _enemy.EnemiesAround[i])
-        //                 return true;
-        //         }
-        //     }
-        //     
-        //     return false;
-        // }
     }
 }

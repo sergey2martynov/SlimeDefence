@@ -1,9 +1,7 @@
-using System;
 using System.Collections.Generic;
 using CodeBase.Core.Character.Enemy;
+using Core.Environment;
 using DG.Tweening;
-using StaticData.Enemy;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpawnerEnemies : MonoBehaviour
@@ -11,10 +9,12 @@ public class SpawnerEnemies : MonoBehaviour
     [SerializeField] private WinScreen _winScreen;
     [SerializeField] private KillCounter _killCounter;
     [SerializeField] private StagesLevel _stagesLevel;
-    [SerializeField] private SpawnObjectOfExperience _spawnObjectOfExperience;
     [SerializeField] private List<EnemyPool> _enemyPools;
     [SerializeField] private List<AnimationCurve> _spawnIntervals;
     [SerializeField] private TimeCounter _timeCounter;
+    [SerializeField] private ExperiencePool _experiencePool;
+    [SerializeField] private HealthBox _healthBox;
+    [SerializeField] private Transform _healthBoxesParent;
     [SerializeField] private int _maxNumberOfEnemies;
     
     private float _currentTime;
@@ -24,7 +24,6 @@ public class SpawnerEnemies : MonoBehaviour
     private bool _isStageFinalBoss;
 
     private List<Enemy> _spawnedEnemies;
-    private List<AnimationCurve> _animationCurves;
     private List<float> _elapsedTimes;
     private List<float> _currentSpawnRate;
     public List<Enemy> SpawnedEnemies => _spawnedEnemies;
@@ -35,7 +34,6 @@ public class SpawnerEnemies : MonoBehaviour
         _currentWaveParameters = _stagesLevel.GetWaveParameters(_currentWave);
         _numberOfEnemies = _currentWaveParameters.Enemies.Count;
         _spawnedEnemies = new List<Enemy>();
-        _animationCurves = new List<AnimationCurve>();
         _elapsedTimes = new List<float>{0,0,0,0};
         _currentSpawnRate = new List<float>{0,0,0,0};
         _timeCounter.FinalStageBegun += RemoveAllEnemies;
@@ -100,7 +98,7 @@ public class SpawnerEnemies : MonoBehaviour
     {
         var enemy = _enemyPools[(int) type].Pool.Get().GetComponent<Enemy>();
 
-        enemy.Initialize(_spawnObjectOfExperience, _killCounter, _winScreen);
+        enemy.Initialize(_killCounter, _winScreen, _experiencePool, _healthBox, _healthBoxesParent);
         enemy.SetSpawnerEnemiesRef(this);
         _spawnedEnemies.Add(enemy);
     }

@@ -9,6 +9,7 @@ namespace Core.Expirience
     {
         [SerializeField] private float _lifeTime;
         [SerializeField] private int _experience;
+        [SerializeField] private bool _isBig;
         private Transform _player;
         private ExperiencePool _pool;
         private bool _isCanMoveToPlayer;
@@ -39,8 +40,12 @@ namespace Core.Expirience
             
             if (other.gameObject.TryGetComponent(out Player player))
             {
+                if (_isBig)
+                    Destroy(gameObject);
+                else
+                    _pool.Pool.Release(gameObject);
+                
                 _isCanMoveToPlayer = false;
-                _pool.Pool.Release(gameObject);
             }
         }
         private IEnumerator MoveToPlayer(Transform player)

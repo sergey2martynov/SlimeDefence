@@ -144,6 +144,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5109276423367654792, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
   m_PrefabInstance: {fileID: 5909255299282466060}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &19121556 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5909255299761834917, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+  m_PrefabInstance: {fileID: 5909255299282466060}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 215c208a9b032854da0aeb00e7fcf17d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &98785102 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5909255299355648578, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
@@ -807,6 +818,7 @@ GameObject:
   m_Component:
   - component: {fileID: 705507995}
   - component: {fileID: 705507994}
+  - component: {fileID: 705507996}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -891,6 +903,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &705507996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705507993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &709551119
 GameObject:
   m_ObjectHideFlags: 0
@@ -1346,6 +1378,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1141861995 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2572790725394897305, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+  m_PrefabInstance: {fileID: 5909255299282466060}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1146863753 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 7837547064363754331, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
@@ -2957,6 +2994,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5909255297961201556, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: _healthBox
+      value: 
+      objectReference: {fileID: -2996081798901494060, guid: fb405b2ac497ed249aa2583e0044ef42, type: 3}
+    - target: {fileID: 5909255297961201556, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
       propertyPath: _winScreen
       value: 
       objectReference: {fileID: 1221861}
@@ -2968,6 +3009,14 @@ PrefabInstance:
       propertyPath: _stagesLevel
       value: 
       objectReference: {fileID: 11400000, guid: 9866d7d45aed87142be4a5cc0c1e8774, type: 2}
+    - target: {fileID: 5909255297961201556, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: _experiencePool
+      value: 
+      objectReference: {fileID: 19121556}
+    - target: {fileID: 5909255297961201556, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: _healthBoxesParent
+      value: 
+      objectReference: {fileID: 1141861995}
     - target: {fileID: 5909255297961201556, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
       propertyPath: _maxNumberOfEnemies
       value: 200
@@ -3277,6 +3326,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 207557370}
     - target: {fileID: 5909255298757263659, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: _healthBox
+      value: 
+      objectReference: {fileID: -2996081798901494060, guid: fb405b2ac497ed249aa2583e0044ef42, type: 3}
+    - target: {fileID: 5909255298757263659, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
       propertyPath: _winScreen
       value: 
       objectReference: {fileID: 1221861}
@@ -3284,6 +3337,14 @@ PrefabInstance:
       propertyPath: _killCounter
       value: 
       objectReference: {fileID: 1271203428}
+    - target: {fileID: 5909255298757263659, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: _experiencePool
+      value: 
+      objectReference: {fileID: 19121556}
+    - target: {fileID: 5909255298757263659, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: _healthBoxParent
+      value: 
+      objectReference: {fileID: 1141861995}
     - target: {fileID: 5909255298782999036, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
       propertyPath: _maxSize
       value: 200

@@ -1,6 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Core.Environment;
+using Core.Expirience;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace CodeBase.Core.Character.Enemy
 {
@@ -10,11 +11,14 @@ namespace CodeBase.Core.Character.Enemy
         [SerializeField] private Movement _movement;
         [SerializeField] private EnemyType _enemyType;
         [SerializeField] private int _damage;
-        private SpawnObjectOfExperience _spawnObjectOfExperience;
+        [SerializeField] private int _dropeChance;
+        [SerializeField] private Experience _experience;
         private SpawnerEnemies _spawnerEnemies;
         private KillCounter _killCounter;
-        private List<Enemy> _enemiesAround;
         private WinScreen _winScreen;
+        private ExperiencePool _experiencePool;
+        private HealthBox _healthBox;
+        private Transform _healthBoxParent;
 
         public Health Health => _health;
         public Movement Movement => _movement;
@@ -22,19 +26,18 @@ namespace CodeBase.Core.Character.Enemy
         public EnemyType EnemyType => _enemyType;
         public int Damage => _damage;
 
-        public List<Enemy> EnemiesAround => _enemiesAround;
-
-        public void Initialize(SpawnObjectOfExperience spawnObjectOfExperience, KillCounter killCounter, WinScreen winScreen)
+        public void Initialize(KillCounter killCounter, WinScreen winScreen, ExperiencePool pool, HealthBox healthBox, Transform healthBoxParent)
         {
-            _spawnObjectOfExperience = spawnObjectOfExperience;
             _killCounter = killCounter;
             IsDie = false;
             _winScreen = winScreen;
+            _experiencePool = pool;
+            _healthBox = healthBox;
+            _healthBoxParent = healthBoxParent;
         }
         
         private void Start()
         {
-            _enemiesAround = new List<Enemy>();
             _health.HealthIsOver += Die;
         }
 
@@ -45,12 +48,15 @@ namespace CodeBase.Core.Character.Enemy
 
         private void Die()
         {
-            _spawnObjectOfExperience.SpawnObjOfExperienceForEnemy(transform, _enemyType);
             IsDie = true;
             _killCounter.IncreaseCounter();
-            
+
             if (_enemyType == EnemyType.MiniBoss)
             {
+                var experience = Instantiate(_experience, transform.position, Quaternion.identity);
+                
+                experience.Initialize(_experiencePool, gameObject.GetComponent<EnemyMovementInput>().Target);
+                
                 Destroy(gameObject);
             }
             else if (_enemyType == EnemyType.Boss)
@@ -60,6 +66,16 @@ namespace CodeBase.Core.Character.Enemy
             }
             else
             {
+                var calculatedChance = Random.Range(0, 100);
+                
+                if (calculatedChance < _dropeChance)
+                {
+                    if (calculatedChance == 49)
+                        Instantiate(_healthBox, transform.position, Quaternion.identity, _healthBoxParent);
+                    else
+                        SpawnObjOfExperience();
+                }
+                
                 _spawnerEnemies.EnemyPools[(int)_enemyType].Pool.Release(gameObject);
                 _spawnerEnemies.SpawnedEnemies.Remove(this);
             }
@@ -69,17 +85,13 @@ namespace CodeBase.Core.Character.Enemy
         {
             _spawnerEnemies = spawnerEnemies;
         }
-
-        // private void OnCollisionEnter(Collision collision)
-        // {
-        //     if (collision.gameObject.TryGetComponent(out Enemy enemy))
-        //         _enemiesAround.Add(enemy);
-        // }
-        //
-        // private void OnCollisionExit(Collision other)
-        // {
-        //     if (other.gameObject.TryGetComponent(out Enemy enemy))
-        //         _enemiesAround.Remove(enemy);
-        // }
+        
+        public void SpawnObjOfExperience()
+        {
+            GameObject objectOfExperience;
+        
+            objectOfExperience = _experiencePool.Pool.Get();
+            objectOfExperience.transform.position = transform.position;
+        }
     }
 }

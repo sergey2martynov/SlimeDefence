@@ -1,16 +1,18 @@
 using CodeBase.Core.Character.Enemy;
+using Core.Environment;
 using UnityEngine;
 
 public class SpawnerBoss : MonoBehaviour
 {
     [SerializeField] private Enemy _miniBoss;
     [SerializeField] private Enemy _finalBoss;
-    [SerializeField] private StagesLevel _stagesLevel;
     [SerializeField] private Transform _player;
     [SerializeField] private Transform _parent;
-    [SerializeField] private SpawnObjectOfExperience _spawnObjectOfExperience;
     [SerializeField] private KillCounter _killCounter;
     [SerializeField] private TimeCounter _timeCounter;
+    [SerializeField] private ExperiencePool _experiencePool;
+    [SerializeField] private HealthBox _healthBox;
+    [SerializeField] private Transform _healthBoxParent;
     [SerializeField] private WinScreen _winScreen;
 
     private int _currentIndex;
@@ -34,7 +36,7 @@ public class SpawnerBoss : MonoBehaviour
     private void SpawnBoss(Enemy enemy, Vector3 offset)
     {
         var finalBoss = Instantiate(enemy, _player.position + offset, Quaternion.identity, _parent);
-        finalBoss.Initialize(_spawnObjectOfExperience, _killCounter, _winScreen);
+        finalBoss.Initialize(_killCounter, _winScreen, _experiencePool, _healthBox, _healthBoxParent);
     }
 
     private void SpawnFinalBoss()
