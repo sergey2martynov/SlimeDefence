@@ -94,8 +94,8 @@ Material:
     - SHADOW_SHAPE_BLENDING: 0
     - _AlphaClip: 0
     - _Blend: 0
-    - _BlobIntensity: 0.79
-    - _BlobPower: 1.58
+    - _BlobIntensity: 0.38
+    - _BlobPower: 1.76
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
