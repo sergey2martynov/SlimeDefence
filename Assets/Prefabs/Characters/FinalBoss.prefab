@@ -63,6 +63,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7774256311387179360, guid: 05e584b97bb6d374388ac2b08409ab94, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1765a6e3ab1eab24b8a4c6b063d681af, type: 2}
+    - target: {fileID: -7774256311387179360, guid: 05e584b97bb6d374388ac2b08409ab94, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7867dbcce0f6c9d43bccccc7022df6cf, type: 2}
+    - target: {fileID: -7650016086025282240, guid: 05e584b97bb6d374388ac2b08409ab94, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4457fd3fc42e1047bde6edafe4724cf, type: 2}
+    - target: {fileID: -7650016086025282240, guid: 05e584b97bb6d374388ac2b08409ab94, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: a4273136ed6d7ae4b8481721dbeab1da, type: 2}
     - target: {fileID: 919132149155446097, guid: 05e584b97bb6d374388ac2b08409ab94, type: 3}
       propertyPath: m_Name
       value: SlimeBos
