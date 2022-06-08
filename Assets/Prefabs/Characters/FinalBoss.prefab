@@ -122,16 +122,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -642470563689923492, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
+      propertyPath: m_Height
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -642470563689923492, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: m_Radius
-      value: 2.8
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: -642470563689923492, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: m_Center.y
-      value: 4
+      value: 3.4
       objectReference: {fileID: 0}
     - target: {fileID: 329286636043561855, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: _speed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 329286636043561855, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: _movementType
@@ -327,10 +331,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 3.5
-  m_Height: 8
+  m_Radius: 2.5
+  m_Height: 12
   m_Direction: 1
-  m_Center: {x: 0, y: 5, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &-2383939057770632244
 MonoBehaviour:
   m_ObjectHideFlags: 0

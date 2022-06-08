@@ -119,15 +119,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -642470563689923492, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: m_Radius
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -642470563689923492, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: m_Center.y
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 329286636043561855, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: _speed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 329286636043561855, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: _movementType
@@ -215,7 +215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2784078873932093339, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.3313
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2784078873932093339, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -331,10 +331,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.5
-  m_Height: 5
+  m_Radius: 0.5
+  m_Height: 8
   m_Direction: 1
-  m_Center: {x: 0, y: 2, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-2383939057770632244
 MonoBehaviour:
   m_ObjectHideFlags: 0
