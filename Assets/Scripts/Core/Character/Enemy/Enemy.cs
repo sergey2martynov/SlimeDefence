@@ -19,6 +19,7 @@ namespace CodeBase.Core.Character.Enemy
         private ExperiencePool _experiencePool;
         private HealthBox _healthBox;
         private Transform _healthBoxParent;
+        private Camera _camera;
 
         public Health Health => _health;
         public Movement Movement => _movement;
@@ -26,7 +27,9 @@ namespace CodeBase.Core.Character.Enemy
         public EnemyType EnemyType => _enemyType;
         public int Damage => _damage;
 
-        public void Initialize(KillCounter killCounter, WinScreen winScreen, ExperiencePool pool, HealthBox healthBox, Transform healthBoxParent)
+        public Camera Camera => _camera;
+
+        public void Initialize(KillCounter killCounter, WinScreen winScreen, ExperiencePool pool, HealthBox healthBox, Transform healthBoxParent, Camera camera)
         {
             _killCounter = killCounter;
             IsDie = false;
@@ -34,6 +37,7 @@ namespace CodeBase.Core.Character.Enemy
             _experiencePool = pool;
             _healthBox = healthBox;
             _healthBoxParent = healthBoxParent;
+            _camera = camera;
         }
         
         private void Start()

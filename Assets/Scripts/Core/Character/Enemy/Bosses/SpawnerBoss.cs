@@ -14,6 +14,7 @@ public class SpawnerBoss : MonoBehaviour
     [SerializeField] private HealthBox _healthBox;
     [SerializeField] private Transform _healthBoxParent;
     [SerializeField] private WinScreen _winScreen;
+    [SerializeField] private Camera _camera;
 
     private int _currentIndex;
     private Vector3 _offsetPositionMiniBoss;
@@ -36,7 +37,7 @@ public class SpawnerBoss : MonoBehaviour
     private void SpawnBoss(Enemy enemy, Vector3 offset)
     {
         var finalBoss = Instantiate(enemy, _player.position + offset, Quaternion.identity, _parent);
-        finalBoss.Initialize(_killCounter, _winScreen, _experiencePool, _healthBox, _healthBoxParent);
+        finalBoss.Initialize(_killCounter, _winScreen, _experiencePool, _healthBox, _healthBoxParent, _camera);
     }
 
     private void SpawnFinalBoss()
