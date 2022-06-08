@@ -1,0 +1,30 @@
+v1.3
+    Added orthographic camera support to Builtin and URP shaders.
+    Added SetRenderQueue.cs script, to allow for forcing standard URP shaders to a specific render queue.
+    Added assembly definition files and namespaces.
+    Changed precision from half to float to avoid artifacts in certain situations.
+    Changed shader so the the alpha channel of the fog color acts as a multiplier to the intensity.
+    Fixed incorrect fog blending and shadows disappearing with linear fog in URP.
+    Removed Amplify Shader Editor version for URP and HDRP shaders due to lack of interest and to reduce update workload.
+    Removed unused ViewToLocalSpace.asset files.
+    Removed default support for Unity URP versions before 2019.
+
+v1.2
+    Changed builtin BlobShadow shader's minimum Shader Model version to 3.0, from 4.7.
+    Fixed a compile error in the AmplifyBlobShadow shader of the URP version.
+    Fixed zeroed-out default values for the BlobShadowGraph shader in the URP version.
+    Forced disable batching on the Builtin version of the shader, to prevent accidental breaking.
+
+v1.1
+    Added EnableDepthTexture.cs script, to fix issues where none of the blob shadows show up because of a disabled depth texture.
+    Added FollowObject.cs script, for simple attachment of the shadow geo to an object with a world-relative offset.
+    Added Rounded Cube Bias and Rounded Cube Power parameters to the shader to allow for softer cube shadows.
+    Added UV-less and normal-less shadow cube mesh to use for minimum rendering cost. 
+    Changed the culling and Z-testing so that the shadow volume is visible even when the camera is inside. (Thanks AtomicJoe!) Unfortunately this apparently can't be done in URP yet.
+    Improved the example scene with better examples and text descriptions.
+    Fixed issue with shader not interacting properly with fog.
+    Fixed issue with cube-to-sphere values still being calculated when Allow Shape Blending is disabled.
+    Fixed ASEMaterialInspector warning.
+
+v1.0
+    Initial release.
