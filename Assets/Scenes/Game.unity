@@ -3122,6 +3122,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5909255297961201556, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 963194227}
+    - target: {fileID: 5909255297961201556, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -3457,6 +3461,10 @@ PrefabInstance:
       propertyPath: _parent
       value: 
       objectReference: {fileID: 207557370}
+    - target: {fileID: 5909255298757263659, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 963194227}
     - target: {fileID: 5909255298757263659, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
       propertyPath: _healthBox
       value: 

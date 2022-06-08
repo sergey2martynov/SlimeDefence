@@ -2,7 +2,6 @@ using System;
 using Core.Character;
 using StaticData;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Upgrade;
 
 public class Health : Upgradable
@@ -19,14 +18,22 @@ public class Health : Upgradable
     public event Action HealthIsOver;
     public event Action<int> MaxHealthChanged;
 
+    public event Action<float> HealthChanged;
+
     public void GetDamage(int damageTaken)
     {
         _healthPoint = _healthPoint - damageTaken + _defence.DefencePlayer;
+        HealthChanged?.Invoke(damageTaken);
 
         if (_healthPoint < 0)
         {
             HealthIsOver?.Invoke();
         }
+    }
+
+    private void Awake()
+    {
+        
     }
 
     private void Start()
@@ -35,8 +42,8 @@ public class Health : Upgradable
 
         if (_characterType == CharacterType.Player)
         {
-            SetHealthPoint();
             MaxLevel = _healthLevels.GetMaxNumberOfLevel();
+            SetHealthPoint();
         }
     }
 
