@@ -13,51 +13,27 @@ MonoBehaviour:
   m_Name: GunLevels
   m_EditorClassIdentifier: 
   _weaponParameters:
-  - _name: 
+  - _name: Pistol Lv1
     _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
     _description: 
-    _damage: 20
-    _rate: 0.2
+    _damage: 11
+    _rate: 1.2
     _range: 15
     _amount: 1
     _spread: 0
-  - _name: 
+  - _name: Pistol Lv2
     _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
-    _description: Gun Level 2
-    _damage: 30
-    _rate: 0.2
+    _description: 
+    _damage: 11
+    _rate: 1.1
     _range: 15
     _amount: 1
     _spread: 0
-  - _name: 
+  - _name: Pistol Lv3
     _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
-    _description: Gun Level 3
-    _damage: 30
-    _rate: 0.4
-    _range: 15
-    _amount: 1
-    _spread: 0
-  - _name: 
-    _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
-    _description: Gun Level 4
-    _damage: 30
-    _rate: 0.3
-    _range: 15
-    _amount: 1
-    _spread: 0
-  - _name: 
-    _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
-    _description: Gun Level 5
-    _damage: 35
-    _rate: 0.2
-    _range: 15
-    _amount: 1
-    _spread: 0
-  - _name: 
-    _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
-    _description: Gun Level 5
-    _damage: 35
-    _rate: 0.1
+    _description: 
+    _damage: 11
+    _rate: 1
     _range: 15
     _amount: 1
     _spread: 0
