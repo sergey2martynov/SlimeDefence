@@ -1,5 +1,4 @@
 using System.Collections;
-using CodeBase.Core;
 using CodeBase.Core.Character.Enemy;
 using Core.Environment;
 using Core.Environment.Chest;
