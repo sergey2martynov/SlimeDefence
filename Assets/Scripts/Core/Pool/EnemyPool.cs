@@ -36,7 +36,7 @@ public class EnemyPool : AbstractPool
     private Vector3 FindSpawnRandomPosition()
     {
         Vector3 vector = new Vector3(
-           Random.Range(-20, 20),
+           Random.Range(-15, 15),
            0,
            Random.Range(0, 2) == 0 ? Random.Range(-60 , -50) : Random.Range(50 , 60));
         

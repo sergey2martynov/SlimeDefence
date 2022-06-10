@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifeTime: 10
-  _experience: 5
+  _experience: 10
   _isBig: 0
 --- !u!1 &8904036089744740996
 GameObject:
