@@ -32,6 +32,8 @@ public class ProjectileWeapon : Weapon
     private float _distance = 100;
     private Vector3 _direction;
 
+    public List<Enemy> Enemies => _enemies;
+
     private void Awake()
     {
         if (IsActive)
@@ -86,20 +88,17 @@ public class ProjectileWeapon : Weapon
 
         int indexOfEnemies = 0;
         
-            minDistance  = Vector2.Distance(_player.position, _enemies[0].transform.position);
+            minDistance  = Vector3.Distance(_player.position, _enemies[0].transform.position);
 
         for (int i = 1; i < _enemies.Count; i++)
         {
-            if (_enemies[i] != null)
-            {
-                _distance = Vector2.Distance(_player.position, _enemies[i].transform.position);
+                _distance = Vector3.Distance(_player.position, _enemies[i].transform.position);
 
                 if (_distance < minDistance)
                 {
                     minDistance = _distance;
                     indexOfEnemies = i;
                 }
-            }
         }
 
         return _enemies[indexOfEnemies];
@@ -128,7 +127,7 @@ public class ProjectileWeapon : Weapon
             _ => _direction
         };
 
-        _movement.SetLookDirection(_direction, _rate * 2);
+        _movement.SetLookDirection(_direction, 0.5f);
 
         for (int i = 1; i <= _amount; i++)
         {
@@ -157,16 +156,16 @@ public class ProjectileWeapon : Weapon
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        for (int i = 0; i < _enemies.Count; i++)
-        {
-            if (other.gameObject.GetComponent<Enemy>() == _enemies[i])
-            {
-                _enemies.Remove(_enemies[i]);
-            }
-        }
-    }
+    // private void OnTriggerExit(Collider other)
+    // {
+    //     for (int i = 0; i < _enemies.Count; i++)
+    //     {
+    //         if (other.gameObject.GetComponent<Enemy>() == _enemies[i])
+    //         {
+    //             _enemies.Remove(_enemies[i]);
+    //         }
+    //     }
+    // }
 
     public override void Upgrade()
     {
