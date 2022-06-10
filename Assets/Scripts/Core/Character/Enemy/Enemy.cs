@@ -12,6 +12,7 @@ namespace CodeBase.Core.Character.Enemy
         [SerializeField] private int _damage;
         [SerializeField] private int _dropeChance;
         [SerializeField] private Experience _experience;
+        [SerializeField] private SkinnedMeshRenderer _meshRenderer;
         private SpawnerEnemies _spawnerEnemies;
         private KillCounter _killCounter;
         private WinScreen _winScreen;
@@ -19,6 +20,7 @@ namespace CodeBase.Core.Character.Enemy
         private HealthBox _healthBox;
         private Transform _healthBoxParent;
         private Camera _camera;
+        private Color _color;
 
         public Health Health => _health;
         public bool IsDie { get;private set; }
@@ -26,6 +28,7 @@ namespace CodeBase.Core.Character.Enemy
         public int Damage => _damage;
 
         public Camera Camera => _camera;
+        public SkinnedMeshRenderer MeshRenderer => _meshRenderer;
 
         public void Initialize(KillCounter killCounter, WinScreen winScreen, ExperiencePool pool, HealthBox healthBox, Transform healthBoxParent, Camera camera)
         {
@@ -40,6 +43,7 @@ namespace CodeBase.Core.Character.Enemy
         
         private void Start()
         {
+            _color = _meshRenderer.material.color;
             _health.HealthIsOver += Die;
         }
 
@@ -94,6 +98,11 @@ namespace CodeBase.Core.Character.Enemy
         
             objectOfExperience = _experiencePool.Pool.Get();
             objectOfExperience.transform.position = transform.position;
+        }
+
+        public void ReturnColor()
+        {
+            _meshRenderer.material.color = _color;
         }
     }
 }

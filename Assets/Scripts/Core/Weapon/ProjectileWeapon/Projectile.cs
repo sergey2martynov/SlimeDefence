@@ -47,8 +47,14 @@ public class Projectile : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent(out Enemy enemyController))
         {
-            enemyController.Health.GetDamage(Damage);
-            _pool.Pool.Release(gameObject);
+            enemyController.MeshRenderer.material.color = Color.white;
+            
+            DOTween.Sequence().AppendInterval(0.07f).OnComplete(() =>
+            {
+                enemyController.ReturnColor();
+                enemyController.Health.GetDamage(Damage);
+                _pool.Pool.Release(gameObject);
+            });
         }
         
         if (other.gameObject.TryGetComponent(out Chest chest))

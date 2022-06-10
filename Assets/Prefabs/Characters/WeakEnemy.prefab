@@ -158,6 +158,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eafc15330a38d7047a5e71a12a3c32d9, type: 3}
+--- !u!137 &1654250249906598486 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -4211773947733366040, guid: eafc15330a38d7047a5e71a12a3c32d9, type: 3}
+  m_PrefabInstance: {fileID: 6015074341796124862}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6121358655820300117 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: eafc15330a38d7047a5e71a12a3c32d9, type: 3}
@@ -247,6 +252,10 @@ PrefabInstance:
       propertyPath: _killCounter
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1437842649254418075, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
+      propertyPath: _meshRenderer
+      value: 
+      objectReference: {fileID: 1654250249906598486}
     - target: {fileID: 1437842649254418075, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: _spawnObjectOfExpirience
       value: 
@@ -385,7 +394,7 @@ PrefabInstance:
       objectReference: {fileID: 8750012354138241463}
     - target: {fileID: 7485599467530226675, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: m_Name
-      value: Bot1
+      value: WeakEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 7485599467530226675, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: m_Layer

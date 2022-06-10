@@ -385,6 +385,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 05e584b97bb6d374388ac2b08409ab94, type: 3}
   m_PrefabInstance: {fileID: 5194332152311873437}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &6755495600633946845 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7650016086025282240, guid: 05e584b97bb6d374388ac2b08409ab94, type: 3}
+  m_PrefabInstance: {fileID: 5194332152311873437}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7681583665440567084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -436,6 +441,10 @@ PrefabInstance:
       propertyPath: _killCounter
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1437842649254418075, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
+      propertyPath: _meshRenderer
+      value: 
+      objectReference: {fileID: 6755495600633946845}
     - target: {fileID: 1437842649254418075, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: _spawnObjectOfExpirience
       value: 
