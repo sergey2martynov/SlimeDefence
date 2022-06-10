@@ -60,10 +60,10 @@ public class ProjectileWeapon : Weapon
     {
         _elapsedTime += Time.deltaTime;
         
-        // if (_enemies.Count == 0)
-        // {
-        //     _movement.SetLookDirection(_movement.Direction, 1);
-        // }
+        if (_enemies.Count == 0)
+        {
+            _movement.SetLookDirection(_movement.Direction, 1);
+        }
 
         for (int i = 0; i < _enemies.Count; i++)
         {
@@ -128,7 +128,7 @@ public class ProjectileWeapon : Weapon
             _ => _direction
         };
 
-        _movement.SetLookDirection(_direction, _rate / 2);
+        _movement.SetLookDirection(_direction, _rate * 2);
 
         for (int i = 1; i <= _amount; i++)
         {

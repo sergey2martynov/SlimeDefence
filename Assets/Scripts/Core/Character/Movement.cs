@@ -5,17 +5,16 @@ using DG.Tweening;
 using StaticData;
 using UnityEngine;
 using Upgrade;
-using Core.Character.Player;
 
 namespace CodeBase.Core.Character
 {
-    [RequireComponent(typeof(CharacterController))]
     public class Movement : Upgradable
     {
         [SerializeField] private float _speed;
         [SerializeField] private SpeedLevels _speedLevels;
         [SerializeField] private CharacterType _characterType;
         [SerializeField] private Animator _animator;
+        [SerializeField] private Rigidbody _rigidbody;
 
         private CharacterController _controller;
         private Vector3 _direction;
@@ -32,8 +31,6 @@ namespace CodeBase.Core.Character
 
         private void Awake()
         {
-            _controller = GetComponent<CharacterController>();
-
             if (_characterType == CharacterType.Player)
             {
                 MaxLevel = _speedLevels.GetMaxNumberOfLevel();
@@ -43,10 +40,15 @@ namespace CodeBase.Core.Character
             _player = FindObjectOfType<PlayerMovementInput>();
         }
 
+        private void Update()
+        {
+            if (_characterType == CharacterType.Player)
+                transform.rotation = Quaternion.LookRotation(_lookDirection);
+        }
+
         public void Move()
         {
-            
-            _controller.Move(_direction * (Time.deltaTime * _speed));
+            _rigidbody.velocity = _direction * _speed;
 
             if (_animator != null)
             {
@@ -73,6 +75,7 @@ namespace CodeBase.Core.Character
 
         public void SetDirection(Vector3 direction)
         {
+            direction.y = 0;
             _direction = direction.normalized;
         }
 
