@@ -1,3 +1,4 @@
+using StaticData;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,6 +6,7 @@ public class HealthBarFiller : MonoBehaviour
 {
     [SerializeField] private Slider _slider;
     [SerializeField] private Health _health;
+    [SerializeField] private HealthLevels _healthLevels;
 
     private int _maxValue;
 
@@ -12,10 +14,11 @@ public class HealthBarFiller : MonoBehaviour
 
     private void Start()
     {
-        _maxValue = _health.HealthPoint;
+        _maxValue = _healthLevels.GetHealthParameters(0).Amount;
         _slider.fillRect.GetComponent<Image>().color = color;
 
         _slider.maxValue = _maxValue;
+        _slider.value = _maxValue;
         _slider.minValue = 0;
 
         _health.MaxHealthChanged += UpdateMaxValue;
