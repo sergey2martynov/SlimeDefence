@@ -21,6 +21,7 @@ MonoBehaviour:
     _range: 15
     _amount: 15
     _spread: 40
+    _projectileSpeed: 1
   - _name: 
     _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
     _description: Shotgun Level 2
@@ -29,6 +30,7 @@ MonoBehaviour:
     _range: 15
     _amount: 6
     _spread: 30
+    _projectileSpeed: 0.5
   - _name: 
     _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
     _description: Shotgun Level 3
@@ -37,6 +39,7 @@ MonoBehaviour:
     _range: 15
     _amount: 12
     _spread: 40
+    _projectileSpeed: 0.5
   - _name: 
     _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
     _description: Shotgun Level 4
@@ -45,6 +48,7 @@ MonoBehaviour:
     _range: 15
     _amount: 14
     _spread: 60
+    _projectileSpeed: 0.5
   - _name: 
     _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
     _description: Shotgun Level 5
@@ -53,3 +57,4 @@ MonoBehaviour:
     _range: 15
     _amount: 18
     _spread: 80
+    _projectileSpeed: 0.5

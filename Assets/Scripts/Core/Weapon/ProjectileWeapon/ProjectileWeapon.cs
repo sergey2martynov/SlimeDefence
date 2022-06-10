@@ -192,6 +192,7 @@ public class ProjectileWeapon : Weapon
         _rate = _currentParameters.Rate;
         _range = _currentParameters.Range;
         _capsuleCollider.radius = _range;
+        _projectileSpeed = _currentParameters.ProjectileSpeed;
     }
 
     // private void OnDrawGizmos()
