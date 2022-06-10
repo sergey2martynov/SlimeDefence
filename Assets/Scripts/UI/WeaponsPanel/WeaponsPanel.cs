@@ -16,6 +16,7 @@ namespace UI.WeaponsPanel
         {
             _activeWeapon = new List<Weapon>();
             _activeWeapon.Add(_defaultWeapon);
+            _weaponIcons[0].gameObject.SetActive(true);
             _weaponIcons[0].sprite = _defaultWeapon.GetUpgradeParameters().Icon.sprite;
         }
 
@@ -30,6 +31,7 @@ namespace UI.WeaponsPanel
             {
                 if (weapon == _activeWeapon[i])
                 {
+                    _weaponIcons[i].gameObject.SetActive(true);
                     _weaponIcons[i].sprite = _activeWeapon[i].GetUpgradeParameters().Icon.sprite;
                 }
             }

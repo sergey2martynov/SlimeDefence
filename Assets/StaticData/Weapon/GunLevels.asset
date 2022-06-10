@@ -17,7 +17,7 @@ MonoBehaviour:
     _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
     _description: 
     _damage: 20
-    _rate: 0.1
+    _rate: 0.2
     _range: 15
     _amount: 1
     _spread: 0
@@ -25,7 +25,7 @@ MonoBehaviour:
     _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
     _description: Gun Level 2
     _damage: 30
-    _rate: 0.5
+    _rate: 0.2
     _range: 15
     _amount: 1
     _spread: 0

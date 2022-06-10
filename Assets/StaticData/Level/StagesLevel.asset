@@ -15,23 +15,16 @@ MonoBehaviour:
   _waveParameters:
   - _numberOfWave: 1
     _durationWave: 100
-    _enemies: 0000000000000000
+    _enemies: 000000000000000001000000
     _initialSpawnRate:
     - 0.2
     - 0.2
+    - 6
     _lastSpawnRate:
     - 0.2
     - 0.2
-    _timesSpawnMiniBoss:
-    - 5
-    - 10
-    - 20
-    - 40
-    - 70
-    - 75
-    - 80
-    - 82
-    - 83
+    - 1
+    _timesSpawnMiniBoss: []
     _numberOfBosses: 1
   - _numberOfWave: 2
     _durationWave: 0
