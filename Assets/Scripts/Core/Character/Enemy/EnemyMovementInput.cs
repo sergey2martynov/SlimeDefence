@@ -1,36 +1,25 @@
 ﻿using UnityEngine;
-using CodeBase.Core.Character.Player;
-using Core.Character.Player;
-using UnityEngine.Apple.ReplayKit;
+using UnityEngine.AI;
 
 namespace CodeBase.Core.Character.Enemy
 {
-    [RequireComponent(typeof(Movement))]
     public class EnemyMovementInput : MonoBehaviour
     {
-        [SerializeField] private float _minDistance;
-
-        private Movement _movement;
+        [SerializeField] private NavMeshAgent _agent;
+        
         private Transform _target;
 
         public Transform Target => _target;
 
         private void Awake()
         {
-            _movement = GetComponent<Movement>();
             _target = FindObjectOfType<global::Core.Character.Player.Player>().transform;
+            _agent.destination = _target.position;
         }
 
-        private void Update()
+        public void MoveEnemy()
         {
-            var distance = (_target.position - transform.position).magnitude;
-
-            if (distance > _minDistance )
-            {
-                var direction = _target.position - transform.position;
-                _movement.SetDirection(direction);
-                _movement.SetLookDirection(direction);
-            }
+            _agent.destination = _target.position;
         }
     }
 }

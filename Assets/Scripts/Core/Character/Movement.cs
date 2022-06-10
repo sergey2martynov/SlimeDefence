@@ -20,7 +20,6 @@ namespace CodeBase.Core.Character
         private Vector3 _direction;
         private Vector3 _lookDirection;
         private bool _isCanMove = true;
-        private PlayerMovementInput _player;
 
         private bool _isRemovedPositionY;
         private static readonly int Speed = Animator.StringToHash("Speed");
@@ -36,8 +35,6 @@ namespace CodeBase.Core.Character
                 MaxLevel = _speedLevels.GetMaxNumberOfLevel();
                 _speed = _speedLevels.GetSpeedParameters(_currentLevel).Amount;
             }
-
-            _player = FindObjectOfType<PlayerMovementInput>();
         }
 
         private void Update()
@@ -48,8 +45,6 @@ namespace CodeBase.Core.Character
 
         public void Move()
         {
-            _rigidbody.velocity = _direction * _speed;
-
             if (_animator != null)
             {
                 var angle = Vector3.Angle(_lookDirection, _direction) * Mathf.Deg2Rad;
@@ -60,17 +55,6 @@ namespace CodeBase.Core.Character
             }
 
             transform.rotation = Quaternion.LookRotation(_lookDirection);
-        }
-
-        public override void Upgrade()
-        {
-            _currentLevel++;
-            _speed = _speedLevels.GetSpeedParameters(_currentLevel).Amount;
-        }
-
-        public override UpgradeParametersBase GetUpgradeParameters()
-        {
-            return _speedLevels.GetSpeedParameters(_currentLevel + 1);
         }
 
         public void SetDirection(Vector3 direction)

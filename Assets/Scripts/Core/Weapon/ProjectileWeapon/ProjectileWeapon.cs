@@ -84,11 +84,9 @@ public class ProjectileWeapon : Weapon
 
     private Enemy FindNearbyEnemy()
     {
-        float minDistance = 0;
-
         int indexOfEnemies = 0;
         
-            minDistance  = Vector3.Distance(_player.position, _enemies[0].transform.position);
+        float minDistance  = Vector3.Distance(_player.position, _enemies[0].transform.position);
 
         for (int i = 1; i < _enemies.Count; i++)
         {

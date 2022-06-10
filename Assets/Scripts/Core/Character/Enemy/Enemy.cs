@@ -8,7 +8,6 @@ namespace CodeBase.Core.Character.Enemy
     public class Enemy : MonoBehaviour
     {
         [SerializeField] private Health _health;
-        [SerializeField] private Movement _movement;
         [SerializeField] private EnemyType _enemyType;
         [SerializeField] private int _damage;
         [SerializeField] private int _dropeChance;
@@ -22,7 +21,6 @@ namespace CodeBase.Core.Character.Enemy
         private Camera _camera;
 
         public Health Health => _health;
-        public Movement Movement => _movement;
         public bool IsDie { get;private set; }
         public EnemyType EnemyType => _enemyType;
         public int Damage => _damage;

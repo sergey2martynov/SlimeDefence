@@ -22,6 +22,8 @@ public class EnemyPool : AbstractPool
         poolObject.transform.position =
             FindSpawnRandomPosition() + _player.position;
         poolObject.gameObject.SetActive(true);
+        
+        poolObject.GetComponent<EnemyMovementInput>().MoveEnemy();
     }
 
     public override void ActionOnRelease(GameObject poolObject)

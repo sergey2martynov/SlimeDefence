@@ -36,7 +36,7 @@ public class SpawnerBoss : MonoBehaviour
 
     private void SpawnBoss(Enemy enemy, Vector3 offset)
     {
-        var finalBoss = Instantiate(enemy, _player.position + offset, Quaternion.identity, _parent);
+        var finalBoss = Instantiate(enemy, _player.position + FindSpawnRandomPosition(), Quaternion.identity, _parent);
         finalBoss.Initialize(_killCounter, _winScreen, _experiencePool, _healthBox, _healthBoxParent, _camera);
     }
 
@@ -48,5 +48,12 @@ public class SpawnerBoss : MonoBehaviour
     private void SpawnMiniBoss()
     {
         SpawnBoss(_miniBoss, _offsetPositionMiniBoss);
+    }
+    
+    private Vector3 FindSpawnRandomPosition()
+    {
+        var vector = new Vector3(Random.Range(10, 30), 0, Random.Range(10, 30));
+        Vector3 turnedVector = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.up) * vector;
+        return turnedVector;
     }
 }
