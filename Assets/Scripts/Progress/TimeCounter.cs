@@ -15,7 +15,7 @@ public class TimeCounter : MonoBehaviour
 
     public event Action FinalStageBegun;
 
-    public event Action SpawnMiniBossTimeHasCome;
+    public event Action<int> SpawnBossTimeHasCome;
     public event Action ChangedWave;
 
     private void Start()
@@ -31,26 +31,22 @@ public class TimeCounter : MonoBehaviour
         {
             _elapsedTime = 0;
             _currentMiniBoss = 0;
+            
+            SpawnBossTimeHasCome?.Invoke(_stagesLevel.GetWaveParameters(_currentWave).NumberOfBosses);
+            
             _currentWave++;
             
             if (_currentWave < _stagesLevel.WaveParameters.Count)
             {
                 _currentWaveDuration = _stagesLevel.GetWaveParameters(_currentWave).DurationWave;
                 ChangedWave?.Invoke();
+                
             }
         }
         else if (_currentWave == _stagesLevel.WaveParameters.Count && !_isFinalStageLevel)
         {
             _isFinalStageLevel = true;
             FinalStageBegun?.Invoke();
-        }
-
-        if (_currentWave < _stagesLevel.WaveParameters.Count &&
-            _currentMiniBoss < _stagesLevel.GetWaveParameters(_currentWave).TimesSpawnMiniBoss.Count && _elapsedTime >
-            _stagesLevel.GetWaveParameters(_currentWave).TimesSpawnMiniBoss[_currentMiniBoss])
-        {
-            _currentMiniBoss++;
-            SpawnMiniBossTimeHasCome?.Invoke();
         }
     }
 

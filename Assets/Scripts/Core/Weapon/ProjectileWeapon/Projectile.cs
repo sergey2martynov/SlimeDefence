@@ -13,7 +13,7 @@ public class Projectile : MonoBehaviour
     private float _speed;
     private GunshotProjectilePool _pool;
 
-    public void Initialize(int damage,Vector3 direction, GunshotProjectilePool pool,Transform currentPos,  float speed, float lifeTime = 10f)
+    public void Initialize(int damage,Vector3 direction, GunshotProjectilePool pool,Transform currentPos,  float speed, float lifeTime = 4f)
     {
         var startPosOffset = new Vector3(0, 1, 0);
         

@@ -13,6 +13,7 @@ namespace CodeBase.Core.Character.Enemy
         [SerializeField] private int _dropeChance;
         [SerializeField] private Experience _experience;
         [SerializeField] private SkinnedMeshRenderer _meshRenderer;
+        
         private SpawnerEnemies _spawnerEnemies;
         private KillCounter _killCounter;
         private WinScreen _winScreen;
@@ -67,7 +68,6 @@ namespace CodeBase.Core.Character.Enemy
             }
             else if (_enemyType == EnemyType.Boss)
             {
-                _winScreen.ShowWinScreen(true);
                 Destroy(gameObject);
             }
             else

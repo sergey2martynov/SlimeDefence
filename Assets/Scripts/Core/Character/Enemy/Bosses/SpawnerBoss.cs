@@ -24,14 +24,12 @@ public class SpawnerBoss : MonoBehaviour
     {
         _offsetPositionMiniBoss = new Vector3(0, 0, -40);
         _offsetPositionFinalBoss = new Vector3(0, 0, -20);
-        _timeCounter.FinalStageBegun += SpawnFinalBoss;
-        _timeCounter.SpawnMiniBossTimeHasCome += SpawnMiniBoss;
+        _timeCounter.SpawnBossTimeHasCome += SpawnFinalBoss;
     }
 
     private void OnDestroy()
     {
-        _timeCounter.FinalStageBegun -= SpawnFinalBoss;
-        _timeCounter.SpawnMiniBossTimeHasCome -= SpawnMiniBoss;
+        _timeCounter.SpawnBossTimeHasCome -= SpawnFinalBoss;
     }
 
     private void SpawnBoss(Enemy enemy, Vector3 offset)
@@ -40,20 +38,22 @@ public class SpawnerBoss : MonoBehaviour
         finalBoss.Initialize(_killCounter, _winScreen, _experiencePool, _healthBox, _healthBoxParent, _camera);
     }
 
-    private void SpawnFinalBoss()
+    private void SpawnFinalBoss(int count)
     {
-        SpawnBoss(_finalBoss, _offsetPositionFinalBoss);
-    }
-    
-    private void SpawnMiniBoss()
-    {
-        SpawnBoss(_miniBoss, _offsetPositionMiniBoss);
+        for (int i = 0; i < count; i++)
+        {
+            SpawnBoss(_finalBoss, _offsetPositionMiniBoss);
+        }
     }
     
     private Vector3 FindSpawnRandomPosition()
     {
-        var vector = new Vector3(Random.Range(10, 30), 0, Random.Range(10, 30));
+        Vector3 vector = new Vector3(
+            Random.Range(-15, 15),
+            0,
+            Random.Range(0, 2) == 0 ? Random.Range(-60, -50) : Random.Range(50, 60));
+
         Vector3 turnedVector = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.up) * vector;
-        return turnedVector;
+        return vector;
     }
 }

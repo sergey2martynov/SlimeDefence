@@ -528,22 +528,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!4 &425068256 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5909255298174267338, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
-  m_PrefabInstance: {fileID: 5909255299282466060}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &626398738 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5909255297961201556, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
-  m_PrefabInstance: {fileID: 5909255299282466060}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab6eda2925d69d441bd8bb6258d5ce63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &678804717 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 121821471292707813, guid: f466fa661edba7544b658f609d5a0ec3, type: 3}
@@ -832,52 +816,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
---- !u!1 &780274548
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 780274549}
-  - component: {fileID: 780274550}
-  m_Layer: 0
-  m_Name: UpdateForEnemyMovement
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &780274549
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 780274548}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 425068256}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &780274550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 780274548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a4c0c6c30887d540acb62af391d745a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawnerEnemies: {fileID: 626398738}
-  _isCanMove: 0
 --- !u!1 &807666752
 GameObject:
   m_ObjectHideFlags: 0

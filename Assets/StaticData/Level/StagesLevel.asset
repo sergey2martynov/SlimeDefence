@@ -21,7 +21,7 @@ MonoBehaviour:
     _lastSpawnRate:
     - 1
     _timesSpawnMiniBoss: []
-    _numberOfBosses: 0
+    _numberOfBosses: 1
   - _numberOfWave: 2
     _durationWave: 30
     _enemies: 00000000
@@ -30,7 +30,7 @@ MonoBehaviour:
     _lastSpawnRate:
     - 1
     _timesSpawnMiniBoss: []
-    _numberOfBosses: 0
+    _numberOfBosses: 1
   - _numberOfWave: 3
     _durationWave: 30
     _enemies: 00000000
