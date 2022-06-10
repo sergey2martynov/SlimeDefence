@@ -17,6 +17,8 @@ public class EnemyPool : AbstractPool
 
     public override void ActionOnGet(GameObject poolObject)
     {
+        if ( poolObject.activeSelf)
+            return;
         poolObject.transform.position =
             FindSpawnRandomPosition() + _player.position;
         poolObject.gameObject.SetActive(true);
@@ -26,13 +28,12 @@ public class EnemyPool : AbstractPool
     {
         poolObject.GetComponent<Health>().ReturnHealthPoint();
         poolObject.SetActive(false);
-        poolObject.transform.position = new Vector3(0, -100, 0);
         _spawnerEnemies.SpawnedEnemies.Remove(poolObject.GetComponent<Enemy>());
     }
 
     private Vector3 FindSpawnRandomPosition()
     {
-        var vector = new Vector3(10, 0, 10);
+        var vector = new Vector3(Random.Range(10, 15), 0, Random.Range(10, 15));
         Vector3 turnedVector = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.up) * vector;
         return turnedVector;
     }

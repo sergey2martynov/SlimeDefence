@@ -30,7 +30,7 @@ public class SpawnerEnemies : MonoBehaviour
     public List<Enemy> SpawnedEnemies => _spawnedEnemies;
     public List<EnemyPool> EnemyPools => _enemyPools;
 
-    private void Start()
+    private void Awake()
     {
         _currentWaveParameters = _stagesLevel.GetWaveParameters(_currentWave);
         _numberOfEnemies = _currentWaveParameters.Enemies.Count;

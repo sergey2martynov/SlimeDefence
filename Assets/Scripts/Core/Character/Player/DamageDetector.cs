@@ -11,7 +11,6 @@ public class DamageDetector : MonoBehaviour
         if (other.gameObject.TryGetComponent(out Enemy enemyController))
         {
             _health.GetDamage(enemyController.Damage);
-            enemyController.Movement.Push();
         }
     }
 

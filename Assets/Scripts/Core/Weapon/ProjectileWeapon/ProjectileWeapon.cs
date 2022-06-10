@@ -58,21 +58,22 @@ public class ProjectileWeapon : Weapon
 
     private void Update()
     {
+        _elapsedTime += Time.deltaTime;
+        
+        // if (_enemies.Count == 0)
+        // {
+        //     _movement.SetLookDirection(_movement.Direction, 1);
+        // }
+
         for (int i = 0; i < _enemies.Count; i++)
         {
-            if (_enemies[i].IsDie || !_enemies[i].isActiveAndEnabled)
+            if (_enemies[i] == null || !_enemies[i].isActiveAndEnabled || _enemies[i].IsDie)
             {
                 _enemies.Remove(_enemies[i]);
             }
         }
         
-        if (_enemies.Count == 0)
-        {
-            _movement.SetLookDirection(_movement.Direction, 1);
-        }
-
-        _elapsedTime += Time.deltaTime;
-        if (_elapsedTime > Rate && IsActive)
+        if (_elapsedTime > Rate && IsActive && _enemies.Count != 0 && (_targetType == TargetType.Nearest || _targetType == TargetType.RandomEnemy))
         {
             UseWeapon();
             _elapsedTime = 0;
@@ -81,17 +82,23 @@ public class ProjectileWeapon : Weapon
 
     private Enemy FindNearbyEnemy()
     {
-        float minDistance = Vector2.Distance(_player.position, _enemies[0].transform.position);
+        float minDistance = 0;
+
         int indexOfEnemies = 0;
+        
+            minDistance  = Vector2.Distance(_player.position, _enemies[0].transform.position);
 
         for (int i = 1; i < _enemies.Count; i++)
         {
-            _distance = Vector2.Distance(_player.position, _enemies[i].transform.position);
-
-            if (_distance < minDistance)
+            if (_enemies[i] != null)
             {
-                minDistance = _distance;
-                indexOfEnemies = i;
+                _distance = Vector2.Distance(_player.position, _enemies[i].transform.position);
+
+                if (_distance < minDistance)
+                {
+                    minDistance = _distance;
+                    indexOfEnemies = i;
+                }
             }
         }
 
@@ -173,7 +180,9 @@ public class ProjectileWeapon : Weapon
 
         base.Upgrade();
         _currentParameters = _weaponParameters.GetWeaponParameters(_currentLevel);
-        _upgradeParameters = _weaponParameters.GetWeaponParameters(_currentLevel + 1);
+        if (_currentLevel < MaxLevel)
+            _upgradeParameters = _weaponParameters.GetWeaponParameters(_currentLevel + 1);
+        
         SetState();
         _weaponsPanel.UpdatePanel(this, false);
     }

@@ -1,9 +1,11 @@
 ﻿using System;
+using CodeBase.Core.Character.Player;
 using Core.Character;
 using DG.Tweening;
 using StaticData;
 using UnityEngine;
 using Upgrade;
+using Core.Character.Player;
 
 namespace CodeBase.Core.Character
 {
@@ -19,6 +21,7 @@ namespace CodeBase.Core.Character
         private Vector3 _direction;
         private Vector3 _lookDirection;
         private bool _isCanMove = true;
+        private PlayerMovementInput _player;
 
         private bool _isRemovedPositionY;
         private static readonly int Speed = Animator.StringToHash("Speed");
@@ -26,7 +29,6 @@ namespace CodeBase.Core.Character
         private static readonly int Zmove = Animator.StringToHash("Zmove");
 
         public Vector3 Direction => _direction;
-        public bool IsCanMove => _isCanMove;
 
         private void Awake()
         {
@@ -37,22 +39,19 @@ namespace CodeBase.Core.Character
                 MaxLevel = _speedLevels.GetMaxNumberOfLevel();
                 _speed = _speedLevels.GetSpeedParameters(_currentLevel).Amount;
             }
+
+            _player = FindObjectOfType<PlayerMovementInput>();
         }
 
-        private void FixedUpdate()
+        public void Move()
         {
-            Move();
-        }
-
-        private void Move()
-        {
-            if (_isCanMove)
-                _controller.Move(_direction * Time.deltaTime * _speed);
+            
+            _controller.Move(_direction * (Time.deltaTime * _speed));
 
             if (_animator != null)
             {
                 var angle = Vector3.Angle(_lookDirection, _direction) * Mathf.Deg2Rad;
-
+                
                 _animator.SetFloat(Xmove, Mathf.Sin(angle));
                 _animator.SetFloat(Zmove, Mathf.Cos(angle));
                 _animator.SetFloat(Speed, _direction.magnitude);
@@ -85,12 +84,6 @@ namespace CodeBase.Core.Character
             }
             else
                 DOTween.To(() => _lookDirection, x => _lookDirection = x, lookDirection, rate);
-        }
-
-        public void Push()
-        {
-            // _isCanMove = false;
-            // transform.DOMove((transform.position - _direction * 2f) , 0.3f).OnComplete(() => _isCanMove = true);
         }
     }
 }
