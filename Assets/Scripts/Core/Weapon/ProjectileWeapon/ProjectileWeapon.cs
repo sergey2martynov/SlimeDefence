@@ -22,6 +22,7 @@ public class ProjectileWeapon : Weapon
     [SerializeField] private float _spread;
     [SerializeField] private TargetType _targetType;
     [SerializeField] private float _projectileSpeed;
+    [SerializeField] private int _penetrationCounter;
      
 
     private ProjectileWeaponParameters _currentParameters;
@@ -132,8 +133,8 @@ public class ProjectileWeapon : Weapon
             var rotatedDirection = RotateDirection(_direction, _spread * ((i - 1) / (float) _amount));
             var projectile = _gunshotProjectilePool.Pool.Get();
 
-            projectile.GetComponent<Projectile>().Initialize(Damage, rotatedDirection, _gunshotProjectilePool, _player,
-                _projectileSpeed);
+            projectile.GetComponent<Projectile>().Initialize(Damage, rotatedDirection, _gunshotProjectilePool, _player, 
+                _projectileSpeed, _penetrationCounter);
         }
     }
 
@@ -193,6 +194,7 @@ public class ProjectileWeapon : Weapon
         _range = _currentParameters.Range;
         _capsuleCollider.radius = _range;
         _projectileSpeed = _currentParameters.ProjectileSpeed;
+        _penetrationCounter = _currentParameters.Penetration;
     }
 
     // private void OnDrawGizmos()

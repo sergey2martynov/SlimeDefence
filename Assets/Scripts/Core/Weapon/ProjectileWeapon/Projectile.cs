@@ -12,8 +12,9 @@ public class Projectile : MonoBehaviour
     private Vector3 _direction;
     private float _speed;
     private GunshotProjectilePool _pool;
+    private int _penetrationCounter;
 
-    public void Initialize(int damage,Vector3 direction, GunshotProjectilePool pool,Transform currentPos,  float speed, float lifeTime = 4f)
+    public void Initialize(int damage,Vector3 direction, GunshotProjectilePool pool,Transform currentPos,  float speed, int maxPenetration, float lifeTime = 4f)
     {
         var startPosOffset = new Vector3(0, 1, 0);
         
@@ -25,6 +26,7 @@ public class Projectile : MonoBehaviour
         transformProjectile.forward = direction;
         _pool = pool;
         transformProjectile.position = currentPos.position + startPosOffset;
+        _penetrationCounter = maxPenetration;
         
         StartCoroutine(DestoryOnTime());
     }
@@ -46,13 +48,18 @@ public class Projectile : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent(out Enemy enemyController))
         {
+            _penetrationCounter--;
             enemyController.MeshRenderer.material.color = Color.white;
             
             DOTween.Sequence().AppendInterval(0.07f).OnComplete(() =>
             {
                 enemyController.ReturnColor();
                 enemyController.Health.GetDamage(Damage);
-                _pool.Pool.Release(gameObject);
+                
+                if (_penetrationCounter == 0)
+                {
+                    _pool.Pool.Release(gameObject);
+                }
             });
         }
         
