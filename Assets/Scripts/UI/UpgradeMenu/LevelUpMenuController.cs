@@ -1,33 +1,58 @@
 using System.Collections.Generic;
 using UI.UpgradeMenu;
 using UnityEngine;
+using Upgrade;
 
 public class LevelUpMenuController : MonoBehaviour
 {
     [SerializeField] private UpgradeManager _upgradeManager;
-    [SerializeField] private List<UpgradeTile> _upgradeTiles;
+    [SerializeField] private UpgradeTile _upgradeTile;
     [SerializeField] private ProgressController _progressController;
     [SerializeField] private LevelUpMenuDisabler _levelUpMenuDisabler;
+    [SerializeField] private TimeCounter _timeCounter;
+    
+    private int _upgradeCount;
 
     private void Start()
     {
         _progressController.PlayerLeveledUp += OnPlayerGetNewLevel;
+        _timeCounter.WeaponReceived += OnPlayerGetNewWeapon;
     }
     
     private void OnDestroy()
     {
         _progressController.PlayerLeveledUp -= OnPlayerGetNewLevel;
+        _timeCounter.WeaponReceived -= OnPlayerGetNewWeapon;
     }
 
     private void OnPlayerGetNewLevel()
     {
-        var upgrades = _upgradeManager.GetNewLevelUpgrades();
-
-        for (int i = 0; i < _upgradeTiles.Count; i++)
+        Upgradable upgradeTile;
+        
+        if (_upgradeCount < 3)
         {
-            _upgradeTiles[i].Initialize(upgrades[i], _levelUpMenuDisabler);
+            upgradeTile = _upgradeManager.GetUpgradableStatesPlayer();
         }
+        else
+        {
+            upgradeTile = _upgradeManager.GetUpgradableWeapon();
+            _upgradeCount = -1;
+        }
+        
+        _upgradeTile.Initialize(upgradeTile, _levelUpMenuDisabler);
+        
+        _levelUpMenuDisabler.LevelUpMenuDisable(true);
+
+        _upgradeCount++;
+    }
+    
+    private void OnPlayerGetNewWeapon()
+    {
+        var upgradeTile = _upgradeManager.GetNewWeapon();
+        
+        _upgradeTile.Initialize(upgradeTile, _levelUpMenuDisabler);
         
         _levelUpMenuDisabler.LevelUpMenuDisable(true);
     }
+    
 }

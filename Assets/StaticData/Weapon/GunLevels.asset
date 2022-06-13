@@ -22,21 +22,24 @@ MonoBehaviour:
     _amount: 1
     _spread: 0
     _projectileSpeed: 1
-  - _name: Pistol Lv2
+    _penetration: 0
+  - _name: 
     _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
-    _description: 
+    _description: Pistol Lv2
     _damage: 11
     _rate: 1.1
     _range: 15
     _amount: 1
     _spread: 0
     _projectileSpeed: 0.5
-  - _name: Pistol Lv3
+    _penetration: 0
+  - _name: 
     _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
-    _description: 
+    _description: Pistol Lv3
     _damage: 11
     _rate: 1
     _range: 15
     _amount: 1
     _spread: 0
     _projectileSpeed: 0.5
+    _penetration: 0

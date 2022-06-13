@@ -16,12 +16,13 @@ namespace CodeBase.Core.Character.Enemy
         
         private SpawnerEnemies _spawnerEnemies;
         private KillCounter _killCounter;
-        private WinScreen _winScreen;
         private ExperiencePool _experiencePool;
         private HealthBox _healthBox;
         private Transform _healthBoxParent;
         private Camera _camera;
         private Color _color;
+        private SpawnerBoss _spawnerBoss;
+        private TimeCounter _timeCounter;
 
         public Health Health => _health;
         public bool IsDie { get;private set; }
@@ -31,15 +32,16 @@ namespace CodeBase.Core.Character.Enemy
         public Camera Camera => _camera;
         public SkinnedMeshRenderer MeshRenderer => _meshRenderer;
 
-        public void Initialize(KillCounter killCounter, WinScreen winScreen, ExperiencePool pool, HealthBox healthBox, Transform healthBoxParent, Camera camera)
+        public void Initialize(KillCounter killCounter, ExperiencePool pool, HealthBox healthBox, Transform healthBoxParent, Camera camera, SpawnerBoss spawnerBoss, TimeCounter timeCounter)
         {
             _killCounter = killCounter;
             IsDie = false;
-            _winScreen = winScreen;
             _experiencePool = pool;
             _healthBox = healthBox;
             _healthBoxParent = healthBoxParent;
             _camera = camera;
+            _spawnerBoss = spawnerBoss;
+            _timeCounter = timeCounter;
         }
         
         private void Start()
@@ -68,7 +70,13 @@ namespace CodeBase.Core.Character.Enemy
             }
             else if (_enemyType == EnemyType.Boss)
             {
+                _spawnerBoss.SpawnedBosses--;
                 Destroy(gameObject);
+                
+                if (_spawnerBoss.SpawnedBosses == 0)
+                {
+                    _timeCounter.UpdateWave();
+                }
             }
             else
             {

@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class SpawnerEnemies : MonoBehaviour
 {
-    [SerializeField] private WinScreen _winScreen;
     [SerializeField] private KillCounter _killCounter;
     [SerializeField] private StagesLevel _stagesLevel;
     [SerializeField] private List<EnemyPool> _enemyPools;
@@ -17,6 +16,7 @@ public class SpawnerEnemies : MonoBehaviour
     [SerializeField] private Transform _healthBoxesParent;
     [SerializeField] private Camera _camera;
     [SerializeField] private int _maxNumberOfEnemies;
+    [SerializeField] private SpawnerBoss _spawnerBoss;
     
     private float _currentTime;
     private int _currentWave;
@@ -99,7 +99,7 @@ public class SpawnerEnemies : MonoBehaviour
     {
         var enemy = _enemyPools[(int) type].Pool.Get().GetComponent<Enemy>();
 
-        enemy.Initialize(_killCounter, _winScreen, _experiencePool, _healthBox, _healthBoxesParent, _camera);
+        enemy.Initialize(_killCounter, _experiencePool, _healthBox, _healthBoxesParent, _camera, _spawnerBoss, _timeCounter);
         enemy.SetSpawnerEnemiesRef(this);
         _spawnedEnemies.Add(enemy);
     }

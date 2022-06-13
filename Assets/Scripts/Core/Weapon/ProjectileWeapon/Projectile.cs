@@ -56,7 +56,7 @@ public class Projectile : MonoBehaviour
                 enemyController.ReturnColor();
                 enemyController.Health.GetDamage(Damage);
                 
-                if (_penetrationCounter == 0)
+                if (_penetrationCounter <= 0)
                 {
                     _pool.Pool.Release(gameObject);
                 }

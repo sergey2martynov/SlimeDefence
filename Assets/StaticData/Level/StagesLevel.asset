@@ -20,8 +20,8 @@ MonoBehaviour:
     - 2
     _lastSpawnRate:
     - 1
-    _timesSpawnMiniBoss: []
-    _numberOfBosses: 1
+    _numberOfBosses: 0
+    _isGetNewWeapon: 0
   - _numberOfWave: 2
     _durationWave: 30
     _enemies: 00000000
@@ -29,8 +29,8 @@ MonoBehaviour:
     - 1.8
     _lastSpawnRate:
     - 1
-    _timesSpawnMiniBoss: []
-    _numberOfBosses: 1
+    _numberOfBosses: 0
+    _isGetNewWeapon: 1
   - _numberOfWave: 3
     _durationWave: 30
     _enemies: 00000000
@@ -38,5 +38,5 @@ MonoBehaviour:
     - 1.7
     _lastSpawnRate:
     - 1
-    _timesSpawnMiniBoss: []
     _numberOfBosses: 0
+    _isGetNewWeapon: 0

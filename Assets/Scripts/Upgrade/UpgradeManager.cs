@@ -5,46 +5,28 @@ using Upgrade;
 
 public class UpgradeManager : MonoBehaviour
 {
-    [SerializeField] private List<Upgradable> _upgradableObjects;
-    [SerializeField] private int _maxUpgradableObjects = 9;
+    [SerializeField] private List<Upgradable> _upgradableStatesPlayer;
+    [SerializeField] private List<Upgradable> _upgradableWeapon;
+    [SerializeField] private List<Upgradable> _newWeapons;
 
-    public List<Upgradable> GetNewLevelUpgrades()
+    private int _currentWave;
+
+    public Upgradable GetUpgradableStatesPlayer()
     {
+        return _upgradableStatesPlayer[Random.Range(0,_upgradableStatesPlayer.Count)];
+    }
 
-        List<Upgradable> upgradables = new List<Upgradable>();
-        List<Upgradable> returnedUpgradables = new List<Upgradable>();
-        
-        IEnumerable<Upgradable> upgradablesWithMaxLevel =  _upgradableObjects.Where(upgradable => upgradable.MaxLevel == upgradable.CurrentLevel);
+    public Upgradable GetUpgradableWeapon()
+    {
+        return _upgradableWeapon[Random.Range(0, _upgradableWeapon.Count)];
+    }
 
-        foreach (var upgradable in upgradablesWithMaxLevel)
-        {
-            _upgradableObjects.Remove(upgradable);
-            break;
-        }
+    public Upgradable GetNewWeapon()
+    {
+        var weapon = _newWeapons[0];
+        _newWeapons.Remove(_newWeapons[0]);
+        _upgradableWeapon.Add(weapon);
 
-        if (_upgradableObjects.Count(upgradable => upgradable.IsActive) < _maxUpgradableObjects)
-        {
-            upgradables = new List<Upgradable>(_upgradableObjects);
-        }
-        else
-        {
-            IEnumerable<Upgradable> activeUpgradables =  _upgradableObjects.Where(upgradable => upgradable.IsActive);
-
-            foreach (var upgradable in activeUpgradables)
-            {
-                upgradables.Add(upgradable);
-            }
-            
-        }
-
-        for (int i  = 0; i  < 3; i ++)
-        {
-            int index = Random.Range(0, upgradables.Count);
-            
-            returnedUpgradables.Add(upgradables[index]);
-            upgradables.Remove(upgradables[index]);
-        }
-
-        return returnedUpgradables;
+        return weapon;
     }
 }

@@ -13,6 +13,8 @@ namespace Core.Expirience
         private Transform _player;
         private ExperiencePool _pool;
         private bool _isCanMoveToPlayer;
+        private PikUpRadius _radius;
+        
 
         public void Initialize(ExperiencePool pool, Transform player)
         {
@@ -21,17 +23,18 @@ namespace Core.Expirience
             _player = player;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             if(_isCanMoveToPlayer)
-                transform.position = Vector3.MoveTowards(transform.position, _player.position, 0.1f);
+                transform.position = Vector3.MoveTowards(transform.position, _player.position, 0.2f);
         }
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.TryGetComponent(out PikUpRadius radius))
             {
-                radius.Controller.ProgressController.GetExperience(_experience);
+                _radius = radius;
+                
                 if (!_isCanMoveToPlayer)
                 {
                     StartCoroutine(MoveToPlayer(radius.transform));
@@ -40,6 +43,8 @@ namespace Core.Expirience
             
             if (other.gameObject.TryGetComponent(out Player player))
             {
+                _radius.Controller.ProgressController.GetExperience(_experience);
+                
                 if (_isBig)
                     Destroy(gameObject);
                 else
