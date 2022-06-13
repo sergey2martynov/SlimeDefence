@@ -21,7 +21,7 @@ MonoBehaviour:
     _lastSpawnRate:
     - 1
     _numberOfBosses: 0
-    _isGetNewWeapon: 0
+    _isGetNewWeapon: 1
   - _numberOfWave: 2
     _durationWave: 30
     _enemies: 00000000
