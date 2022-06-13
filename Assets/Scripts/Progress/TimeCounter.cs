@@ -1,11 +1,13 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class TimeCounter : MonoBehaviour
 {
     [SerializeField] private StagesLevel _stagesLevel;
+    [SerializeField] private TextMeshProUGUI _numberWaveText;
 
-    private float _currentWaveDuration;
+        private float _currentWaveDuration;
     private float _elapsedTime;
     private bool _isFinalStageWave;
     private int _currentWave;
@@ -21,6 +23,7 @@ public class TimeCounter : MonoBehaviour
     private void Start()
     {
         _currentWaveDuration = _stagesLevel.GetWaveParameters(_currentWave).DurationWave;
+        _numberWaveText.text = (_currentWave + 1).ToString();
     }
 
     private void Update()
@@ -68,5 +71,7 @@ public class TimeCounter : MonoBehaviour
         }
         
         _isFinalStageWave = false;
+        
+        _numberWaveText.text = (_currentWave + 1).ToString();
     }
 }

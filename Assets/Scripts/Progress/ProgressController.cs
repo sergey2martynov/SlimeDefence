@@ -1,6 +1,7 @@
 using System;
 using Core.Character.Player;
 using StaticData.Player;
+using TMPro;
 using UnityEngine;
 
 public class ProgressController : MonoBehaviour

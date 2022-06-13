@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 namespace Core.Character.Player
@@ -6,6 +7,7 @@ namespace Core.Character.Player
     {
         [SerializeField] private ProgressController _progressController;
         [SerializeField] private Health _health;
+        [SerializeField] private TextMeshProUGUI _levelText;
 
         private int _currentLevel;
 
@@ -18,11 +20,13 @@ namespace Core.Character.Player
         private void Start()
         {
             _currentLevel = 1;
+            _levelText.text = _currentLevel.ToString();
         }
         
         public void AddedPlayerLevel()
         {
             _currentLevel++;
+            _levelText.text = _currentLevel.ToString();
         }
     }
 }
