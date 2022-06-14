@@ -65,7 +65,6 @@ public class RailGun : Weapon
     {
         var enemy = _enemiesCounter.EnemiesOnScreen[Random.Range(0, _enemiesCounter.EnemiesOnScreen.Count)];
         _railGunTarget.SetTarget(enemy.transform);
-        enemy.ISTargetRailGun = true;
         _railGunTarget.gameObject.SetActive(true);
         _particleTarget.Play();
     }

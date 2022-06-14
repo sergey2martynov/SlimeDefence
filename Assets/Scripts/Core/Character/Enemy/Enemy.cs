@@ -17,8 +17,6 @@ namespace CodeBase.Core.Character.Enemy
         private SpawnerEnemies _spawnerEnemies;
         private KillCounter _killCounter;
         private ExperiencePool _experiencePool;
-        private HealthBox _healthBox;
-        private Transform _healthBoxParent;
         private Camera _camera;
         private Color _color;
         private SpawnerBoss _spawnerBoss;
@@ -30,19 +28,15 @@ namespace CodeBase.Core.Character.Enemy
         public int Damage => _damage;
         public Camera Camera => _camera;
         public SkinnedMeshRenderer MeshRenderer => _meshRenderer;
-        public bool ISTargetRailGun { get; set; }
 
         public void Initialize(KillCounter killCounter, ExperiencePool pool, HealthBox healthBox, Transform healthBoxParent, Camera camera, SpawnerBoss spawnerBoss, TimeCounter timeCounter)
         {
             _killCounter = killCounter;
             IsDie = false;
             _experiencePool = pool;
-            _healthBox = healthBox;
-            _healthBoxParent = healthBoxParent;
             _camera = camera;
             _spawnerBoss = spawnerBoss;
             _timeCounter = timeCounter;
-            ISTargetRailGun = false;
         }
         
         private void Start()
@@ -86,10 +80,7 @@ namespace CodeBase.Core.Character.Enemy
                 
                 if (calculatedChance < _dropeChance)
                 {
-                    if (calculatedChance == 49)
-                        Instantiate(_healthBox, transform.position, Quaternion.identity, _healthBoxParent);
-                    else
-                        SpawnObjOfExperience();
+                    SpawnObjOfExperience();
                 }
                 
                 _spawnerEnemies.EnemyPools[(int)_enemyType].Pool.Release(gameObject);

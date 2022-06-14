@@ -51,11 +51,6 @@ public class RailGunProjectile : MonoBehaviour
             {
                 enemyController.ReturnColor();
                 enemyController.Health.GetDamage(Damage);
-                
-                if (enemyController.ISTargetRailGun)
-                {
-                    Destroy(gameObject);
-                }
             });
         }
     }
