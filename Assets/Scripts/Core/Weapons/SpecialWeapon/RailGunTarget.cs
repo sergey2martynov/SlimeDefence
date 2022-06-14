@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using CodeBase.Core.Character.Enemy;
 using UnityEngine;
 
 public class RailGunTarget : MonoBehaviour

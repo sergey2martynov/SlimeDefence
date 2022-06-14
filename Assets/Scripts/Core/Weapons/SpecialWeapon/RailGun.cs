@@ -1,5 +1,6 @@
 using System;
 using DG.Tweening;
+using UI.WeaponsPanel;
 using Unity.Mathematics;
 using UnityEngine;
 using UpgradeWeapon;
@@ -11,8 +12,8 @@ public class RailGun : Weapon
     [SerializeField] private RailGunLevels _railGunLevels;
     [SerializeField] private ParticleSystem _target;
     [SerializeField] private ParticleSystem _projectile;
-    [SerializeField] private float _projectileSpeed;
-
+    [SerializeField] private WeaponsPanel _weaponsPanel;
+    private float _projectileSpeed;
     private float _elapsedTime;
     private ParticleSystem _particleTarget;
     private RailGunTarget _railGunTarget;
@@ -56,6 +57,7 @@ public class RailGun : Weapon
         {
             var projectile = Instantiate(_projectile, transform.position, quaternion.identity);
             projectile.GetComponent<RailGunProjectile>().Initialize(_damage,_railGunTarget.transform.position, transform, _projectileSpeed );
+            _railGunTarget.gameObject.SetActive(false);
         });
     }
 
@@ -66,5 +68,25 @@ public class RailGun : Weapon
         enemy.ISTargetRailGun = true;
         _railGunTarget.gameObject.SetActive(true);
         _particleTarget.Play();
+    }
+    
+    public override void Upgrade()
+    {
+        if (!IsActive)
+        {
+            IsActive = true;
+            _elapsedTime = 0;
+            _upgradeParameters = _railGunLevels.GetWeaponParameters(_currentLevel + 1);
+            _weaponsPanel.UpdatePanel(this, true);
+            return;
+        }
+
+        base.Upgrade();
+        _currentParameters = _railGunLevels.GetWeaponParameters(_currentLevel);
+        if (_currentLevel < MaxLevel)
+            _upgradeParameters = _railGunLevels.GetWeaponParameters(_currentLevel + 1);
+
+        _rate = _currentParameters.Rate;
+        _weaponsPanel.UpdatePanel(this, false);
     }
 }

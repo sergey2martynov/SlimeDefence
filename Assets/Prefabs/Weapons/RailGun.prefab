@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &178056838536222225
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 178056838536222224}
+  - component: {fileID: 178056838536222231}
+  m_Layer: 7
+  m_Name: RailGun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &178056838536222224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178056838536222225}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &178056838536222231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178056838536222225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3aab80e45da30c49b3b6fad8719c574, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsActive: 1
+  _damage: 20
+  _rate: 5
+  _range: 0
+  _enemiesCounter: {fileID: 0}
+  _railGunLevels: {fileID: 11400000, guid: f118b769fc82d5a4a98f6d11d5a806ea, type: 2}
+  _target: {fileID: 5973243967434006853, guid: 24cc4330ba2bcef4aa5cad5a2c6e247c, type: 3}
+  _projectile: {fileID: 9163945879587814449, guid: d3e7c796515c8c24aa3ed02c4624acdd, type: 3}
+  _projectileSpeed: 1
