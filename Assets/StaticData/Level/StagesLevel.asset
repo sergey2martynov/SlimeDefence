@@ -17,20 +17,22 @@ MonoBehaviour:
     _durationWave: 30
     _enemies: 00000000
     _initialSpawnRate:
-    - 1
+    - 2
     _lastSpawnRate:
-    - 1
+    - 2
     _numberOfBosses: 0
     _isGetNewWeapon: 0
+    _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 2
     _durationWave: 30
     _enemies: 00000000
     _initialSpawnRate:
-    - 0.8
+    - 1.7
     _lastSpawnRate:
-    - 0.8
-    _numberOfBosses: 0
-    _isGetNewWeapon: 0
+    - 1.7
+    _numberOfBosses: 1
+    _isGetNewWeapon: 1
+    _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 3
     _durationWave: 30
     _enemies: 00000000
@@ -40,35 +42,100 @@ MonoBehaviour:
     - 0.5
     _numberOfBosses: 0
     _isGetNewWeapon: 0
+    _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 4
     _durationWave: 30
-    _enemies: 000000000000000003000000
+    _enemies: 0000000001000000
     _initialSpawnRate:
     - 0.5
-    - 0.5
-    - 5
+    - 10
     _lastSpawnRate:
-    - 1
-    - 1
+    - 0.5
+    - 10
     _numberOfBosses: 0
     _isGetNewWeapon: 0
+    _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 5
     _durationWave: 30
-    _enemies: 0000000000000000
+    _enemies: 0000000001000000
     _initialSpawnRate:
     - 0.5
-    - 0.5
+    - 8
     _lastSpawnRate:
-    - 1
+    - 5
+    - 8
     _numberOfBosses: 1
     _isGetNewWeapon: 1
+    _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 6
     _durationWave: 30
-    _enemies: 0000000000000000
+    _enemies: 0000000001000000
     _initialSpawnRate:
-    - 0.5
-    - 0.5
+    - 0.4
+    - 6
     _lastSpawnRate:
-    - 1
+    - 0.4
+    - 6
     _numberOfBosses: 0
     _isGetNewWeapon: 0
+    _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  - _numberOfWave: 7
+    _durationWave: 30
+    _enemies: 0000000001000000
+    _initialSpawnRate:
+    - 0.4
+    - 6
+    _lastSpawnRate:
+    - 0.4
+    - 6
+    _numberOfBosses: 0
+    _isGetNewWeapon: 0
+    _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  - _numberOfWave: 8
+    _durationWave: 30
+    _enemies: 0000000001000000
+    _initialSpawnRate:
+    - 0.4
+    - 6
+    _lastSpawnRate:
+    - 0.4
+    - 6
+    _numberOfBosses: 0
+    _isGetNewWeapon: 0
+    _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  - _numberOfWave: 9
+    _durationWave: 30
+    _enemies: 0000000001000000
+    _initialSpawnRate:
+    - 0.4
+    - 6
+    _lastSpawnRate:
+    - 0.4
+    - 6
+    _numberOfBosses: 0
+    _isGetNewWeapon: 0
+    _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  - _numberOfWave: 10
+    _durationWave: 30
+    _enemies: 0000000001000000
+    _initialSpawnRate:
+    - 0.4
+    - 6
+    _lastSpawnRate:
+    - 0.4
+    - 6
+    _numberOfBosses: 0
+    _isGetNewWeapon: 1
+    _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  - _numberOfWave: 10
+    _durationWave: 30
+    _enemies: 0000000001000000
+    _initialSpawnRate:
+    - 0.2
+    - 5
+    _lastSpawnRate:
+    - 0.2
+    - 5
+    _numberOfBosses: 0
+    _isGetNewWeapon: 1
+    _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
