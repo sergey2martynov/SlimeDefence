@@ -1,6 +1,8 @@
 using System;
 using Core.Character;
+using DG.Tweening;
 using StaticData;
+using Unity.Mathematics;
 using UnityEngine;
 using Upgrade;
 
@@ -23,6 +25,13 @@ public class Health : Upgradable
 
     public void GetDamage(int damageTaken)
     {
+        if (_characterType == CharacterType.Enemy)
+        {
+            var bloodSplat = Instantiate(_bloodSplat, transform.position, quaternion.identity);
+            bloodSplat.gameObject.SetActive(true);
+            bloodSplat.Play();
+            DOTween.Sequence().AppendInterval(3f).OnComplete(() => Destroy(bloodSplat));
+        }
         _healthPoint = _healthPoint - damageTaken + _defence.DefencePlayer;
         HealthChanged?.Invoke(damageTaken);
 

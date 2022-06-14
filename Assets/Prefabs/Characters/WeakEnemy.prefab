@@ -96,6 +96,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VFX_BloodSplat_VSC_Green
       objectReference: {fileID: 0}
+    - target: {fileID: 2354829850247882996, guid: 37b74bbda0ac7b54b84e4062edbda355, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6010557188161500545, guid: 37b74bbda0ac7b54b84e4062edbda355, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -146,6 +150,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37b74bbda0ac7b54b84e4062edbda355, type: 3}
+--- !u!198 &4059632752950783104 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8805366551870969349, guid: 37b74bbda0ac7b54b84e4062edbda355, type: 3}
+  m_PrefabInstance: {fileID: 4784023759789767301}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6015074341796124862
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -433,6 +442,10 @@ PrefabInstance:
       propertyPath: _defence
       value: 
       objectReference: {fileID: -5423448646322265214}
+    - target: {fileID: 6742871518922038233, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
+      propertyPath: _bloodSplat
+      value: 
+      objectReference: {fileID: 4059632752950783104}
     - target: {fileID: 6742871518922038233, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: _healthPoint
       value: 10
