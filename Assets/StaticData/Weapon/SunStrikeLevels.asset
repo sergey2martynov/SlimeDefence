@@ -23,11 +23,11 @@ MonoBehaviour:
     _icon: {fileID: 549139033193520066, guid: 496cdf776e423af48bca1014d144e3fa, type: 3}
     _description: SunStrike 2
     _damage: 10
-    _rate: 1
+    _rate: 5
     _range: 0
   - _name: 
     _icon: {fileID: 549139033193520066, guid: 496cdf776e423af48bca1014d144e3fa, type: 3}
     _description: SunStrike 3
     _damage: 10
-    _rate: 1
+    _rate: 5
     _range: 0

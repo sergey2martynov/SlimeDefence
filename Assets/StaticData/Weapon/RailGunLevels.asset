@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f806a8a540a0fcc4ab0cde94f8463c34, type: 3}
+  m_Name: RailGunLevels
+  m_EditorClassIdentifier: 
+  _weaponParameters:
+  - _name: 
+    _icon: {fileID: 0}
+    _description: Get Rail Gun
+    _damage: 20
+    _rate: 5
+    _range: 0
+  - _name: 
+    _icon: {fileID: 0}
+    _description: Rail Gun 2
+    _damage: 20
+    _rate: 5
+    _range: 0
+  - _name: 
+    _icon: {fileID: 0}
+    _description: Rail Gun 3
+    _damage: 20
+    _rate: 5
+    _range: 0

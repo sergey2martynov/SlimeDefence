@@ -13,21 +13,22 @@ namespace Core.Weapons
         [SerializeField] private ParticleSystem _projectile;
         [SerializeField] private SunStrikeLevels _weaponParameters;
         [SerializeField] private WeaponsPanel _weaponsPanel;
+        [SerializeField] private EnemiesCounter _enemiesCounter;
         
         private SphereCollider _sphereCollider;
         private ParticleSystem _spawnedProjectile;
         private WeaponParameters _currentParameters;
         private float _elapsedTime;
         
-        public List<Enemy> EnemiesOnScreen { get; set; }
+        
 
         private void Start()
         {
-            EnemiesOnScreen = new List<Enemy>();
             _spawnedProjectile = Instantiate(_projectile, new Vector3(0,0, 200), Quaternion.identity);
             _spawnedProjectile.GetComponent<SunStrikeProjectile>().Initialize(_damage);
             _sphereCollider = _spawnedProjectile.GetComponent<SphereCollider>();
             _spawnedProjectile.gameObject.SetActive(false);
+            _sphereCollider.enabled = false;
             _upgradeParameters = _weaponParameters.GetWeaponParameters(_currentLevel);
         }
         
@@ -35,15 +36,15 @@ namespace Core.Weapons
         {
             _elapsedTime += Time.deltaTime;
             
-            for (int i = 0; i < EnemiesOnScreen.Count; i++)
+            for (int i = 0; i < _enemiesCounter.EnemiesOnScreen.Count; i++)
             {
-                if (EnemiesOnScreen[i] == null || !EnemiesOnScreen[i].isActiveAndEnabled || EnemiesOnScreen[i].IsDie)
+                if (_enemiesCounter.EnemiesOnScreen[i] == null || !_enemiesCounter.EnemiesOnScreen[i].isActiveAndEnabled || _enemiesCounter.EnemiesOnScreen[i].IsDie)
                 {
-                    EnemiesOnScreen.Remove(EnemiesOnScreen[i]);
+                    _enemiesCounter.EnemiesOnScreen.Remove(_enemiesCounter.EnemiesOnScreen[i]);
                 }
             }
 
-            if (_elapsedTime > _rate && EnemiesOnScreen.Count != 0 && IsActive)
+            if (_elapsedTime > _rate && _enemiesCounter.EnemiesOnScreen.Count != 0 && IsActive)
             {
                 UseWeapon();
                 _elapsedTime = 0;
@@ -55,6 +56,7 @@ namespace Core.Weapons
             if (!IsActive)
             {
                 IsActive = true;
+                _elapsedTime = 0;
                 _upgradeParameters = _weaponParameters.GetWeaponParameters(_currentLevel + 1);
                 _weaponsPanel.UpdatePanel(this, true);
                 return;
@@ -72,7 +74,7 @@ namespace Core.Weapons
         public override void UseWeapon()
         {
             _spawnedProjectile.gameObject.transform.position =
-                EnemiesOnScreen[Random.Range(0, EnemiesOnScreen.Count)].transform.position;
+                _enemiesCounter.EnemiesOnScreen[Random.Range(0, _enemiesCounter.EnemiesOnScreen.Count)].transform.position;
             _spawnedProjectile.gameObject.SetActive(true);
             _spawnedProjectile.Stop();
             _spawnedProjectile.Play();

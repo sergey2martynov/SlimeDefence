@@ -28,9 +28,9 @@ namespace CodeBase.Core.Character.Enemy
         public bool IsDie { get;private set; }
         public EnemyType EnemyType => _enemyType;
         public int Damage => _damage;
-
         public Camera Camera => _camera;
         public SkinnedMeshRenderer MeshRenderer => _meshRenderer;
+        public bool ISTargetRailGun { get; set; }
 
         public void Initialize(KillCounter killCounter, ExperiencePool pool, HealthBox healthBox, Transform healthBoxParent, Camera camera, SpawnerBoss spawnerBoss, TimeCounter timeCounter)
         {
@@ -42,6 +42,7 @@ namespace CodeBase.Core.Character.Enemy
             _camera = camera;
             _spawnerBoss = spawnerBoss;
             _timeCounter = timeCounter;
+            ISTargetRailGun = false;
         }
         
         private void Start()
@@ -59,6 +60,7 @@ namespace CodeBase.Core.Character.Enemy
         {
             IsDie = true;
             _killCounter.IncreaseCounter();
+            
 
             if (_enemyType == EnemyType.MiniBoss)
             {

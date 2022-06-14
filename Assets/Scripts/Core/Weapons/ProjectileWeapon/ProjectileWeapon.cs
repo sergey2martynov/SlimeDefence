@@ -39,13 +39,13 @@ public class ProjectileWeapon : Weapon
     {
         if (IsActive)
         {
-            _currentParameters = _weaponParameters.GetWeaponParameters(0);
+            _currentParameters = _weaponParameters.GetWeaponParameters(_currentLevel);
             _upgradeParameters = _weaponParameters.GetWeaponParameters(_currentLevel + 1);
         }
         else
         {
-            _currentParameters = _weaponParameters.GetWeaponParameters(0);
-            _upgradeParameters = _weaponParameters.GetWeaponParameters(0);
+            _currentParameters = _weaponParameters.GetWeaponParameters(_currentLevel);
+            _upgradeParameters = _weaponParameters.GetWeaponParameters(_currentLevel);
         }
     }
 
