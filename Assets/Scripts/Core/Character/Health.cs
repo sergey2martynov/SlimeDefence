@@ -27,11 +27,12 @@ public class Health : Upgradable
     {
         if (_characterType == CharacterType.Enemy)
         {
-            var bloodSplat = Instantiate(_bloodSplat, transform.position, quaternion.identity);
+            var bloodSplat = Instantiate(_bloodSplat, transform.position, Quaternion.identity);
             bloodSplat.gameObject.SetActive(true);
             bloodSplat.Play();
-            DOTween.Sequence().AppendInterval(3f).OnComplete(() => Destroy(bloodSplat));
+            DOTween.Sequence().AppendInterval(2f).OnComplete(() => Destroy(bloodSplat));
         }
+        
         _healthPoint = _healthPoint - damageTaken + _defence.DefencePlayer;
         HealthChanged?.Invoke(damageTaken);
 
