@@ -15,10 +15,9 @@ MonoBehaviour:
   _waveParameters:
   - _numberOfWave: 1
     _durationWave: 30
-    _enemies: 0000000003000000
+    _enemies: 00000000
     _initialSpawnRate:
     - 2
-    - 0.2
     _lastSpawnRate:
     - 2
     - 0.2
