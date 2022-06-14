@@ -24,16 +24,16 @@ MonoBehaviour:
   - _name: 
     _icon: {fileID: 0}
     _description: health lvl 3
-    _amount: 1200
+    _amount: 12000
   - _name: 
     _icon: {fileID: 0}
     _description: health lvl 4
-    _amount: 1300
+    _amount: 15000
   - _name: 
     _icon: {fileID: 0}
     _description: health lvl 5
-    _amount: 1500
+    _amount: 18000
   - _name: 
     _icon: {fileID: 0}
     _description: health lvl 6
-    _amount: 1600
+    _amount: 20000
