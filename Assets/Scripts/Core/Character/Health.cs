@@ -10,6 +10,7 @@ public class Health : Upgradable
     [SerializeField] private Defence _defence;
     [SerializeField] private HealthLevels _healthLevels;
     [SerializeField] private CharacterType _characterType;
+    [SerializeField] private ParticleSystem _bloodSplat;
 
     private int _enemyHealthPoint;
 
@@ -25,17 +26,12 @@ public class Health : Upgradable
         _healthPoint = _healthPoint - damageTaken + _defence.DefencePlayer;
         HealthChanged?.Invoke(damageTaken);
 
-        if (_healthPoint < 0)
+        if (_healthPoint <= 0)
         {
             HealthIsOver?.Invoke();
         }
     }
-
-    private void Awake()
-    {
-        
-    }
-
+    
     private void Start()
     {
         _enemyHealthPoint = _healthPoint;

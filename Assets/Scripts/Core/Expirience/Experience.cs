@@ -10,6 +10,7 @@ namespace Core.Expirience
         [SerializeField] private float _lifeTime;
         [SerializeField] private int _experience;
         [SerializeField] private bool _isBig;
+        [SerializeField] private float _speed = 0.2f;
         private Transform _player;
         private ExperiencePool _pool;
         private bool _isCanMoveToPlayer;
@@ -26,7 +27,7 @@ namespace Core.Expirience
         private void FixedUpdate()
         {
             if(_isCanMoveToPlayer)
-                transform.position = Vector3.MoveTowards(transform.position, _player.position, 0.2f);
+                transform.position = Vector3.MoveTowards(transform.position, _player.position, _speed);
         }
 
         private void OnTriggerEnter(Collider other)

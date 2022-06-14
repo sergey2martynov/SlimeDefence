@@ -12,6 +12,7 @@ public class WaveParameters
     [SerializeField] private List<float> _lastSpawnRate;
     [SerializeField] private int _numberOfBosses;
     [SerializeField] private bool _isGetNewWeapon;
+    [SerializeField] private String _string = "-------------------------------------";
 
     public int NumberOfWave => _numberOfWave;
     public float DurationWave => _durationWave;
@@ -20,4 +21,6 @@ public class WaveParameters
     public List<float> LastSpawnRate => _lastSpawnRate;
     public int NumberOfBosses => _numberOfBosses;
     public bool IsGetNewWeapon => _isGetNewWeapon;
+    
+    
 }

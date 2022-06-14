@@ -63,6 +63,7 @@ MonoBehaviour:
   _lifeTime: 10
   _experience: 10
   _isBig: 0
+  _speed: 1
 --- !u!1 &8904036089744740996
 GameObject:
   m_ObjectHideFlags: 0

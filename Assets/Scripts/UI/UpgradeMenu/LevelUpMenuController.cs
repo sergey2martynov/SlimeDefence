@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UI.UpgradeMenu;
 using UnityEngine;
 using Upgrade;
@@ -10,6 +9,7 @@ public class LevelUpMenuController : MonoBehaviour
     [SerializeField] private ProgressController _progressController;
     [SerializeField] private LevelUpMenuDisabler _levelUpMenuDisabler;
     [SerializeField] private TimeCounter _timeCounter;
+    [SerializeField] private int _rateForUpgradeWeapon = 2;
     
     private int _upgradeCount;
 
@@ -29,7 +29,7 @@ public class LevelUpMenuController : MonoBehaviour
     {
         Upgradable upgradeTile;
         
-        if (_upgradeCount < 3)
+        if (_upgradeCount < _rateForUpgradeWeapon)
         {
             upgradeTile = _upgradeManager.GetUpgradableStatesPlayer();
         }
