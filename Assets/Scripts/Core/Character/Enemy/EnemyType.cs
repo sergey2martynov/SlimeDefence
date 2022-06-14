@@ -1,7 +1,7 @@
 ﻿public enum EnemyType
 {
     Weak,
-    Average,
+    FatEnemy,
     Strong,
     MiniBoss,
     Boss
