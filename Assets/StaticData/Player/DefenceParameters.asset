@@ -25,3 +25,23 @@ MonoBehaviour:
     _icon: {fileID: 0}
     _description: defense lvl 3
     _amount: 8
+  - _name: 
+    _icon: {fileID: 0}
+    _description: defense lvl 3
+    _amount: 8
+  - _name: 
+    _icon: {fileID: 0}
+    _description: defense lvl 3
+    _amount: 8
+  - _name: 
+    _icon: {fileID: 0}
+    _description: defense lvl 3
+    _amount: 8
+  - _name: 
+    _icon: {fileID: 0}
+    _description: defense lvl 3
+    _amount: 8
+  - _name: 
+    _icon: {fileID: 0}
+    _description: defense lvl 3
+    _amount: 8
