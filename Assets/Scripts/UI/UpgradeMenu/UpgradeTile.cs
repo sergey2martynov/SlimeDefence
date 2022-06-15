@@ -13,17 +13,17 @@ namespace UI.UpgradeMenu
         [SerializeField] private Image _icon;
         private LevelUpMenuDisabler _disabler;
 
-        public void Initialize(Upgradable iUpgradable, LevelUpMenuDisabler disabler)
+        public void Initialize(Upgradable iUpgradable, NewWeaponMenu.DisableDelegate disableDelegate)
         {
             UpgradeParametersBase upgradeParameters = iUpgradable.GetUpgradeParameters();
             
-            //_name.text = upgradeParameters.Name;
-            _description.text = upgradeParameters.Description;
+            _name.text = upgradeParameters.Name;
+            //_description.text = upgradeParameters.Description;
             //_icon.sprite = upgradeParameters.Icon.sprite;
             _button.onClick.AddListener(()=>
             {
                 iUpgradable.Upgrade();
-                disabler.LevelUpMenuDisable(false);
+                disableDelegate.Invoke(false);
             });
         }
 

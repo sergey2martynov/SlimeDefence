@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UI.UpgradeMenu;
 using UnityEngine;
 using Upgrade;
@@ -5,54 +6,50 @@ using Upgrade;
 public class LevelUpMenuController : MonoBehaviour
 {
     [SerializeField] private UpgradeManager _upgradeManager;
-    [SerializeField] private UpgradeTile _upgradeTile;
+    [SerializeField] private List<UpgradeTile> _upgradeTiles;
     [SerializeField] private ProgressController _progressController;
+    [SerializeField] private GameObject _levelUpMenu;
     [SerializeField] private LevelUpMenuDisabler _levelUpMenuDisabler;
     [SerializeField] private TimeCounter _timeCounter;
-    [SerializeField] private int _rateForUpgradeWeapon = 2;
-    
-    private int _upgradeCount;
 
     private void Start()
     {
         _progressController.PlayerLeveledUp += OnPlayerGetNewLevel;
-        _timeCounter.WeaponReceived += OnPlayerGetNewWeapon;
     }
     
     private void OnDestroy()
     {
         _progressController.PlayerLeveledUp -= OnPlayerGetNewLevel;
-        _timeCounter.WeaponReceived -= OnPlayerGetNewWeapon;
     }
 
     private void OnPlayerGetNewLevel()
     {
-        Upgradable upgradeTile;
+        NewWeaponMenu.DisableDelegate disableDelegate = DisableMenu;
         
-        if (_upgradeCount < _rateForUpgradeWeapon)
+        var upgrades = _upgradeManager.GetNewLevelUpgrades();
+
+        for (int i = 0; i < _upgradeTiles.Count; i++)
         {
-            upgradeTile = _upgradeManager.GetUpgradableStatesPlayer();
+            _upgradeTiles[i].Initialize(upgrades[i], disableDelegate);
         }
+
+        DisableMenu(true);
+    }
+
+    private void DisableMenu(bool isActive)
+    {
+        if (isActive)
+            Time.timeScale = 0;
         else
         {
-            upgradeTile = _upgradeManager.GetUpgradableWeapon();
-            _upgradeCount = -1;
-        }
-        
-        _upgradeTile.Initialize(upgradeTile, _levelUpMenuDisabler);
-        
-        _levelUpMenuDisabler.LevelUpMenuDisable(true);
+            Time.timeScale = 1;
 
-        _upgradeCount++;
-    }
-    
-    private void OnPlayerGetNewWeapon()
-    {
-        var upgradeTile = _upgradeManager.GetNewWeapon();
-        
-        _upgradeTile.Initialize(upgradeTile, _levelUpMenuDisabler);
-        
-        _levelUpMenuDisabler.LevelUpMenuDisable(true);
+            foreach (var tile in _upgradeTiles)
+            {
+                tile.RemoveListener();
+            }
+        }
+        _levelUpMenu.SetActive(isActive);
     }
     
 }

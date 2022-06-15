@@ -17,31 +17,31 @@ MonoBehaviour:
     _icon: {fileID: 0}
     _description: 
     _amount: 0
-  - _name: 
+  - _name: ' defense lvl 2'
     _icon: {fileID: 0}
-    _description: ' defense lvl 2'
+    _description: 
     _amount: 5
-  - _name: 
+  - _name: defense lvl 3
     _icon: {fileID: 0}
-    _description: defense lvl 3
+    _description: 
     _amount: 8
-  - _name: 
+  - _name: defense lvl 3
     _icon: {fileID: 0}
-    _description: defense lvl 3
+    _description: 
     _amount: 8
-  - _name: 
+  - _name: defense lvl 3
     _icon: {fileID: 0}
-    _description: defense lvl 3
+    _description: 
     _amount: 8
-  - _name: 
+  - _name: defense lvl 3
     _icon: {fileID: 0}
-    _description: defense lvl 3
+    _description: 
     _amount: 8
-  - _name: 
+  - _name: defense lvl 3
     _icon: {fileID: 0}
-    _description: defense lvl 3
+    _description: 
     _amount: 8
-  - _name: 
+  - _name: defense lvl 3
     _icon: {fileID: 0}
-    _description: defense lvl 3
+    _description: 
     _amount: 8

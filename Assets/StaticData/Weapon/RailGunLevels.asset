@@ -13,23 +13,23 @@ MonoBehaviour:
   m_Name: RailGunLevels
   m_EditorClassIdentifier: 
   _weaponParameters:
-  - _name: 
+  - _name: Get Rail Gun
     _icon: {fileID: 549139033193520066, guid: 5820fa2d64743b845ad3e71c6510b9dc, type: 3}
-    _description: Get Rail Gun
+    _description: 
     _damage: 20
     _rate: 5
     _range: 0
     _projectileSpeed: 0.5
-  - _name: 
+  - _name: Rail Gun 2
     _icon: {fileID: 549139033193520066, guid: 5820fa2d64743b845ad3e71c6510b9dc, type: 3}
-    _description: Get Rail Gun
+    _description: 
     _damage: 20
     _rate: 5
     _range: 0
     _projectileSpeed: 0.5
-  - _name: 
+  - _name: Rail Gun3
     _icon: {fileID: 549139033193520066, guid: 5820fa2d64743b845ad3e71c6510b9dc, type: 3}
-    _description: Get Rail Gun
+    _description: 
     _damage: 20
     _rate: 5
     _range: 0

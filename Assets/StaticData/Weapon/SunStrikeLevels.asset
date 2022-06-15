@@ -13,21 +13,21 @@ MonoBehaviour:
   m_Name: SunStrikeLevels
   m_EditorClassIdentifier: 
   _weaponParameters:
-  - _name: 
+  - _name: Get SunStrike
     _icon: {fileID: 549139033193520066, guid: 496cdf776e423af48bca1014d144e3fa, type: 3}
-    _description: GetSunStrike
+    _description: 
     _damage: 10
     _rate: 5
     _range: 0
-  - _name: 
+  - _name: SunStrike lvl 2
     _icon: {fileID: 549139033193520066, guid: 496cdf776e423af48bca1014d144e3fa, type: 3}
-    _description: SunStrike 2
+    _description: 
     _damage: 10
     _rate: 5
     _range: 0
-  - _name: 
+  - _name: SunStrike lvl 3
     _icon: {fileID: 549139033193520066, guid: 496cdf776e423af48bca1014d144e3fa, type: 3}
-    _description: SunStrike 3
+    _description: 
     _damage: 10
     _rate: 5
     _range: 0
