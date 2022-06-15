@@ -1,5 +1,55 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1109306196495590409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5415842595596332699}
+  - component: {fileID: 5931295592429675909}
+  m_Layer: 0
+  m_Name: Custom4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5415842595596332699
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109306196495590409}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5909255297797442635}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5931295592429675909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109306196495590409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bffcc7675784645408c87cf3755caffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _poolObject: {fileID: 970603420823659743, guid: a55ec608efa8eab42a21fbc7472c13d3, type: 3}
+  _maxSize: 30
+  _parent: {fileID: 5415842595596332699}
+  _defaultCapacity: 30
+  _spawnerEnemies: {fileID: 5909255297961201556}
+  _player: {fileID: 551394242333843936}
 --- !u!1 &1532865293256694112
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,6 +215,7 @@ Transform:
   - {fileID: 7374689180840821649}
   - {fileID: 7996439841077263531}
   - {fileID: 1657177852060020930}
+  - {fileID: 5415842595596332699}
   m_Father: {fileID: 5909255298174267338}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -221,11 +272,10 @@ MonoBehaviour:
   _spawnIntervals: []
   _timeCounter: {fileID: 5909255299355648578}
   _experiencePool: {fileID: 0}
-  _healthBox: {fileID: 0}
-  _healthBoxesParent: {fileID: 0}
   _camera: {fileID: 0}
   _maxNumberOfEnemies: 90
   _spawnerBoss: {fileID: 0}
+  _bloodSplatPool: {fileID: 0}
 --- !u!1 &5909255297986430877
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,9 +597,8 @@ MonoBehaviour:
   _killCounter: {fileID: 0}
   _timeCounter: {fileID: 5909255299355648578}
   _experiencePool: {fileID: 0}
-  _healthBox: {fileID: 0}
-  _healthBoxParent: {fileID: 0}
   _camera: {fileID: 0}
+  _bloodSplat: {fileID: 0}
 --- !u!1 &5909255298782999010
 GameObject:
   m_ObjectHideFlags: 0
