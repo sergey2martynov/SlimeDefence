@@ -20,6 +20,7 @@ MonoBehaviour:
     - 2
     _lastSpawnRate:
     - 2
+    - 0.2
     _numberOfBosses: 0
     _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
