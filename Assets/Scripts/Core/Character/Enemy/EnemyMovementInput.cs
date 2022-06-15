@@ -28,7 +28,7 @@ namespace CodeBase.Core.Character.Enemy
         {
             if (collision.TryGetComponent(out PlayerMovementInput player))
             {
-                _agent.speed = 0;
+                _agent.isStopped = true;
             }
         }
     }
