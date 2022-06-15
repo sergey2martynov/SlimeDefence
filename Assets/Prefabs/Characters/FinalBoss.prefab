@@ -142,11 +142,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37b74bbda0ac7b54b84e4062edbda355, type: 3}
---- !u!198 &4974352098254721515 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8805366551870969349, guid: 37b74bbda0ac7b54b84e4062edbda355, type: 3}
-  m_PrefabInstance: {fileID: 4556095643295221742}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5480751191438189362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -307,7 +302,7 @@ PrefabInstance:
       objectReference: {fileID: 7929620506434585683}
     - target: {fileID: 1437842649254418075, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: _enemyType
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1437842649254418075, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: _dropeChance
@@ -448,7 +443,7 @@ PrefabInstance:
     - target: {fileID: 6742871518922038233, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: _bloodSplat
       value: 
-      objectReference: {fileID: 4974352098254721515}
+      objectReference: {fileID: -75436548554784434, guid: 37b74bbda0ac7b54b84e4062edbda355, type: 3}
     - target: {fileID: 6742871518922038233, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: _healthPoint
       value: 100

@@ -18,7 +18,7 @@ public class DamageDetector : MonoBehaviour
     {
         _elapsedTime += Time.deltaTime;
 
-        if (_elapsedTime > 2 && other.gameObject.TryGetComponent(out Enemy enemyController))
+        if (_elapsedTime > 4 && other.gameObject.TryGetComponent(out Enemy enemyController))
         {
             _health.GetDamage(enemyController.Damage);
             _elapsedTime = 0;
