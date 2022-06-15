@@ -9751,7 +9751,6 @@ GameObject:
   - component: {fileID: 6010557188161500545}
   - component: {fileID: 8805366551870969349}
   - component: {fileID: 59933653707703159}
-  - component: {fileID: -75436548554784434}
   m_Layer: 0
   m_Name: VFX_BloodSplat_VSC_Green
   m_TagString: Untagged
@@ -14574,20 +14573,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &-75436548554784434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2354829850247882996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a63440232a9d2db4f8323f1e267998c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _lifeTime: 3
-  _particle: {fileID: 8805366551870969349}
 --- !u!1 &6510248703290971607
 GameObject:
   m_ObjectHideFlags: 0

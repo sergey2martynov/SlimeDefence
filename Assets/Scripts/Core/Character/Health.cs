@@ -12,21 +12,25 @@ public class Health : Upgradable
     [SerializeField] private Defence _defence;
     [SerializeField] private HealthLevels _healthLevels;
     [SerializeField] private CharacterType _characterType;
-    [SerializeField] private BloodSplat _bloodSplat;
+    [SerializeField] private ParticleSystem _bloodSplat;
 
     private int _enemyHealthPoint;
+
     public int HealthPoint => _healthPoint;
+
     public event Action HealthIsOver;
     public event Action<int> MaxHealthChanged;
+
     public event Action<float> HealthChanged;
-    public BloodSplatPool BloodSplatPool { get; set; }
 
     public void GetDamage(int damageTaken)
     {
         if (_characterType == CharacterType.Enemy)
         {
-            var particle = BloodSplatPool.Pool.Get();
-            particle.GetComponent<BloodSplat>().Initialize(transform);
+            var bloodSplat = Instantiate(_bloodSplat, transform.position, Quaternion.identity);
+            bloodSplat.gameObject.SetActive(true);
+            bloodSplat.Play();
+            DOTween.Sequence().AppendInterval(2f).OnComplete(() => Destroy(bloodSplat));
         }
         
         _healthPoint = _healthPoint - damageTaken + _defence.DefencePlayer;

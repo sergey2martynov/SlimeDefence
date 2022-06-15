@@ -327,6 +327,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37b74bbda0ac7b54b84e4062edbda355, type: 3}
+--- !u!198 &4573786109285083847 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8805366551870969349, guid: 37b74bbda0ac7b54b84e4062edbda355, type: 3}
+  m_PrefabInstance: {fileID: 4993269339016510658}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5194332152311873437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -629,7 +634,7 @@ PrefabInstance:
     - target: {fileID: 6742871518922038233, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: _bloodSplat
       value: 
-      objectReference: {fileID: -75436548554784434, guid: 37b74bbda0ac7b54b84e4062edbda355, type: 3}
+      objectReference: {fileID: 4573786109285083847}
     - target: {fileID: 6742871518922038233, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: _healthPoint
       value: 40
