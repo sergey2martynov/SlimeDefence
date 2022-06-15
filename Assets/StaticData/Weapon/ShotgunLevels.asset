@@ -13,33 +13,53 @@ MonoBehaviour:
   m_Name: ShotgunLevels
   m_EditorClassIdentifier: 
   _weaponParameters:
-  - _name: 
+  - _name: Shotgun Lvl 1
     _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
-    _description: Get ShotGun
+    _description: Shotgun Lvl 1
     _damage: 10
-    _rate: 1
+    _rate: 2
     _range: 20
     _amount: 3
     _spread: 20
     _projectileSpeed: 0.3
     _penetration: 0
-  - _name: 
+  - _name: Shotgun Lvl 2
     _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
-    _description: Get ShotGun
+    _description: Shotgun Lvl 1
     _damage: 10
-    _rate: 1
+    _rate: 1.95
     _range: 20
     _amount: 3
     _spread: 20
-    _projectileSpeed: 0.3
+    _projectileSpeed: 0.35
     _penetration: 0
-  - _name: 
+  - _name: Shotgun Lvl 3
     _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
-    _description: Get ShotGun
+    _description: Shotgun Lvl 1
     _damage: 10
-    _rate: 1
+    _rate: 1.9
     _range: 20
     _amount: 3
     _spread: 20
-    _projectileSpeed: 0.3
+    _projectileSpeed: 0.4
+    _penetration: 0
+  - _name: Shotgun Lvl 4
+    _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
+    _description: Shotgun Lvl 1
+    _damage: 10
+    _rate: 1.85
+    _range: 20
+    _amount: 3
+    _spread: 20
+    _projectileSpeed: 0.45
+    _penetration: 0
+  - _name: Shotgun Lvl 5
+    _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
+    _description: Shotgun Lvl 1
+    _damage: 10
+    _rate: 1.85
+    _range: 20
+    _amount: 3
+    _spread: 20
+    _projectileSpeed: 0.45
     _penetration: 0
