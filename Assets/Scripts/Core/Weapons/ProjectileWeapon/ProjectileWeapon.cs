@@ -128,6 +128,8 @@ public class ProjectileWeapon : Weapon
 
         _movement.SetLookDirection(_direction, 0.5f);
 
+        _direction = RotateDirection(_direction, 0.5f * (-_spread + _spread /_amount));
+
         for (int i = 1; i <= _amount; i++)
         {
             var rotatedDirection = RotateDirection(_direction, _spread * ((i - 1) / (float) _amount));
