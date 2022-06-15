@@ -12,11 +12,10 @@ public class SpawnerEnemies : MonoBehaviour
     [SerializeField] private List<AnimationCurve> _spawnIntervals;
     [SerializeField] private TimeCounter _timeCounter;
     [SerializeField] private ExperiencePool _experiencePool;
-    [SerializeField] private HealthBox _healthBox;
-    [SerializeField] private Transform _healthBoxesParent;
     [SerializeField] private Camera _camera;
     [SerializeField] private int _maxNumberOfEnemies;
     [SerializeField] private SpawnerBoss _spawnerBoss;
+    [SerializeField] private BloodSplatPool _bloodSplatPool;
     
     private float _currentTime;
     private int _currentWave;
@@ -99,7 +98,7 @@ public class SpawnerEnemies : MonoBehaviour
     {
         var enemy = _enemyPools[(int) type].Pool.Get().GetComponent<Enemy>();
 
-        enemy.Initialize(_killCounter, _experiencePool, _healthBox, _healthBoxesParent, _camera, _spawnerBoss, _timeCounter);
+        enemy.Initialize(_killCounter, _experiencePool,_camera, _spawnerBoss, _timeCounter, _bloodSplatPool);
         enemy.SetSpawnerEnemiesRef(this);
         _spawnedEnemies.Add(enemy);
     }

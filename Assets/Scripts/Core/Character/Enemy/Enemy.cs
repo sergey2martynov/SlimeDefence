@@ -29,7 +29,7 @@ namespace CodeBase.Core.Character.Enemy
         public Camera Camera => _camera;
         public SkinnedMeshRenderer MeshRenderer => _meshRenderer;
 
-        public void Initialize(KillCounter killCounter, ExperiencePool pool, HealthBox healthBox, Transform healthBoxParent, Camera camera, SpawnerBoss spawnerBoss, TimeCounter timeCounter)
+        public void Initialize(KillCounter killCounter, ExperiencePool pool, Camera camera, SpawnerBoss spawnerBoss, TimeCounter timeCounter, BloodSplatPool bloodSplat)
         {
             _killCounter = killCounter;
             IsDie = false;
@@ -37,6 +37,7 @@ namespace CodeBase.Core.Character.Enemy
             _camera = camera;
             _spawnerBoss = spawnerBoss;
             _timeCounter = timeCounter;
+            _health.BloodSplatPool = bloodSplat;
         }
         
         private void Start()
