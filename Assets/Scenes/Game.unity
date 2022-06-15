@@ -4064,6 +4064,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1570950882}
     - target: {fileID: 5909255299516121321, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: _upgradables.Array.data[3]
+      value: 
+      objectReference: {fileID: 1570950882}
+    - target: {fileID: 5909255299516121321, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
       propertyPath: _upgradableWeapon.Array.size
       value: 1
       objectReference: {fileID: 0}

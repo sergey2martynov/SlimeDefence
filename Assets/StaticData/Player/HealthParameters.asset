@@ -16,7 +16,7 @@ MonoBehaviour:
   - _name: 
     _icon: {fileID: 0}
     _description: 
-    _amount: 10000
+    _amount: 500
   - _name: health lvl 2
     _icon: {fileID: 0}
     _description: 
@@ -24,16 +24,52 @@ MonoBehaviour:
   - _name: health lvl 3
     _icon: {fileID: 0}
     _description: 
-    _amount: 12000
+    _amount: 600
   - _name: health lvl 4
     _icon: {fileID: 0}
     _description: 
-    _amount: 15000
+    _amount: 700
   - _name: health lvl 5
     _icon: {fileID: 0}
     _description: 
-    _amount: 18000
+    _amount: 800
   - _name: health lvl 6
     _icon: {fileID: 0}
     _description: 
-    _amount: 20000
+    _amount: 900
+  - _name: health lvl 7
+    _icon: {fileID: 0}
+    _description: 
+    _amount: 1000
+  - _name: health lvl 8
+    _icon: {fileID: 0}
+    _description: 
+    _amount: 1100
+  - _name: health lvl 9
+    _icon: {fileID: 0}
+    _description: 
+    _amount: 1200
+  - _name: health lvl 10
+    _icon: {fileID: 0}
+    _description: 
+    _amount: 1300
+  - _name: health lvl 11
+    _icon: {fileID: 0}
+    _description: 
+    _amount: 1400
+  - _name: health lvl 12
+    _icon: {fileID: 0}
+    _description: 
+    _amount: 1500
+  - _name: health lvl 13
+    _icon: {fileID: 0}
+    _description: 
+    _amount: 1600
+  - _name: health lvl 14
+    _icon: {fileID: 0}
+    _description: 
+    _amount: 1700
+  - _name: health lvl 15
+    _icon: {fileID: 0}
+    _description: 
+    _amount: 1800

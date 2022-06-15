@@ -17,20 +17,104 @@ MonoBehaviour:
     _icon: {fileID: 549139033193520066, guid: 5820fa2d64743b845ad3e71c6510b9dc, type: 3}
     _description: 
     _damage: 20
-    _rate: 5
+    _rate: 6
     _range: 0
     _projectileSpeed: 0.5
-  - _name: Rail Gun 2
+  - _name: Rail Gun Lvl2
+    _icon: {fileID: 549139033193520066, guid: 5820fa2d64743b845ad3e71c6510b9dc, type: 3}
+    _description: 
+    _damage: 20
+    _rate: 5.8
+    _range: 0
+    _projectileSpeed: 0.52
+  - _name: Rail Gun Lvl3
+    _icon: {fileID: 549139033193520066, guid: 5820fa2d64743b845ad3e71c6510b9dc, type: 3}
+    _description: 
+    _damage: 20
+    _rate: 5.6
+    _range: 0
+    _projectileSpeed: 0.54
+  - _name: Rail Gun Lvl4
+    _icon: {fileID: 549139033193520066, guid: 5820fa2d64743b845ad3e71c6510b9dc, type: 3}
+    _description: 
+    _damage: 20
+    _rate: 5.4
+    _range: 0
+    _projectileSpeed: 0.56
+  - _name: Rail Gun Lvl5
     _icon: {fileID: 549139033193520066, guid: 5820fa2d64743b845ad3e71c6510b9dc, type: 3}
     _description: 
     _damage: 20
     _rate: 5
     _range: 0
-    _projectileSpeed: 0.5
-  - _name: Rail Gun3
+    _projectileSpeed: 0.6
+  - _name: Rail Gun Lvl6
     _icon: {fileID: 549139033193520066, guid: 5820fa2d64743b845ad3e71c6510b9dc, type: 3}
     _description: 
     _damage: 20
-    _rate: 5
+    _rate: 4.8
     _range: 0
-    _projectileSpeed: 0.5
+    _projectileSpeed: 0.62
+  - _name: Rail Gun Lvl7
+    _icon: {fileID: 549139033193520066, guid: 5820fa2d64743b845ad3e71c6510b9dc, type: 3}
+    _description: 
+    _damage: 20
+    _rate: 4.6
+    _range: 0
+    _projectileSpeed: 0.64
+  - _name: Rail Gun Lvl8
+    _icon: {fileID: 549139033193520066, guid: 5820fa2d64743b845ad3e71c6510b9dc, type: 3}
+    _description: 
+    _damage: 20
+    _rate: 4.4
+    _range: 0
+    _projectileSpeed: 0.66
+  - _name: Rail Gun Lvl9
+    _icon: {fileID: 549139033193520066, guid: 5820fa2d64743b845ad3e71c6510b9dc, type: 3}
+    _description: 
+    _damage: 20
+    _rate: 4.2
+    _range: 0
+    _projectileSpeed: 0.68
+  - _name: Rail Gun Lvl10
+    _icon: {fileID: 549139033193520066, guid: 5820fa2d64743b845ad3e71c6510b9dc, type: 3}
+    _description: 
+    _damage: 20
+    _rate: 4
+    _range: 0
+    _projectileSpeed: 0.7
+  - _name: Rail Gun Lvl11
+    _icon: {fileID: 549139033193520066, guid: 5820fa2d64743b845ad3e71c6510b9dc, type: 3}
+    _description: 
+    _damage: 20
+    _rate: 3.8
+    _range: 0
+    _projectileSpeed: 0.8
+  - _name: Rail Gun Lvl12
+    _icon: {fileID: 549139033193520066, guid: 5820fa2d64743b845ad3e71c6510b9dc, type: 3}
+    _description: 
+    _damage: 20
+    _rate: 3.6
+    _range: 0
+    _projectileSpeed: 0.9
+  - _name: Rail Gun Lvl13
+    _icon: {fileID: 549139033193520066, guid: 5820fa2d64743b845ad3e71c6510b9dc, type: 3}
+    _description: 
+    _damage: 20
+    _rate: 3.4
+    _range: 0
+    _projectileSpeed: 1
+  - _name: Rail Gun Lvl14
+    _icon: {fileID: 549139033193520066, guid: 5820fa2d64743b845ad3e71c6510b9dc, type: 3}
+    _description: 
+    _damage: 20
+    _rate: 3.2
+    _range: 0
+    _projectileSpeed: 1.1
+  - _name: Rail Gun Lvl15
+    _icon: {fileID: 549139033193520066, guid: 5820fa2d64743b845ad3e71c6510b9dc, type: 3}
+    _description: 
+    _damage: 20
+    _rate: 3
+    _range: 0
+    _projectileSpeed: 1.2

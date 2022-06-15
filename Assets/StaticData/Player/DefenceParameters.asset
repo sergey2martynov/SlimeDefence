@@ -13,35 +13,67 @@ MonoBehaviour:
   m_Name: DefenceParameters
   m_EditorClassIdentifier: 
   _playerParameters:
-  - _name: 
+  - _name: Luck lvl1
     _icon: {fileID: 0}
     _description: 
     _amount: 0
-  - _name: ' defense lvl 2'
+  - _name: Luck lvl 2
+    _icon: {fileID: 0}
+    _description: 
+    _amount: 1
+  - _name: Luck lvl 3
+    _icon: {fileID: 0}
+    _description: 
+    _amount: 1
+  - _name: Luck lvl 4
+    _icon: {fileID: 0}
+    _description: 
+    _amount: 1
+  - _name: Luck lvl 5
+    _icon: {fileID: 0}
+    _description: 
+    _amount: 2
+  - _name: Luck lvl 6
+    _icon: {fileID: 0}
+    _description: 
+    _amount: 2
+  - _name: Luck lvl 7
+    _icon: {fileID: 0}
+    _description: 
+    _amount: 3
+  - _name: Luck lvl 8
+    _icon: {fileID: 0}
+    _description: 
+    _amount: 3
+  - _name: Luck lvl 9
+    _icon: {fileID: 0}
+    _description: 
+    _amount: 3
+  - _name: Luck lvl 10
+    _icon: {fileID: 0}
+    _description: 
+    _amount: 4
+  - _name: defense lvl 8
+    _icon: {fileID: 0}
+    _description: 
+    _amount: 3
+  - _name: Luck lvl 11
+    _icon: {fileID: 0}
+    _description: 
+    _amount: 4
+  - _name: Luck lvl 12
     _icon: {fileID: 0}
     _description: 
     _amount: 5
-  - _name: defense lvl 3
+  - _name: Luck lvl 13
     _icon: {fileID: 0}
     _description: 
-    _amount: 8
-  - _name: defense lvl 3
+    _amount: 5
+  - _name: Luck lvl 14
     _icon: {fileID: 0}
     _description: 
-    _amount: 8
-  - _name: defense lvl 3
+    _amount: 6
+  - _name: Luck lvl 15
     _icon: {fileID: 0}
     _description: 
-    _amount: 8
-  - _name: defense lvl 3
-    _icon: {fileID: 0}
-    _description: 
-    _amount: 8
-  - _name: defense lvl 3
-    _icon: {fileID: 0}
-    _description: 
-    _amount: 8
-  - _name: defense lvl 3
-    _icon: {fileID: 0}
-    _description: 
-    _amount: 8
+    _amount: 6

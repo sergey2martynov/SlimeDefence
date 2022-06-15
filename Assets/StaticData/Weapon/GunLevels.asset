@@ -18,7 +18,7 @@ MonoBehaviour:
     _description: p1
     _damage: 10
     _rate: 1.55
-    _range: 20
+    _range: 22
     _amount: 1
     _spread: 0
     _projectileSpeed: 0.3
@@ -28,7 +28,7 @@ MonoBehaviour:
     _description: p2
     _damage: 10
     _rate: 1.5
-    _range: 20
+    _range: 22
     _amount: 1
     _spread: 0
     _projectileSpeed: 0.35
@@ -38,7 +38,7 @@ MonoBehaviour:
     _description: p3
     _damage: 10
     _rate: 1.5
-    _range: 20
+    _range: 22
     _amount: 1
     _spread: 0
     _projectileSpeed: 0.4
@@ -48,7 +48,7 @@ MonoBehaviour:
     _description: p4
     _damage: 10
     _rate: 1.45
-    _range: 20
+    _range: 22
     _amount: 1
     _spread: 0
     _projectileSpeed: 0.45
@@ -58,9 +58,9 @@ MonoBehaviour:
     _description: p5
     _damage: 10
     _rate: 1.4
-    _range: 20
-    _amount: 2
-    _spread: 360
+    _range: 22
+    _amount: 3
+    _spread: 80
     _projectileSpeed: 0.5
     _penetration: 0
   - _name: Pistol Lv6
@@ -68,9 +68,9 @@ MonoBehaviour:
     _description: p6
     _damage: 10
     _rate: 1.35
-    _range: 20
-    _amount: 2
-    _spread: 360
+    _range: 22
+    _amount: 3
+    _spread: 80
     _projectileSpeed: 0.55
     _penetration: 0
   - _name: Pistol Lv7
@@ -78,9 +78,9 @@ MonoBehaviour:
     _description: p7
     _damage: 10
     _rate: 1.3
-    _range: 20
-    _amount: 2
-    _spread: 360
+    _range: 22
+    _amount: 3
+    _spread: 80
     _projectileSpeed: 0.6
     _penetration: 0
   - _name: Pistol Lv8
@@ -88,9 +88,9 @@ MonoBehaviour:
     _description: p8
     _damage: 10
     _rate: 1.25
-    _range: 20
-    _amount: 2
-    _spread: 360
+    _range: 22
+    _amount: 3
+    _spread: 80
     _projectileSpeed: 0.65
     _penetration: 0
   - _name: Pistol Lv9
@@ -98,9 +98,9 @@ MonoBehaviour:
     _description: p9
     _damage: 10
     _rate: 1.2
-    _range: 20
-    _amount: 2
-    _spread: 360
+    _range: 22
+    _amount: 3
+    _spread: 80
     _projectileSpeed: 0.7
     _penetration: 0
   - _name: Pistol Lv10
@@ -108,8 +108,58 @@ MonoBehaviour:
     _description: p10
     _damage: 10
     _rate: 1.1
-    _range: 20
-    _amount: 4
+    _range: 22
+    _amount: 5
     _spread: 360
-    _projectileSpeed: 0.75
+    _projectileSpeed: 0.8
+    _penetration: 0
+  - _name: Pistol Lv11
+    _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
+    _description: p10
+    _damage: 10
+    _rate: 1.1
+    _range: 22
+    _amount: 5
+    _spread: 360
+    _projectileSpeed: 0.85
+    _penetration: 0
+  - _name: Pistol Lv12
+    _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
+    _description: p10
+    _damage: 10
+    _rate: 1.1
+    _range: 22
+    _amount: 5
+    _spread: 360
+    _projectileSpeed: 0.9
+    _penetration: 0
+  - _name: Pistol Lv13
+    _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
+    _description: p10
+    _damage: 10
+    _rate: 1.1
+    _range: 22
+    _amount: 5
+    _spread: 360
+    _projectileSpeed: 0.95
+    _penetration: 0
+  - _name: Pistol Lv14
+    _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
+    _description: p10
+    _damage: 10
+    _rate: 1.1
+    _range: 22
+    _amount: 5
+    _spread: 360
+    _projectileSpeed: 1
+    _penetration: 0
+  - _name: Pistol Lv15
+    _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
+    _description: p10
+    _damage: 15
+    _rate: 1.1
+    _range: 22
+    _amount: 5
+    _spread: 360
+    _projectileSpeed: 1.1
     _penetration: 0
