@@ -2,7 +2,9 @@
 {
     Weak,
     FatEnemy,
-    Strong,
-    MiniBoss,
+    Custom1,
+    Custom2,
+    Custom3,
+    Custom4,
     Boss
 }

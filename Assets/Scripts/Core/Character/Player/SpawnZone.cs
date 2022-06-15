@@ -13,7 +13,7 @@ public class SpawnZone : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent(out Enemy enemyController))
         {
-            if (enemyController.EnemyType != EnemyType.MiniBoss && enemyController.EnemyType != EnemyType.Boss)
+            if (enemyController.EnemyType != EnemyType.Boss)
             {
                 _spawnerEnemies.EnemyPools[(int) enemyController.EnemyType].Pool.Release(enemyController.gameObject);
             }

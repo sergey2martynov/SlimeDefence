@@ -55,16 +55,7 @@ namespace CodeBase.Core.Character.Enemy
             IsDie = true;
             _killCounter.IncreaseCounter();
             
-
-            if (_enemyType == EnemyType.MiniBoss)
-            {
-                var experience = Instantiate(_experience, transform.position, Quaternion.identity);
-                
-                experience.Initialize(_experiencePool, gameObject.GetComponent<EnemyMovementInput>().Target);
-                
-                Destroy(gameObject);
-            }
-            else if (_enemyType == EnemyType.Boss)
+            if (_enemyType == EnemyType.Boss)
             {
                 _spawnerBoss.SpawnedBosses--;
                 Destroy(gameObject);
