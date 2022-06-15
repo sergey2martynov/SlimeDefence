@@ -1,6 +1,4 @@
-﻿using Core.Environment;
-using Core.Expirience;
-using UnityEngine;
+﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace CodeBase.Core.Character.Enemy
@@ -11,8 +9,9 @@ namespace CodeBase.Core.Character.Enemy
         [SerializeField] private EnemyType _enemyType;
         [SerializeField] private int _damage;
         [SerializeField] private int _dropeChance;
-        [SerializeField] private Experience _experience;
         [SerializeField] private SkinnedMeshRenderer _meshRenderer;
+        [SerializeField] private EnemyMovementInput _movement;
+        
         
         private SpawnerEnemies _spawnerEnemies;
         private KillCounter _killCounter;
@@ -38,6 +37,7 @@ namespace CodeBase.Core.Character.Enemy
             _spawnerBoss = spawnerBoss;
             _timeCounter = timeCounter;
             _health.BloodSplatPool = bloodSplat;
+            _movement.ReturnSpeed();
         }
         
         private void Start()

@@ -17,23 +17,23 @@ MonoBehaviour:
     _icon: {fileID: 0}
     _description: 
     _amount: 10000
-  - _name: 
+  - _name: health lvl 2
     _icon: {fileID: 0}
-    _description: health lvl 2
+    _description: 
     _amount: 900
-  - _name: 
+  - _name: health lvl 3
     _icon: {fileID: 0}
-    _description: health lvl 3
+    _description: 
     _amount: 12000
-  - _name: 
+  - _name: health lvl 4
     _icon: {fileID: 0}
-    _description: health lvl 4
+    _description: 
     _amount: 15000
-  - _name: 
+  - _name: health lvl 5
     _icon: {fileID: 0}
-    _description: health lvl 5
+    _description: 
     _amount: 18000
-  - _name: 
+  - _name: health lvl 6
     _icon: {fileID: 0}
-    _description: health lvl 6
+    _description: 
     _amount: 20000

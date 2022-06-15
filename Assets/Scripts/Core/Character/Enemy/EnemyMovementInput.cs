@@ -8,15 +8,15 @@ namespace CodeBase.Core.Character.Enemy
     public class EnemyMovementInput : MonoBehaviour
     {
         [SerializeField] private NavMeshAgent _agent;
+        [SerializeField] private float _speed;
         
         private Transform _target;
-
-        public Transform Target => _target;
 
         private void Awake()
         {
             _target = FindObjectOfType<global::Core.Character.Player.Player>().transform;
             _agent.destination = _target.position;
+            _agent.speed = _speed;
         }
 
         public void MoveEnemy()
@@ -30,6 +30,11 @@ namespace CodeBase.Core.Character.Enemy
             {
                 _agent.speed = 0;
             }
+        }
+
+        public void ReturnSpeed()
+        {
+            _agent.speed = _speed;
         }
     }
 }

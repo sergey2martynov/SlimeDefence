@@ -217,5 +217,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _button: {fileID: 1175156036575642099}
   _name: {fileID: 0}
-  _description: {fileID: 0}
+  _description: {fileID: 1175156036520042104}
   _icon: {fileID: 0}
