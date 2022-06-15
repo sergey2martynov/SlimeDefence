@@ -229,11 +229,11 @@ PrefabInstance:
     - target: {fileID: -4211773947733366040, guid: eafc15330a38d7047a5e71a12a3c32d9, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: effebd1bfd355ee4da27e78e80c81730, type: 2}
+      objectReference: {fileID: 5200753494579969130, guid: eafc15330a38d7047a5e71a12a3c32d9, type: 3}
     - target: {fileID: -4211773947733366040, guid: eafc15330a38d7047a5e71a12a3c32d9, type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: effebd1bfd355ee4da27e78e80c81730, type: 2}
+      objectReference: {fileID: 7209514650377959485, guid: 6b0d347b0043c914ca9a2e953fa8150f, type: 3}
     - target: {fileID: 919132149155446097, guid: eafc15330a38d7047a5e71a12a3c32d9, type: 3}
       propertyPath: m_Name
       value: Slime3
@@ -380,15 +380,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2784078873932093339, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2784078873932093339, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2784078873932093339, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2784078873932093339, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -464,7 +464,7 @@ PrefabInstance:
       objectReference: {fileID: 4059632752950783104}
     - target: {fileID: 6742871518922038233, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: _healthPoint
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6742871518922038233, guid: 7d087eab06bfbcc40b4fa21aca9f0a2e, type: 3}
       propertyPath: _movementType
@@ -564,7 +564,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2.5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

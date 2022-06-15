@@ -161,6 +161,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bffcc7675784645408c87cf3755caffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &36218029 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7044335336757747857, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+  m_PrefabInstance: {fileID: 5909255299282466060}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bffcc7675784645408c87cf3755caffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &43178772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1849,6 +1860,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b45ce0f86d83ac4fbab9dddb9ca6e73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1823649870 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5931295592429675909, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+  m_PrefabInstance: {fileID: 5909255299282466060}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bffcc7675784645408c87cf3755caffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1889995280 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 315713992693079910, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
@@ -3072,6 +3094,10 @@ PrefabInstance:
       propertyPath: _enemiesCounter
       value: 
       objectReference: {fileID: 574486264}
+    - target: {fileID: 3590199726051865713, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: _poolObject
+      value: 
+      objectReference: {fileID: 970603420823659743, guid: 69ac5b332d7c97944803ce6c0f02b25e, type: 3}
     - target: {fileID: 4270949530770596222, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -3142,7 +3168,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: d622f070d38b9934da8477f208a34275, type: 2}
     - target: {fileID: 5909255297961201556, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
       propertyPath: _enemyPools.Array.size
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5909255297961201556, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
       propertyPath: _enemyPools.Array.data[2]
@@ -3152,6 +3178,14 @@ PrefabInstance:
       propertyPath: _enemyPools.Array.data[3]
       value: 
       objectReference: {fileID: 632273307}
+    - target: {fileID: 5909255297961201556, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: _enemyPools.Array.data[4]
+      value: 
+      objectReference: {fileID: 36218029}
+    - target: {fileID: 5909255297961201556, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: _enemyPools.Array.data[5]
+      value: 
+      objectReference: {fileID: 1823649870}
     - target: {fileID: 5909255297961201556, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
       propertyPath: _spawnIntervals.Array.size
       value: 5
