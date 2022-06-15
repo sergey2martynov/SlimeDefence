@@ -223,3 +223,19 @@ MonoBehaviour:
     _numberOfBosses: 0
     _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  - _numberOfWave: 17
+    _durationWave: 120
+    _enemies: 00000000020000000300000004000000
+    _initialSpawnRate:
+    - 0.6
+    - 1.5
+    - 2
+    - 10
+    _lastSpawnRate:
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    _numberOfBosses: 0
+    _isGetNewWeapon: 0
+    _string: INFLEVEL
