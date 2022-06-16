@@ -98,7 +98,7 @@ public class SpawnerEnemies : MonoBehaviour
     {
         var enemy = _enemyPools[(int) type].Pool.Get().GetComponent<Enemy>();
 
-        enemy.Initialize(_killCounter, _experiencePool,_camera, _spawnerBoss, _timeCounter, _bloodSplatPool);
+        enemy.Initialize(_killCounter, _experiencePool,_camera, _spawnerBoss, _timeCounter, _bloodSplatPool, 1);
         enemy.SetSpawnerEnemiesRef(this);
         _spawnedEnemies.Add(enemy);
     }

@@ -21,6 +21,7 @@ MonoBehaviour:
     _lastSpawnRate:
     - 1.4
     _numberOfBosses: 2
+    _healthBoss: 1
     _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 2
@@ -31,6 +32,7 @@ MonoBehaviour:
     _lastSpawnRate:
     - 1.3
     _numberOfBosses: 1
+    _healthBoss: 0
     _isGetNewWeapon: 1
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 3
@@ -43,6 +45,7 @@ MonoBehaviour:
     - 0.8
     - 1.5
     _numberOfBosses: 0
+    _healthBoss: 0
     _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 4
@@ -55,6 +58,7 @@ MonoBehaviour:
     - 0.8
     - 1.5
     _numberOfBosses: 0
+    _healthBoss: 0
     _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 5
@@ -67,6 +71,7 @@ MonoBehaviour:
     - 0.8
     - 1.3
     _numberOfBosses: 4
+    _healthBoss: 0
     _isGetNewWeapon: 1
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 6
@@ -81,6 +86,7 @@ MonoBehaviour:
     - 1.3
     - 8
     _numberOfBosses: 0
+    _healthBoss: 0
     _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 7
@@ -95,6 +101,7 @@ MonoBehaviour:
     - 1.2
     - 7
     _numberOfBosses: 0
+    _healthBoss: 0
     _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 8
@@ -109,6 +116,7 @@ MonoBehaviour:
     - 1.1
     - 6
     _numberOfBosses: 0
+    _healthBoss: 0
     _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 9
@@ -123,6 +131,7 @@ MonoBehaviour:
     - 1.1
     - 5
     _numberOfBosses: 0
+    _healthBoss: 0
     _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 10
@@ -137,6 +146,7 @@ MonoBehaviour:
     - 1.1
     - 4.5
     _numberOfBosses: 3
+    _healthBoss: 0
     _isGetNewWeapon: 1
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 11
@@ -151,6 +161,7 @@ MonoBehaviour:
     - 0.6
     - 4.5
     _numberOfBosses: 0
+    _healthBoss: 0
     _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 12
@@ -165,6 +176,7 @@ MonoBehaviour:
     - 0.6
     - 4.5
     _numberOfBosses: 0
+    _healthBoss: 0
     _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 13
@@ -179,6 +191,7 @@ MonoBehaviour:
     - 0.6
     - 4.5
     _numberOfBosses: 0
+    _healthBoss: 0
     _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 14
@@ -193,6 +206,7 @@ MonoBehaviour:
     - 0.6
     - 4.5
     _numberOfBosses: 0
+    _healthBoss: 0
     _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 15
@@ -207,6 +221,7 @@ MonoBehaviour:
     - 0.5
     - 2
     _numberOfBosses: 4
+    _healthBoss: 0
     _isGetNewWeapon: 1
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 16
@@ -221,6 +236,7 @@ MonoBehaviour:
     - 0.5
     - 2
     _numberOfBosses: 0
+    _healthBoss: 0
     _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 17
@@ -237,6 +253,7 @@ MonoBehaviour:
     - 1
     - 10
     _numberOfBosses: 0
+    _healthBoss: 0
     _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 18
@@ -253,6 +270,7 @@ MonoBehaviour:
     - 0.7
     - 9
     _numberOfBosses: 0
+    _healthBoss: 0
     _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 19
@@ -269,6 +287,7 @@ MonoBehaviour:
     - 0.7
     - 8
     _numberOfBosses: 0
+    _healthBoss: 0
     _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 20
@@ -285,6 +304,7 @@ MonoBehaviour:
     - 0.7
     - 8
     _numberOfBosses: 5
+    _healthBoss: 0
     _isGetNewWeapon: 1
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 21
@@ -301,6 +321,7 @@ MonoBehaviour:
     - 0.7
     - 8
     _numberOfBosses: 0
+    _healthBoss: 0
     _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 22
@@ -317,6 +338,7 @@ MonoBehaviour:
     - 0.7
     - 5
     _numberOfBosses: 0
+    _healthBoss: 0
     _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 23
@@ -333,6 +355,7 @@ MonoBehaviour:
     - 0.7
     - 5
     _numberOfBosses: 0
+    _healthBoss: 0
     _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 24
@@ -349,6 +372,7 @@ MonoBehaviour:
     - 0.7
     - 5
     _numberOfBosses: 0
+    _healthBoss: 0
     _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 25
@@ -365,6 +389,7 @@ MonoBehaviour:
     - 0.7
     - 5
     _numberOfBosses: 6
+    _healthBoss: 0
     _isGetNewWeapon: 1
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 26
@@ -381,6 +406,7 @@ MonoBehaviour:
     - 0.7
     - 3
     _numberOfBosses: 0
+    _healthBoss: 0
     _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 27
@@ -397,6 +423,7 @@ MonoBehaviour:
     - 0.7
     - 3
     _numberOfBosses: 0
+    _healthBoss: 0
     _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 28
@@ -413,6 +440,7 @@ MonoBehaviour:
     - 0.7
     - 3
     _numberOfBosses: 0
+    _healthBoss: 0
     _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 29
@@ -429,6 +457,7 @@ MonoBehaviour:
     - 0.7
     - 3
     _numberOfBosses: 0
+    _healthBoss: 0
     _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 30
@@ -445,5 +474,6 @@ MonoBehaviour:
     - 0.7
     - 2
     _numberOfBosses: 6
+    _healthBoss: 0
     _isGetNewWeapon: 1
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX

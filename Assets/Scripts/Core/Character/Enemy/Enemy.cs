@@ -28,7 +28,7 @@ namespace CodeBase.Core.Character.Enemy
         public Camera Camera => _camera;
         public SkinnedMeshRenderer MeshRenderer => _meshRenderer;
 
-        public void Initialize(KillCounter killCounter, ExperiencePool pool, Camera camera, SpawnerBoss spawnerBoss, TimeCounter timeCounter, BloodSplatPool bloodSplat)
+        public void Initialize(KillCounter killCounter, ExperiencePool pool, Camera camera, SpawnerBoss spawnerBoss, TimeCounter timeCounter, BloodSplatPool bloodSplat, int health)
         {
             _killCounter = killCounter;
             IsDie = false;
@@ -38,6 +38,8 @@ namespace CodeBase.Core.Character.Enemy
             _timeCounter = timeCounter;
             _health.BloodSplatPool = bloodSplat;
             _movement.ReturnSpeed();
+            if(_enemyType == EnemyType.Boss)
+                _health.SetNewHealthPoint(health);
         }
         
         private void Start()

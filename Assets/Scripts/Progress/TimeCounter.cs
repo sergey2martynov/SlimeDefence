@@ -1,4 +1,5 @@
 using System;
+using Palmmedia.ReportGenerator.Core.Reporting.Builders;
 using TMPro;
 using UnityEngine;
 
@@ -12,7 +13,8 @@ public class TimeCounter : MonoBehaviour
     private bool _isFinalStageWave;
     private int _currentWave;
     private int _currentMiniBoss;
-    
+
+    public int CurrentWave => _currentWave;
     public event Action FinalStageBegun;
     public event Action<int> SpawnBossTimeHasCome;
     public event Action ChangedWave;

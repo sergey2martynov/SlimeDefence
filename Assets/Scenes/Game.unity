@@ -4038,6 +4038,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1271203428}
     - target: {fileID: 5909255298757263659, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
+      propertyPath: _stagesLevel
+      value: 
+      objectReference: {fileID: 11400000, guid: 9866d7d45aed87142be4a5cc0c1e8774, type: 2}
+    - target: {fileID: 5909255298757263659, guid: 6647b0f37a8827041b978c6c3ca6fb2e, type: 3}
       propertyPath: _experiencePool
       value: 
       objectReference: {fileID: 19121556}

@@ -1,5 +1,4 @@
 using CodeBase.Core.Character.Enemy;
-using Core.Environment;
 using UnityEngine;
 
 public class SpawnerBoss : MonoBehaviour
@@ -12,8 +11,9 @@ public class SpawnerBoss : MonoBehaviour
     [SerializeField] private ExperiencePool _experiencePool;
     [SerializeField] private Camera _camera;
     [SerializeField] private BloodSplatPool _bloodSplat;
-    public int SpawnedBosses { get; set;}
-    
+    [SerializeField] private StagesLevel _stagesLevel;
+    public int SpawnedBosses { get; set; }
+
     private void Start()
     {
         _timeCounter.SpawnBossTimeHasCome += SpawnFinalBoss;
@@ -27,7 +27,8 @@ public class SpawnerBoss : MonoBehaviour
     private void SpawnBoss(Enemy enemy)
     {
         var finalBoss = Instantiate(enemy, _player.position + FindSpawnRandomPosition(), Quaternion.identity, _parent);
-        finalBoss.Initialize(_killCounter, _experiencePool, _camera, this, _timeCounter, _bloodSplat);
+        finalBoss.Initialize(_killCounter, _experiencePool, _camera, this, _timeCounter, _bloodSplat,
+            _stagesLevel.WaveParameters[_timeCounter.CurrentWave].HealthBoss);
     }
 
     private void SpawnFinalBoss(int count)
@@ -38,7 +39,7 @@ public class SpawnerBoss : MonoBehaviour
             SpawnedBosses++;
         }
     }
-    
+
     private Vector3 FindSpawnRandomPosition()
     {
         Vector3 vector = new Vector3(
@@ -46,7 +47,6 @@ public class SpawnerBoss : MonoBehaviour
             0,
             Random.Range(0, 2) == 0 ? Random.Range(-60, -50) : Random.Range(50, 60));
 
-        Vector3 turnedVector = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.up) * vector;
         return vector;
     }
 }

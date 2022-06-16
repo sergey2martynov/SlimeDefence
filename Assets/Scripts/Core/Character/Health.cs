@@ -75,4 +75,9 @@ public class Health : Upgradable
     {
         _healthPoint = _healthLevels.GetHealthParameters(_currentLevel).Amount;
     }
+
+    public void SetNewHealthPoint(int health)
+    {
+        _healthPoint = health;
+    }
 }
