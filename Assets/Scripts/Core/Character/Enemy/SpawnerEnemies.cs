@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using CodeBase.Core.Character.Enemy;
-using Core.Environment;
 using DG.Tweening;
 using UnityEngine;
 
