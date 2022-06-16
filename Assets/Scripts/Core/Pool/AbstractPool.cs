@@ -34,6 +34,9 @@ namespace CodeBase.Core
 
         public virtual void ActionOnGet(GameObject poolObject)
         {
+            // if (poolObject.activeSelf)
+            //     CreateObject();
+            
             poolObject.SetActive(true);
         }
 

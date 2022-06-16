@@ -1,4 +1,5 @@
 using System;
+using CodeBase.Core.Character.Enemy;
 using Core.Character;
 using DG.Tweening;
 using StaticData;
@@ -12,7 +13,7 @@ public class Health : Upgradable
     [SerializeField] private Defence _defence;
     [SerializeField] private HealthLevels _healthLevels;
     [SerializeField] private CharacterType _characterType;
-    [SerializeField] private BloodSplat _bloodSplat;
+    [SerializeField] private Enemy _enemy;
 
     private int _enemyHealthPoint;
     public int HealthPoint => _healthPoint;
@@ -27,8 +28,12 @@ public class Health : Upgradable
         {
             var particle = BloodSplatPool.Pool.Get();
             particle.GetComponent<BloodSplat>().Initialize(transform);
+            
+            _enemy.MeshRenderer.material.color = Color.white;
+
+            DOTween.Sequence().AppendInterval(0.07f).OnComplete(() => { _enemy.ReturnColor(); });
         }
-        
+
         _healthPoint = _healthPoint - damageTaken + _defence.DefencePlayer;
         HealthChanged?.Invoke(damageTaken);
 

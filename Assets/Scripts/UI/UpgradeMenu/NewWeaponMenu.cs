@@ -13,6 +13,7 @@ public class NewWeaponMenu : MonoBehaviour
     {
         _timeCounter.WeaponReceived += OnPlayerGetNewWeapon;
         DisableMenu(false);
+        Time.timeScale = 0;
     }
     
     private void OnDestroy()

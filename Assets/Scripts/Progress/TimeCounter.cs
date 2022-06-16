@@ -19,7 +19,7 @@ public class TimeCounter : MonoBehaviour
     public event Action<int> SpawnBossTimeHasCome;
     public event Action ChangedWave;
     public event Action WeaponReceived;
-
+    
     private void Start()
     {
         _currentWaveDuration = _stagesLevel.GetWaveParameters(_currentWave).DurationWave;

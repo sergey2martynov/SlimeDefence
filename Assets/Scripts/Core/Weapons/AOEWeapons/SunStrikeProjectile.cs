@@ -1,5 +1,4 @@
 using CodeBase.Core.Character.Enemy;
-using DG.Tweening;
 using UnityEngine;
 
 public class SunStrikeProjectile : MonoBehaviour
@@ -14,13 +13,7 @@ public class SunStrikeProjectile : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent(out Enemy enemyController))
         {
-            enemyController.MeshRenderer.material.color = Color.white;
-            
-            DOTween.Sequence().AppendInterval(0.07f).OnComplete(() =>
-            {
-                enemyController.ReturnColor();
-                enemyController.Health.GetDamage(_damage);
-            });
+            enemyController.Health.GetDamage(_damage);
         }
     }
 }

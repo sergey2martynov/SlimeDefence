@@ -7,16 +7,20 @@ namespace UI.WeaponsPanel
     public class WeaponsPanel : MonoBehaviour
     {
         [SerializeField] private List<Image> _weaponIcons;
-        [SerializeField] private Weapon _defaultWeapon;
+        [SerializeField] private List<Weapon> _defaultWeapon;
 
         private List<Weapon> _activeWeapon;
 
         private void Start()
         {
             _activeWeapon = new List<Weapon>();
-            _activeWeapon.Add(_defaultWeapon);
-            _weaponIcons[0].gameObject.SetActive(true);
-            _weaponIcons[0].sprite = _defaultWeapon.GetUpgradeParameters().Icon.sprite;
+            _activeWeapon.AddRange(_defaultWeapon);
+
+            for (int i = 0; i < _defaultWeapon.Count; i++)
+            {
+                _weaponIcons[i].gameObject.SetActive(true);
+                _weaponIcons[i].sprite = _defaultWeapon[i].GetUpgradeParameters().Icon.sprite;
+            }
         }
 
         public void UpdatePanel(Weapon weapon, bool isNewWeapon)
