@@ -7,14 +7,12 @@ public class TimeCounter : MonoBehaviour
     [SerializeField] private StagesLevel _stagesLevel;
     [SerializeField] private TextMeshProUGUI _numberWaveText;
 
-        private float _currentWaveDuration;
+    private float _currentWaveDuration;
     private float _elapsedTime;
     private bool _isFinalStageWave;
     private int _currentWave;
     private int _currentMiniBoss;
-
-    public bool IsFinalStageWave => _isFinalStageWave;
-
+    
     public event Action FinalStageBegun;
     public event Action<int> SpawnBossTimeHasCome;
     public event Action ChangedWave;

@@ -23,6 +23,7 @@ MonoBehaviour:
     _spread: 0
     _projectileSpeed: 0.3
     _penetration: 0
+    _additionalProjectiles: 0
   - _name: Pistol Lv2
     _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
     _description: p2
@@ -33,6 +34,7 @@ MonoBehaviour:
     _spread: 0
     _projectileSpeed: 0.35
     _penetration: 0
+    _additionalProjectiles: 0
   - _name: Pistol Lv3
     _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
     _description: p3
@@ -43,6 +45,7 @@ MonoBehaviour:
     _spread: 0
     _projectileSpeed: 0.4
     _penetration: 0
+    _additionalProjectiles: 0
   - _name: Pistol Lv4
     _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
     _description: p4
@@ -53,6 +56,7 @@ MonoBehaviour:
     _spread: 0
     _projectileSpeed: 0.45
     _penetration: 0
+    _additionalProjectiles: 0
   - _name: Pistol Lv5
     _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
     _description: p5
@@ -63,6 +67,7 @@ MonoBehaviour:
     _spread: 80
     _projectileSpeed: 0.5
     _penetration: 0
+    _additionalProjectiles: 0
   - _name: Pistol Lv6
     _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
     _description: p6
@@ -73,6 +78,7 @@ MonoBehaviour:
     _spread: 80
     _projectileSpeed: 0.55
     _penetration: 0
+    _additionalProjectiles: 0
   - _name: Pistol Lv7
     _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
     _description: p7
@@ -83,6 +89,7 @@ MonoBehaviour:
     _spread: 80
     _projectileSpeed: 0.6
     _penetration: 0
+    _additionalProjectiles: 0
   - _name: Pistol Lv8
     _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
     _description: p8
@@ -93,6 +100,7 @@ MonoBehaviour:
     _spread: 80
     _projectileSpeed: 0.65
     _penetration: 0
+    _additionalProjectiles: 0
   - _name: Pistol Lv9
     _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
     _description: p9
@@ -103,6 +111,7 @@ MonoBehaviour:
     _spread: 80
     _projectileSpeed: 0.7
     _penetration: 0
+    _additionalProjectiles: 0
   - _name: Pistol Lv10
     _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
     _description: p10
@@ -113,6 +122,7 @@ MonoBehaviour:
     _spread: 360
     _projectileSpeed: 0.8
     _penetration: 0
+    _additionalProjectiles: 0
   - _name: Pistol Lv11
     _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
     _description: p10
@@ -123,6 +133,7 @@ MonoBehaviour:
     _spread: 360
     _projectileSpeed: 0.85
     _penetration: 0
+    _additionalProjectiles: 0
   - _name: Pistol Lv12
     _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
     _description: p10
@@ -133,6 +144,7 @@ MonoBehaviour:
     _spread: 360
     _projectileSpeed: 0.9
     _penetration: 0
+    _additionalProjectiles: 0
   - _name: Pistol Lv13
     _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
     _description: p10
@@ -143,6 +155,7 @@ MonoBehaviour:
     _spread: 360
     _projectileSpeed: 0.95
     _penetration: 0
+    _additionalProjectiles: 0
   - _name: Pistol Lv14
     _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
     _description: p10
@@ -153,6 +166,7 @@ MonoBehaviour:
     _spread: 360
     _projectileSpeed: 1
     _penetration: 0
+    _additionalProjectiles: 0
   - _name: Pistol Lv15
     _icon: {fileID: 549139033193520066, guid: a22fa0065f245124caeb8ae6e7a12df3, type: 3}
     _description: p10
@@ -163,3 +177,4 @@ MonoBehaviour:
     _spread: 360
     _projectileSpeed: 1.1
     _penetration: 0
+    _additionalProjectiles: 0

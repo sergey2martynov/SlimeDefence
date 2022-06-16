@@ -9,8 +9,6 @@ public class LevelUpMenuController : MonoBehaviour
     [SerializeField] private List<UpgradeTile> _upgradeTiles;
     [SerializeField] private ProgressController _progressController;
     [SerializeField] private GameObject _levelUpMenu;
-    [SerializeField] private LevelUpMenuDisabler _levelUpMenuDisabler;
-    [SerializeField] private TimeCounter _timeCounter;
 
     private void Start()
     {

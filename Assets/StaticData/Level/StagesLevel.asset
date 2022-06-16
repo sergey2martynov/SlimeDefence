@@ -20,7 +20,7 @@ MonoBehaviour:
     - 1.4
     _lastSpawnRate:
     - 1.4
-    _numberOfBosses: 0
+    _numberOfBosses: 2
     _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 2

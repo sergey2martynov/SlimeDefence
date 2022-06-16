@@ -7,7 +7,6 @@ using UI.WeaponsPanel;
 using UpgradeWeapon;
 using Quaternion = UnityEngine.Quaternion;
 using Random = UnityEngine.Random;
-using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
 public class ProjectileWeapon : Weapon
@@ -23,17 +22,14 @@ public class ProjectileWeapon : Weapon
     [SerializeField] private TargetType _targetType;
     [SerializeField] private float _projectileSpeed;
     [SerializeField] private int _penetrationCounter;
-     
 
     private ProjectileWeaponParameters _currentParameters;
-
-
     private List<Enemy> _enemies;
+    private List<Enemy> _temporaryEnemies;
     private float _elapsedTime;
     private float _distance = 100;
     private Vector3 _direction;
-
-    public List<Enemy> Enemies => _enemies;
+    private int _additionalProjectiles;
 
     private void Awake()
     {
@@ -52,7 +48,7 @@ public class ProjectileWeapon : Weapon
     private void Start()
     {
         _enemies = new List<Enemy>();
-
+        _temporaryEnemies = new List<Enemy>();
         MaxLevel = _weaponParameters.GetMaxNumberOfLevel();
 
         SetState();
@@ -62,7 +58,7 @@ public class ProjectileWeapon : Weapon
     private void Update()
     {
         _elapsedTime += Time.deltaTime;
-        
+
         if (_enemies.Count == 0)
         {
             _movement.SetLookDirection(_movement.Direction, 1);
@@ -75,10 +71,17 @@ public class ProjectileWeapon : Weapon
                 _enemies.Remove(_enemies[i]);
             }
         }
-        
-        if (_elapsedTime > Rate && IsActive && _enemies.Count != 0 && (_targetType == TargetType.Nearest || _targetType == TargetType.RandomEnemy))
+
+        if (_elapsedTime > Rate && IsActive && _enemies.Count != 0 &&
+            (_targetType == TargetType.Nearest || _targetType == TargetType.RandomEnemy))
         {
-            UseWeapon();
+            for (int i = 0; i < _additionalProjectiles + 1; i++)
+            {
+                UseWeapon();
+            }
+
+            _enemies.AddRange(_temporaryEnemies);
+            _temporaryEnemies.Clear();
             _elapsedTime = 0;
         }
     }
@@ -86,21 +89,25 @@ public class ProjectileWeapon : Weapon
     private Enemy FindNearbyEnemy()
     {
         int indexOfEnemies = 0;
-        
-        float minDistance  = Vector3.Distance(_player.position, _enemies[0].transform.position);
+
+        float minDistance = Vector3.Distance(_player.position, _enemies[0].transform.position);
 
         for (int i = 1; i < _enemies.Count; i++)
         {
-                _distance = Vector3.Distance(_player.position, _enemies[i].transform.position);
+            _distance = Vector3.Distance(_player.position, _enemies[i].transform.position);
 
-                if (_distance < minDistance)
-                {
-                    minDistance = _distance;
-                    indexOfEnemies = i;
-                }
+            if (_distance < minDistance)
+            {
+                minDistance = _distance;
+                indexOfEnemies = i;
+            }
         }
 
-        return _enemies[indexOfEnemies];
+        var nearestEnemy = _enemies[indexOfEnemies];
+        _temporaryEnemies.Add(_enemies[indexOfEnemies]);
+        _enemies.Remove(_enemies[indexOfEnemies]);
+
+        return nearestEnemy;
     }
 
     public override void UseWeapon()
@@ -128,14 +135,14 @@ public class ProjectileWeapon : Weapon
 
         _movement.SetLookDirection(_direction, 0.5f);
 
-        _direction = RotateDirection(_direction, 0.5f * (-_spread + _spread /_amount));
+        _direction = RotateDirection(_direction, 0.5f * (-_spread + _spread / _amount));
 
         for (int i = 1; i <= _amount; i++)
         {
             var rotatedDirection = RotateDirection(_direction, _spread * ((i - 1) / (float) _amount));
             var projectile = _gunshotProjectilePool.Pool.Get();
 
-            projectile.GetComponent<Projectile>().Initialize(Damage, rotatedDirection, _gunshotProjectilePool, _player, 
+            projectile.GetComponent<Projectile>().Initialize(Damage, rotatedDirection, _gunshotProjectilePool, _player,
                 _projectileSpeed, _penetrationCounter);
         }
     }
@@ -146,7 +153,6 @@ public class ProjectileWeapon : Weapon
         return vector;
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
         Enemy enemy = other.gameObject.GetComponent<Enemy>();
@@ -156,17 +162,6 @@ public class ProjectileWeapon : Weapon
             _enemies.Add(enemy);
         }
     }
-
-    // private void OnTriggerExit(Collider other)
-    // {
-    //     for (int i = 0; i < _enemies.Count; i++)
-    //     {
-    //         if (other.gameObject.GetComponent<Enemy>() == _enemies[i])
-    //         {
-    //             _enemies.Remove(_enemies[i]);
-    //         }
-    //     }
-    // }
 
     public override void Upgrade()
     {
@@ -182,7 +177,7 @@ public class ProjectileWeapon : Weapon
         _currentParameters = _weaponParameters.GetWeaponParameters(_currentLevel);
         if (_currentLevel < MaxLevel)
             _upgradeParameters = _weaponParameters.GetWeaponParameters(_currentLevel + 1);
-        
+
         SetState();
         _weaponsPanel.UpdatePanel(this, false);
     }
@@ -197,15 +192,6 @@ public class ProjectileWeapon : Weapon
         _capsuleCollider.radius = _range;
         _projectileSpeed = _currentParameters.ProjectileSpeed;
         _penetrationCounter = _currentParameters.Penetration;
+        _additionalProjectiles = _currentParameters.AdditionalProjectiles;
     }
-
-    // private void OnDrawGizmos()
-    // {
-    //     Gizmos.DrawRay(transform.position,transform.position + _direction * 50);
-    //     for (int i = 1; i <= _amount; i++)
-    //     {
-    //         var rotatedDirection = RotateDirection(_direction, _spread * ((i-1)/ (float)_amount));
-    //         Gizmos.DrawRay(transform.position,transform.position + rotatedDirection * 50);
-    //     }
-    // }
 }
