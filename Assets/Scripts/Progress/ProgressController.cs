@@ -1,7 +1,7 @@
 using System;
 using Core.Character.Player;
+using DG.Tweening;
 using StaticData.Player;
-using TMPro;
 using UnityEngine;
 
 public class ProgressController : MonoBehaviour
@@ -9,11 +9,10 @@ public class ProgressController : MonoBehaviour
     [SerializeField] private PlayerLevelStages _levelState;
     [SerializeField] private ExperienceBar _experienceBar;
     [SerializeField] private Player _player;
+    [SerializeField] private ParticleSystem _particle;
     
     private int _expirience;
-    private int _waveNumber;
     public int Experience => _expirience;
-    public int WaveNumber => _waveNumber;
     public event Action PlayerLeveledUp;
 
     public int MaxCurrentExperience
@@ -35,17 +34,20 @@ public class ProgressController : MonoBehaviour
 
         if (_expirience >= MaxCurrentExperience)
         {
-            PlayerLeveledUp?.Invoke();
-            _expirience = 0;
-            _player.AddedPlayerLevel();
-            _experienceBar.SetMaxValue();
+            if(!_particle.gameObject.activeSelf)
+                _particle.gameObject.SetActive(true);
+            
+            _particle.Play();
+
+            DOTween.Sequence().AppendInterval(1f).OnComplete(() =>
+            {
+                PlayerLeveledUp?.Invoke();
+                _expirience = 0;
+                _player.AddedPlayerLevel();
+                _experienceBar.SetMaxValue();
+            });
         }
 
         _experienceBar.SetSlider(_expirience);
-    }
-
-    public void IncreaseWaveNumber()
-    {
-        _waveNumber++;
     }
 }
