@@ -1,40 +1,34 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
-using UnityEditor;
 
 public class LevelSliderFiller : MonoBehaviour
 {
     [SerializeField] private Slider _slider;
     [SerializeField] private StagesLevel _stagesLevel;
-    [SerializeField] private ProgressController _progress;
     [SerializeField] private TimeCounter _timeCounter;
 
     private int _currentWave;
     
-
     private void Start()
     {
-        MoveSlider();
+        _slider.maxValue = _stagesLevel.WaveParameters[_currentWave].DurationWave;
         _timeCounter.ChangedWave += UpdateSlider;
     }
-
+    
     private void OnDestroy()
     {
         _timeCounter.ChangedWave -= UpdateSlider;
     }
-
-    private void MoveSlider()
+    
+    private void Update()
     {
-        _slider.DOValue(1, _stagesLevel.WaveParameters[_currentWave].DurationWave);
+        _slider.value += Time.deltaTime;
     }
-
+    
     private void UpdateSlider()
     {
         _slider.value = 0;
         _currentWave++;
-        _slider.DOValue(1, _stagesLevel.WaveParameters[_currentWave].DurationWave);
+        _slider.maxValue = _stagesLevel.WaveParameters[_currentWave].DurationWave;
     }
-    
 }
