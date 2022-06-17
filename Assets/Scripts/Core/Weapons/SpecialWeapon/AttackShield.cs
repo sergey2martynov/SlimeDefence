@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using CodeBase.Core.Character.Enemy;
 using UI.WeaponsPanel;
@@ -10,6 +9,7 @@ public class AttackShield : Weapon
     [SerializeField] private CapsuleCollider _collider;
     [SerializeField] private AttackShieldLevels _levels;
     [SerializeField] private WeaponsPanel _weaponsPanel;
+    [SerializeField] private Transform _player;
 
     private float _fixedTime;
     private WeaponParameters _currentParameters;
@@ -36,7 +36,7 @@ public class AttackShield : Weapon
         {
             for (int i = 0; i < _enemiesAround.Count; i++)
             {
-                if (_enemiesAround[i] == null || _enemiesAround[i].IsDie)
+                if (_enemiesAround[i] == null || _enemiesAround[i].IsDie || (_player.position - _enemiesAround[i].transform.position).magnitude > 5)
                     _enemiesAround.Remove(_enemiesAround[i]);
                 else
                 {

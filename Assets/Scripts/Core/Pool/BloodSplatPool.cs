@@ -13,7 +13,7 @@ public class BloodSplatPool : AbstractPool
 
     public override void ActionOnGet(GameObject poolObject)
     {
-        if (poolObject.activeSelf)
+        if (poolObject == null || poolObject.activeSelf)
             CreateObject();
         poolObject.SetActive(true);
         DOTween.Sequence().AppendInterval(3f).OnComplete(() => Pool.Release(poolObject));

@@ -38,13 +38,13 @@ public class ProgressController : MonoBehaviour
                 _particle.gameObject.SetActive(true);
             
             _particle.Play();
+            _expirience = 0;
+            _player.AddedPlayerLevel();
+            _experienceBar.SetMaxValue();
 
             DOTween.Sequence().AppendInterval(1f).OnComplete(() =>
             {
                 PlayerLeveledUp?.Invoke();
-                _expirience = 0;
-                _player.AddedPlayerLevel();
-                _experienceBar.SetMaxValue();
             });
         }
 

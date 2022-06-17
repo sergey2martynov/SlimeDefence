@@ -9,6 +9,7 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private List<Upgradable> _newWeapons;
 
     private int _currentWave;
+    public List<Upgradable>NewWeapons => _newWeapons;
 
     public Upgradable GetNewWeapon()
     {

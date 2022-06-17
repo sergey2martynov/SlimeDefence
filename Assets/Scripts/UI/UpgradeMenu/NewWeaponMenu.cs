@@ -23,6 +23,9 @@ public class NewWeaponMenu : MonoBehaviour
     
     private void OnPlayerGetNewWeapon()
     {
+        if(_upgradeManager.NewWeapons.Count == 0)
+            return;
+        
         var disableDelegate = new DisableDelegate(DisableMenu);
         
         var upgradeTile = _upgradeManager.GetNewWeapon();

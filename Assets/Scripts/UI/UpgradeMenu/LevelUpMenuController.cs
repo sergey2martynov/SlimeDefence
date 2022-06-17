@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UI.UpgradeMenu;
 using UnityEngine;
-using Upgrade;
 
 public class LevelUpMenuController : MonoBehaviour
 {
@@ -49,5 +48,4 @@ public class LevelUpMenuController : MonoBehaviour
         }
         _levelUpMenu.SetActive(isActive);
     }
-    
 }
