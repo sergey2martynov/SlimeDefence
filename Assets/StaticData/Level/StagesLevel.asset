@@ -30,7 +30,7 @@ MonoBehaviour:
     _initialSpawnRate:
     - 1.3
     _lastSpawnRate:
-    - 20
+    - 5
     _numberOfBosses: 1
     _healthBoss: 50
     _isGetNewWeapon: 1
