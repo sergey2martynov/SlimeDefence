@@ -32,7 +32,7 @@ public class PlayerInput : MonoBehaviour
             {
                 if (hits[i].collider.TryGetComponent(out Enemy enemy))
                 {
-                    _spark.transform.position = hits[i].point + _pointOffset;
+                    _spark.transform.position = hits[i].point;
                     if (_elapsedTime > 0.1f)
                     {
                         enemy.Health.GetDamage(_inputDamage);
@@ -42,7 +42,7 @@ public class PlayerInput : MonoBehaviour
 
                 if (hits[i].collider.TryGetComponent(out Plane plane))
                 {
-                    _spark.transform.position = hits[i].point +_pointOffset;
+                    _spark.transform.position = hits[i].point;
                 }
             }
         }

@@ -13345,14 +13345,14 @@ ParticleSystem:
   CollisionModule:
     enabled: 1
     serializedVersion: 4
-    type: 1
+    type: 0
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
     multiplyColliderForceByCollisionAngle: 1
     m_Planes:
-    - {fileID: 0}
+    - {fileID: 5685799168668003951, guid: 6928c3a298036f349a89788b5274cdfa, type: 3}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
