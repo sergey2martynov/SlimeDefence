@@ -30,6 +30,7 @@ namespace Core.Weapons
             _spawnedProjectile.gameObject.SetActive(false);
             _sphereCollider.enabled = false;
             _upgradeParameters = _weaponParameters.GetWeaponParameters(_currentLevel);
+            MaxLevel = _weaponParameters.GetMaxNumberOfLevel();
         }
         
         private void Update()

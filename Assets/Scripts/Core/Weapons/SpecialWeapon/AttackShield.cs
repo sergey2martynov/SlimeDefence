@@ -10,10 +10,12 @@ public class AttackShield : Weapon
     [SerializeField] private AttackShieldLevels _levels;
     [SerializeField] private WeaponsPanel _weaponsPanel;
     [SerializeField] private Transform _player;
+    [SerializeField] private ParticleSystem _circle;
 
     private float _fixedTime;
     private WeaponParameters _currentParameters;
     private List<Enemy> _enemiesAround;
+    private ParticleSystem.MainModule _circleMain;
 
     private void Start()
     {
@@ -22,6 +24,9 @@ public class AttackShield : Weapon
         _collider.radius = _currentParameters.Range;
         _damage = _currentParameters.Damage;
         _upgradeParameters = _levels.GetWeaponParameters(_currentLevel + 1);
+        _circleMain = _circle.main;
+        _circleMain.startSize = _currentParameters.Range * 2.7f;
+        MaxLevel = _levels.GetMaxNumberOfLevel();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -32,11 +37,11 @@ public class AttackShield : Weapon
 
     private void Update()
     {
-        if(Time.time - _fixedTime > 2)
+        if(Time.time - _fixedTime > 0.3f)
         {
             for (int i = 0; i < _enemiesAround.Count; i++)
             {
-                if (_enemiesAround[i] == null || _enemiesAround[i].IsDie || (_player.position - _enemiesAround[i].transform.position).magnitude > 5)
+                if (_enemiesAround[i] == null || _enemiesAround[i].IsDie || (_player.position - _enemiesAround[i].transform.position).magnitude > _currentParameters.Range +1)
                     _enemiesAround.Remove(_enemiesAround[i]);
                 else
                 {
@@ -56,5 +61,6 @@ public class AttackShield : Weapon
         _damage = _currentParameters.Damage;
         _collider.radius = _currentParameters.Range;
         _weaponsPanel.UpdatePanel(this, false);
+        _circleMain.startSize = _currentParameters.Range * 2.7f;
     }
 }

@@ -28,6 +28,7 @@ public class RailGun : Weapon
         _currentParameters = _railGunLevels.GetWeaponParameters(_currentLevel);
         _railGunTarget = _particleTarget.GetComponent<RailGunTarget>();
         _projectileSpeed = _currentParameters.ProjectileSpeed;
+        MaxLevel = _railGunLevels.GetMaxNumberOfLevel();
     }
 
     private void Update()
