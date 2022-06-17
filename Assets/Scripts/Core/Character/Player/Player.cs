@@ -20,13 +20,13 @@ namespace Core.Character.Player
         private void Start()
         {
             _currentLevel = 1;
-            _levelText.text = _currentLevel.ToString();
+            _levelText.text = "Lvl " + _currentLevel;
         }
         
         public void AddedPlayerLevel()
         {
             _currentLevel++;
-            _levelText.text = _currentLevel.ToString();
+            _levelText.text = "Lvl " + _currentLevel;
         }
     }
 }

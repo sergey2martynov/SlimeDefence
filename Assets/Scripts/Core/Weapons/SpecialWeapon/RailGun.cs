@@ -1,4 +1,3 @@
-using System;
 using DG.Tweening;
 using UI.WeaponsPanel;
 using Unity.Mathematics;

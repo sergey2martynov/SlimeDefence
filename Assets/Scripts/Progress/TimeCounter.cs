@@ -1,5 +1,4 @@
 using System;
-using Palmmedia.ReportGenerator.Core.Reporting.Builders;
 using TMPro;
 using UnityEngine;
 
@@ -23,7 +22,7 @@ public class TimeCounter : MonoBehaviour
     private void Start()
     {
         _currentWaveDuration = _stagesLevel.GetWaveParameters(_currentWave).DurationWave;
-        _numberWaveText.text = (_currentWave + 1).ToString();
+        _numberWaveText.text = "WAVE " + (_currentWave + 1);
     }
 
     private void Update()
@@ -72,6 +71,6 @@ public class TimeCounter : MonoBehaviour
         
         _isFinalStageWave = false;
         
-        _numberWaveText.text = (_currentWave + 1).ToString();
+        _numberWaveText.text = "WAVE" + (_currentWave + 1);
     }
 }

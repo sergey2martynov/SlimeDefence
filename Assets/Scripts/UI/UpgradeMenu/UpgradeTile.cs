@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 using Upgrade;
 
@@ -8,7 +9,7 @@ namespace UI.UpgradeMenu
     {
         [SerializeField] private Button _button;
         
-        [SerializeField] private Text _name;
+        [SerializeField] private TextMeshProUGUI _name;
         [SerializeField] private Text _description;
         [SerializeField] private Image _icon;
         private LevelUpMenuDisabler _disabler;
@@ -19,7 +20,7 @@ namespace UI.UpgradeMenu
             
             _name.text = upgradeParameters.Name;
             //_description.text = upgradeParameters.Description;
-            //_icon.sprite = upgradeParameters.Icon.sprite;
+            _icon.sprite = upgradeParameters.Icon.sprite;
             _button.onClick.AddListener(()=>
             {
                 iUpgradable.Upgrade();

@@ -38,7 +38,7 @@ public class EnemyPool : AbstractPool
         Vector3 vector = new Vector3(
             Random.Range(-15, 15),
             0,
-            Random.Range(0, 2) == 0 ? Random.Range(-40, -30) : Random.Range(30, 20));
+            Random.Range(0, 2) == 0 ? Random.Range(-30, -20) : Random.Range(30, 20));
 
         Vector3 turnedVector = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.up) * vector;
         return vector;
