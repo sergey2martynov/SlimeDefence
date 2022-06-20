@@ -14,7 +14,6 @@ public class TimeCounter : MonoBehaviour
     private int _currentMiniBoss;
 
     public int CurrentWave => _currentWave;
-    public event Action FinalStageBegun;
     public event Action<int> SpawnBossTimeHasCome;
     public event Action ChangedWave;
     public event Action WeaponReceived;
@@ -41,11 +40,6 @@ public class TimeCounter : MonoBehaviour
             {
                 UpdateWave();
             }
-        }
-        else if (_currentWave == _stagesLevel.WaveParameters.Count && !_isFinalStageWave)
-        {
-            _isFinalStageWave = true;
-            FinalStageBegun?.Invoke();
         }
     }
 

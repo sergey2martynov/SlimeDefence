@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using CodeBase.Core.Character.Enemy;
+using Core.Character.Player;
 using DG.Tweening;
 using UI.WeaponsPanel;
 using UnityEngine;
@@ -14,17 +15,17 @@ namespace Core.Weapons
         [SerializeField] private SunStrikeLevels _weaponParameters;
         [SerializeField] private WeaponsPanel _weaponsPanel;
         [SerializeField] private EnemiesCounter _enemiesCounter;
-        
+        [SerializeField] private AttackSpeed _attackSpeed;
+
         private SphereCollider _sphereCollider;
         private ParticleSystem _spawnedProjectile;
         private WeaponParameters _currentParameters;
         private float _elapsedTime;
-        
-        
+
 
         private void Start()
         {
-            _spawnedProjectile = Instantiate(_projectile, new Vector3(0,0, 200), Quaternion.identity);
+            _spawnedProjectile = Instantiate(_projectile, new Vector3(0, 0, 200), Quaternion.identity);
             _spawnedProjectile.GetComponent<SunStrikeProjectile>().Initialize(_damage);
             _sphereCollider = _spawnedProjectile.GetComponent<SphereCollider>();
             _spawnedProjectile.gameObject.SetActive(false);
@@ -32,26 +33,28 @@ namespace Core.Weapons
             _upgradeParameters = _weaponParameters.GetWeaponParameters(_currentLevel);
             MaxLevel = _weaponParameters.GetMaxNumberOfLevel();
         }
-        
+
         private void Update()
         {
             _elapsedTime += Time.deltaTime;
-            
+
             for (int i = 0; i < _enemiesCounter.EnemiesOnScreen.Count; i++)
             {
-                if (_enemiesCounter.EnemiesOnScreen[i] == null || !_enemiesCounter.EnemiesOnScreen[i].isActiveAndEnabled || _enemiesCounter.EnemiesOnScreen[i].IsDie)
+                if (_enemiesCounter.EnemiesOnScreen[i] == null ||
+                    !_enemiesCounter.EnemiesOnScreen[i].isActiveAndEnabled || _enemiesCounter.EnemiesOnScreen[i].IsDie)
                 {
                     _enemiesCounter.EnemiesOnScreen.Remove(_enemiesCounter.EnemiesOnScreen[i]);
                 }
             }
 
-            if (_elapsedTime > _rate && _enemiesCounter.EnemiesOnScreen.Count != 0 && IsActive)
+            if (_elapsedTime > _rate * 1 / _attackSpeed.AttackSpeedValue &&
+                _enemiesCounter.EnemiesOnScreen.Count != 0 && IsActive)
             {
                 UseWeapon();
                 _elapsedTime = 0;
             }
         }
-        
+
         public override void Upgrade()
         {
             if (!IsActive)
@@ -75,7 +78,8 @@ namespace Core.Weapons
         public override void UseWeapon()
         {
             _spawnedProjectile.gameObject.transform.position =
-                _enemiesCounter.EnemiesOnScreen[Random.Range(0, _enemiesCounter.EnemiesOnScreen.Count)].transform.position;
+                _enemiesCounter.EnemiesOnScreen[Random.Range(0, _enemiesCounter.EnemiesOnScreen.Count)].transform
+                    .position;
             _spawnedProjectile.gameObject.SetActive(true);
             _spawnedProjectile.Stop();
             _spawnedProjectile.Play();
@@ -87,7 +91,7 @@ namespace Core.Weapons
                     _spawnedProjectile.gameObject.SetActive(false);
                     _sphereCollider.enabled = false;
                 });
-            }); 
+            });
         }
     }
 }

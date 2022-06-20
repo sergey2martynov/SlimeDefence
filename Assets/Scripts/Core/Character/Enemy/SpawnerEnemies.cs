@@ -33,9 +33,8 @@ public class SpawnerEnemies : MonoBehaviour
         _currentWaveParameters = _stagesLevel.GetWaveParameters(_currentWave);
         _numberOfEnemies = _currentWaveParameters.Enemies.Count;
         _spawnedEnemies = new List<Enemy>();
-        _elapsedTimes = new List<float>{0,0,0,0};
-        _currentSpawnRate = new List<float>{0,0,0,0};
-        _timeCounter.FinalStageBegun += RemoveAllEnemies;
+        _elapsedTimes = new List<float>{0,0,0,0,0,0};
+        _currentSpawnRate = new List<float>{0,0,0,0,0,0};
         _timeCounter.ChangedWave += UpdateWaveParameters;
         
         for (int i = 0; i < _numberOfEnemies; i++)
@@ -49,7 +48,6 @@ public class SpawnerEnemies : MonoBehaviour
 
     private void OnDestroy()
     {
-        _timeCounter.FinalStageBegun -= RemoveAllEnemies;
         _timeCounter.ChangedWave -= UpdateWaveParameters;
     }
 
@@ -97,12 +95,12 @@ public class SpawnerEnemies : MonoBehaviour
     {
         var enemy = _enemyPools[(int) type].Pool.Get().GetComponent<Enemy>();
 
-        enemy.Initialize(_killCounter, _experiencePool,_camera, _spawnerBoss, _timeCounter, _bloodSplatPool, 1);
+        enemy.Initialize(_killCounter, _experiencePool,_camera, _spawnerBoss, _timeCounter, _bloodSplatPool, 1, this);
         enemy.SetSpawnerEnemiesRef(this);
         _spawnedEnemies.Add(enemy);
     }
 
-    private void RemoveAllEnemies()
+    public void RemoveAllEnemies()
     {
         var count = _spawnedEnemies.Count;
 

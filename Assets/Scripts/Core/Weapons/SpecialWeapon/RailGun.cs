@@ -1,3 +1,4 @@
+using Core.Character.Player;
 using DG.Tweening;
 using UI.WeaponsPanel;
 using Unity.Mathematics;
@@ -12,6 +13,7 @@ public class RailGun : Weapon
     [SerializeField] private ParticleSystem _target;
     [SerializeField] private ParticleSystem _projectile;
     [SerializeField] private WeaponsPanel _weaponsPanel;
+    [SerializeField] private AttackSpeed _attackSpeed;
     private float _projectileSpeed;
     private float _elapsedTime;
     private ParticleSystem _particleTarget;
@@ -21,7 +23,7 @@ public class RailGun : Weapon
 
     private void Start()
     {
-        _particleTarget = Instantiate(_target, new Vector3(0,0, 200), Quaternion.identity);
+        _particleTarget = Instantiate(_target, new Vector3(0, 0, 200), Quaternion.identity);
         _particleTarget.gameObject.SetActive(false);
         _upgradeParameters = _railGunLevels.GetWeaponParameters(_currentLevel);
         _currentParameters = _railGunLevels.GetWeaponParameters(_currentLevel);
@@ -33,22 +35,24 @@ public class RailGun : Weapon
     private void Update()
     {
         _elapsedTime += Time.deltaTime;
-            
+
         for (int i = 0; i < _enemiesCounter.EnemiesOnScreen.Count; i++)
         {
-            if (_enemiesCounter.EnemiesOnScreen[i] == null || !_enemiesCounter.EnemiesOnScreen[i].isActiveAndEnabled || _enemiesCounter.EnemiesOnScreen[i].IsDie)
+            if (_enemiesCounter.EnemiesOnScreen[i] == null || !_enemiesCounter.EnemiesOnScreen[i].isActiveAndEnabled ||
+                _enemiesCounter.EnemiesOnScreen[i].IsDie)
             {
                 _enemiesCounter.EnemiesOnScreen.Remove(_enemiesCounter.EnemiesOnScreen[i]);
             }
         }
 
-        if (_elapsedTime > _rate && _enemiesCounter.EnemiesOnScreen.Count != 0 && IsActive)
+        if (_elapsedTime > _rate * 1 / _attackSpeed.AttackSpeedValue && _enemiesCounter.EnemiesOnScreen.Count != 0 &&
+            IsActive)
         {
             UseWeapon();
             _elapsedTime = 0;
         }
     }
-    
+
     public override void UseWeapon()
     {
         ChooseTarget();
@@ -56,7 +60,8 @@ public class RailGun : Weapon
         DOTween.Sequence().AppendInterval(2f).OnComplete(() =>
         {
             var projectile = Instantiate(_projectile, transform.position, quaternion.identity);
-            projectile.GetComponent<RailGunProjectile>().Initialize(_damage,_railGunTarget.transform.position, transform, _projectileSpeed );
+            projectile.GetComponent<RailGunProjectile>().Initialize(_damage, _railGunTarget.transform.position,
+                transform, _projectileSpeed);
             _railGunTarget.gameObject.SetActive(false);
         });
     }
@@ -68,7 +73,7 @@ public class RailGun : Weapon
         _railGunTarget.gameObject.SetActive(true);
         _particleTarget.Play();
     }
-    
+
     public override void Upgrade()
     {
         if (!IsActive)

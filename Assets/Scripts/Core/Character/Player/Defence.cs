@@ -1,5 +1,4 @@
 using Core.Character;
-using StaticData;
 using StaticData.Player;
 using UnityEngine;
 using Upgrade;

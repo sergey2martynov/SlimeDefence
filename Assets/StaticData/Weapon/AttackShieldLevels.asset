@@ -17,25 +17,25 @@ MonoBehaviour:
     _icon: {fileID: 549139033193520066, guid: b3ae4db35b5cffe4dbf74c8ef89a316a, type: 3}
     _description: 
     _damage: 3
-    _rate: 0
+    _rate: 0.6
     _range: 3
   - _name: AttackShield lvl2
     _icon: {fileID: 549139033193520066, guid: b3ae4db35b5cffe4dbf74c8ef89a316a, type: 3}
     _description: 
     _damage: 3
-    _rate: 0
+    _rate: 0.6
     _range: 4.5
   - _name: AttackShield lvl3
     _icon: {fileID: 549139033193520066, guid: b3ae4db35b5cffe4dbf74c8ef89a316a, type: 3}
     _description: 
     _damage: 4
-    _rate: 0
+    _rate: 0.6
     _range: 4.5
   - _name: AttackShield lvl4
     _icon: {fileID: 549139033193520066, guid: b3ae4db35b5cffe4dbf74c8ef89a316a, type: 3}
     _description: 
     _damage: 4
-    _rate: 0
+    _rate: 0.6
     _range: 4.5
   - _name: AttackShield lvl5
     _icon: {fileID: 549139033193520066, guid: b3ae4db35b5cffe4dbf74c8ef89a316a, type: 3}

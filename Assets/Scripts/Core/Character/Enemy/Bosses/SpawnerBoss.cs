@@ -12,6 +12,7 @@ public class SpawnerBoss : MonoBehaviour
     [SerializeField] private Camera _camera;
     [SerializeField] private BloodSplatPool _bloodSplat;
     [SerializeField] private StagesLevel _stagesLevel;
+    [SerializeField] private SpawnerEnemies _spawnerEnemies;
     public int SpawnedBosses { get; set; }
 
     private void Start()
@@ -28,7 +29,7 @@ public class SpawnerBoss : MonoBehaviour
     {
         var finalBoss = Instantiate(enemy, _player.position + FindSpawnRandomPosition(), Quaternion.identity, _parent);
         finalBoss.Initialize(_killCounter, _experiencePool, _camera, this, _timeCounter, _bloodSplat,
-            _stagesLevel.WaveParameters[_timeCounter.CurrentWave].HealthBoss);
+            _stagesLevel.WaveParameters[_timeCounter.CurrentWave].HealthBoss,_spawnerEnemies);
     }
 
     private void SpawnFinalBoss(int count)

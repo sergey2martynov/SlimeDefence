@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using CodeBase.Core.Character;
 using UnityEngine;
 using CodeBase.Core.Character.Enemy;
+using Core.Character.Player;
 using UI.WeaponsPanel;
 using UpgradeWeapon;
 using Quaternion = UnityEngine.Quaternion;
@@ -21,6 +22,7 @@ public class ProjectileWeapon : Weapon
     [SerializeField] private TargetType _targetType;
     [SerializeField] private float _projectileSpeed;
     [SerializeField] private int _penetrationCounter;
+    [SerializeField] private AttackSpeed _attackSpeed;
 
     private ProjectileWeaponParameters _currentParameters;
     private List<Enemy> _enemies;
@@ -71,7 +73,7 @@ public class ProjectileWeapon : Weapon
             }
         }
 
-        if (_elapsedTime > Rate && IsActive && _enemies.Count != 0 &&
+        if (_elapsedTime > Rate * 1/_attackSpeed.AttackSpeedValue && IsActive && _enemies.Count != 0 &&
             (_targetType == TargetType.Nearest || _targetType == TargetType.RandomEnemy))
         {
             for (int i = 0; i < _additionalProjectiles + 1; i++)

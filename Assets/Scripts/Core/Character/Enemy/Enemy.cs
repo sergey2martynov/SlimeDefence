@@ -11,8 +11,8 @@ namespace CodeBase.Core.Character.Enemy
         [SerializeField] private int _dropeChance;
         [SerializeField] private SkinnedMeshRenderer _meshRenderer;
         [SerializeField] private EnemyMovementInput _movement;
-        
-        
+
+
         private SpawnerEnemies _spawnerEnemies;
         private KillCounter _killCounter;
         private ExperiencePool _experiencePool;
@@ -22,13 +22,14 @@ namespace CodeBase.Core.Character.Enemy
         private TimeCounter _timeCounter;
 
         public Health Health => _health;
-        public bool IsDie { get;private set; }
+        public bool IsDie { get; private set; }
         public EnemyType EnemyType => _enemyType;
         public int Damage => _damage;
         public Camera Camera => _camera;
         public SkinnedMeshRenderer MeshRenderer => _meshRenderer;
 
-        public void Initialize(KillCounter killCounter, ExperiencePool pool, Camera camera, SpawnerBoss spawnerBoss, TimeCounter timeCounter, BloodSplatPool bloodSplat, int health)
+        public void Initialize(KillCounter killCounter, ExperiencePool pool, Camera camera, SpawnerBoss spawnerBoss,
+            TimeCounter timeCounter, BloodSplatPool bloodSplat, int health, SpawnerEnemies spawnerEnemies)
         {
             _killCounter = killCounter;
             IsDie = false;
@@ -38,10 +39,11 @@ namespace CodeBase.Core.Character.Enemy
             _timeCounter = timeCounter;
             _health.BloodSplatPool = bloodSplat;
             _movement.ReturnSpeed();
-            if(_enemyType == EnemyType.Boss)
+            _spawnerEnemies = spawnerEnemies;
+            if (_enemyType == EnemyType.Boss)
                 _health.SetNewHealthPoint(health);
         }
-        
+
         private void Start()
         {
             _color = _meshRenderer.material.color;
@@ -57,27 +59,28 @@ namespace CodeBase.Core.Character.Enemy
         {
             IsDie = true;
             _killCounter.IncreaseCounter();
-            
+
             if (_enemyType == EnemyType.Boss)
             {
                 _spawnerBoss.SpawnedBosses--;
                 Destroy(gameObject);
-                
+
                 if (_spawnerBoss.SpawnedBosses == 0)
                 {
+                    _spawnerEnemies.RemoveAllEnemies();
                     _timeCounter.UpdateWave();
                 }
             }
             else
             {
                 var calculatedChance = Random.Range(0, 100);
-                
+
                 if (calculatedChance < _dropeChance)
                 {
                     SpawnObjOfExperience();
                 }
-                
-                _spawnerEnemies.EnemyPools[(int)_enemyType].Pool.Release(gameObject);
+
+                _spawnerEnemies.EnemyPools[(int) _enemyType].Pool.Release(gameObject);
                 _spawnerEnemies.SpawnedEnemies.Remove(this);
             }
         }
@@ -86,11 +89,11 @@ namespace CodeBase.Core.Character.Enemy
         {
             _spawnerEnemies = spawnerEnemies;
         }
-        
+
         public void SpawnObjOfExperience()
         {
             GameObject objectOfExperience;
-        
+
             objectOfExperience = _experiencePool.Pool.Get();
             objectOfExperience.transform.position = transform.position;
         }

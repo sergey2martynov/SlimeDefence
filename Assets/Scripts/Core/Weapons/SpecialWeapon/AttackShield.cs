@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using CodeBase.Core.Character.Enemy;
+using Core.Character.Player;
 using UI.WeaponsPanel;
 using UnityEngine;
 using UpgradeWeapon;
@@ -11,6 +12,7 @@ public class AttackShield : Weapon
     [SerializeField] private WeaponsPanel _weaponsPanel;
     [SerializeField] private Transform _player;
     [SerializeField] private ParticleSystem _circle;
+    [SerializeField] private AttackSpeed _attackSpeed;
 
     private float _fixedTime;
     private WeaponParameters _currentParameters;
@@ -31,17 +33,18 @@ public class AttackShield : Weapon
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out Enemy enemy))
+        if (other.TryGetComponent(out Enemy enemy))
             _enemiesAround.Add(enemy);
     }
 
     private void Update()
     {
-        if(Time.time - _fixedTime > 0.3f)
+        if (Time.time - _fixedTime > _rate * 1 / _attackSpeed.AttackSpeedValue)
         {
             for (int i = 0; i < _enemiesAround.Count; i++)
             {
-                if (_enemiesAround[i] == null || _enemiesAround[i].IsDie || (_player.position - _enemiesAround[i].transform.position).magnitude > _currentParameters.Range +1)
+                if (_enemiesAround[i] == null || _enemiesAround[i].IsDie ||
+                    (_player.position - _enemiesAround[i].transform.position).magnitude > _currentParameters.Range + 1)
                     _enemiesAround.Remove(_enemiesAround[i]);
                 else
                 {
@@ -51,7 +54,7 @@ public class AttackShield : Weapon
             }
         }
     }
-    
+
     public override void Upgrade()
     {
         base.Upgrade();
