@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using CodeBase.Core.Character.Enemy;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnerEnemies : MonoBehaviour
 {
@@ -13,9 +14,11 @@ public class SpawnerEnemies : MonoBehaviour
     [SerializeField] private ExperiencePool _experiencePool;
     [SerializeField] private Camera _camera;
     [SerializeField] private int _maxNumberOfEnemies;
+    [SerializeField] private int _lethalDamage = 150;
     [SerializeField] private SpawnerBoss _spawnerBoss;
     [SerializeField] private BloodSplatPool _bloodSplatPool;
-    
+    [SerializeField] private Image _flashImage;
+
     private float _currentTime;
     private int _currentWave;
     private WaveParameters _currentWaveParameters;
@@ -33,10 +36,10 @@ public class SpawnerEnemies : MonoBehaviour
         _currentWaveParameters = _stagesLevel.GetWaveParameters(_currentWave);
         _numberOfEnemies = _currentWaveParameters.Enemies.Count;
         _spawnedEnemies = new List<Enemy>();
-        _elapsedTimes = new List<float>{0,0,0,0,0,0};
-        _currentSpawnRate = new List<float>{0,0,0,0,0,0};
+        _elapsedTimes = new List<float> {0, 0, 0, 0, 0, 0};
+        _currentSpawnRate = new List<float> {0, 0, 0, 0, 0, 0};
         _timeCounter.ChangedWave += UpdateWaveParameters;
-        
+
         for (int i = 0; i < _numberOfEnemies; i++)
         {
             _spawnIntervals[i] = AnimationCurve.Linear(0, _currentWaveParameters.InitialSpawnRate[i],
@@ -80,7 +83,7 @@ public class SpawnerEnemies : MonoBehaviour
         _currentWave++;
         _currentWaveParameters = _stagesLevel.GetWaveParameters(_currentWave);
         _numberOfEnemies = _currentWaveParameters.Enemies.Count;
-        
+
         for (int i = 0; i < _numberOfEnemies; i++)
         {
             _spawnIntervals[i] = AnimationCurve.Linear(0, _currentWaveParameters.InitialSpawnRate[i],
@@ -88,6 +91,7 @@ public class SpawnerEnemies : MonoBehaviour
             _elapsedTimes[i] = 0;
             _currentSpawnRate[i] = 1;
         }
+
         _currentTime = 0;
     }
 
@@ -95,7 +99,7 @@ public class SpawnerEnemies : MonoBehaviour
     {
         var enemy = _enemyPools[(int) type].Pool.Get().GetComponent<Enemy>();
 
-        enemy.Initialize(_killCounter, _experiencePool,_camera, _spawnerBoss, _timeCounter, _bloodSplatPool, 1, this);
+        enemy.Initialize(_killCounter, _experiencePool, _camera, _spawnerBoss, _timeCounter, _bloodSplatPool, 1, this);
         enemy.SetSpawnerEnemiesRef(this);
         _spawnedEnemies.Add(enemy);
     }
@@ -104,11 +108,17 @@ public class SpawnerEnemies : MonoBehaviour
     {
         var count = _spawnedEnemies.Count;
 
-        DOTween.Sequence().AppendInterval(0.5f).OnComplete(() => { });
-
-        for (int i = 0; i < count; i++)
+        DOTween.ToAlpha(() => _flashImage.color, x => _flashImage.color = x, 75, 0.5f).OnComplete(() =>
         {
-            _spawnedEnemies[i].gameObject.SetActive(false);
-        }
+            DOTween.ToAlpha(() => _flashImage.color, x => _flashImage.color = x, 0, 1f).OnComplete(() =>
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    _spawnedEnemies[0].Health.GetDamage(_lethalDamage);
+                }
+            });
+        });
+
+        
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace CodeBase.Core.Character.Enemy
@@ -71,7 +72,11 @@ namespace CodeBase.Core.Character.Enemy
                 if (_spawnerBoss.SpawnedBosses == 0)
                 {
                     _spawnerEnemies.RemoveAllEnemies();
-                    _timeCounter.UpdateWave();
+                    
+                    DOTween.Sequence().AppendInterval(1).OnComplete(() =>
+                    {
+                        _timeCounter.UpdateWave();
+                    });
                 }
             }
             else

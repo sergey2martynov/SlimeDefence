@@ -3,7 +3,6 @@ using CodeBase.Core.Character.Enemy;
 using Core.Character;
 using DG.Tweening;
 using StaticData;
-using Unity.Mathematics;
 using UnityEngine;
 using Upgrade;
 
@@ -15,6 +14,7 @@ public class Health : Upgradable
     [SerializeField] private CharacterType _characterType;
     [SerializeField] private Enemy _enemy;
     [SerializeField] private HealthBarFiller _healthBarFiller;
+    [SerializeField] private ParticleSystem _particleSystem;
 
     private int _enemyHealthPoint;
     public int HealthPoint => _healthPoint;
@@ -28,7 +28,7 @@ public class Health : Upgradable
         if (_characterType == CharacterType.Enemy)
         {
             _healthBarFiller.gameObject.SetActive(true);
-            
+
             var particle = BloodSplatPool.Pool.Get();
             particle.GetComponent<BloodSplat>().Initialize(transform);
             
