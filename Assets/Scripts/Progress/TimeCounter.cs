@@ -20,6 +20,7 @@ public class TimeCounter : MonoBehaviour
     
     private void Start()
     {
+        Application.targetFrameRate = 60;
         _currentWaveDuration = _stagesLevel.GetWaveParameters(_currentWave).DurationWave;
         _numberWaveText.text = "WAVE " + (_currentWave + 1);
     }
