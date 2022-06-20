@@ -2,7 +2,7 @@ using StaticData;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBarFiller : MonoBehaviour
+public class EnemyHealthBarFiller : MonoBehaviour
 {
     [SerializeField] private Slider _slider;
     [SerializeField] private Health _health;

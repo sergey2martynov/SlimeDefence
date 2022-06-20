@@ -11,6 +11,7 @@ namespace CodeBase.Core.Character.Enemy
         [SerializeField] private int _dropeChance;
         [SerializeField] private SkinnedMeshRenderer _meshRenderer;
         [SerializeField] private EnemyMovementInput _movement;
+        [SerializeField] private HealthBarFiller _healthBarFiller;
 
 
         private SpawnerEnemies _spawnerEnemies;
@@ -42,6 +43,8 @@ namespace CodeBase.Core.Character.Enemy
             _spawnerEnemies = spawnerEnemies;
             if (_enemyType == EnemyType.Boss)
                 _health.SetNewHealthPoint(health);
+            _healthBarFiller.ReturnHealthBarValue();
+            _healthBarFiller.gameObject.SetActive(false);
         }
 
         private void Start()

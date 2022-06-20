@@ -2,7 +2,7 @@ using CodeBase.Core.Character.Enemy;
 using UnityEngine;
 using Image = UnityEngine.UI.Image;
 
-public class MiniBossHealthBarFiller : MonoBehaviour
+public class HealthBarFiller : MonoBehaviour
 {
     [SerializeField] private Image _healthBar;
     [SerializeField] private Health _health;
@@ -20,6 +20,11 @@ public class MiniBossHealthBarFiller : MonoBehaviour
     private void OnDestroy()
     {
         _health.HealthChanged -= OnHealthChanged;
+    }
+
+    public void ReturnHealthBarValue()
+    {
+        _healthBar.fillAmount = _health.HealthPoint;
     }
 
     private void OnHealthChanged(float damage)

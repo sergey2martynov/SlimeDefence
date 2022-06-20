@@ -19,85 +19,85 @@ MonoBehaviour:
     _damage: 3
     _rate: 0.6
     _range: 3
-  - _name: AttackShield lvl2
+  - _name: Attack Shield lvl2
     _icon: {fileID: 549139033193520066, guid: b3ae4db35b5cffe4dbf74c8ef89a316a, type: 3}
     _description: 
     _damage: 3
     _rate: 0.6
     _range: 4.5
-  - _name: AttackShield lvl3
+  - _name: Attack Shield lvl3
     _icon: {fileID: 549139033193520066, guid: b3ae4db35b5cffe4dbf74c8ef89a316a, type: 3}
     _description: 
     _damage: 4
     _rate: 0.6
     _range: 4.5
-  - _name: AttackShield lvl4
+  - _name: Attack Shield lvl4
     _icon: {fileID: 549139033193520066, guid: b3ae4db35b5cffe4dbf74c8ef89a316a, type: 3}
     _description: 
     _damage: 4
     _rate: 0.6
     _range: 4.5
-  - _name: AttackShield lvl5
+  - _name: Attack Shield lvl5
     _icon: {fileID: 549139033193520066, guid: b3ae4db35b5cffe4dbf74c8ef89a316a, type: 3}
     _description: 
     _damage: 5
     _rate: 0
     _range: 4.5
-  - _name: AttackShield lvl6
+  - _name: Attack Shield lvl6
     _icon: {fileID: 549139033193520066, guid: b3ae4db35b5cffe4dbf74c8ef89a316a, type: 3}
     _description: 
     _damage: 5
     _rate: 0
     _range: 4.5
-  - _name: AttackShield lvl7
+  - _name: Attack Shield lvl7
     _icon: {fileID: 549139033193520066, guid: b3ae4db35b5cffe4dbf74c8ef89a316a, type: 3}
     _description: 
     _damage: 6
     _rate: 0
     _range: 5
-  - _name: AttackShield lvl8
+  - _name: Attack Shield lvl8
     _icon: {fileID: 549139033193520066, guid: b3ae4db35b5cffe4dbf74c8ef89a316a, type: 3}
     _description: 
     _damage: 6
     _rate: 0
     _range: 5.5
-  - _name: AttackShield lvl9
+  - _name: Attack Shield lvl9
     _icon: {fileID: 549139033193520066, guid: b3ae4db35b5cffe4dbf74c8ef89a316a, type: 3}
     _description: 
     _damage: 7
     _rate: 0
     _range: 6
-  - _name: AttackShield lvl10
+  - _name: Attack Shield lvl10
     _icon: {fileID: 549139033193520066, guid: b3ae4db35b5cffe4dbf74c8ef89a316a, type: 3}
     _description: 
     _damage: 7
     _rate: 0
     _range: 6.5
-  - _name: AttackShield lvl11
+  - _name: Attack Shield lvl11
     _icon: {fileID: 549139033193520066, guid: b3ae4db35b5cffe4dbf74c8ef89a316a, type: 3}
     _description: 
     _damage: 8
     _rate: 0
     _range: 7
-  - _name: AttackShield lvl12
+  - _name: Attack Shield lvl12
     _icon: {fileID: 549139033193520066, guid: b3ae4db35b5cffe4dbf74c8ef89a316a, type: 3}
     _description: 
     _damage: 8
     _rate: 0
     _range: 7.5
-  - _name: AttackShield lvl13
+  - _name: Attack Shield lvl13
     _icon: {fileID: 549139033193520066, guid: b3ae4db35b5cffe4dbf74c8ef89a316a, type: 3}
     _description: 
     _damage: 9
     _rate: 0
     _range: 8
-  - _name: AttackShield lvl14
+  - _name: Attack Shield lvl14
     _icon: {fileID: 549139033193520066, guid: b3ae4db35b5cffe4dbf74c8ef89a316a, type: 3}
     _description: 
     _damage: 9
     _rate: 0
     _range: 8.5
-  - _name: AttackShield lvl15
+  - _name: Attack Shield lvl15
     _icon: {fileID: 549139033193520066, guid: b3ae4db35b5cffe4dbf74c8ef89a316a, type: 3}
     _description: 
     _damage: 10

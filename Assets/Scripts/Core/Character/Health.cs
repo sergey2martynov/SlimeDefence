@@ -14,6 +14,7 @@ public class Health : Upgradable
     [SerializeField] private HealthLevels _healthLevels;
     [SerializeField] private CharacterType _characterType;
     [SerializeField] private Enemy _enemy;
+    [SerializeField] private HealthBarFiller _healthBarFiller;
 
     private int _enemyHealthPoint;
     public int HealthPoint => _healthPoint;
@@ -26,6 +27,8 @@ public class Health : Upgradable
     {
         if (_characterType == CharacterType.Enemy)
         {
+            _healthBarFiller.gameObject.SetActive(true);
+            
             var particle = BloodSplatPool.Pool.Get();
             particle.GetComponent<BloodSplat>().Initialize(transform);
             
@@ -39,6 +42,7 @@ public class Health : Upgradable
 
         if (_healthPoint <= 0)
         {
+            _healthBarFiller.gameObject.SetActive(false);
             HealthIsOver?.Invoke();
         }
     }
