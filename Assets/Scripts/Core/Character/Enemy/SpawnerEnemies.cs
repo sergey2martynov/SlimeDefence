@@ -110,14 +110,17 @@ public class SpawnerEnemies : MonoBehaviour
     {
         var count = _spawnedEnemies.Count;
 
-        DOTween.ToAlpha(() => _flashImage.color, x => _flashImage.color = x, 75, 0.5f).OnComplete(() =>
+        DOTween.ToAlpha(() => _flashImage.color, x => _flashImage.color = x, 60, 0.4f).OnComplete(() =>
         {
-            DOTween.ToAlpha(() => _flashImage.color, x => _flashImage.color = x, 0, 1f).OnComplete(() =>
+            DOTween.ToAlpha(() => _flashImage.color, x => _flashImage.color = x, 0, 0.5f).OnComplete(() =>
             {
-                for (int i = 0; i < count; i++)
+                DOTween.Sequence().AppendInterval(0.5f).OnComplete((() =>
                 {
-                    _spawnedEnemies[0].Health.GetDamage(_lethalDamage);
-                }
+                    for (int i = 0; i < count; i++)
+                    {
+                        _spawnedEnemies[0].Health.GetDamage(_lethalDamage);
+                    }
+                }));
             });
         });
     }
