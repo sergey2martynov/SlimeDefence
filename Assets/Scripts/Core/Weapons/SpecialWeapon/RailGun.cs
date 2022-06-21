@@ -1,7 +1,6 @@
 using Core.Character.Player;
 using DG.Tweening;
 using UI.WeaponsPanel;
-using Unity.Mathematics;
 using UnityEngine;
 using UpgradeWeapon;
 using Random = UnityEngine.Random;
@@ -59,7 +58,7 @@ public class RailGun : Weapon
 
         DOTween.Sequence().AppendInterval(2f).OnComplete(() =>
         {
-            var projectile = Instantiate(_projectile, transform.position, quaternion.identity);
+            var projectile = Instantiate(_projectile, transform.position, Quaternion.identity);
             projectile.GetComponent<RailGunProjectile>().Initialize(_damage, _railGunTarget.transform.position,
                 transform, _projectileSpeed);
             _railGunTarget.gameObject.SetActive(false);

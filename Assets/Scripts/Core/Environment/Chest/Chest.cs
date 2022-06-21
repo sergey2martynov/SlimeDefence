@@ -1,6 +1,4 @@
-using Core.Character.Player;
 using Core.Expirience;
-using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
