@@ -49,7 +49,7 @@ namespace Core.Expirience
                 if (_isBig)
                     Destroy(gameObject);
                 else
-                    _pool.Pool.Release(gameObject);
+                    _pool.Release(gameObject);
                 
                 _isCanMoveToPlayer = false;
             }
@@ -62,7 +62,7 @@ namespace Core.Expirience
         private IEnumerator DestroyOnTime()
         {
             yield return new WaitForSecondsRealtime(_lifeTime);
-            _pool.Pool.Release(gameObject);
+            _pool.Release(gameObject);
         }
     }
 }

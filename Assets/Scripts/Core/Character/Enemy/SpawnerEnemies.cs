@@ -97,11 +97,13 @@ public class SpawnerEnemies : MonoBehaviour
 
     private void SpawnEnemy(EnemyType type)
     {
-        var enemy = _enemyPools[(int) type].Pool.Get().GetComponent<Enemy>();
+        var enemy = _enemyPools[(int) type].Get().GetComponent<Enemy>();
 
         enemy.Initialize(_killCounter, _experiencePool, _camera, _spawnerBoss, _timeCounter, _bloodSplatPool, 1, this);
         enemy.SetSpawnerEnemiesRef(this);
         _spawnedEnemies.Add(enemy);
+        enemy.transform.position = FindSpawnRandomPosition();
+        enemy.GetComponent<EnemyMovementInput>().MoveEnemy();
     }
 
     public void RemoveAllEnemies()
@@ -118,5 +120,16 @@ public class SpawnerEnemies : MonoBehaviour
                 }
             });
         });
+    }
+    
+    private Vector3 FindSpawnRandomPosition()
+    {
+        Vector3 vector = new Vector3(
+            Random.Range(-15, 15),
+            0,
+            Random.Range(0, 2) == 0 ? Random.Range(-30, -20) : Random.Range(30, 20));
+
+        Vector3 turnedVector = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.up) * vector;
+        return vector;
     }
 }

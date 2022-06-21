@@ -141,7 +141,7 @@ public class ProjectileWeapon : Weapon
         for (int i = 1; i <= _amount; i++)
         {
             var rotatedDirection = RotateDirection(_direction, _spread * ((i - 1) / (float) _amount));
-            var projectile = _gunshotProjectilePool.Pool.Get();
+            var projectile = _gunshotProjectilePool.Get();
 
             projectile.GetComponent<Projectile>().Initialize(Damage, rotatedDirection, _gunshotProjectilePool, _player,
                 _projectileSpeed, _penetrationCounter);

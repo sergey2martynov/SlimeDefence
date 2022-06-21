@@ -29,7 +29,7 @@ public class Health : Upgradable
         {
             _healthBarFiller.gameObject.SetActive(true);
 
-            var particle = BloodSplatPool.Pool.Get();
+            var particle = BloodSplatPool.Get();
             particle.GetComponent<BloodSplat>().Initialize(transform);
             
             _enemy.MeshRenderer.material.color = Color.white;

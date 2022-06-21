@@ -88,7 +88,7 @@ namespace CodeBase.Core.Character.Enemy
                     SpawnObjOfExperience();
                 }
 
-                _spawnerEnemies.EnemyPools[(int) _enemyType].Pool.Release(gameObject);
+                _spawnerEnemies.EnemyPools[(int) _enemyType].Release(gameObject);
                 _spawnerEnemies.SpawnedEnemies.Remove(this);
             }
         }
@@ -102,7 +102,7 @@ namespace CodeBase.Core.Character.Enemy
         {
             GameObject objectOfExperience;
 
-            objectOfExperience = _experiencePool.Pool.Get();
+            objectOfExperience = _experiencePool.Get();
             objectOfExperience.transform.position = transform.position;
         }
 

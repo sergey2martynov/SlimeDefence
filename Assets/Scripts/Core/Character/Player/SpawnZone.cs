@@ -15,7 +15,7 @@ public class SpawnZone : MonoBehaviour
         {
             if (enemyController.EnemyType != EnemyType.Boss)
             {
-                _spawnerEnemies.EnemyPools[(int) enemyController.EnemyType].Pool.Release(enemyController.gameObject);
+                _spawnerEnemies.EnemyPools[(int) enemyController.EnemyType].Release(enemyController.gameObject);
             }
         }
         

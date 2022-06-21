@@ -34,7 +34,7 @@ public class Projectile : MonoBehaviour
         transform.localScale = Vector3.one;
         yield return new WaitForSecondsRealtime(_lifeTime);
 
-        _pool.Pool.Release(gameObject);
+        _pool.Release(gameObject);
     }
 
     private void FixedUpdate()
@@ -52,7 +52,7 @@ public class Projectile : MonoBehaviour
 
             if (_penetrationCounter <= 0)
             {
-                _pool.Pool.Release(gameObject);
+                _pool.Release(gameObject);
             }
         }
     }

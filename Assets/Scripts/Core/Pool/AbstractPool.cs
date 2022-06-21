@@ -1,48 +1,46 @@
-﻿using UnityEngine;
-using UnityEngine.Pool;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace CodeBase.Core
 {
     public abstract class AbstractPool : MonoBehaviour
     {
         [SerializeField] protected GameObject _poolObject;
-        [SerializeField] private int _maxSize;
         [SerializeField] protected Transform _parent;
-        [SerializeField] private int _defaultCapacity;
 
-        private IObjectPool<GameObject> _pool;
+        protected List<GameObject> _pool;
 
-        public IObjectPool<GameObject> Pool
+        private void Start()
         {
-            get
-            {
-                if (_pool == null)
-                {
-                    _pool = new ObjectPool<GameObject>(CreateObject, ActionOnGet, ActionOnRelease, (obj
-                    ) => Destroy(obj), false, _defaultCapacity, _maxSize);
-                }
-
-                return _pool;
-            }
+            _pool = new List<GameObject>();
         }
 
-        public virtual GameObject CreateObject()
+        public virtual GameObject Get()
         {
+            for (int i = 0; i < _pool.Count; i++)
+            {
+                if (!_pool[i].activeSelf)
+                {
+                    _pool[i].SetActive(true);
+                    return _pool[i];
+                }
+            }
+            
             var poolObject = Instantiate(_poolObject, transform.position, Quaternion.identity, _parent);
+            _pool.Add(poolObject);
             return poolObject;
         }
 
-        public virtual void ActionOnGet(GameObject poolObject)
+        public virtual void Release(GameObject poolObject)
         {
-            // if (poolObject.activeSelf)
-            //     CreateObject();
-            
-            poolObject.SetActive(true);
-        }
-
-        public virtual void ActionOnRelease(GameObject poolObject)
-        {
-            poolObject.SetActive(false);
+            for (int i = 0; i < _pool.Count; i++)
+            {
+                if (poolObject == _pool[i])
+                {
+                    poolObject.SetActive(false);
+                    return;
+                }
+            }
         }
     }
 }
