@@ -1,68 +1,49 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.SceneManagement;
-using StaticData.Stages;
 
 namespace Analytics
 {
     public static class EventSender
     {
-        public static readonly UnityAction LevelStart = SendLevelStart;
         private static float level_start_time;
+        private static float level_finish_time;
 
-        public static bool LevelStartSent
-        {
-            get => PlayerPrefs.GetInt(nameof(LevelStartSent)) == 1;
-            private set => PlayerPrefs.SetInt(nameof(LevelStartSent), value ? 1 : 0);
-        }
-
-        private static void SendLevelStart()
+        public static void SendLevelStart()
         {
             var metrica = AppMetrica.Instance;
             level_start_time = Time.time;
-            Debug.Log($"StartTime{Mathf.RoundToInt(level_start_time)}");
-            var activeScene = SceneManager.GetActiveScene();
-            
+
+            Debug.Log("level_start");
+
             var parametrs = new Dictionary<string, object>
             {
-                {"level_number", activeScene.buildIndex-1},
-                {"level_name", activeScene.name},
-                {"level_count", ProgressData.LevelCount}
+                {"level_number", ProgressData.CurrentWave + 1},
+                {"level_name", "Wave_" + (ProgressData.CurrentWave + 1)},
+                {"level_count", ProgressData.LevelCount + 1}
             };
-            
+
             metrica.ReportEvent("level_start", parametrs);
             metrica.SendEventsBuffer();
-            LevelStartSent = true;
         }
 
         public static void SendLevelFinish(string levelType = "normal")
         {
-            if (!LevelStartSent)
-            {
-                return;
-            }
-
             float time = Time.time - level_start_time;
-            Debug.Log($"Time since level load:{Mathf.RoundToInt(Time.timeSinceLevelLoad)}");
-            Debug.Log($"Level duration{Mathf.RoundToInt(time)}");
-            TimeOnLocation.Time = time;
+            Debug.Log("level_finish");
+
             var metrica = AppMetrica.Instance;
-            var activeScene = SceneManager.GetActiveScene();
             var parametrs = new Dictionary<string, object>
             {
-                //{"level_number", activeScene.buildIndex-1},
-                {"level_name", activeScene.name},
-                {"level_count", GlobalData.LevelCount},
-                //{"level_type",levelType},
+                {"level_number", ProgressData.CurrentWave + 1},
+                {"level_name", "Wave_" + (ProgressData.CurrentWave + 1)},
+                {"level_count", ProgressData.LevelCount + 1},
                 {"time", Mathf.RoundToInt(time)},
             };
+            
+            Debug.Log("time" + parametrs["time"]);
+
             metrica.ReportEvent("level_finish", parametrs);
             metrica.SendEventsBuffer();
-            GlobalData.IncreaseLevelCount();
-            StagesCounts.Clear();
-            stage_count_all = 1;
-            LevelStartSent = false;
         }
     }
 }

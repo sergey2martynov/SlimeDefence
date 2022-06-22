@@ -1,4 +1,5 @@
 using System;
+using Analytics;
 using TMPro;
 using UnityEngine;
 
@@ -20,6 +21,7 @@ public class TimeCounter : MonoBehaviour
     
     private void Start()
     {
+        ProgressData.CurrentWave = _currentWave;
         Application.targetFrameRate = 60;
         _currentWaveDuration = _stagesLevel.GetWaveParameters(_currentWave).DurationWave;
         _numberWaveText.text = "WAVE " + (_currentWave + 1);
@@ -51,17 +53,27 @@ public class TimeCounter : MonoBehaviour
 
     public void UpdateWave()
     {
+        EventSender.SendLevelFinish();
+        
         if (_stagesLevel.GetWaveParameters(_currentWave).IsGetNewWeapon)
         {
             WeaponReceived?.Invoke();
         }
         _currentWave++;
+        ProgressData.CurrentWave = _currentWave;
+        ProgressData.LevelCount++;
+
         _elapsedTime = 0;
-                
+
         if (_currentWave < _stagesLevel.WaveParameters.Count)
         {
             _currentWaveDuration = _stagesLevel.GetWaveParameters(_currentWave).DurationWave;
             ChangedWave?.Invoke();
+            
+            if (!_stagesLevel.GetWaveParameters(_currentWave - 1).IsGetNewWeapon)
+            {
+                EventSender.SendLevelStart();
+            }
         }
         
         _isFinalStageWave = false;

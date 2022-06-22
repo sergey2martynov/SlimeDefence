@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using Analytics;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Upgrade;
@@ -16,6 +17,7 @@ namespace UI.UpgradeMenu
 
         public void Initialize(Upgradable iUpgradable, NewWeaponMenu.DisableDelegate disableDelegate)
         {
+
             UpgradeParametersBase upgradeParameters = iUpgradable.GetUpgradeParameters();
             
             _name.text = upgradeParameters.Name;
@@ -23,6 +25,10 @@ namespace UI.UpgradeMenu
             _icon.sprite = upgradeParameters.Icon.sprite;
             _button.onClick.AddListener(()=>
             {
+                if (!iUpgradable.IsActive)
+                {
+                    EventSender.SendLevelStart();
+                }
                 iUpgradable.Upgrade();
                 disableDelegate.Invoke(false);
             });

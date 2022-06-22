@@ -1,3 +1,4 @@
+using Analytics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +22,7 @@ public class StartButton : MonoBehaviour
     private void OnButtonClicked()
     {
         Time.timeScale = 1;
+        EventSender.SendLevelStart();
         _startMenu.gameObject.SetActive(false);
         _fixedJoystick.gameObject.SetActive(true);
         _timeCounter.ResetElapsedTime();

@@ -13,8 +13,6 @@ namespace CodeBase.Core.Character
         [SerializeField] private float _speed;
         [SerializeField] private SpeedLevels _speedLevels;
         [SerializeField] private CharacterType _characterType;
-        [SerializeField] private Animator _animator;
-        [SerializeField] private Rigidbody _rigidbody;
 
         private CharacterController _controller;
         private Vector3 _direction;
@@ -22,9 +20,6 @@ namespace CodeBase.Core.Character
         private bool _isCanMove = true;
 
         private bool _isRemovedPositionY;
-        private static readonly int Speed = Animator.StringToHash("Speed");
-        private static readonly int Xmove = Animator.StringToHash("Xmove");
-        private static readonly int Zmove = Animator.StringToHash("Zmove");
 
         public Vector3 Direction => _direction;
 
@@ -41,20 +36,6 @@ namespace CodeBase.Core.Character
         {
             if (_characterType == CharacterType.Player)
                 transform.rotation = Quaternion.LookRotation(_lookDirection);
-        }
-
-        public void Move()
-        {
-            if (_animator != null)
-            {
-                var angle = Vector3.Angle(_lookDirection, _direction) * Mathf.Deg2Rad;
-                
-                _animator.SetFloat(Xmove, Mathf.Sin(angle));
-                _animator.SetFloat(Zmove, Mathf.Cos(angle));
-                _animator.SetFloat(Speed, _direction.magnitude);
-            }
-
-            transform.rotation = Quaternion.LookRotation(_lookDirection);
         }
 
         public void SetDirection(Vector3 direction)
