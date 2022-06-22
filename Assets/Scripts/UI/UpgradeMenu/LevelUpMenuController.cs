@@ -8,6 +8,7 @@ public class LevelUpMenuController : MonoBehaviour
     [SerializeField] private List<UpgradeTile> _upgradeTiles;
     [SerializeField] private ProgressController _progressController;
     [SerializeField] private GameObject _levelUpMenu;
+    [SerializeField] private GameObject _playerHealthBar;
 
     private void Start()
     {
@@ -46,6 +47,7 @@ public class LevelUpMenuController : MonoBehaviour
                 tile.RemoveListener();
             }
         }
+        _playerHealthBar.SetActive(isActive);
         _levelUpMenu.SetActive(isActive);
     }
 }
