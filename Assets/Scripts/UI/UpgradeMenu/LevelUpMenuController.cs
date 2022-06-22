@@ -47,7 +47,7 @@ public class LevelUpMenuController : MonoBehaviour
                 tile.RemoveListener();
             }
         }
-        _playerHealthBar.SetActive(isActive);
+        _playerHealthBar.SetActive(!isActive);
         _levelUpMenu.SetActive(isActive);
     }
 }
