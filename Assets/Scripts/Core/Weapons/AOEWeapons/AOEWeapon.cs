@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using CodeBase.Core.Character.Enemy;
-using Core.Character.Player;
+﻿using Core.Character.Player;
 using DG.Tweening;
 using UI.WeaponsPanel;
 using UnityEngine;
@@ -16,6 +14,7 @@ namespace Core.Weapons
         [SerializeField] private WeaponsPanel _weaponsPanel;
         [SerializeField] private EnemiesCounter _enemiesCounter;
         [SerializeField] private AttackSpeed _attackSpeed;
+        [SerializeField] private AudioSource _rocketSound;
 
         private SphereCollider _sphereCollider;
         private ParticleSystem _spawnedProjectile;
@@ -77,6 +76,7 @@ namespace Core.Weapons
 
         public override void UseWeapon()
         {
+            _rocketSound.Play();
             _spawnedProjectile.gameObject.transform.position =
                 _enemiesCounter.EnemiesOnScreen[Random.Range(0, _enemiesCounter.EnemiesOnScreen.Count)].transform
                     .position;

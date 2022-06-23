@@ -7,6 +7,7 @@ public class TimeCounter : MonoBehaviour
 {
     [SerializeField] private StagesLevel _stagesLevel;
     [SerializeField] private TextMeshProUGUI _numberWaveText;
+    [SerializeField] private AudioSource _waveChangedSound;
 
     private float _currentWaveDuration;
     private float _elapsedTime;
@@ -53,6 +54,8 @@ public class TimeCounter : MonoBehaviour
 
     public void UpdateWave()
     {
+        _waveChangedSound.Play();
+        
         EventSender.SendLevelFinish();
         
         if (_stagesLevel.GetWaveParameters(_currentWave).IsGetNewWeapon)

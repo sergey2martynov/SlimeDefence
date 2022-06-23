@@ -17,6 +17,7 @@ public class StartButton : MonoBehaviour
     [SerializeField] private GameObject _playerLevel;
     [SerializeField] private WeaponsPanel _weaponsPanel;
     [SerializeField] private ExperienceBar _experienceBar;
+    [SerializeField] private AudioSource _pressSound;
 
     private float _elapsedTime;
 
@@ -32,6 +33,7 @@ public class StartButton : MonoBehaviour
 
     private void OnButtonClicked()
     {
+        _pressSound.Play();
         Time.timeScale = 1;
         EventSender.SendLevelStart();
         _startMenu.gameObject.SetActive(false);

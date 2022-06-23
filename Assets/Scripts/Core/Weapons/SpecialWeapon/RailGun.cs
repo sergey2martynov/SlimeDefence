@@ -13,6 +13,9 @@ public class RailGun : Weapon
     [SerializeField] private ParticleSystem _projectile;
     [SerializeField] private WeaponsPanel _weaponsPanel;
     [SerializeField] private AttackSpeed _attackSpeed;
+    [SerializeField] private AudioSource _shot;
+    [SerializeField] private AudioSource _recharge;
+    
     private float _projectileSpeed;
     private float _elapsedTime;
     private ParticleSystem _particleTarget;
@@ -58,6 +61,7 @@ public class RailGun : Weapon
 
         DOTween.Sequence().AppendInterval(2f).OnComplete(() =>
         {
+            _shot.Play();
             var projectile = Instantiate(_projectile, transform.position, Quaternion.identity);
             projectile.GetComponent<RailGunProjectile>().Initialize(_damage, _railGunTarget.transform.position,
                 transform, _projectileSpeed);
@@ -67,6 +71,7 @@ public class RailGun : Weapon
 
     private void ChooseTarget()
     {
+        _recharge.Play();
         var enemy = _enemiesCounter.EnemiesOnScreen[Random.Range(0, _enemiesCounter.EnemiesOnScreen.Count)];
         _railGunTarget.SetTarget(enemy.transform);
         _railGunTarget.gameObject.SetActive(true);

@@ -13,6 +13,7 @@ namespace CodeBase.Core.Character.Enemy
         [SerializeField] private SkinnedMeshRenderer _meshRenderer;
         [SerializeField] private EnemyMovementInput _movement;
         [SerializeField] private HealthBarFiller _healthBarFiller;
+        [SerializeField] private AudioSource _deathSound;
 
 
         private SpawnerEnemies _spawnerEnemies;
@@ -61,6 +62,7 @@ namespace CodeBase.Core.Character.Enemy
 
         private void Die()
         {
+            _deathSound.Play();
             IsDie = true;
             _killCounter.IncreaseCounter();
 

@@ -10,6 +10,7 @@ public class NewWeaponMenu : MonoBehaviour
     [SerializeField] private List<GameObject> _weaponModels;
     [SerializeField] private List<ParticleSystem> _confetti;
     [SerializeField] private EnemyHealthBarFiller _healthBar;
+    [SerializeField] private AudioSource _newWeaponSound;
 
     private int count;
 
@@ -46,7 +47,8 @@ public class NewWeaponMenu : MonoBehaviour
             t.gameObject.SetActive(true);
             t.Play();
         }
-        
+
+
         _healthBar.gameObject.SetActive(false);
 
         DisableMenu(true);
@@ -64,16 +66,19 @@ public class NewWeaponMenu : MonoBehaviour
                 _weaponModels[count].SetActive(false);
             else
                 _weaponModels[count - 1].SetActive(false);
-            
+
             foreach (var t in _confetti)
             {
                 t.gameObject.SetActive(false);
                 t.Play();
             }
-            
+
             _healthBar.gameObject.SetActive(true);
         }
-        
+
         gameObject.SetActive(isActive);
+        
+        if (isActive)
+            _newWeaponSound.Play();
     }
 }

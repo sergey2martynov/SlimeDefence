@@ -5,6 +5,7 @@ public class DieDetector : MonoBehaviour
 {
     [SerializeField] private Health _health;
     [SerializeField] private RestartMenuDisabler _restartMenuDisabler;
+    [SerializeField] private AudioSource _deathSound;
 
     private void Start()
     {
@@ -18,6 +19,7 @@ public class DieDetector : MonoBehaviour
 
     private void Die()
     {
+        _deathSound.Play();
         Time.timeScale = 0;
         _restartMenuDisabler.RestartMenuDisable(true);
     }

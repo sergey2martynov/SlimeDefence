@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyPool : AbstractPool
 {
     [SerializeField] private SpawnerEnemies _spawnerEnemies;
-    [SerializeField] private Transform _player;
+    [SerializeField] private AudioSource _deathSound;
 
     public override void Release(GameObject poolObject)
     {
@@ -14,6 +14,7 @@ public class EnemyPool : AbstractPool
         {
             if (poolObject == _pool[i])
             {
+                _deathSound.Play();
                 poolObject.GetComponent<Health>().ReturnHealthPoint();
                 _spawnerEnemies.SpawnedEnemies.Remove(poolObject.GetComponent<Enemy>());
                 poolObject.SetActive(false);

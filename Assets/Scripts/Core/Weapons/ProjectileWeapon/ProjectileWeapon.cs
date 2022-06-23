@@ -23,6 +23,7 @@ public class ProjectileWeapon : Weapon
     [SerializeField] private float _projectileSpeed;
     [SerializeField] private int _penetrationCounter;
     [SerializeField] private AttackSpeed _attackSpeed;
+    [SerializeField] private AudioSource _shotSound;
 
     private ProjectileWeaponParameters _currentParameters;
     private List<Enemy> _enemies;
@@ -137,6 +138,8 @@ public class ProjectileWeapon : Weapon
         _movement.SetLookDirection(_direction, 0.5f);
 
         _direction = RotateDirection(_direction, 0.5f * (-_spread + _spread / _amount));
+        
+        _shotSound.Play();
 
         for (int i = 1; i <= _amount; i++)
         {

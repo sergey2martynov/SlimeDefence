@@ -8,6 +8,7 @@ namespace Core.Character.Player
         [SerializeField] private ProgressController _progressController;
         [SerializeField] private Health _health;
         [SerializeField] private TextMeshProUGUI _levelText;
+        [SerializeField] private AudioSource _levelUpSound;
 
         private int _currentLevel;
 
@@ -25,6 +26,7 @@ namespace Core.Character.Player
         
         public void AddedPlayerLevel()
         {
+            _levelUpSound.Play();
             _currentLevel++;
             _levelText.text = "Lvl " + _currentLevel;
         }

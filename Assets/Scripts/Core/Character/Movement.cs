@@ -17,7 +17,6 @@ namespace CodeBase.Core.Character
         private CharacterController _controller;
         private Vector3 _direction;
         private Vector3 _lookDirection;
-        private bool _isCanMove = true;
 
         private bool _isRemovedPositionY;
 
