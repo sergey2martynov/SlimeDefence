@@ -21,6 +21,8 @@ namespace UI.WeaponsPanel
                 _weaponIcons[i].gameObject.SetActive(true);
                 _weaponIcons[i].sprite = _defaultWeapon[i].GetUpgradeParameters().Icon.sprite;
             }
+            
+            gameObject.SetActive(false);
         }
 
         public void UpdatePanel(Weapon weapon, bool isNewWeapon)

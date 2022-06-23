@@ -13,6 +13,7 @@ public class LevelSliderFiller : MonoBehaviour
     {
         _slider.maxValue = _stagesLevel.WaveParameters[_currentWave].DurationWave;
         _timeCounter.ChangedWave += UpdateSlider;
+        gameObject.SetActive(false);
     }
     
     private void OnDestroy()

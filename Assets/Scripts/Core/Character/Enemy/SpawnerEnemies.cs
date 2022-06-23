@@ -109,12 +109,16 @@ public class SpawnerEnemies : MonoBehaviour
     public void RemoveAllEnemies()
     {
         var count = _spawnedEnemies.Count;
+        
+        _flashImage.gameObject.SetActive(true);
 
-        DOTween.ToAlpha(() => _flashImage.color, x => _flashImage.color = x, 60, 0.4f).OnComplete(() =>
+        DOTween.ToAlpha(() => _flashImage.color, x => _flashImage.color = x, 30, 0.5f).OnComplete(() =>
         {
-            DOTween.ToAlpha(() => _flashImage.color, x => _flashImage.color = x, 0, 0.5f).OnComplete(() =>
+            DOTween.ToAlpha(() => _flashImage.color, x => _flashImage.color = x, 0, 1.5f).OnComplete(() =>
             {
-                DOTween.Sequence().AppendInterval(0.5f).OnComplete((() =>
+                _flashImage.gameObject.SetActive(false);
+                
+                DOTween.Sequence().AppendInterval(0.8f).OnComplete((() =>
                 {
                     for (int i = 0; i < count; i++)
                     {

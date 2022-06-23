@@ -11,6 +11,7 @@ public class ExperienceBar : MonoBehaviour
     {
         SetMaxValue();
         _slider.value = _progressController.Experience;
+        gameObject.SetActive(false);
     }
 
     public void SetMaxValue()

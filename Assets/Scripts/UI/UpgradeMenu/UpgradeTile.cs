@@ -22,7 +22,8 @@ namespace UI.UpgradeMenu
             
             _name.text = upgradeParameters.Name;
             //_description.text = upgradeParameters.Description;
-            _icon.sprite = upgradeParameters.Icon.sprite;
+            _icon.sprite = upgradeParameters.UprgradeIcon.sprite;
+            _icon.rectTransform.sizeDelta = new Vector2(100, 100);
             _button.onClick.AddListener(()=>
             {
                 if (!iUpgradable.IsActive)

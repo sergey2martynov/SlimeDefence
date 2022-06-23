@@ -1,4 +1,7 @@
+using System;
 using Analytics;
+using DG.Tweening;
+using UI.WeaponsPanel;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +11,14 @@ public class StartButton : MonoBehaviour
     [SerializeField] private GameObject _startMenu;
     [SerializeField] private FloatingJoystick _fixedJoystick;
     [SerializeField] private TimeCounter _timeCounter;
+    [SerializeField] private EnemyHealthBarFiller _healthBar;
+    [SerializeField] private LevelSliderFiller _levelSliderFiller;
+    [SerializeField] private KillCounter _killCounter;
+    [SerializeField] private GameObject _playerLevel;
+    [SerializeField] private WeaponsPanel _weaponsPanel;
+    [SerializeField] private ExperienceBar _experienceBar;
+
+    private float _elapsedTime;
 
     private void Start()
     {
@@ -26,5 +37,11 @@ public class StartButton : MonoBehaviour
         _startMenu.gameObject.SetActive(false);
         _fixedJoystick.gameObject.SetActive(true);
         _timeCounter.ResetElapsedTime();
+        _healthBar.gameObject.SetActive(true);
+        _levelSliderFiller.gameObject.SetActive(true);
+        _killCounter.gameObject.SetActive(true);
+        _playerLevel.SetActive(true);
+        _weaponsPanel.gameObject.SetActive(true);
+        _experienceBar.gameObject.SetActive(true);
     }
 }

@@ -73,7 +73,7 @@ namespace CodeBase.Core.Character.Enemy
                 {
                     _spawnerEnemies.RemoveAllEnemies();
                     
-                    DOTween.Sequence().AppendInterval(1).OnComplete(() =>
+                    DOTween.Sequence().AppendInterval(2.5f).OnComplete(() =>
                     {
                         _timeCounter.UpdateWave();
                     });

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponParameters:
   - _name: Shotgun Lvl 1
-    _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: ff8df65e2e1927447b5de33fe4271dcb, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: d9bde9f86afc90940b24ce2534701510, type: 3}
     _description: Shotgun Lvl 1
     _damage: 10
     _rate: 2
@@ -23,8 +24,10 @@ MonoBehaviour:
     _spread: 20
     _projectileSpeed: 0.3
     _penetration: 0
+    _additionalProjectiles: 0
   - _name: Shotgun Lvl 2
-    _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: ff8df65e2e1927447b5de33fe4271dcb, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: d9bde9f86afc90940b24ce2534701510, type: 3}
     _description: Shotgun Lvl 1
     _damage: 10
     _rate: 1.95
@@ -33,8 +36,10 @@ MonoBehaviour:
     _spread: 20
     _projectileSpeed: 0.35
     _penetration: 0
+    _additionalProjectiles: 0
   - _name: Shotgun Lvl 3
-    _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: ff8df65e2e1927447b5de33fe4271dcb, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: d9bde9f86afc90940b24ce2534701510, type: 3}
     _description: Shotgun Lvl 1
     _damage: 10
     _rate: 1.9
@@ -43,8 +48,10 @@ MonoBehaviour:
     _spread: 20
     _projectileSpeed: 0.4
     _penetration: 0
+    _additionalProjectiles: 0
   - _name: Shotgun Lvl 4
-    _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: ff8df65e2e1927447b5de33fe4271dcb, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: d9bde9f86afc90940b24ce2534701510, type: 3}
     _description: Shotgun Lvl 1
     _damage: 10
     _rate: 1.85
@@ -53,8 +60,10 @@ MonoBehaviour:
     _spread: 20
     _projectileSpeed: 0.45
     _penetration: 0
+    _additionalProjectiles: 0
   - _name: Shotgun Lvl 5
-    _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: ff8df65e2e1927447b5de33fe4271dcb, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: d9bde9f86afc90940b24ce2534701510, type: 3}
     _description: Shotgun Lvl 1
     _damage: 10
     _rate: 1.8
@@ -63,8 +72,10 @@ MonoBehaviour:
     _spread: 20
     _projectileSpeed: 0.5
     _penetration: 1
+    _additionalProjectiles: 0
   - _name: Shotgun Lvl 6
-    _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: ff8df65e2e1927447b5de33fe4271dcb, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: d9bde9f86afc90940b24ce2534701510, type: 3}
     _description: Shotgun Lvl 1
     _damage: 10
     _rate: 1.75
@@ -73,8 +84,10 @@ MonoBehaviour:
     _spread: 20
     _projectileSpeed: 0.55
     _penetration: 1
+    _additionalProjectiles: 0
   - _name: Shotgun Lvl 7
-    _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: ff8df65e2e1927447b5de33fe4271dcb, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: d9bde9f86afc90940b24ce2534701510, type: 3}
     _description: Shotgun Lvl 1
     _damage: 10
     _rate: 1.7
@@ -83,8 +96,10 @@ MonoBehaviour:
     _spread: 20
     _projectileSpeed: 0.6
     _penetration: 1
+    _additionalProjectiles: 0
   - _name: Shotgun Lvl 8
-    _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: ff8df65e2e1927447b5de33fe4271dcb, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: d9bde9f86afc90940b24ce2534701510, type: 3}
     _description: Shotgun Lvl 1
     _damage: 10
     _rate: 1.65
@@ -93,8 +108,10 @@ MonoBehaviour:
     _spread: 20
     _projectileSpeed: 0.65
     _penetration: 1
+    _additionalProjectiles: 0
   - _name: Shotgun Lvl 9
-    _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: ff8df65e2e1927447b5de33fe4271dcb, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: d9bde9f86afc90940b24ce2534701510, type: 3}
     _description: Shotgun Lvl 1
     _damage: 10
     _rate: 1.6
@@ -103,8 +120,10 @@ MonoBehaviour:
     _spread: 20
     _projectileSpeed: 0.7
     _penetration: 1
+    _additionalProjectiles: 0
   - _name: Shotgun Lvl 10
-    _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: ff8df65e2e1927447b5de33fe4271dcb, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: d9bde9f86afc90940b24ce2534701510, type: 3}
     _description: Shotgun Lvl 1
     _damage: 10
     _rate: 1.5
@@ -113,8 +132,10 @@ MonoBehaviour:
     _spread: 20
     _projectileSpeed: 0.8
     _penetration: 1
+    _additionalProjectiles: 0
   - _name: Shotgun Lvl 11
-    _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: ff8df65e2e1927447b5de33fe4271dcb, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: d9bde9f86afc90940b24ce2534701510, type: 3}
     _description: Shotgun Lvl 1
     _damage: 10
     _rate: 1.45
@@ -123,8 +144,10 @@ MonoBehaviour:
     _spread: 20
     _projectileSpeed: 0.85
     _penetration: 1
+    _additionalProjectiles: 0
   - _name: Shotgun Lvl 12
-    _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: ff8df65e2e1927447b5de33fe4271dcb, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: d9bde9f86afc90940b24ce2534701510, type: 3}
     _description: Shotgun Lvl 1
     _damage: 10
     _rate: 1.4
@@ -133,8 +156,10 @@ MonoBehaviour:
     _spread: 20
     _projectileSpeed: 0.85
     _penetration: 1
+    _additionalProjectiles: 0
   - _name: Shotgun Lvl 13
-    _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: ff8df65e2e1927447b5de33fe4271dcb, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: d9bde9f86afc90940b24ce2534701510, type: 3}
     _description: Shotgun Lvl 1
     _damage: 10
     _rate: 1.35
@@ -143,8 +168,10 @@ MonoBehaviour:
     _spread: 20
     _projectileSpeed: 0.9
     _penetration: 1
+    _additionalProjectiles: 0
   - _name: Shotgun Lvl 14
-    _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: ff8df65e2e1927447b5de33fe4271dcb, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: d9bde9f86afc90940b24ce2534701510, type: 3}
     _description: Shotgun Lvl 1
     _damage: 10
     _rate: 1.3
@@ -153,8 +180,10 @@ MonoBehaviour:
     _spread: 20
     _projectileSpeed: 0.95
     _penetration: 1
+    _additionalProjectiles: 0
   - _name: Shotgun Lvl 15
-    _icon: {fileID: 549139033193520066, guid: 59622b7dd88adea46831f92be133fedd, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: ff8df65e2e1927447b5de33fe4271dcb, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: d9bde9f86afc90940b24ce2534701510, type: 3}
     _description: Shotgun Lvl 1
     _damage: 15
     _rate: 1.25
@@ -163,3 +192,4 @@ MonoBehaviour:
     _spread: 20
     _projectileSpeed: 1
     _penetration: 1
+    _additionalProjectiles: 0

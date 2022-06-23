@@ -14,91 +14,106 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponParameters:
   - _name: Get Sun Strike
-    _icon: {fileID: 549139033193520066, guid: 496cdf776e423af48bca1014d144e3fa, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: f24c859f8d6955e429f8de24d57165a6, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: 2d3a2dc1c76f1614286edb13b5cad954, type: 3}
     _description: 
     _damage: 10
     _rate: 5
     _range: 0
   - _name: Sun Strike lvl 2
-    _icon: {fileID: 549139033193520066, guid: 496cdf776e423af48bca1014d144e3fa, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: f24c859f8d6955e429f8de24d57165a6, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: 2d3a2dc1c76f1614286edb13b5cad954, type: 3}
     _description: 
     _damage: 10
     _rate: 4.9
     _range: 0
   - _name: Sun Strike lvl 3
-    _icon: {fileID: 549139033193520066, guid: 496cdf776e423af48bca1014d144e3fa, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: f24c859f8d6955e429f8de24d57165a6, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: 2d3a2dc1c76f1614286edb13b5cad954, type: 3}
     _description: 
     _damage: 10
     _rate: 4.8
     _range: 0
   - _name: Sun Strike lvl 4
-    _icon: {fileID: 549139033193520066, guid: 496cdf776e423af48bca1014d144e3fa, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: f24c859f8d6955e429f8de24d57165a6, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: 2d3a2dc1c76f1614286edb13b5cad954, type: 3}
     _description: 
     _damage: 10
     _rate: 4.7
     _range: 0
   - _name: Sun Strike lvl 5
-    _icon: {fileID: 549139033193520066, guid: 496cdf776e423af48bca1014d144e3fa, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: f24c859f8d6955e429f8de24d57165a6, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: 2d3a2dc1c76f1614286edb13b5cad954, type: 3}
     _description: 
     _damage: 10
     _rate: 4.6
     _range: 0
   - _name: Sun Strike lvl 6
-    _icon: {fileID: 549139033193520066, guid: 496cdf776e423af48bca1014d144e3fa, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: f24c859f8d6955e429f8de24d57165a6, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: 2d3a2dc1c76f1614286edb13b5cad954, type: 3}
     _description: 
     _damage: 10
     _rate: 4.5
     _range: 0
   - _name: Sun Strike lvl 7
-    _icon: {fileID: 549139033193520066, guid: 496cdf776e423af48bca1014d144e3fa, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: f24c859f8d6955e429f8de24d57165a6, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: 2d3a2dc1c76f1614286edb13b5cad954, type: 3}
     _description: 
     _damage: 10
     _rate: 4.4
     _range: 0
   - _name: Sun Strike lvl 8
-    _icon: {fileID: 549139033193520066, guid: 496cdf776e423af48bca1014d144e3fa, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: f24c859f8d6955e429f8de24d57165a6, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: 2d3a2dc1c76f1614286edb13b5cad954, type: 3}
     _description: 
     _damage: 10
     _rate: 4.3
     _range: 0
   - _name: Sun Strike lvl 9
-    _icon: {fileID: 549139033193520066, guid: 496cdf776e423af48bca1014d144e3fa, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: f24c859f8d6955e429f8de24d57165a6, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: 2d3a2dc1c76f1614286edb13b5cad954, type: 3}
     _description: 
     _damage: 10
     _rate: 4.2
     _range: 0
   - _name: Sun Strike lvl 10
-    _icon: {fileID: 549139033193520066, guid: 496cdf776e423af48bca1014d144e3fa, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: f24c859f8d6955e429f8de24d57165a6, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: 2d3a2dc1c76f1614286edb13b5cad954, type: 3}
     _description: 
     _damage: 10
     _rate: 3
     _range: 0
   - _name: Sun Strike lvl 11
-    _icon: {fileID: 549139033193520066, guid: 496cdf776e423af48bca1014d144e3fa, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: f24c859f8d6955e429f8de24d57165a6, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: 2d3a2dc1c76f1614286edb13b5cad954, type: 3}
     _description: 
     _damage: 10
     _rate: 3.9
     _range: 0
   - _name: Sun Strike lvl 12
-    _icon: {fileID: 549139033193520066, guid: 496cdf776e423af48bca1014d144e3fa, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: f24c859f8d6955e429f8de24d57165a6, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: 2d3a2dc1c76f1614286edb13b5cad954, type: 3}
     _description: 
     _damage: 10
     _rate: 3.8
     _range: 0
   - _name: Sun Strike lvl 13
-    _icon: {fileID: 549139033193520066, guid: 496cdf776e423af48bca1014d144e3fa, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: f24c859f8d6955e429f8de24d57165a6, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: 2d3a2dc1c76f1614286edb13b5cad954, type: 3}
     _description: 
     _damage: 10
     _rate: 3.7
     _range: 0
   - _name: Sun Strike lvl 14
-    _icon: {fileID: 549139033193520066, guid: 496cdf776e423af48bca1014d144e3fa, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: f24c859f8d6955e429f8de24d57165a6, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: 2d3a2dc1c76f1614286edb13b5cad954, type: 3}
     _description: 
     _damage: 10
     _rate: 3.6
     _range: 0
   - _name: Sun Strike lvl 15
-    _icon: {fileID: 549139033193520066, guid: 496cdf776e423af48bca1014d144e3fa, type: 3}
+    _icon: {fileID: 4694145375665404486, guid: f24c859f8d6955e429f8de24d57165a6, type: 3}
+    _upgradeIcon: {fileID: 4694145375665404486, guid: 2d3a2dc1c76f1614286edb13b5cad954, type: 3}
     _description: 
     _damage: 10
     _rate: 3.5
