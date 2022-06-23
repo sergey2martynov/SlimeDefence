@@ -9550,7 +9550,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2630769052759601187, guid: 7eb4a8b8140b36943b2943e43c99fc48, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2630769052759601188, guid: 7eb4a8b8140b36943b2943e43c99fc48, type: 3}
       propertyPath: m_Pivot.x
@@ -11460,9 +11460,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181393630}
     m_Modifications:
+    - target: {fileID: 2307972565543586316, guid: 446258212b01d1545bc4c9baa1398f4d, type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307972565543586316, guid: 446258212b01d1545bc4c9baa1398f4d, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3311931981143784269, guid: 446258212b01d1545bc4c9baa1398f4d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6858660147155549961, guid: 446258212b01d1545bc4c9baa1398f4d, type: 3}
       propertyPath: m_Name
       value: RestartMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858660147155549961, guid: 446258212b01d1545bc4c9baa1398f4d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6858660147155549962, guid: 446258212b01d1545bc4c9baa1398f4d, type: 3}
       propertyPath: m_Pivot.x
@@ -11552,6 +11568,22 @@ PrefabInstance:
       propertyPath: _floatingJoystick
       value: 
       objectReference: {fileID: 996890661}
+    - target: {fileID: 6858660148587100983, guid: 446258212b01d1545bc4c9baa1398f4d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858660148587100983, guid: 446258212b01d1545bc4c9baa1398f4d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858660148587100986, guid: 446258212b01d1545bc4c9baa1398f4d, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858660148587100986, guid: 446258212b01d1545bc4c9baa1398f4d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9b04266556a38e84c83e884335b5cff6, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 446258212b01d1545bc4c9baa1398f4d, type: 3}
 --- !u!1 &7178953035644461218
