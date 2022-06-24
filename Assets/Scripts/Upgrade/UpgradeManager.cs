@@ -22,16 +22,17 @@ public class UpgradeManager : MonoBehaviour
     
     public List<Upgradable> GetNewLevelUpgrades()
     {
+        
+        for (int i = 0; i < _upgradables.Count; i++)
+        {
+            if (_upgradables[i].MaxLevel == _upgradables[i].CurrentLevel)
+            {
+                _upgradables.Remove(_upgradables[i]);
+            }
+        }
+        
         List<Upgradable> returnedUpgradables = new List<Upgradable>();
         List<Upgradable> upgradables = new List<Upgradable>(_upgradables);
-        
-        IEnumerable<Upgradable> upgradablesWithMaxLevel =  _upgradables.Where(upgradable => upgradable.MaxLevel == upgradable.CurrentLevel);
-
-        foreach (var upgradable in upgradablesWithMaxLevel)
-        {
-            _upgradables.Remove(upgradable);
-            break;
-        }
 
         for (int i  = 0; i  < 3; i ++)
         {

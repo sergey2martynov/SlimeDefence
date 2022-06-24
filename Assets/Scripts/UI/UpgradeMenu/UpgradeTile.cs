@@ -32,6 +32,7 @@ namespace UI.UpgradeMenu
                 {
                     EventSender.SendLevelStart();
                 }
+                
                 iUpgradable.Upgrade();
                 disableDelegate.Invoke(false);
             });

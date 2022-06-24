@@ -179,6 +179,7 @@ public class ProjectileWeapon : Weapon
 
         base.Upgrade();
         _currentParameters = _weaponParameters.GetWeaponParameters(_currentLevel);
+        
         if (_currentLevel < MaxLevel)
             _upgradeParameters = _weaponParameters.GetWeaponParameters(_currentLevel + 1);
 

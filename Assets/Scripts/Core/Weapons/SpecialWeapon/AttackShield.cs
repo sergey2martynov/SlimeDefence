@@ -16,10 +16,11 @@ public class AttackShield : Weapon
 
     private float _fixedTime;
     private WeaponParameters _currentParameters;
+    
     private List<Enemy> _enemiesAround;
     private ParticleSystem.MainModule _circleMain;
 
-    private void Start()
+    private void Awake()
     {
         _enemiesAround = new List<Enemy>();
         _currentParameters = _levels.GetWeaponParameters(_currentLevel);

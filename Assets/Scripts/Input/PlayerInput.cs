@@ -1,5 +1,6 @@
 using CodeBase.Core.Character.Enemy;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerInput : MonoBehaviour
 {
@@ -35,6 +36,11 @@ public class PlayerInput : MonoBehaviour
 
             for (int i = 0; i < hits.Length; i++)
             {
+                if (hits[i].collider.TryGetComponent(out Button button))
+                {
+                    break;
+                }
+
                 if (hits[i].collider.TryGetComponent(out Enemy enemy))
                 {
                     _spark.transform.position = hits[i].point;
@@ -43,18 +49,24 @@ public class PlayerInput : MonoBehaviour
                         enemy.Health.GetDamage(_inputDamage);
                         _elapsedTimeToDamage = 0;
                     }
+
+                    if (_elapsedTimeToSound > _soundDelay)
+                    {
+                        _shotSound.Play();
+                        _elapsedTimeToSound = 0;
+                    }
                 }
 
                 if (hits[i].collider.TryGetComponent(out Plane plane))
                 {
                     _spark.transform.position = hits[i].point;
-                }
-            }
 
-            if (_elapsedTimeToSound > _soundDelay)
-            {
-                _shotSound.Play();
-                _elapsedTimeToSound = 0;
+                    if (_elapsedTimeToSound > _soundDelay)
+                    {
+                        _shotSound.Play();
+                        _elapsedTimeToSound = 0;
+                    }
+                }
             }
         }
 
