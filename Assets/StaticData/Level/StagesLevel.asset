@@ -33,7 +33,7 @@ MonoBehaviour:
     - 5
     _numberOfBosses: 1
     _healthBoss: 50
-    _isGetNewWeapon: 0
+    _isGetNewWeapon: 1
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 3
     _durationWave: 30
@@ -46,7 +46,7 @@ MonoBehaviour:
     - 1.5
     _numberOfBosses: 0
     _healthBoss: 0
-    _isGetNewWeapon: 1
+    _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 4
     _durationWave: 30
