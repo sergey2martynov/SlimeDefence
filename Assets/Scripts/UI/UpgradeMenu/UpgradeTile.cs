@@ -13,7 +13,7 @@ namespace UI.UpgradeMenu
         [SerializeField] private TextMeshProUGUI _name;
         [SerializeField] private Text _description;
         [SerializeField] private Image _icon;
-        [SerializeField] private AudioSource _pressSound;
+        [SerializeField] private SoundPlayer _soundPlayer;
         private LevelUpMenuDisabler _disabler;
 
         public void Initialize(Upgradable iUpgradable, NewWeaponMenu.DisableDelegate disableDelegate)
@@ -27,7 +27,8 @@ namespace UI.UpgradeMenu
             _icon.rectTransform.sizeDelta = new Vector2(100, 100);
             _button.onClick.AddListener(()=>
             {
-                _pressSound.Play();
+                _soundPlayer.ButtonSoundPlay();
+                
                 if (!iUpgradable.IsActive)
                 {
                     EventSender.SendLevelStart();

@@ -15,6 +15,7 @@ namespace Core.Weapons
         [SerializeField] private EnemiesCounter _enemiesCounter;
         [SerializeField] private AttackSpeed _attackSpeed;
         [SerializeField] private AudioSource _rocketSound;
+        [SerializeField] private float _soundDelay = 0.5f;
 
         private SphereCollider _sphereCollider;
         private ParticleSystem _spawnedProjectile;
@@ -46,6 +47,9 @@ namespace Core.Weapons
                 }
             }
 
+            if (_elapsedTime > _rate * _soundDelay / _attackSpeed.AttackSpeedValue)
+                _rocketSound.Play();
+
             if (_elapsedTime > _rate * 1 / _attackSpeed.AttackSpeedValue &&
                 _enemiesCounter.EnemiesOnScreen.Count != 0 && IsActive)
             {
@@ -76,7 +80,6 @@ namespace Core.Weapons
 
         public override void UseWeapon()
         {
-            _rocketSound.Play();
             _spawnedProjectile.gameObject.transform.position =
                 _enemiesCounter.EnemiesOnScreen[Random.Range(0, _enemiesCounter.EnemiesOnScreen.Count)].transform
                     .position;
