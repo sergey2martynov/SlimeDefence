@@ -6,9 +6,12 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private Camera _camera;
     [SerializeField] private GameObject _spark;
     [SerializeField] private int _inputDamage = 1;
+    [SerializeField] private AudioSource _shotSound;
+    [SerializeField] private float _soundDelay;
 
     private Vector3 _pointOffset;
-    private float _elapsedTime;
+    private float _elapsedTimeToDamage;
+    private float _elapsedTimeToSound;
     private Ray _ray;
 
     private void Start()
@@ -18,7 +21,9 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        _elapsedTime += Time.deltaTime;
+        _elapsedTimeToDamage += Time.deltaTime;
+        _elapsedTimeToSound += Time.deltaTime;
+
 
         if (Input.GetMouseButton(0))
         {
@@ -33,10 +38,10 @@ public class PlayerInput : MonoBehaviour
                 if (hits[i].collider.TryGetComponent(out Enemy enemy))
                 {
                     _spark.transform.position = hits[i].point;
-                    if (_elapsedTime > 0.1f)
+                    if (_elapsedTimeToDamage > 0.1f)
                     {
                         enemy.Health.GetDamage(_inputDamage);
-                        _elapsedTime = 0;
+                        _elapsedTimeToDamage = 0;
                     }
                 }
 
@@ -44,6 +49,12 @@ public class PlayerInput : MonoBehaviour
                 {
                     _spark.transform.position = hits[i].point;
                 }
+            }
+
+            if (_elapsedTimeToSound > _soundDelay)
+            {
+                _shotSound.Play();
+                _elapsedTimeToSound = 0;
             }
         }
 

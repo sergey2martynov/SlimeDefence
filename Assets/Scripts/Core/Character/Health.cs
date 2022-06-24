@@ -42,7 +42,11 @@ public class Health : Upgradable
 
         if (_healthPoint <= 0)
         {
-            _healthBarFiller.gameObject.SetActive(false);
+            if (_healthBarFiller != null)
+            {
+                _healthBarFiller.gameObject.SetActive(false);
+            }
+            
             HealthIsOver?.Invoke();
         }
     }
