@@ -4,8 +4,7 @@ namespace Upgrade
 {
     public abstract class Upgradable : MonoBehaviour
     {
-        
-        [SerializeField] public bool IsActive;
+        public bool IsActive;
         
         protected int _currentLevel;
         public int MaxLevel { get; set; }
