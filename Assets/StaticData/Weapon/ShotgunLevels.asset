@@ -20,7 +20,7 @@ MonoBehaviour:
     _damage: 10
     _rate: 2
     _range: 20
-    _amount: 3
+    _amount: 2
     _spread: 20
     _projectileSpeed: 0.3
     _penetration: 0
@@ -56,7 +56,7 @@ MonoBehaviour:
     _damage: 10
     _rate: 1.85
     _range: 20
-    _amount: 3
+    _amount: 4
     _spread: 20
     _projectileSpeed: 0.45
     _penetration: 0
