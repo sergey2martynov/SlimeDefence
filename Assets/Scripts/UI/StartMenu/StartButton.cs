@@ -1,4 +1,6 @@
+using System;
 using Analytics;
+using DG.Tweening;
 using UI.WeaponsPanel;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,7 +17,7 @@ public class StartButton : MonoBehaviour
     [SerializeField] private GameObject _playerLevel;
     [SerializeField] private WeaponsPanel _weaponsPanel;
     [SerializeField] private ExperienceBar _experienceBar;
-    [SerializeField] private SoundPlayer _soundPlayer;
+    [SerializeField] private AudioSource _pressSound;
 
     private float _elapsedTime;
 
@@ -31,7 +33,7 @@ public class StartButton : MonoBehaviour
 
     private void OnButtonClicked()
     {
-        _soundPlayer.ButtonSoundPlay();
+        _pressSound.Play();
         Time.timeScale = 1;
         EventSender.SendLevelStart();
         _startMenu.gameObject.SetActive(false);

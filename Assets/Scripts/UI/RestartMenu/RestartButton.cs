@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class RestartButton : MonoBehaviour
 {
     [SerializeField] private Button _button;
-    [SerializeField] private SoundPlayer _soundPlayer;
+    [SerializeField] private AudioSource _pressButton;
     
     private void Start()
     {
@@ -19,7 +19,7 @@ public class RestartButton : MonoBehaviour
 
     private void OnButtonClick()
     {
-        _soundPlayer.ButtonSoundPlay();
+        _pressButton.Play();
         Time.timeScale = 1;
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);

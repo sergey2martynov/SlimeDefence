@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveParameters:
   - _numberOfWave: 1
-    _durationWave: 5
+    _durationWave: 30
     _enemies: 00000000
     _initialSpawnRate:
     - 1.4
@@ -22,10 +22,10 @@ MonoBehaviour:
     - 1.4
     _numberOfBosses: 0
     _healthBoss: 0
-    _isGetNewWeapon: 1
+    _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 2
-    _durationWave: 5
+    _durationWave: 30
     _enemies: 00000000
     _initialSpawnRate:
     - 1.3
@@ -46,7 +46,7 @@ MonoBehaviour:
     - 1.5
     _numberOfBosses: 0
     _healthBoss: 0
-    _isGetNewWeapon: 1
+    _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 4
     _durationWave: 30
