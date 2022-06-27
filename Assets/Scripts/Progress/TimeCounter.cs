@@ -8,6 +8,8 @@ public class TimeCounter : MonoBehaviour
     [SerializeField] private StagesLevel _stagesLevel;
     [SerializeField] private TextMeshProUGUI _numberWaveText;
     [SerializeField] private AudioSource _waveChangedSound;
+    [SerializeField] private Health _healthPlayer;
+    
 
     private float _currentWaveDuration;
     private float _elapsedTime;
@@ -82,5 +84,7 @@ public class TimeCounter : MonoBehaviour
         _isFinalStageWave = false;
         
         _numberWaveText.text = "WAVE" + (_currentWave + 1);
+
+        _healthPlayer.AddBonusHealth();
     }
 }

@@ -50,4 +50,6 @@ public class ProgressController : MonoBehaviour
 
         _experienceBar.SetSlider(_expirience);
     }
+
+    
 }

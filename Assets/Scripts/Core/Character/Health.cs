@@ -15,9 +15,13 @@ public class Health : Upgradable
     [SerializeField] private Enemy _enemy;
     [SerializeField] private HealthBarFiller _healthBarFiller;
     [SerializeField] private ParticleSystem _particleSystem;
+    [SerializeField] private float _bonusHealthMultiplier = 0.4f;
 
     private int _enemyHealthPoint;
+    private int _currentMaxHealth;
     public int HealthPoint => _healthPoint;
+    public int EnemyHealthPoint => _enemyHealthPoint;
+
     public event Action HealthIsOver;
     public event Action<int> MaxHealthChanged;
     public event Action<float> HealthChanged;
@@ -31,7 +35,7 @@ public class Health : Upgradable
 
             var particle = BloodSplatPool.Get();
             particle.GetComponent<BloodSplat>().Initialize(transform);
-            
+
             _enemy.MeshRenderer.material.color = Color.white;
 
             DOTween.Sequence().AppendInterval(0.07f).OnComplete(() => { _enemy.ReturnColor(); });
@@ -46,11 +50,11 @@ public class Health : Upgradable
             {
                 _healthBarFiller.gameObject.SetActive(false);
             }
-            
+
             HealthIsOver?.Invoke();
         }
     }
-    
+
     private void Start()
     {
         _enemyHealthPoint = _healthPoint;
@@ -82,10 +86,19 @@ public class Health : Upgradable
     public void SetHealthPoint()
     {
         _healthPoint = _healthLevels.GetHealthParameters(_currentLevel).Amount;
+        _currentMaxHealth = _healthPoint;
     }
 
     public void SetNewHealthPoint(int health)
     {
         _healthPoint = health;
+    }
+
+    public void AddBonusHealth()
+    {
+        _healthPoint += Convert.ToInt32(_currentMaxHealth * _bonusHealthMultiplier);
+
+        if (_healthPoint > _currentMaxHealth)
+            _healthPoint = _currentMaxHealth;
     }
 }

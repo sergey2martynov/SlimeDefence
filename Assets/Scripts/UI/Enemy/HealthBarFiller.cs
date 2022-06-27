@@ -13,7 +13,7 @@ public class HealthBarFiller : MonoBehaviour
     private void Start()
     {
         _health.HealthChanged += OnHealthChanged;
-        _startHealth = _health.HealthPoint;
+        _startHealth = _health.EnemyHealthPoint;
         _camera = _enemy.Camera;
     }
 
