@@ -222,7 +222,7 @@ MonoBehaviour:
     - 2
     _numberOfBosses: 3
     _healthBoss: 100
-    _isGetNewWeapon: 1
+    _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 16
     _durationWave: 30
@@ -305,7 +305,7 @@ MonoBehaviour:
     - 8
     _numberOfBosses: 4
     _healthBoss: 100
-    _isGetNewWeapon: 1
+    _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 21
     _durationWave: 30
@@ -390,7 +390,7 @@ MonoBehaviour:
     - 5
     _numberOfBosses: 5
     _healthBoss: 100
-    _isGetNewWeapon: 1
+    _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 26
     _durationWave: 30
@@ -475,7 +475,7 @@ MonoBehaviour:
     - 2
     _numberOfBosses: 5
     _healthBoss: 100
-    _isGetNewWeapon: 1
+    _isGetNewWeapon: 0
     _string: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   - _numberOfWave: 31
     _durationWave: 480

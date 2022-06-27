@@ -44,7 +44,7 @@ public class Health : Upgradable
         _healthPoint = _healthPoint - damageTaken + _defence.DefencePlayer;
         HealthChanged?.Invoke(damageTaken);
 
-        if (_healthPoint <= 0)
+        if (_healthPoint <= 0 && !_enemy.IsDie)
         {
             if (_healthBarFiller != null)
             {

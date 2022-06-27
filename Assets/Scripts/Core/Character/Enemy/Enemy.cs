@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -71,7 +72,7 @@ namespace CodeBase.Core.Character.Enemy
                 _spawnerBoss.SpawnedBosses--;
                 Destroy(gameObject);
 
-                if (_spawnerBoss.SpawnedBosses == 0)
+                if (_spawnerBoss.SpawnedBosses <= 0)
                 {
                     _spawnerEnemies.RemoveAllEnemies();
                     
