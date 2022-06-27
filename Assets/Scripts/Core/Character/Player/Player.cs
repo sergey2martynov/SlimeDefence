@@ -21,14 +21,14 @@ namespace Core.Character.Player
         private void Start()
         {
             _currentLevel = 1;
-            _levelText.text = "Lvl " + _currentLevel;
+            _levelText.text = "LVL " + _currentLevel;
         }
         
         public void AddedPlayerLevel()
         {
             _levelUpSound.Play();
             _currentLevel++;
-            _levelText.text = "Lvl " + _currentLevel;
+            _levelText.text = "LVL " + _currentLevel;
         }
     }
 }
