@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Core.Character.Player
+namespace Character.Player
 {
     public class Player : MonoBehaviour
     {

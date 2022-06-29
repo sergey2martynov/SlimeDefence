@@ -1,3 +1,4 @@
+using Character.Player;
 using Core.Character.Player;
 using StaticData.Player;
 using UnityEngine;

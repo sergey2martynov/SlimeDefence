@@ -1,4 +1,5 @@
 using System.Collections;
+using Character.Player;
 using Core.Character.Player;
 using DG.Tweening;
 using UnityEngine;

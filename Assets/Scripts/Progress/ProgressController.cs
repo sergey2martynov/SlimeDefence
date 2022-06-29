@@ -1,5 +1,5 @@
 using System;
-using Core.Character.Player;
+using Character.Player;
 using DG.Tweening;
 using StaticData.Player;
 using UnityEngine;
@@ -50,6 +50,4 @@ public class ProgressController : MonoBehaviour
 
         _experienceBar.SetSlider(_expirience);
     }
-
-    
 }

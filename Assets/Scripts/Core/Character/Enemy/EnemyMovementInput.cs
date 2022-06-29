@@ -14,7 +14,7 @@ namespace CodeBase.Core.Character.Enemy
 
         private void Awake()
         {
-            _target = FindObjectOfType<global::Core.Character.Player.Player>().transform;
+            _target = FindObjectOfType<global::Character.Player.Player>().transform;
             _agent.destination = _target.position;
             _agent.speed = _speed;
         }
